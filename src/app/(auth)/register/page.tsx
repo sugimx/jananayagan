@@ -1,9 +1,10 @@
+import RegisterForm from '@/components/layouts/user/RegisterForm'
 import React from 'react'
 
 
 const Register = () => {
   return (
-    <div>page</div>
+    <RegisterForm />
   )
 }
 
