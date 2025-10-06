@@ -11,6 +11,7 @@ import { AiOutlineUser } from "react-icons/ai"
 
 const Navbar = () => {
   const currentPath = usePathname()
+  const [toggle, setToggle] = React.useState(false)
   return (
     <Container>
         <div className='h-[80px] flex justify-between items-center border-b-1 border-[#F5D57A]'>
@@ -36,8 +37,20 @@ const Navbar = () => {
               </ul>
             </div>
             <div className='flex justify-center items-center gap-1'>
-                <span className='text-sm text-[#F5D57A] border-[1px] border-[#F5D57A] p-2 rounded-full'><FaSearch /></span>
-                <span className='text-sm text-[#F5D57A] border-[1px] border-[#F5D57A] p-2 rounded-full'><AiOutlineUser /></span>
+                {/* <span className='text-sm text-[#F5D57A] border-[1px] border-[#F5D57A] p-2 rounded-full'><FaSearch /></span> */}
+                <span className='text-sm text-[#F5D57A] border-[1px] border-[#F5D57A] p-2 rounded-full relative cursor-pointer' onClick={() => setToggle((prev) => !prev)}>
+                  <AiOutlineUser />
+                  <div className={
+                      `absolute flex-col gap-2 bg-gray-800 border-1 border-[#F5D57A] py-4 px-8 right-0 top-10 text-white rounded-md 
+                      ${toggle ? 'flex' : 'hidden'}`}>
+                    <span>
+                      <Link href="/login" className={currentPath === '/login' ? 'text-[#F5D57A]' : 'text-white'}>Login</Link>
+                    </span>
+                    <span>
+                      <Link href="/profile" className={currentPath === '/profile' ? 'text-[#F5D57A]' : 'text-white'}>Profile</Link>
+                    </span>
+                  </div>
+                </span>
             </div>
         </div>
     </Container>
