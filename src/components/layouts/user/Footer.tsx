@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { MdEmail } from "react-icons/md"
-import { FaPhone } from "react-icons/fa"
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -14,11 +13,11 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-3 text-[1rem] md:text-lg text-[#F5D57A] underline">Navigation</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="hover:text-[#F5D57A] text-sm md:text-lg">Home</a></li>
-              <li><a href="/about" className="hover:text-[#F5D57A] text-sm md:text-lg">About</a></li>
-              <li><a href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Contact</a></li>
-              <li><a href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Terms and Conditions</a></li>
-              <li><a href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Privacy Polics</a></li>
+              <li><Link href="/" className="hover:text-[#F5D57A] text-sm md:text-lg">Home</Link></li>
+              <li><Link href="/Linkbout" className="hover:text-[#F5D57A] text-sm md:text-lg">About</Link></li>
+              <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Contact</Link></li>
+              <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Terms and Conditions</Link></li>
+              <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Privacy Polics</Link></li>
             </ul>
           </div>
           <div>

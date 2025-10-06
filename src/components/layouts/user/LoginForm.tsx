@@ -22,7 +22,7 @@ const LoginForm = () => {
                   />
               </div>
               <div className='hidden md:flex flex-col'>
-                <p className='text-lg'>Your exclusive Collector’s Item with a unique number awaits you.</p>
+                <p className='text-lg'>Your exclusive {"Collector's"} Item with a unique number awaits you.</p>
                 <h1 className='text-[2rem] text-[#F5D57A] font-semibold'>LEGACY LIVES</h1>
               </div>
             </div>
@@ -36,7 +36,7 @@ const LoginForm = () => {
                     <label className='text-sm text-[#F5D57A] md:text-lg'>Password</label>
                     <input className='border-1 border-[#F5D57A] outline-none rounded-md py-1 px-2 md:py-2' name="password" type='password' placeholder='*********'/>
                   </div>
-                  <p className='text-sm md:text-md'>Don't you have a account? <Link href="/register" className="underline text-[#F5D57A]">create account</Link></p>
+                  <p className='text-sm md:text-md'>{"Don't"} you have a account? <Link href="/register" className="underline text-[#F5D57A]">create account</Link></p>
                   <button className='bg-[#F5D57A] text-black py-1 rounded-md cursor-pointer my-2 md:text-lg'>Login</button>
               </div>
               <div className='flex justify-center items-center gap-2 my-2'>
@@ -50,7 +50,7 @@ const LoginForm = () => {
                 </button>
               </div>
               <div className='my-4 text-center md:hidden'>
-                <p className='text-sm leading-relaxed'>Your exclusive Collector’s Item with a unique number awaits you.</p>
+                <p className='text-sm leading-relaxed'>Your exclusive {"Collector's"} Item with a unique number awaits you.</p>
                 <h1 className='text-[1.2rem] text-[#F5D57A] font-semibold'>LEGACY LIVES</h1>
               </div>
             </div>

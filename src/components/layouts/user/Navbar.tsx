@@ -6,7 +6,6 @@ import Burger from '@/components/ui/user/Burger'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { FaSearch } from "react-icons/fa"
 import { AiOutlineUser } from "react-icons/ai"
 
 const Navbar = () => {

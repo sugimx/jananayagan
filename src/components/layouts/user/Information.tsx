@@ -1,9 +1,5 @@
 import React from 'react'
 import Container from './Container'
-import Image from 'next/image'
-import { FaLocationDot } from "react-icons/fa6"
-import { MdEmail } from "react-icons/md"
-import { FaPhone } from "react-icons/fa"
 
 const Information = () => {
     return (
