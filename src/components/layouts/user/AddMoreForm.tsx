@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaUserEdit } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
+import { IoMdPhonePortrait } from "react-icons/io"
+import { FaGift } from "react-icons/fa"
 
 const AddMoreForm = () => {
     return (
@@ -21,11 +23,11 @@ const AddMoreForm = () => {
                             <input type="email" name="email" className='h-full w-full outline-none' placeholder='example@gmail.com' />
                         </div>
                         <div className='bg-white flex text-black items-center h-10'>
-                            <FaUserEdit className='text-[2.8rem] px-3' />
-                            <input type="text" name="name" className='h-full w-full outline-none' placeholder='Name' />
+                            <IoMdPhonePortrait className='text-[2.8rem] px-3' />
+                            <input type="text" name="name" className='h-full w-full outline-none' placeholder='8888888888' />
                         </div>
                         <div className='bg-white flex text-black items-center h-10'>
-                            <FaUserEdit className='text-[2.8rem] px-3' />
+                            <FaGift className='text-[2.8rem] px-3' />
                             <input type="text" name="name" className='h-full w-full outline-none' placeholder='Name' />
                         </div>
                         <div className='bg-white flex text-black items-center h-10'>

@@ -20,7 +20,7 @@ const Navbar = () => {
               alt="jana nayagan" 
               width={200}
               height={200}
-              className='mt-7 ml-15 md:mt-10 md:ml-0 w-[150px] h-[100px]'
+              className='mt-12 ml-6 md:mt-10 md:ml-0 w-[150px] h-[100px]'
             />
             <div className='hidden md:flex'>
                 <ul className='list-none flex gap-8 p-4 text-white text-md'>

@@ -7,7 +7,7 @@ const Banner = () => {
     return (
         <>
             <Container>
-                <div className='bg-black h-[60vh] md:h-[70vh] my-10 md:my-2'>
+                <div className='bg-black h-[50vh] md:h-[70vh] my-10 md:my-2'>
                     <div className='flex md:mx-20'>
                         <div className='flex-1 hidden md:flex'>
                             <Image 
