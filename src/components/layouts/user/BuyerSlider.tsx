@@ -77,23 +77,23 @@ const BuyerSlider = () => {
                             <div className='flex flex-col gap-3 my-4'>
                                 <div className='flex gap-2 items-center'>
                                     <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span>Melto {item}</span>
+                                    <span className='text-sm md:text-md'>Melto {item}</span>
                                 </div>
                                 <div className='flex gap-2 items-center'>
                                     <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span>22-03-1997</span>
+                                    <span className='text-sm md:text-md'>22-03-1997</span>
                                 </div>
                                 <div className='flex gap-2 items-center'>
                                     <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span>meltosm8@gmail.com</span>
+                                    <span className='text-sm md:text-md'>meltosm8@gmail.com</span>
                                 </div>
                                 <div className='flex gap-2 items-center'>
                                     <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span>Kanyakumari</span>
+                                    <span className='text-sm md:text-md'>Kanyakumari</span>
                                 </div>
                                 <div className='flex gap-2 items-center'>
                                     <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span>TamilNadu</span>
+                                    <span className='text-sm md:text-md'>TamilNadu</span>
                                 </div>
                             </div>
                             <button className='w-full h-7 bg-[#F5D57A] rounded-lg text-black uppercase text-[0.7rem] cursor-pointer'>Edit</button>
