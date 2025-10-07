@@ -12,7 +12,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import Link from 'next/link';
 import LinkComponent from '@/components/ui/user/LinkComponent';
 
 const BuyerSlider = () => {
@@ -58,8 +57,8 @@ const BuyerSlider = () => {
                 }}
             >
                 {arr.map((item, i) => (
-                    <SwiperSlide>
-                        <div className='border-1 border-[#F5D57A] flex-1 py-4 px-2 rounded-xl md:flex-0 md:px-8' key={i}>
+                    <SwiperSlide key={i}>
+                        <div className='border-1 border-[#F5D57A] flex-1 py-4 px-2 rounded-xl md:flex-0 md:px-8'>
                             <div className='flex items-center flex-col'>
                                 <div className='flex flex-col items-center relative bg-white w-[50%] h-[100px] rounded-xl'>
                                     <Image 

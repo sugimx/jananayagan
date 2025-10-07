@@ -7,7 +7,6 @@ import { FaLocationDot } from "react-icons/fa6"
 import { FaMobileScreen } from "react-icons/fa6"
 import { IoIosMail } from "react-icons/io"
 import { FaIndianRupeeSign } from "react-icons/fa6"
-import LinkComponent from '@/components/ui/user/LinkComponent'
 
 const AddressForm = () => {
     return (
