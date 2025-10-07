@@ -45,7 +45,7 @@ const LoginForm = () => {
                 <span className='w-[100%] h-[2px] bg-gray-700'></span>
               </div>
               <div>
-                <button className='bg-white py-1 rounded-md w-full cursor-pointer md:py-2'>
+                <button className='bg-white py-2 rounded-md w-full cursor-pointer'>
                   <FcGoogle className='text-center w-full' />
                 </button>
               </div>
