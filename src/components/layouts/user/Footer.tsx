@@ -16,26 +16,20 @@ const Footer = () => {
               <li><Link href="/" className="hover:text-[#F5D57A] text-sm md:text-lg">Home</Link></li>
               <li><Link href="/Linkbout" className="hover:text-[#F5D57A] text-sm md:text-lg">About</Link></li>
               <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Contact</Link></li>
-              <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Terms and Conditions</Link></li>
-              <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Privacy Polics</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-3 text-[1rem] text-[#F5D57A] md:text-lg underline">Address</h3>
-            <address className="not-italic text-gray-300 text-sm md:text-lg">
-              123, Main Street<br />
-              Chennai, Tamil Nadu<br />
-              India - 600001
-            </address>
+            <h3 className="font-semibold mb-3 text-[1rem] text-[#F5D57A] md:text-lg underline">Legal</h3>
+              <ul className="space-y-2">
+                <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Terms and Conditions</Link></li>
+                <li><Link href="/contact" className="hover:text-[#F5D57A] text-sm md:text-lg">Privacy Polics</Link></li>
+              </ul>
           </div>
           <div>
             <h3 className="font-semibold mb-3 text-[1rem] text-[#F5D57A] md:text-lg underline">Support</h3>
             <ul className="space-y-2 text-sm ">
                 <li className=''> 
                     <a href="mailto:support@jananayagan.com" className="hover:text-[#F5D57A] text-sm md:text-lg">support@jananayagan.com</a>
-                </li>
-                <li className=''>
-                    <a href="tel:+911234567890" className="hover:text-[#F5D57A] text-sm md:text-lg">+91 12345 67890</a>
                 </li>
             </ul>
           </div>

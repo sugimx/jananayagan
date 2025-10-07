@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image';
 import { MdKeyboardArrowRight } from "react-icons/md"
+import { FaCamera } from "react-icons/fa"
 import AddMoreForm from './AddMoreForm';
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -11,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Link from 'next/link';
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -21,7 +23,7 @@ const BuyerSlider = () => {
     }
 
     return (
-        <div className='w-full overflow-hidden'>
+        <div className='w-full overflow-hidden main-content blurred' id="">
             <Swiper
                 modules={[Scrollbar, A11y]}
                 spaceBetween={50}
@@ -58,14 +60,16 @@ const BuyerSlider = () => {
                     <SwiperSlide>
                         <div className='border-1 border-[#F5D57A] flex-1 py-4 px-2 rounded-xl md:flex-0 md:px-8' key={i}>
                             <div className='flex items-center flex-col'>
-                                <div className='flex flex-col items-center relative bg-white w-[50%] rounded-xl'>
+                                <div className='flex flex-col items-center relative bg-white w-[50%] h-[100px] rounded-xl'>
                                     <Image 
-                                        src="/Rectangle 4.png"
+                                        src="/user_image.jpg"
                                         alt="rectangle Image"
                                         width={100}
-                                        height={100}
+                                        height={400}
+                                        className='w-full h-full rounded-xl'
                                     />
-                                    <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center'>
+                                    <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
+                                        <FaCamera />
                                         <span className='text-sm'>Add</span>
                                     </div>
                                 </div>
@@ -99,9 +103,11 @@ const BuyerSlider = () => {
             </Swiper>
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
-                <button className='bg-[#F5D57A] w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 text-black font-semibold cursor-pointer'>Checkout</button>
+                <Link href="/address">
+                    <button className='bg-[#F5D57A] w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 text-black font-semibold cursor-pointer'>Checkout</button>
+                </Link>
             </div>
-            {toggle && <AddMoreForm />}
+            {toggle && <AddMoreForm onHandleToggle={handleToggle} />}
         </div>
     )
 }
