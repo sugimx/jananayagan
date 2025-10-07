@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Link from 'next/link';
+import LinkComponent from '@/components/ui/user/LinkComponent';
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -103,9 +104,7 @@ const BuyerSlider = () => {
             </Swiper>
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
-                <Link href="/address">
-                    <button className='bg-[#F5D57A] w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 text-black font-semibold cursor-pointer'>Checkout</button>
-                </Link>
+                <LinkComponent link="/address" content='Checkout' />
             </div>
             {toggle && <AddMoreForm onHandleToggle={handleToggle} />}
         </div>

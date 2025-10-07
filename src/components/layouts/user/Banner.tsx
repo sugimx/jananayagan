@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Container from './Container'
 import Link from 'next/link'
+import LinkComponent from '@/components/ui/user/LinkComponent'
 
 const Banner = () => {
     return (
@@ -28,11 +29,7 @@ const Banner = () => {
                             <p className='z-10 text-white text-center my-4 text-sm md:text-lg'>
                                 One last frame, one lasting reign, the hero who ruled stories and hearts, now etched forever in victory and leadership. A timeless symbol of courage, passion, and purpose of his journey ends, but his legend echoes through generations
                             </p>
-                            <Link href="/product">
-                                <button className='bg-[#F5D57A] px-10 py-2 font-bold rounded-sm text-black md:py-4 md:px-20 text-sm md:text-lg cursor-pointer'>
-                                    Buy Now
-                                </button>
-                            </Link>
+                            <LinkComponent link='/product' content="Buy Now" />
                         </div>
                     </div>
                 </div>
