@@ -7,6 +7,7 @@ import { FaLocationDot } from "react-icons/fa6"
 import { FaMobileScreen } from "react-icons/fa6"
 import { IoIosMail } from "react-icons/io"
 import { FaIndianRupeeSign } from "react-icons/fa6"
+import { FaHome } from "react-icons/fa"
 
 const AddressForm = () => {
     return (
@@ -20,7 +21,7 @@ const AddressForm = () => {
                                 <label className='text-sm md:text-lg'>Name</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaUser} />
-                                    <input type="text" name='name' placeholder='John Doe' className='w-full h-full outline-none border-none text-black' />
+                                    <input type="text" name='name' placeholder='Enter your name here....' className='w-full h-full outline-none border-none text-black' />
                                 </AddressFormContainer>
                             </div>
                             <div>
@@ -39,8 +40,9 @@ const AddressForm = () => {
                             </div>
                             <div>
                                 <label className='text-sm md:text-lg'>Home Address</label>
-                                <AddressFormContainer className="h-20">
-                                    <textarea name='address' placeholder='Enter your address here....' className='w-full h-full outline-none border-none text-black' />
+                                <AddressFormContainer>
+                                    <AddressIcons Icon={FaHome} />
+                                    <input type="text" name='name' placeholder='Enter your address here....' className='w-full h-full outline-none border-none text-black' />
                                 </AddressFormContainer>
                             </div>
                             <div>
