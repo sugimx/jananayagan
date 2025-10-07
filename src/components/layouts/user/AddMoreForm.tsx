@@ -8,7 +8,10 @@ const AddMoreForm = () => {
     return (
         <>
             <div className='absolute top-20 w-full md:flex justify-center items-center'>
-                <div className='bg-black border-1 border-[#F5D57A] w-full md:w-[50%] lg:w-[30%] md:h-full px-3 md:px-10 py-5 rounded-xl'>
+                <div className='bg-black border-1 border-[#F5D57A] w-full md:w-[50%] lg:w-[30%] md:h-full px-3 md:px-10 py-5 rounded-xl relative'>
+                    <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
+                        <FaUserEdit />
+                    </div>
                     <div>
                         <h1 className='text-[#F5D57A] text-[1.5rem] font-semibold'>Buyer Info</h1>
                         <p className='text-sm'>Fill in your details to receive your unique ID for the Official Jana Nayagan Collector’s Mug and secure your entry into the lucky draw.</p>
@@ -28,7 +31,7 @@ const AddMoreForm = () => {
                         </div>
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaGift className='text-[2.8rem] px-3' />
-                            <input type="text" name="name" className='h-full w-full outline-none' placeholder='Name' />
+                            <input type="date" name="dob" className='h-full w-full outline-none' placeholder='DOB' />
                         </div>
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaUserEdit className='text-[2.8rem] px-3' />

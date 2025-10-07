@@ -1,7 +1,5 @@
 import React from 'react'
 import Container from './Container'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import BuyerSlider from './BuyerSlider'
 
 const BuyerInfo = () => {

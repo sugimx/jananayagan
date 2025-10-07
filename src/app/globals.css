@@ -52,3 +52,7 @@
 .slick-list {
   margin: 0 -10px; 
 }
+
+.slider-card {
+  min-width: 200px;
+}
