@@ -1,9 +1,10 @@
+import AboutScreen from '@/components/layouts/user/AboutScreen'
 import React from 'react'
 
 const About = () => {
-  return (
-    <div>about</div>
-  )
+    return (
+      <AboutScreen />
+    )
 }
 
 export default About
