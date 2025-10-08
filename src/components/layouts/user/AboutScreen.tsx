@@ -15,7 +15,7 @@ const AboutScreen = () => {
                         <p>As part of this collaboration, we present the Jana Nayagan 2026 Limited Edition Coffee Cup
                         Collection - a tribute to Vijay sir and his unmatched journey. Each cup is individually numbered
                         from 1 to 27,70,000, giving every fan a unique place in history. From the first buyer to the last,
-                        your name and number will forever remain on our platform, celebrating your pride as a fan</p>
+                        your name and number will forever remain on our platform, celebrating your pride as a fan.</p>
                     </div> 
                     <Link href='/product' className='border-1 border-[#F5D57A] py-1 inline-block my-3 px-10 text-sm md:text-lg'>Explore</Link>
                 </div>
