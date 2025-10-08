@@ -8,7 +8,7 @@ const Layout = () => {
     const currentPath = usePathname()
     return (
         <>
-            {currentPath !== '/login' && (
+            {currentPath !== '/login' && currentPath !== '/profile' && (
                 <>
                     <Footer />
                     <RightsReserved />

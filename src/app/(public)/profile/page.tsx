@@ -1,8 +1,9 @@
+import Profile from '@/components/layouts/user/Profile'
 import React from 'react'
 
 const page = () => {
     return (
-        <div className='text-white'>page</div>
+        <Profile />
     )
 }
 

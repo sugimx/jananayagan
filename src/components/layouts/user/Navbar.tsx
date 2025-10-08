@@ -25,13 +25,13 @@ const Navbar = () => {
             <div className='hidden md:flex'>
                 <ul className='list-none flex gap-8 p-4 text-white text-md'>
                   <li className='py-2'>
-                      <Link href="/" className={currentPath === '/' ? 'text-yellow-500' : ''}>Home</Link>
+                      <Link href="/" className={currentPath === '/' ? 'text-[#F5D57A]' : ''}>Home</Link>
                   </li>
                   <li className='py-2'>
-                      <Link href="/about" className={currentPath === '/about' ? 'text-yellow-500' : ''}>About</Link>
+                      <Link href="/about" className={currentPath === '/about' ? 'text-[#F5D57A]' : ''}>About Us</Link>
                   </li>
                   <li className='py-2'>
-                      <Link href="/contact" className={currentPath === '/contact' ? 'text-yellow-500' : ''}>Contact Us</Link>
+                      <Link href="/product" className={currentPath === '/product' ? 'text-[#F5D57A]' : ''}>Product</Link>
                   </li>
               </ul>
             </div>
