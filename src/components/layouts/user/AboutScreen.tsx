@@ -12,7 +12,7 @@ const AboutScreen = () => {
                     <AboutHeading content='About Us - SUGIMX Private Limited' />
                     <div className='text-justify text-sm md:text-[1rem] flex flex-col gap-2'>
                         <p>Welcome to SUGIMX Private Limited, a company built on passion, pride, and unforgettable celebrations.</p>
-                        <p>We are proud to announce our official collaboration with KVN Productions for the Jana Nayagan 2026 Movie Promotion - the grand celebration of Thalapathy Vijay's final fan-based film. This is not just a business project - it is a once-in-a-lifetime moment for every fan.</p>
+                        <p>We are proud to announce our official collaboration with KVN Productions for the Jana Nayagan 2026 Movie Promotion - the grand celebration of Thalapathy {"Vijay's"} final fan-based film. This is not just a business project - it is a once-in-a-lifetime moment for every fan.</p>
                         <p>As part of this collaboration, we present the Jana Nayagan 2026 Limited Edition Coffee Cup
                         Collection - a tribute to Vijay sir and his unmatched journey. Each cup is individually numbered
                         from 1 to 27,70,000, giving every fan a unique place in history. From the first buyer to the last,
@@ -59,7 +59,7 @@ const AboutScreen = () => {
                     <AboutHeading content='Our Belief' />
                     <div className='text-justify text-sm md:text-[1rem] flex flex-col gap-2'>
                         <p>This is the last dance, the final roar, the greatest celebration. Owning a cup means you are not just a spectator - you are part of this historic moment</p>
-                        <p>When you hold your Jana Nayagan 2026 Coffee Cup, you're not holding just a product - you're holding a piece of cinema history, a symbol of victory, and the spirit of Vijay fans worldwide</p>
+                        <p>When you hold your Jana Nayagan 2026 Coffee Cup, {"you're"} not holding just a product - {"you're"} holding a piece of cinema history, a symbol of victory, and the spirit of Vijay fans worldwide</p>
                     </div> 
                 </div>
                 <div className='lg:flex-[1] flex justify-center lg:justify-end items-center mt-6 lg:mt-0 order-2 lg:order-1'>
@@ -85,7 +85,7 @@ const AboutScreen = () => {
                 <div className='leading-relaxed text-center lg:flex-1 lg:text-start order-1 lg:order-1'>
                     <AboutHeading content='Short About Us' />
                     <div className='text-justify text-sm md:text-[1rem] flex flex-col gap-2'>
-                        <p>SUGIMX Private Limited, in collaboration with KVN Productions, proudly presents the Jana Nayagan 2026 Limited Edition Coffee Cup Collection - the official fan celebration of Thalapathy Vijay's final film. With 27,70,000 uniquely numbered cups, this project turns every fan-s support into history.</p>
+                        <p>SUGIMX Private Limited, in collaboration with KVN Productions, proudly presents the Jana Nayagan 2026 Limited Edition Coffee Cup Collection - the official fan celebration of Thalapathy {"Vijay's"} final film. With 27,70,000 uniquely numbered cups, this project turns every fan-s support into history.</p>
                     </div> 
                 </div>
             </div>
