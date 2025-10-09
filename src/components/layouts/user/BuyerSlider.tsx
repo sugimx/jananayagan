@@ -103,7 +103,7 @@ const BuyerSlider = () => {
             </Swiper>
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
-                <LinkComponent link="/address" content='Checkout' />
+                <LinkComponent link="/address" content='Proceed Payment' />
             </div>
             {toggle && <AddMoreForm onHandleToggle={handleToggle} />}
         </div>
