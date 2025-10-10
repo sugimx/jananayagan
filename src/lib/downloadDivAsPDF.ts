@@ -6,7 +6,7 @@ export async function downloadA4Pdf(divId: string, fileName = 'document.pdf') {
   if (!element) return;
 
   const canvas = await html2canvas(element, {
-    scale: 2,
+    scale: 1,
     backgroundColor: '#333333', 
   });
 
