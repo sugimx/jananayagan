@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Head from 'next/head'
 import downloadA4Pdf from '@/lib/downloadDivAsPDF'
 import Container from './Container'
 import Link from 'next/link'
@@ -9,7 +10,15 @@ import ShareImage from '@/lib/shareImage'
 const Invoice = () => {
   return (
     <>
-       <Container>
+        <Head>
+            <meta property="og:title" content="Invoice - Jananayagan" />
+            <meta property="og:description" content="Download your invoice from Jananayagan." />
+            <meta property="og:image" content="https://jananayagan.vercel.app/jana-nayagan%2032.png" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:type" content="website" />
+        </Head>
+        <Container>
             <div id="download_container" style={{ position: 'absolute', left: '-9999px', top: 0, width: '100vw' }}>
                 <div className='py-20 px-20 text-[#F5D57A]'>
                     <div>
