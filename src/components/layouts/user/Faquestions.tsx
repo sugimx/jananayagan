@@ -37,7 +37,7 @@ const FaQuestions = () => {
         {questions.map((q, idx) => (
           <div key={idx} className="rounded-lg overflow-hidden bg-[#1C1A1A] shadow text-white">
             <button
-              className="w-full flex items-center justify-between px-4 py-3 focus:outline-none"
+              className="w-full flex items-center justify-between px-4 py-3 focus:outline-none cursor-pointer"
               onClick={() => handleToggle(idx)}
             >
               <span className="flex items-center gap-2 text-left py-3 text-[1rem] md:text-lg">

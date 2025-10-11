@@ -1,7 +1,5 @@
-// Test file to verify API integration
 import { apiService } from './api';
 
-// Test login function
 export const testLogin = async () => {
   try {
     const response = await apiService.login({
@@ -17,7 +15,6 @@ export const testLogin = async () => {
   }
 };
 
-// Test register function
 export const testRegister = async () => {
   try {
     const response = await apiService.register({

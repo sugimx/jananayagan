@@ -4,8 +4,8 @@ import SingleProduct from "@/components/layouts/user/SingleProduct"
 const Product = () => {
     return (
         <>
-            <SingleProduct />
             <BuyerInfo />
+            <SingleProduct />
         </>
     )
 }

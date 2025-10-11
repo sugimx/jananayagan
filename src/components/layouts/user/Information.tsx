@@ -5,7 +5,7 @@ const Information = () => {
     return (
         <Container>
             <div className='my-10 md:my-20 md:mx-20'>
-                <h1 className='text-center text-[1.5rem] text-[#F5D57A] font-semibold md:text-[3rem]'>INFORMATION</h1>
+                <h1 className='text-center text-[1.5rem] text-[#F5D57A] font-semibold md:text-[3rem]'>CONTACT US</h1>
                 <div className='flex flex-col md:flex-row justify-around items-center border-1 border-[#F5D57A] rounded-lg md:rounded-4xl md:py-8'>
                     <div className='my-4 mx-2 md:mx-12 flex-1'>
                         <h1 className='text-[#F5D57A] text-[1.2rem] font-semibold mb-2 text-center md:text-start md:text-[3rem]'>The Legacy Beyond the Curtain</h1>
@@ -25,9 +25,9 @@ const Information = () => {
                         </div>
                         <div className='flex flex-col gap-2'>
                             <label className='text-sm md:text-lg'>Message</label>
-                            <textarea className='border-1 border-[#F5D57A] outline-none rounded-lg py-10 px-2' />
+                            <textarea className='border-1 border-[#F5D57A] outline-none rounded-lg px-2 h-40 py-2' />
                         </div>
-                        <button className='w-full bg-[#F5D57A] text-black rounded-md py-2 font-semibold'>Submit</button>
+                        <button className='w-full bg-[#F5D57A] text-black rounded-md py-2 font-semibold cursor-pointer'>Submit</button>
                     </div>
                 </div>
             </div>
