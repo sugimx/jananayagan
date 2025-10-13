@@ -9,7 +9,6 @@ import Image from 'next/image'
 import { AiOutlineUser } from "react-icons/ai"
 import { FaSignInAlt } from "react-icons/fa"
 import { useAuthContext } from '@/contexts/AuthContext'
-import LogoutButton from '@/components/ui/user/LogoutButton'
 
 const Navbar = () => {
   const currentPath = usePathname()
@@ -32,16 +31,18 @@ const Navbar = () => {
                       <Link href="/" className={currentPath === '/' ? 'text-yellow-500' : ''}>Home</Link>
                   </li>
                   <li className='py-2'>
-                      <Link href="/about" className={currentPath === '/about' ? 'text-yellow-500' : ''}>About</Link>
+                      <Link href="/about" className={currentPath === '/about' ? 'text-yellow-500' : ''}>About Us</Link>
                   </li>
                   <li className='py-2'>
-                      <Link href="/contact" className={currentPath === '/contact' ? 'text-yellow-500' : ''}>Contact Us</Link>
+                      <Link href="/product" className={currentPath === '/product' ? 'text-yellow-500' : ''}>Product</Link>
                   </li>
               </ul>
             </div>
             <div className='flex justify-center items-center gap-2'>
               {isAuthenticated ? (
-                <LogoutButton />
+                  <Link href="/profile" className='text-sm text-[#F5D57A] border-[1px] border-[#F5D57A] p-2 rounded-full relative cursor-pointer'>
+                      <AiOutlineUser />
+                  </Link>
               ) : (
                 <>
                   <Link href="/login" className='text-sm text-[#F5D57A] border-[1px] border-[#F5D57A] p-2 rounded-full relative cursor-pointer'>
