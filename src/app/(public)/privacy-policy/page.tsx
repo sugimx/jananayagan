@@ -17,6 +17,7 @@ const PrivacyPolicy = () => {
             <li>We do not sell or rent your personal data to any third party. However, information may be shared with delivery partners, payment gateways, or legal authorities when required.</li>
             <li>We follow industry-standard practices to protect your data from unauthorized access or disclosure. However, we are not responsible for security breaches beyond our control.</li>
             <li>By using our website, you consent to the collection and use of your information as described in this Policy.</li>
+            <li>We aim to deliver all orders within 5 to 7 days from the date of order.</li>
           </ul>
         </div>
       </div>
