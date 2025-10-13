@@ -12,6 +12,47 @@ export interface RegisterRequest {
   phone?: string;
 }
 
+export interface ProfileRequest {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+}
+
+export interface OrderItem {
+  productId: string;
+  productName: string;
+  quantity: number;
+  price: number;
+}
+
+export interface CreateOrderRequest {
+  items: OrderItem[];
+  shippingAddressId: string;
+  paymentMethod: string; 
+}
+
+export interface Order {
+  _id: string;
+  userId: string;
+  items: OrderItem[];
+  shippingAddressId: string;
+  paymentMethod: string;
+  status: string;
+  totalAmount: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface PhonePePaymentResponse {
+  success: boolean;
+  message: string;
+  data: {
+    paymentUrl?: string;
+    transactionId?: string;
+    orderId?: string;
+  };
+}
+
 export interface User {
   _id: string;
   name: string;
@@ -105,6 +146,78 @@ class ApiService {
       body: JSON.stringify({ accessToken }),
     });
   }
+
+  async getBuyerProfile(token: string): Promise<ApiResponse<User> | ApiError> {
+    return this.request<User>('/profiles/profiles', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+  async createBuyerProfile(
+    profileData: ProfileRequest,
+    token: string
+  ): Promise<ApiResponse<User> | ApiError> {
+    return this.request<User>('/profiles/profiles', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(profileData),
+    });
+  }
+  
+  async updateBuyerProfile(
+    profileData: Partial<ProfileRequest>,
+    token: string
+  ): Promise<ApiResponse<User> | ApiError> {
+    return this.request<User>('/profiles/profiles', {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(profileData),
+    });
+  }
+  
+  async deleteBuyerProfile(token: string): Promise<ApiResponse<User> | ApiError> {
+    return this.request<User>('/profiles/profiles', {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+  async createOrder(
+    orderData: CreateOrderRequest,
+    token: string
+  ): Promise<ApiResponse<Order> | ApiError> {
+    return this.request<Order>('/orders', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(orderData),
+    });
+  }
+  
+
+  async createPhonePePayment(
+    orderId: string,
+    token: string
+  ): Promise<ApiResponse<PhonePePaymentResponse> | ApiError> {
+    return this.request<PhonePePaymentResponse>(`/orders/${orderId}/payment/phonepe`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+
 }
 
 export const apiService = new ApiService(API_BASE_URL);
