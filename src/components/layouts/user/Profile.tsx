@@ -16,6 +16,12 @@ import ProfileDetails from './ProfileDetails'
 import { GoDotFill } from "react-icons/go";
 
 const Profile = () => {
+
+
+   
+
+
+
     return (
         <Container>
             <div className='w-full h-[90vh] mx-auto md:w-[60%]'>
