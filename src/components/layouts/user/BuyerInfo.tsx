@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import Container from './Container'
-import BuyerSlider from './BuyerSlider'
+
+const LazyComponent = lazy(() => import('./BuyerSlider'))
 
 const BuyerInfo = () => {
     return (
@@ -12,7 +13,9 @@ const BuyerInfo = () => {
                         <p className='text-sm leading-relaxed my-1 md:text-lg md:my-4'>Fill in your details to receive your unique ID for the Official Jana Nayagan Limited Edition Cup.</p>
                         {/* and secure your entry into the lucky draw */}
                     </div>
-                    <BuyerSlider />
+                    <Suspense fallback={<p>Loading...</p>}>
+                        <LazyComponent />
+                    </Suspense>
                 </div>
             </Container>
         </>
