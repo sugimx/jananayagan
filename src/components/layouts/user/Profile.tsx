@@ -51,17 +51,17 @@ const Profile = () => {
         {
             id: 1,
             content: "My Profile",
-            paragraph: "View, modify and track orders"
+            paragraph: "View and manage your personal information."
         },
         {
             id: 2,
             content: "My Orders",
-            paragraph: "View, modify and track orders"
+            paragraph: "Track and manage all your past and current orders in one place"
         },
         {
             id: 3,
             content: "My Addresses",
-            paragraph: "View, modify and track orders"
+            paragraph: "Manage your saved addresses for faster and easier order"
         }
     ]
     return (
