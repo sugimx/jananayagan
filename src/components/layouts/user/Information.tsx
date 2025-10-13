@@ -1,7 +1,82 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Container from './Container'
+import { sendEmail, isValidEmail } from '@/lib/emailjs'
 
 const Information = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: 'success' | 'error' | null;
+        message: string;
+    }>({ type: null, message: '' });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        // Validation
+        if (!formData.name.trim()) {
+            setSubmitStatus({ type: 'error', message: 'Please enter your name' });
+            return;
+        }
+        
+        if (!formData.email.trim() || !isValidEmail(formData.email)) {
+            setSubmitStatus({ type: 'error', message: 'Please enter a valid email' });
+            return;
+        }
+        
+        if (!formData.message.trim()) {
+            setSubmitStatus({ type: 'error', message: 'Please enter a message' });
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+
+        try {
+            const success = await sendEmail({
+                from_name: formData.name,
+                from_email: formData.email,
+                message: formData.message,
+                to_name: 'Jananayagan Team'
+            });
+
+            if (success) {
+                setSubmitStatus({ 
+                    type: 'success', 
+                    message: 'Thank you! Your message has been sent successfully.' 
+                });
+                // Reset form
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                setSubmitStatus({ 
+                    type: 'error', 
+                    message: 'Failed to send message. Please try again.' 
+                });
+            }
+        } catch (error) {
+            setSubmitStatus({ 
+                type: 'error', 
+                message: 'An error occurred. Please try again later.' 
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <Container>
             <div className='my-10 md:my-20 md:mx-20'>
@@ -14,21 +89,57 @@ const Information = () => {
                     <div className="md:flex h-100 hidden">
                         <div className='w-[2px] h-full bg-[#F5D57A]'></div>
                     </div>
-                    <div className='flex-1 md:mx-12 w-[80%] my-4 flex gap-4 flex-col'>
+                    <form onSubmit={handleSubmit} className='flex-1 md:mx-12 w-[80%] my-4 flex gap-4 flex-col'>
+                        {submitStatus.type && (
+                            <div className={`p-3 rounded-lg text-center ${
+                                submitStatus.type === 'success' 
+                                    ? 'bg-green-100 text-green-700 border border-green-300' 
+                                    : 'bg-red-100 text-red-700 border border-red-300'
+                            }`}>
+                                {submitStatus.message}
+                            </div>
+                        )}
+                        
                         <div className='flex flex-col gap-2'>
                             <label className='text-sm md:text-lg'>Name</label>
-                            <input className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2' />
+                            <input 
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2 text-black' 
+                                disabled={isSubmitting}
+                            />
                         </div>
                         <div className='flex flex-col gap-2'>
                             <label className='text-sm md:text-lg'>Email</label>
-                            <input className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2'  />
+                            <input 
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2 text-black'  
+                                disabled={isSubmitting}
+                            />
                         </div>
                         <div className='flex flex-col gap-2'>
                             <label className='text-sm md:text-lg'>Message</label>
-                            <textarea className='border-1 border-[#F5D57A] outline-none rounded-lg px-2 h-40 py-2' />
+                            <textarea 
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-10 px-2 text-black' 
+                                disabled={isSubmitting}
+                            />
                         </div>
-                        <button className='w-full bg-[#F5D57A] text-black rounded-md py-2 font-semibold cursor-pointer'>Submit</button>
-                    </div>
+                        <button 
+                            type="submit"
+                            className='w-full bg-[#F5D57A] text-black rounded-md py-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed'
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Submit'}
+                        </button>
+                    </form>
                 </div>
             </div>
         </Container>
