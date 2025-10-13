@@ -11,13 +11,30 @@ const TermsConditions = () => {
         
         <div className="space-y-6 text-white leading-relaxed">
           <section>
-            <h2 className="text-2xl font-semibold text-black mb-4">1. Acceptance of Terms</h2>
-            <p>
-            By accessing and using the <strong>Jananayagan</strong> website and services (collectively, the &quot;Platform&quot;), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our Platform.
-            </p>
+            <h2 className="text-2xl font-semibold text-black mb-4">1. Terms & Condition</h2>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>
+                Welcome to <strong>SUGIMX Private Limited</strong> (“Company”, “we”, “our”, “us”). By accessing or using our website or making a purchase, you agree to be bound by the following terms and conditions (“Terms”).
+              </li>
+              <li>
+                All products displayed on our Platform are subject to availability. Prices, specifications, and availability of products are subject to change without prior notice.
+              </li>
+              <li>
+                Orders are confirmed only after successful payment. The Company reserves the right to accept or cancel any order at its discretion. In case of cancellation after payment, the amount will be refunded in accordance with our Refund Policy.
+              </li>
+              <li>
+                All intellectual property on this Platform, including logos, images, and designs, belongs to the Company. Reproduction or use without written consent is prohibited.
+              </li>
+              <li>
+                You agree not to misuse the Platform, engage in fraudulent activity, or use it for unlawful purposes.
+              </li>
+              <li>
+                By continuing to use this Platform, you acknowledge that you have read, understood, and agree to be legally bound by these Terms.
+              </li>
+            </ul>
           </section>
 
-          <section>
+          {/* <section>
             <h2 className="text-2xl font-semibold text-black mt-8 mb-4">2. Use of Platform</h2>
             <p>
               You agree to use the Platform only for lawful purposes and in accordance with these Terms. You must not:
@@ -119,7 +136,7 @@ const TermsConditions = () => {
             <p className="text-sm text-gray-600">
               <strong>Last Updated:</strong> January 2025
             </p>
-          </section>
+          </section> */}
         </div>
       </div>
     </Container>

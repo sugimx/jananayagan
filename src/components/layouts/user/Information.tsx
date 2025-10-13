@@ -89,7 +89,7 @@ const Information = () => {
                     <div className="md:flex h-100 hidden">
                         <div className='w-[2px] h-full bg-[#F5D57A]'></div>
                     </div>
-                    <form onSubmit={handleSubmit} className='flex-1 md:mx-12 w-[80%] my-4 flex gap-4 flex-col'>
+                    <form onSubmit={handleSubmit} className='flex-1 md:mx-12 w-[80%] my-4 flex gap-4 flex-col text-white'>
                         {submitStatus.type && (
                             <div className={`p-3 rounded-lg text-center ${
                                 submitStatus.type === 'success' 
@@ -107,7 +107,7 @@ const Information = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2 text-black' 
+                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2' 
                                 disabled={isSubmitting}
                             />
                         </div>
@@ -118,7 +118,7 @@ const Information = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2 text-black'  
+                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-2 px-2'  
                                 disabled={isSubmitting}
                             />
                         </div>
@@ -128,13 +128,13 @@ const Information = () => {
                                 name="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
-                                className='border-1 border-[#F5D57A] outline-none rounded-lg py-10 px-2 text-black' 
+                                className='border-1 border-[#F5D57A] outline-none rounded-lg h-40 py-2 px-2' 
                                 disabled={isSubmitting}
                             />
                         </div>
                         <button 
                             type="submit"
-                            className='w-full bg-[#F5D57A] text-black rounded-md py-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed'
+                            className='w-full bg-[#F5D57A] rounded-md py-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed text-black cursor-pointer'
                             disabled={isSubmitting}
                         >
                             {isSubmitting ? 'Sending...' : 'Submit'}

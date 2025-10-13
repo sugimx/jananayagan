@@ -18,7 +18,7 @@ const SingleProduct = () => {
                     </div>
                     <div className='h-full w-full flex flex-col gap-2 md:flex-1 md:px-20 md:gap-10 md:justify-center'>
                         <h1 className='text-[2rem] text-[#F5D57A] text-center font-bold md:text-[3rem] md:text-start'>Official Jana Nayagan Limited Edition Cup</h1>
-                        <p className='text-sm leading-relaxed md:text-lg'>Be a part of cinematic history with this official Jana Nayagan Collector’s Cup. Crafted for true fans, each cup carries a unique serial number, making every piece personal, cherished, and a timeless tribute to the film’s legacy.</p>
+                        <p className='text-sm leading-relaxed md:text-lg'>Be a part of cinematic history with this official Jana Nayagan {"Collector’s Cup"}. Crafted for true fans, each cup carries a unique serial number, making every piece personal, cherished, and a timeless tribute to the {"film’s"} legacy.</p>
                         <div className='flex justify-center md:justify-start'>
                             <div className='flex justify-between gap-5 md:gap-10'>
                                 <div className='flex flex-col gap-2 items-center'>

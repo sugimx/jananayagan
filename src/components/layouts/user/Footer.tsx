@@ -31,7 +31,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-3 text-[1rem] text-[#F5D57A] md:text-lg underline">Support</h3>
             <ul className="space-y-2 text-sm ">
                 <li className=''> 
-                    <a href="mailto:support@jananayagan.com" className="hover:text-[#F5D57A] text-sm md:text-lg">support@jananayagan.com</a>
+                    <a href="mailto:jananayagan.info@gmail.com" className="hover:text-[#F5D57A] text-sm md:text-lg">jananayagan.info@gmail.com</a>
                 </li>
             </ul>
           </div>

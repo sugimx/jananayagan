@@ -10,40 +10,14 @@ const ShippingPolicy = () => {
                 </h1>
 
                 <div className="space-y-6 text-white leading-relaxed">
-                    <p>
-                        All sales made through <strong>Jananayagan</strong> are final. Due to the nature of limited-edition and pre-booked products, orders once confirmed cannot be cancelled or refunded except in cases of proven product defect or wrong item dispatch.
-                    </p>
-
-                    <p>
-                        The Company endeavors to dispatch all confirmed orders within  first week of January 2026, unless otherwise stated. The estimated timelines are indicative only and may vary due to external factors such as courier delays, customs clearance, natural calamities, or operational constraints.
-                    </p>
-
-                    <section>
-                        <h2 className="text-2xl font-semibold text-black mt-8 mb-4">Tracking & Notifications</h2>
-                        <p>
-                            We use trusted courier and logistics partners for all shipments. Customers will receive an email/SMS notification containing tracking details once the order is shipped.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-2xl font-semibold text-black mt-8 mb-4">Delivery Address</h2>
-                        <p>
-                            All deliveries shall be made to the address provided by the customer at the time of booking. It is the customer&apos;s responsibility to ensure that delivery information is accurate. Failed deliveries due to incomplete or incorrect addresses will be reattempted subject to additional charges.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-2xl font-semibold text-black mt-8 mb-4">Risk & Liability</h2>
-                        <p>
-                            Risk of loss passes to the customer upon dispatch of goods from our facility. The Company shall not be liable for delays or loss once goods are handed over to the courier partner.
-                        </p>
-                    </section>
-
-                    <section className="mt-8 pt-6 border-t border-gray-300">
-                        <p className="text-sm text-gray-600">
-                            <strong>Note:</strong> This policy is subject to change without prior notice. Continued use of our services constitutes your agreement to this policy.
-                        </p>
-                    </section>
+                    <ul className="list-disc pl-6 space-y-2 mt-3">
+                        <li>We strive to deliver all confirmed orders promptly and safely.</li>
+                        <li>Orders are typically processed within 5-7 business days after payment confirmation. Delivery time may vary depending on product availability, courier efficiency, and your location.</li>
+                        <li>We use reliable third-party courier partners for all deliveries. Customers will receive tracking details by email or SMS once their order is shipped.</li>
+                        <li>If you are unavailable at the time of delivery, the courier will reattempt delivery or contact you for alternate arrangements.</li>
+                        <li>Delivery timelines are indicative and not guaranteed. Delays due to unforeseen circumstances (weather, customs, logistics issues, etc.) do not make the Company liable for compensation.</li>
+                        <li>Once an order is shipped, ownership and risk pass to the customer. </li>
+                    </ul>
                 </div>
             </div>
         </Container>
