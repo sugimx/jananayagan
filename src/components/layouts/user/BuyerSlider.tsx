@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import LinkComponent from '@/components/ui/user/LinkComponent';
+import { IoIosClose } from "react-icons/io"
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -58,45 +59,50 @@ const BuyerSlider = () => {
             >
                 {arr.map((item, i) => (
                     <SwiperSlide key={i}>
-                        <div className='border-1 border-[#F5D57A] flex-1 py-4 px-2 rounded-xl md:flex-0 md:px-8'>
-                            <div className='flex items-center flex-col'>
-                                <div className='flex flex-col items-center relative bg-white w-[50%] h-[100px] rounded-xl'>
-                                    <Image 
-                                        src="/user_image.jpg"
-                                        alt="rectangle Image"
-                                        width={100}
-                                        height={400}
-                                        className='w-full h-full rounded-xl'
-                                    />
-                                    <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
-                                        <FaCamera />
-                                        <span className='text-sm'>Add</span>
+                        <div className='border-1 border-[#F5D57A] rounded-xl relative'>
+                             <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer'>
+                                <IoIosClose className='bg-white text-black font-bold rounded-full'/>
+                            </div>
+                            <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
+                                <div className='flex items-center flex-col'>
+                                    <div className='flex flex-col items-center relative bg-white w-[50%] h-[100px] rounded-xl'>
+                                        <Image 
+                                            src="/user_image.jpg"
+                                            alt="rectangle Image"
+                                            width={100}
+                                            height={400}
+                                            className='w-full h-full rounded-xl'
+                                        />
+                                        <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
+                                            <FaCamera />
+                                            <span className='text-sm'>Add</span>
+                                        </div>
                                     </div>
                                 </div>
+                                <div className='flex flex-col gap-3 my-4'>
+                                    <div className='flex gap-2 items-center'>
+                                        <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
+                                        <span className='text-sm md:text-md'>Melto {item}</span>
+                                    </div>
+                                    <div className='flex gap-2 items-center'>
+                                        <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
+                                        <span className='text-sm md:text-md'>22-03-1997</span>
+                                    </div>
+                                    <div className='flex gap-2 items-center'>
+                                        <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
+                                        <span className='text-sm md:text-md'>meltosm8@gmail.com</span>
+                                    </div>
+                                    <div className='flex gap-2 items-center'>
+                                        <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
+                                        <span className='text-sm md:text-md'>Kanyakumari</span>
+                                    </div>
+                                    <div className='flex gap-2 items-center'>
+                                        <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
+                                        <span className='text-sm md:text-md'>TamilNadu</span>
+                                    </div>
+                                </div>
+                                <button className='w-full h-7 bg-[#F5D57A] rounded-lg text-black uppercase text-[0.7rem] cursor-pointer' onClick={handleToggle}>Edit</button>
                             </div>
-                            <div className='flex flex-col gap-3 my-4'>
-                                <div className='flex gap-2 items-center'>
-                                    <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span className='text-sm md:text-md'>Melto {item}</span>
-                                </div>
-                                <div className='flex gap-2 items-center'>
-                                    <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span className='text-sm md:text-md'>22-03-1997</span>
-                                </div>
-                                <div className='flex gap-2 items-center'>
-                                    <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span className='text-sm md:text-md'>meltosm8@gmail.com</span>
-                                </div>
-                                <div className='flex gap-2 items-center'>
-                                    <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span className='text-sm md:text-md'>Kanyakumari</span>
-                                </div>
-                                <div className='flex gap-2 items-center'>
-                                    <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                    <span className='text-sm md:text-md'>TamilNadu</span>
-                                </div>
-                            </div>
-                            <button className='w-full h-7 bg-[#F5D57A] rounded-lg text-black uppercase text-[0.7rem] cursor-pointer'>Edit</button>
                         </div>
                     </SwiperSlide>
                 ))}

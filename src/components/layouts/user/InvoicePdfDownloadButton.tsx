@@ -98,9 +98,9 @@ export default function InvoicePdfDownloadButton() {
         fileName="invoice.pdf"
       >
         {({ loading }) => (
-          <span className="inline-block px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors mt-8 cursor-pointer">
-            {loading ? "Generating PDF..." : "Download Invoice PDF"}
-          </span>
+          <button className="border-1 border-[#F5D57A] px-7 py-2 text-xs text-white uppercase mb-2 cursor-pointer">
+              {loading ? "loading..." : "Recipt Download"}
+          </button>
         )}
       </PDFDownloadLink>
     </>

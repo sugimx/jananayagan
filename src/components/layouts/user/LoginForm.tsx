@@ -41,7 +41,7 @@ const LoginForm = () => {
         localStorage.setItem('user', JSON.stringify(response.data))
         
         setTimeout(() => {
-          router.push('/')
+          window.location.href = '/'
         }, 1000)
       } else {
         setError(response.message || 'Login failed')

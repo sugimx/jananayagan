@@ -3,6 +3,7 @@
 import React from 'react'
 import LogoutButton from '@/components/ui/user/LogoutButton'
 import Invoice from './Invoice'
+import AddressPage from './AddressPage'
 
 type HeadingProps = {
     content: string
@@ -10,7 +11,7 @@ type HeadingProps = {
 
 const Heading = ({ content }: HeadingProps) => {
     return (
-        <h1 className='text-[1rem] font-semibold mb-1 md:text-[1.2rem] md:mb-3'>{content}</h1>
+        <h1 className='text-[0.8rem] text-center font-semibold mb-1 md:text-start md:text-[1.2rem] md:mb-3'>{content}</h1>
     )
 }
 
@@ -39,7 +40,7 @@ const DivTag = ({ children, isActive, onActivate, value }: DivTagProps) => {
 
 const Paragraph = ({ content }: { content: string }) => {
     return (
-        <p className='text-[0.7rem] md:text-[1rem]'>{content}</p>
+        <p className='hidden md:flex md:text-[1rem]'>{content}</p>
     )
 }
 
@@ -82,17 +83,16 @@ const BuyerDetails = () => {
                     ))}
                 </div>
             </div>
-            <div className='h-[40vh]'>
+            <div className='min-h-[40vh]'>
                 <div className={`${activeIndex === 0 ? 'visible' : 'hidden'}`}>
                     <h1>My Profile</h1>
                     <LogoutButton />
                 </div>
                 <div className={`${activeIndex === 1 ? 'visible' : 'hidden'}`}>
-                    <h1>My Orders</h1>
                     <Invoice />
                 </div>
                 <div className={`${activeIndex === 2 ? 'visible' : 'hidden'}`}> 
-                    <h1>My Addresses</h1>
+                    <AddressPage />
                 </div>
             </div>
         </>
