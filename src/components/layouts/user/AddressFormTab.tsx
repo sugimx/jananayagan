@@ -26,7 +26,7 @@ const Input = ({ placeholder }: { placeholder: string }) => {
     )
 }
 
-const AddressFormTab = ({ state, setState }: { state: boolean, setState: React.Dispatch<React.SetStateAction<any>> }) => {
+const AddressFormTab = ({ state, setState }: { state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
         <div className='text-white absolute top-[-100px] md:top-[-200px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
             <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black'>

@@ -6,10 +6,11 @@ import { FaGift } from "react-icons/fa"
 import { FaMapMarked } from "react-icons/fa"
 import { IoIosClose } from "react-icons/io"
 import { BsPinMapFill } from "react-icons/bs"
-import { AiOutlinePicture } from "react-icons/ai"
+// import { AiOutlinePicture } from "react-icons/ai"
 import { useForm } from 'react-hook-form'
 import { addUserSchema, AddUserFormData } from '@/lib/validations'
 import { zodResolver } from '@hookform/resolvers/zod'
+import ErrorMessage from '@/components/ui/user/ErrorMessage'
 
 type props = {
     onHandleToggle: () => void
@@ -40,60 +41,52 @@ const AddMoreForm = ({ onHandleToggle }: props) => {
                         <p className='text-sm'>Fill in your details to receive your unique ID for the Official Jana Nayagan {"Collector’s"} Mug and secure your entry into the lucky draw.</p>
                     </div>
                     <div className='flex flex-col gap-5 my-2'>
-                        {errors?.name  && (
-                            <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded'>
-                                {errors.name.message}
-                            </div>
-                        )}
-                        {errors?.email && (
-                            <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded'>
-                                {errors.email.message}
-                            </div>
-                        )}
-                        {errors?.phone && (
-                            <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded'>
-                                {errors.phone.message}
-                            </div>
-                        )}
-                        {errors?.birthDate && (
-                            <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded'>
-                                {errors.birthDate.message}
-                            </div>
-                        )}
-                        {errors?.state && (
-                            <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded'>
-                                {errors.state.message}
-                            </div>
-                        )}
-                        {errors?.district && (
-                            <div className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded'>
-                                {errors.district.message}
-                            </div>
-                        )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaUserEdit className='text-[2.8rem] px-3' />
                             <input type="text" className='h-full w-full outline-none' placeholder='John Doe' {...register('name')} />
                         </div>
+                        {errors?.name  && (
+                            <ErrorMessage message={errors?.name?.message} />
+                        )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <MdEmail className='text-[2.8rem] px-3' />
                             <input type="email" className='h-full w-full outline-none' placeholder='example@gmail.com' {...register('email')} />
                         </div>
+                        {errors?.email && (
+                            <ErrorMessage message={errors?.email?.message} />
+                        )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <IoMdPhonePortrait className='text-[2.8rem] px-3' />
                             <input type="text" className='h-full w-full outline-none' placeholder='8888888888' {...register('phone')} />
                         </div>
+                         {errors?.phone && (
+                            <ErrorMessage message={errors?.phone?.message} />
+                        )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaGift className='text-[2.8rem] px-3' />
-                            <input type="date" className='h-full w-full outline-none' placeholder='DOB' {...register('birthDate')} />
+                            <input type="date" className='h-full w-full outline-none' placeholder='DOB' />
                         </div>
+                        {/* {errors?.birthDate && (
+                            <ErrorMessage message={errors?.birthDate?.message} />
+                        )} */}
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaMapMarked className='text-[2.8rem] px-3' />
-                            <input type="text" className='h-full w-full outline-none' placeholder='State' {...register('state')} />
+                            <select className='h-full w-full outline-none' {...register('state')}>
+                                <option value="">Choose an option</option>
+                                <option value="TN">Tamilnadu</option>
+                                <option value="KL">Kerala</option>
+                            </select>
                         </div>
+                        {errors?.state && (
+                            <ErrorMessage message={errors?.state?.message} />
+                        )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <BsPinMapFill className='text-[2.8rem] px-3' />
                             <input type="text" className='h-full w-full outline-none' placeholder='District' {...register('district')} />
                         </div>
+                         {errors?.district && (
+                            <ErrorMessage message={errors?.district?.message} />
+                        )}
                         {/* <div className='bg-white flex text-black items-center h-10'>
                             <AiOutlinePicture className='text-[2.8rem] px-3' />
                             <input type="file" className='h-full w-full outline-none' placeholder='Name' />

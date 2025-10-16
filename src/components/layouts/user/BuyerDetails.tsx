@@ -4,6 +4,7 @@ import React from 'react'
 import LogoutButton from '@/components/ui/user/LogoutButton'
 import Invoice from './Invoice'
 import AddressPage from './AddressPage'
+import MyProfile from '@/screens/MyProfile'
 
 type HeadingProps = {
     content: string
@@ -50,13 +51,13 @@ const BuyerDetails = () => {
     const data = [
         {
             id: 1,
-            content: "My Profile",
-            paragraph: "View and manage your personal information."
+            content: "My Orders",
+            paragraph: "Track and manage all your past and current orders in one place"
         },
         {
             id: 2,
-            content: "My Orders",
-            paragraph: "Track and manage all your past and current orders in one place"
+            content: "My Profile",
+            paragraph: "View and manage your personal information."
         },
         {
             id: 3,
@@ -68,7 +69,10 @@ const BuyerDetails = () => {
     return (
         <>
            <div className='mt-4 md:mt-10 '>
-                <h1 className='text-xl font-semibold text-[#F5D57A] mb-4 md:text-2xl'>Account</h1>
+                <div className='flex justify-between items-center'>
+                    <h1 className='text-xl font-semibold text-[#F5D57A] mb-4 md:text-2xl'>Account</h1>
+                    <LogoutButton />
+                </div>
                 <div className='flex justify-between gap-2 w-full md:gap-8'>
                     {data && data.map((item, i) => (
                         <DivTag
@@ -85,11 +89,10 @@ const BuyerDetails = () => {
             </div>
             <div className='min-h-[40vh]'>
                 <div className={`${activeIndex === 0 ? 'visible' : 'hidden'}`}>
-                    <h1>My Profile</h1>
-                    <LogoutButton />
+                    <Invoice />
                 </div>
                 <div className={`${activeIndex === 1 ? 'visible' : 'hidden'}`}>
-                    <Invoice />
+                    <MyProfile />
                 </div>
                 <div className={`${activeIndex === 2 ? 'visible' : 'hidden'}`}> 
                     <AddressPage />

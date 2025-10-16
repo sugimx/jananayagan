@@ -44,7 +44,7 @@ const SalesSection = () => {
         }, 3000)
 
         return () => clearInterval(intervel)
-    }, [])
+    }, [salesData])
     return (
         <>
             <div className='text-[#F5D57A] flex border-1 border-[#F5D57A] max-w-[1450px] mx-2 mb-30 h-[80px] rounded-xl justify-between items-center px-5 md:mx-auto md:h-[120px]'>

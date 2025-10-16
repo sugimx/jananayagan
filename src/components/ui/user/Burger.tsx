@@ -12,7 +12,7 @@ const Burger = () => {
         if (currentPath && toggle) {
             setToggle((prev) => !prev);
         }
-    }, [currentPath])
+    }, [currentPath, toggle])
 
     return (
         <>
