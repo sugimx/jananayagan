@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layouts/user/Navbar";
 import Layout from "@/components/layouts/user/Layout";
 import { Providers } from "@/lib/providers";
+import { QueryProvider } from "@/lib/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +34,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         <Providers>
-          <Navbar />
-            {children}
-          <Layout />
+          <QueryProvider>
+            <Navbar />
+              {children}
+            <Layout />
+          </QueryProvider>
         </Providers>
       </body>
     </html>

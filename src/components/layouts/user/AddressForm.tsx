@@ -19,7 +19,7 @@ const AddressForm = () => {
     return (
         <>
             <div className='w-[90%] h-auto mx-auto my-10 lg:w-[30%]'>
-                <h1 className='text-[1.5rem] font-light mb-2 text-white'>Address</h1>
+                <h1 className='text-[1.5rem] font-light mb-2 text-[#F5D57A] md:text-[2rem]'>Address</h1>
                 <div className='md:flex gap-2 justify-center'>
                     <div className='my-5 text-white flex-1'>
                         <div className='flex flex-col gap-4'>

@@ -1,11 +1,9 @@
-import BuyerInfo from "@/components/layouts/user/BuyerInfo"
-import SingleProduct from "@/components/layouts/user/SingleProduct"
+import ProductScreen from "@/screens/ProductScreen"
 
 const Product = () => {
     return (
         <>
-            <SingleProduct />
-            <BuyerInfo />
+            <ProductScreen />
         </>
     )
 }

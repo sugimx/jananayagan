@@ -1,10 +1,10 @@
-import AddressForm from '@/components/layouts/user/AddressForm'
+import AddressScreen from '@/screens/AddressScreen'
 import React from 'react'
 
 const page = () => {
     return (
         <>
-            <AddressForm />
+            <AddressScreen />
         </>
     )
 }

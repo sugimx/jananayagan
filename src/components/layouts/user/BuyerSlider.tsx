@@ -14,10 +14,23 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import LinkComponent from '@/components/ui/user/LinkComponent';
 import { IoIosClose } from "react-icons/io"
+import { useQuery } from '@tanstack/react-query';
+import { getData } from '@/api/BuyerInfoAPI';
+import { useAuthContext } from '@/contexts/AuthContext';
+import ErrorMessage from '@/components/ui/user/ErrorMessage';
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
+    const { token } = useAuthContext()
     const arr = [1, 2, 3, 4, 5, 6, 7]
+
+    const { isSuccess, isError, data } = useQuery({
+        queryKey: ['buyerInfo', token],
+        queryFn: getData,
+        enabled: !!token,
+    })
+
+    console.log(isSuccess, isError, data)
 
     function handleToggle() {
         setToggle((prev) => !prev)
@@ -57,8 +70,9 @@ const BuyerSlider = () => {
                     },
                 }}
             >
-                {arr.map((item, i) => (
-                    <SwiperSlide key={i}>
+                {isError && <ErrorMessage message='Buyers not found' />}
+                {isSuccess && data?.buyerProfiles?.map((item: { name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
+                    <SwiperSlide key={index}>
                         <div className='border-1 border-[#F5D57A] rounded-xl relative'>
                              <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer'>
                                 <IoIosClose className='bg-white text-black font-bold rounded-full'/>
@@ -82,23 +96,23 @@ const BuyerSlider = () => {
                                 <div className='flex flex-col gap-3 my-4'>
                                     <div className='flex gap-2 items-center'>
                                         <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                        <span className='text-sm md:text-md'>Melto {item}</span>
+                                        <span className='text-sm md:text-md'>{item?.name}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
                                         <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                        <span className='text-sm md:text-md'>22-03-1997</span>
+                                        <span className='text-sm md:text-md'>{item?.dateOfBirth && item?.dateOfBirth.split("T")[0]}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
                                         <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                        <span className='text-sm md:text-md'>meltosm8@gmail.com</span>
+                                        <span className='text-sm md:text-md'>{item?.gmail}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
                                         <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                        <span className='text-sm md:text-md'>Kanyakumari</span>
+                                        <span className='text-sm md:text-md'>{item?.dist}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
                                         <span><MdKeyboardArrowRight className='text-[#F5D57A]' /></span>
-                                        <span className='text-sm md:text-md'>TamilNadu</span>
+                                        <span className='text-sm md:text-md'>{item?.state}</span>
                                     </div>
                                 </div>
                                 <button className='w-full h-7 bg-[#F5D57A] rounded-lg text-black uppercase text-[0.7rem] cursor-pointer' onClick={handleToggle}>Edit</button>
@@ -111,7 +125,7 @@ const BuyerSlider = () => {
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
                 <LinkComponent link="/address" content='Proceed Payment' />
             </div>
-            {toggle && <AddMoreForm onHandleToggle={handleToggle} />}
+            {toggle && <AddMoreForm onHandleToggle={handleToggle} setState={setToggle} />}
         </div>
     )
 }

@@ -1,5 +1,5 @@
+import PaymentScreen from '@/screens/PaymentScreen'
 import React from 'react'
-import PaymentScreen from '@/components/layouts/user/PaymentScreen'
 
 const page = () => {
     return (

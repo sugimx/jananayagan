@@ -46,12 +46,15 @@ export const addUserSchema = z.object({
     .min(10, "Phone number must be at least 10 digits")
     .max(10, "Phone number is too long")
     .regex(/^\d+$/, "Phone number must contain digits only"),
-
-  // birthDate: z.coerce.date("Date is required").refine(
-  //   (birthDate) => birthDate < new Date(),
-  //   { message: "Invalid date of birth" }
-  // ),
-
+  birthDate: z.coerce.date() 
+    .refine(
+      (date) => !isNaN(date.getTime()),
+      { message: "Date is required" }
+    )
+    .refine(
+      (date) => date < new Date(),
+      { message: "Invalid date of birth" }
+    ),
   state: z.string().min(1, "State is required"),
   
   district: z.string().min(1, "District is required"),
