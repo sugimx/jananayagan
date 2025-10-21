@@ -16,7 +16,9 @@ const ShippingPolicy = () => {
                         <li>We use reliable third-party courier partners for all deliveries. Customers will receive tracking details by email or SMS once their order is shipped.</li>
                         <li>If you are unavailable at the time of delivery, the courier will reattempt delivery or contact you for alternate arrangements.</li>
                         <li>Delivery timelines are indicative and not guaranteed. Delays due to unforeseen circumstances (weather, customs, logistics issues, etc.) do not make the Company liable for compensation.</li>
-                        <li>Once an order is shipped, ownership and risk pass to the customer. </li>
+                        <li>Once an order is shipped, ownership and risk pass to the customer.</li>
+                        <li>We have a 48-hour return and replacement policy from the time of delivery.</li>
+                        <li>Replacement products will be delivered within 5–7 business days after approval.</li>
                     </ul>
                 </div>
             </div>
