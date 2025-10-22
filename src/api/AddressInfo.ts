@@ -35,4 +35,31 @@ async function registerFuntion({ data, token }: { data: AddressTypeData, token: 
     }
 }
 
-export { registerFuntion }
+async function GetAddressFn({ queryKey }: { queryKey: readonly [string, string | null] }) {
+    try {
+        const [_key, token] = queryKey
+
+        const res = await fetch("https://jananayagan-backend.vercel.app/api/addresses", {
+            method: 'GET',
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': `Bearer ${token}`,
+            }
+        })
+
+        if (!res.ok) {
+            const errorBody = await res.json()
+            throw new Error(errorBody.message || 'Address does not exists. Add new address')
+        }  
+
+        return res.json()
+    } catch (error) {
+        if(error instanceof Error) {
+            throw new Error(error.message)
+        } else {
+            throw new Error('There is issue in the server. please try again later')
+        }
+    }
+}
+
+export { registerFuntion, GetAddressFn }

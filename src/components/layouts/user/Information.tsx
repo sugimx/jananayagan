@@ -26,8 +26,7 @@ const Information = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
-        // Validation
+    
         if (!formData.name.trim()) {
             setSubmitStatus({ type: 'error', message: 'Please enter your name' });
             return;

@@ -30,8 +30,6 @@ const BuyerSlider = () => {
         enabled: !!token,
     })
 
-    console.log(isSuccess, isError, data)
-
     function handleToggle() {
         setToggle((prev) => !prev)
     }
