@@ -16,7 +16,7 @@ async function registerData({ data, token }: { data: FormValue, token: string })
         },
         body: JSON.stringify(data)
     })
-     if (!res.ok) {
+    if (!res.ok) {
         const errorBody = await res.json()
         throw new Error(errorBody.message || 'Failed to register data')
     }

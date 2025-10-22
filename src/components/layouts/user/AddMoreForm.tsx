@@ -41,6 +41,7 @@ const AddMoreForm = ({ onHandleToggle, setState }: props) => {
             router.push('/login')
             return
         }
+        console.log(data)
         mutate({ data: data, token })
     }
 
@@ -117,7 +118,7 @@ const AddMoreForm = ({ onHandleToggle, setState }: props) => {
                         )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaGift className='text-[2.8rem] px-3' />
-                            <input type="date" className='h-full w-full outline-none' placeholder='DOB' {...register('dateOfBirth', { required: "DOB is required" })} />
+                            <input type="date" className='h-full w-full outline-none' defaultValue="2025-10-02" placeholder='DOB' {...register('dateOfBirth', { required: "DOB is required" })} />
                         </div>
                         {errors?.dateOfBirth && (
                             <ErrorMessage message={errors?.dateOfBirth?.message} />

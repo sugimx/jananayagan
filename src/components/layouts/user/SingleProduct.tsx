@@ -9,7 +9,7 @@ const SingleProduct = () => {
             <Container>
                 <div className='justify-between mt-10 items-center w-full md:flex md:h-[80vh] lg:h-[60vh]'>
                     <div className='h-full flex justify-center md:flex-1 md:items-end'>
-                        <Image 
+                        <Image
                             src="/cup_image.png"
                             alt="product image"
                             width={500}
@@ -23,7 +23,7 @@ const SingleProduct = () => {
                         <div className='flex justify-center md:justify-start'>
                             <div className='flex justify-between gap-5 md:gap-10'>
                                 <div className='flex flex-col gap-2 items-center'>
-                                    <Image 
+                                    <Image
                                         src="/Vector.png"
                                         width={50}
                                         height={50}
@@ -38,17 +38,17 @@ const SingleProduct = () => {
                                     <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Free Shipping</p>
                                 </div>
                                 <div className='flex flex-col gap-2 items-center'>
-                                    <Image 
-                                    src="/Vector (2).png"
-                                    width={40}
-                                    height={40}
-                                    alt='vector image 1'
-                                    className='w-[40px] h-[40px] border-1 border-[#F5D57A] px-3 py-3 rounded-full md:w-[60px] md:h-[60px] md:py-4 md:px-4'
-                                />
+                                    <Image
+                                        src="/Vector (2).png"
+                                        width={40}
+                                        height={40}
+                                        alt='vector image 1'
+                                        className='w-[40px] h-[40px] border-1 border-[#F5D57A] px-3 py-3 rounded-full md:w-[60px] md:h-[60px] md:py-4 md:px-4'
+                                    />
                                     <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Customer Support</p>
                                 </div>
                                 <div className='flex flex-col gap-2 items-center'>
-                                    <Image 
+                                    <Image
                                         src="/Vector (3).png"
                                         width={40}
                                         height={40}
