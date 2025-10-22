@@ -1,3 +1,5 @@
+"use client"
+
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { useAuth } from '@/hooks/useAuth'
 import { useMutation } from '@tanstack/react-query'
@@ -72,6 +74,17 @@ const AddressFormTab = ({ state, setState }: { state: boolean, setState: React.D
         }
         mutate({ data: data, token })
     }
+
+
+    React.useEffect(() => {
+        if(isSuccess) {
+            const intervel = setInterval(() => {
+                setState(false)
+            }, 1000)
+
+            return () => clearInterval(intervel)
+        }
+    }, [isSuccess])
 
     return (
         <div className='text-white absolute top-[-100px] md:top-[-300px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
