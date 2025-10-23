@@ -68,14 +68,14 @@ const AddressForm = () => {
                                 <span className='font-light'>Subtotal</span>
                                 <div className='flex items-center font-light'>
                                     <span><AddressIcons Icon={FaIndianRupeeSign} /></span>
-                                    <span>900</span>
+                                    <span>300</span>
                                 </div>
                             </div>
                             <div className='flex items-center justify-between text-sm'>
                                 <span className='font-light'>Delivery</span>
                                 <div className='flex items-center font-light'>
                                     <span><AddressIcons Icon={FaIndianRupeeSign} /></span>
-                                    <span>900</span>
+                                    <span>0</span>
                                 </div>
                             </div>
                             <div className='w-full h-[1px] bg-gray-500 my-2'></div>
@@ -83,7 +83,7 @@ const AddressForm = () => {
                                 <span className='font-semibold'>Total</span>
                                 <div className='flex items-center font-semibold'>
                                     <span><AddressIcons Icon={FaIndianRupeeSign} /></span>
-                                    <span>900</span>
+                                    <span>300</span>
                                 </div>
                             </div>
                             <p className='text-sm my-2'>Estimated shipping time: 2 days</p>

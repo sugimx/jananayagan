@@ -64,8 +64,8 @@ const Invoice = () => {
                         <div className='text-sm font-bold flex justify-between py-2 border-b-1 border-[#4a4a4a]'>
                             <p className='w-[30%]'>Official Jana Nayagan Cup Limited Edition</p>
                             <p className='w-[20%] text-center'>5</p>
-                            <p className='w-[20%] text-center'>₹ 400</p>
-                            <p className='w-[20%] text-end'>₹ 2,000</p>
+                            <p className='w-[20%] text-center'>₹ 300</p>
+                            <p className='w-[20%] text-end'>₹ 1,500</p>
                         </div>
                     </div>
                     <div className='flex justify-end gap-8 text-md my-2'>
@@ -77,11 +77,11 @@ const Invoice = () => {
                             <p>Amout Due</p>
                         </div>
                         <div className='flex flex-col gap-2'>
-                            <p>₹ 2,000</p>
-                            <p>₹ 2,200</p>
-                            <p>₹ 200</p>
-                            <p>₹ 2,000</p>
-                            <p>₹ 2,000</p>
+                            <p>₹ 1,500</p>
+                            <p>₹ 1,500</p>
+                            <p>₹ 0</p>
+                            <p>₹ 1,500</p>
+                            <p>₹ 1,500</p>
                         </div>
                     </div>
                     <div className='my-4'>

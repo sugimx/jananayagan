@@ -57,8 +57,8 @@ const InvoicePDF = () => (
           <View style={{ flexDirection: 'row', fontSize: 12, justifyContent: 'space-between' }}>
               <Text style={{ marginRight: 10, width: '30%', fontSize: 12  }}>Official Jana Nayagan Cup Limited Edition</Text>
               <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>5</Text>
-              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>400</Text>
-              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>2,000</Text>
+              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>300</Text>
+              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>1,500</Text>
           </View>
           <View style={{ width: '100%', height: 1, backgroundColor: '#4f4f4e', marginTop: 8, marginBottom: 8 }}></View>
       </View>
@@ -71,11 +71,11 @@ const InvoicePDF = () => (
             <Text style={{ marginRight: 45, marginBottom: 15 }}>Amout Due</Text>
           </View>
           <View>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>200</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>1,500</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>1,500</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>0</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>1,500</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>1,500</Text>
           </View>
       </View>
       <View>
