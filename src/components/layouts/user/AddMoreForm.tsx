@@ -29,7 +29,7 @@ type FormValue = {
     dist: string
 }
 
-const AddMoreForm = ({ onHandleToggle, setState }: props) => {
+const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
     const router = useRouter()
     const { token } = useAuthContext()
     const { register, formState: { errors }, handleSubmit } = useForm<FormValue>()

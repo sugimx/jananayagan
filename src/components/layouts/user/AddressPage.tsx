@@ -1,14 +1,15 @@
 "use client"
 
 import React from 'react'
-import { FaLocationDot } from "react-icons/fa6"
 import { FaPlus } from "react-icons/fa6"
 import { FiEdit2 } from "react-icons/fi"
 import AddressFormTab from './AddressFormTab'
-import { useQuery } from '@tanstack/react-query'
-import { GetAddressFn } from '@/api/AddressInfo'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { deleteAddress, GetAddressFn } from '@/api/AddressInfo'
 import { useAuth } from '@/hooks/useAuth'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
+import { RiDeleteBinFill } from "react-icons/ri"
+import { useRouter } from 'next/navigation'
 
 const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive: boolean, onActivate: () => void }) => {
     return (
@@ -67,20 +68,54 @@ type FormData = {
 const AddressPage = () => {
     const [ isActive, setIsActive ] = React.useState(0)
     const [ toggle, setToggle ] = React.useState(false)
+    const [ addressId, setAddressId ] = React.useState<string>("")
     const { token } = useAuth()
 
-    const { data, isLoading, isError, isSuccess, error } = useQuery({
+    const router = useRouter()
+
+    const { data, isLoading, isError, isSuccess, error, refetch } = useQuery({
         queryKey: ['addresses', token],
         queryFn: GetAddressFn,
         enabled: !!token,
     })
 
-    if(isLoading) {
+    const {
+        mutate: deleteMutate,
+        isPending: deletePending,
+        isError: deleteError,
+        isSuccess: deleteSuccess,
+        error: deleteErr
+    } = useMutation<{ success: boolean, message: string }, Error, { token: string, addressId: string }>({ mutationFn: deleteAddress })
+
+    React.useEffect(() => {
+        if(deleteSuccess) {
+            refetch()
+        }
+    }, [deleteSuccess, refetch])
+
+    if(isLoading || deletePending) {
         return <p>loading....</p>
+    }
+
+    const handleDeleteFn = (id: string) => {
+        if(!token) {
+            router.push('/login')
+            return
+        }
+    
+        if(id) {
+            deleteMutate({ token, addressId })
+        }
     }
 
     const handleEditFn = (id: string) => {
         setToggle(!toggle)
+        setAddressId(id)
+    }
+
+    const handleAddNewFn = () => {
+        setToggle(!toggle)
+        setAddressId("")
     }
 
     return (
@@ -90,17 +125,17 @@ const AddressPage = () => {
                     <button 
                         className={`
                             text-black bg-[#F5D57A] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`} 
-                            onClick={() => setToggle(!toggle)}
+                            onClick={handleAddNewFn}
                         > 
                             <FaPlus className='font-bold' />
                             <span>New Address</span>
                     </button>
                 </div>
                 <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap'>
-                    {isSuccess && data?.data?.map((item: FormData, index: number) => (
+                    {data?.data.length !== 0 ? data?.data?.map((item: FormData, index: number) => (
                         <MainContainer key={index} isActive={isActive === index} onActivate={() => setIsActive(index)}>
                             <Section>
-                                <FaLocationDot className={`text-xl ${isActive === index ? 'text-black' : 'text-[#F5D57A]'}`} />
+                                <RiDeleteBinFill className={`text-xl ${isActive === index ? 'text-black' : 'text-[#F5D57A]'}`} onClick={() => handleDeleteFn(item._id)} />
                             </Section>
                             <Section>
                                 <AddressParagraph content={`${item.addressLine1}, ${item.city}, ${item.state}, ${item.postalCode}`} />
@@ -110,12 +145,19 @@ const AddressPage = () => {
                                 <FiEdit2 className='text-2xl text-[#808089] cursor-pointer' onClick={() => handleEditFn(item._id)} />
                             </Section>
                         </MainContainer>
-                    ))}
+                    )) : (
+                        <div>
+                            Data not found
+                        </div>
+                    )}
                 </div>
                 {
                     isError && <ErrorMessage message={error?.message || "Can't find your address. please create new address"} />
                 }
-                {toggle && <AddressFormTab state={toggle} setState={setToggle} />}
+                {
+                    deleteError && <ErrorMessage message={deleteErr?.message || "Can't find your address. please create new address"} />
+                }
+                {toggle && <AddressFormTab state={toggle} setState={setToggle} addressId={addressId} refetch={refetch} />}
             </div>
         </>
     )

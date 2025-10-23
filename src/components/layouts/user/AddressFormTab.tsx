@@ -2,13 +2,13 @@
 
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { useAuth } from '@/hooks/useAuth'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 // import Paragraph from '@/components/ui/user/Paragraph'
 import React from 'react'
 import { SubmitHandler, useForm, UseFormRegister, RegisterOptions } from 'react-hook-form'
 import { IoClose } from "react-icons/io5"
 import { useRouter } from 'next/navigation'
-import { registerFuntion } from '@/api/AddressInfo'
+import { GetSingleAddress, registerFuntion, UpdateAddress } from '@/api/AddressInfo'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import districts from '@/lib/place'
 
@@ -57,34 +57,106 @@ type FormData = {
     landmark: string
 }
 
-const AddressFormTab = ({ state, setState }: { state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>> }) => {
-    const router = useRouter()
-    const { formState: { errors }, register, handleSubmit, watch } = useForm<FormData>()
+const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>>, addressId?: string, refetch: () => void }) => {
+    const { formState: { errors }, register, handleSubmit, watch, reset } = useForm<FormData>({
+        defaultValues: {
+            phone: "",
+            addressLine1: "",
+            city: "",
+            state: "",
+            postalCode: "",
+            district: "",
+            country: "",
+            landmark: ""
+        }
+    })
 
     const stateWatch = watch('state')
 
+    const router = useRouter()
+
     const { token } = useAuth()
 
-    const { mutate, isError, isPending, isSuccess, error } = useMutation<{ success: true, message: string }, Error,{ data: FormData; token: string }>({ mutationFn: registerFuntion })
+    const { 
+        mutate,
+        isError, 
+        isPending, 
+        isSuccess, 
+        error 
+    } = useMutation<{ success: true, message: string }, Error,{ data: FormData; token: string }>({ mutationFn: registerFuntion })
+
+    const {
+        mutate: updateMutate,
+        isError: updateError,
+        isPending: updatePending,
+        isSuccess: updateSuccess,
+        error: updateErr
+    } = useMutation<{ success: true, message: string }, Error, { data: FormData, token: string, addressId: string }>({ mutationFn: UpdateAddress })
+    
+    const {
+        data,
+        isSuccess: getSuccess,
+        isError: getError,
+        isFetching
+    } = useQuery({ queryKey: ['singleAddress'], queryFn: () => GetSingleAddress(token!, addressId!), enabled: !!token && !!addressId })
  
     const handleFormSubmit: SubmitHandler<FormData> = (data) => {
         if(!token) {
             router.push('/login')
             return
         }
-        mutate({ data: data, token })
+        
+        if(addressId) {
+            updateMutate({ data: data, token, addressId })
+        } else {
+            mutate({ data: data, token })
+        }
     }
-
+    
+    React.useEffect(() => {
+        if(getSuccess && addressId) {
+            reset({
+                phone: data?.data?.phone,
+                addressLine1: data?.data?.addressLine1,
+                city: data?.data?.city,
+                state: data?.data?.state,
+                postalCode: data?.data?.postalCode,
+                district: data?.data?.district,
+                country: data?.data?.country,
+                landmark: data?.data?.landmark
+            })
+        } else {
+            reset({
+                phone: "",
+                addressLine1: "",
+                city: "",
+                state: "",
+                postalCode: "",
+                district: "",
+                country: "",
+                landmark: ""
+             })
+        }
+    }, [ getSuccess, data, reset, addressId ])
 
     React.useEffect(() => {
-        if(isSuccess) {
+        if(isSuccess || updateSuccess) {
             const intervel = setInterval(() => {
+                refetch()
                 setState(false)
             }, 1000)
 
             return () => clearInterval(intervel)
         }
-    }, [isSuccess])
+    }, [isSuccess, updateSuccess])
+
+    if(isFetching) {
+        return <p>Loading....</p>
+    }
+
+    if(getError) {
+        return <p>Address not found</p>
+    }
 
     return (
         <div className='text-white absolute top-[-100px] md:top-[-300px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
@@ -110,7 +182,12 @@ const AddressFormTab = ({ state, setState }: { state: boolean, setState: React.D
                         }
                         <InputContainer>
                             <InputLabel content='LandMark' />
-                            <Input placeholder='Enter Your LandMark' register={register} name="landmark" errorMsg="Landmark field is required" />
+                            <Input 
+                                placeholder='Enter Your LandMark' 
+                                register={register} 
+                                name="landmark" 
+                                errorMsg="Landmark field is required"
+                            />
                         </InputContainer>
                         {
                             errors?.landmark && <ErrorMessage message={errors?.landmark?.message} />
@@ -188,10 +265,12 @@ const AddressFormTab = ({ state, setState }: { state: boolean, setState: React.D
                         </div> */}
                     </div>
                     <button className='bg-black w-full py-1 text-[#F5D57A] my-3 rounded-full cursor-pointer md:py-2' onClick={handleSubmit(handleFormSubmit)}>
-                        {isPending ? <span className='loader'></span> : 'save'}
+                        {isPending || updatePending ? <span className='loader'></span> : 'save'}
                     </button>
                     {isSuccess && <SuccessMessage message="Address Information created successfully" />}
                     {isError && <ErrorMessage message={error?.message} />}
+                    {updateSuccess && <SuccessMessage message="Address Information Updated successfully" />}
+                    {updateError && <ErrorMessage message={updateErr?.message} />}
                 </div>
             </div>
         </div>
