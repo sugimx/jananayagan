@@ -36,7 +36,7 @@ const AboutScreen = () => {
                     />
                 </div>
             </div>
-            <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
+            {/* <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='llg:flex-[1] flex justify-center lg:justify-end items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image 
                         src="/cup_image.png"
@@ -46,7 +46,7 @@ const AboutScreen = () => {
                         className='w-full md:h-[400px] md:w-[450px] lg:h-[600px] lg:w-[600px]'
                     />
                 </div>
-                {/* <div className='leading-relaxed text-center lg:flex-[0.5] lg:text-start order-1 lg:order-2'>
+                <div className='leading-relaxed text-center lg:flex-[0.5] lg:text-start order-1 lg:order-2'>
                     <AboutHeading content='Why This Project is Special?' />
                     <div className='text-justify text-sm md:text-[1rem] flex flex-col gap-2'>
                         <p><span className='font-bold'>Movie Collaboration</span> - Officially associated with KVN Productions for Jana Nayagan 2026 promotions.</p>
@@ -54,9 +54,9 @@ const AboutScreen = () => {
                         <p><span className='font-bold'>Unique Identity</span> - Every cup is numbered, making your purchase a once-in-history collectible</p>
                         <p><span className='font-bold'>Fan Movement</span> - More than coffee, this is about emotion, unity, and celebration.</p>
                     </div> 
-                </div> */}
-            </div>
-            <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
+                </div>
+            </div> */}
+            {/* <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='leading-relaxed text-center lg:flex-[0.5] lg:text-start'>
                     <AboutHeading content='Our Mission' />
                     <div className='text-justify text-sm md:text-[1rem] flex flex-col gap-2'>
@@ -77,8 +77,8 @@ const AboutScreen = () => {
                         className='w-full md:h-[400px] md:w-[450px] lg:h-[600px] lg:w-[600px]'
                     />
                 </div>
-            </div>
-            <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
+            </div> */}
+            {/* <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='lg:flex-[1] flex justify-center lg:justify-end items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image 
                         src="/cup_image.png"
@@ -94,7 +94,7 @@ const AboutScreen = () => {
                         <p>Jana Nayagan Cup, in collaboration with KVN Productions, proudly presents the Jana Nayagan 2026 Limited Edition Coffee Cup Collection - the official fan celebration of Thalapathy {"Vijay's"} final film. With 27,70,000 uniquely numbered cups, this project turns every fan-s support into history.</p>
                     </div> 
                 </div>
-            </div>
+            </div> */}
         </Container>
     )
 }
