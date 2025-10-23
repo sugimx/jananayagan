@@ -15,11 +15,11 @@ const AboutScreen = () => {
                         <p>We are proud to announce our official collaboration with KVN Productions for the Jana Nayagan 2026 Movie Promotion - the grand celebration of Thalapathy {"Vijay's"} final fan-based film. This is not just a business project - it is a once-in-a-lifetime moment for every fan.</p>
                         <p>As part of this collaboration, we present the Jana Nayagan 2026 Limited Edition Coffee Cup
                         Collection - a tribute to Vijay sir and his unmatched journey.</p> */}
-                         <p>Welcome to our online store, your destination for the exclusive Jana Nayagan Cup collection.</p>
-                        <p>We are dedicated to offering high-quality coffee cups inspired by the movie Jana Nayagan 2026, designed for fans who value both style and purpose.</p>
-                        <p>Our platform ensures a simple and secure online shopping experience, where customers can easily browse and purchase their favorite products.</p>
-                        <p>Each order is handled with care, from confirmation to dispatch, ensuring every customer receives a smooth and reliable experience.</p>
-                        <p>We aim to deliver trust, quality, and satisfaction through every cup we offer.</p>
+                         <p>Welcome to our online store — the official platform for purchasing the Jana Nayagan Cup.</p>
+                        <p>We are committed to offering high-quality coffee cups designed with care, style, and purpose.</p>
+                        <p>This website is operated by Shajin Valanarasu M, who oversees all product quality, order handling, and customer service to ensure a smooth shopping experience.</p>
+                        <p>Our focus is on maintaining transparency, reliability, and trust through every purchase.</p>
+                        <p>Each order is processed carefully, and customers are kept informed at every stage — from confirmation to dispatch.</p>
                          {/* Each cup is individually numbered
                         from 1 to 27,70,000, giving every fan a unique place in history. From the first buyer to the last,
                         your name and number will forever remain on our platform, celebrating your pride as a fan */}

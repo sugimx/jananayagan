@@ -8,22 +8,25 @@ const TermsConditions = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#F5D57A]">
           Terms and Conditions
         </h1>
-        
+
         <div className="space-y-6 text-white leading-relaxed">
           <section>
-            <h2 className="text-2xl font-semibold text-black mb-4">1. Terms & Condition</h2>
+            <h2 className="text-2xl font-semibold text-black mb-4">1. Terms & Conditions</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>
-                Welcome to <strong>Jana Nayagan Cup</strong> (“Company”, “we”, “our”, “us”). By accessing or using our website or making a purchase, you agree to be bound by the following terms and conditions (“Terms”).
+                Welcome to <strong>Jana Nayagan Cup</strong>, operated by <strong>Shajin Valanarasu M</strong> (“Company”, “we”, “our”, “us”).
+                By accessing or using our website or making a purchase, you agree to be bound by the following terms and conditions (“Terms”).
               </li>
               <li>
                 All products displayed on our Platform are subject to availability. Prices, specifications, and availability of products are subject to change without prior notice.
               </li>
               <li>
-                Orders are confirmed only after successful payment. The Company reserves the right to accept or cancel any order at its discretion. In case of cancellation after payment, the amount will be refunded in accordance with our Refund Policy.
+                Orders are confirmed only after successful payment. <strong>Jana Nayagan Cup</strong> reserves the right to accept or cancel any order at its discretion.
+                In case of cancellation after payment, the amount will be refunded in accordance with our Refund Policy.
               </li>
               <li>
-                All intellectual property on this Platform, including logos, images, and designs, belongs to the Company. Reproduction or use without written consent is prohibited.
+                All intellectual property on this Platform, including logos, images, and designs, belongs to <strong>Jana Nayagan Cup</strong>.
+                Reproduction or use without written consent is prohibited.
               </li>
               <li>
                 You agree not to misuse the Platform, engage in fraudulent activity, or use it for unlawful purposes.
@@ -33,6 +36,7 @@ const TermsConditions = () => {
               </li>
             </ul>
           </section>
+
 
           {/* <section>
             <h2 className="text-2xl font-semibold text-black mt-8 mb-4">2. Use of Platform</h2>
