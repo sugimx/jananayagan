@@ -35,8 +35,6 @@ async function getData({ queryKey }: { queryKey: readonly [string, string | null
         },
     })
 
-    console.log("api response", res)
-
     if (!res.ok) {
         const errorBody = await res.json()
         throw new Error(errorBody.message || 'Buyer Information not found')

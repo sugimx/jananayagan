@@ -14,6 +14,7 @@ import { registerData } from '@/api/BuyerInfoAPI'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
+import districts from '@/lib/place'
 
 type props = {
     onHandleToggle: () => void
@@ -32,7 +33,9 @@ type FormValue = {
 const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
     const router = useRouter()
     const { token } = useAuthContext()
-    const { register, formState: { errors }, handleSubmit } = useForm<FormValue>()
+    const { register, formState: { errors }, handleSubmit, watch } = useForm<FormValue>()
+
+    const stateWatch = watch('state')
 
     const { mutate, isPending, isError, isSuccess, error } = useMutation<{ success: true, message: string }, Error,{ data: FormValue; token: string }>({ mutationFn: registerData })
 
@@ -129,6 +132,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
                                 <option value="">Choose an option</option>
                                 <option value="TN">Tamilnadu</option>
                                 <option value="KL">Kerala</option>
+                                <option value="others">Others</option>
                             </select>
                         </div>
                         {errors?.state && (
@@ -136,7 +140,12 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
                         )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <BsPinMapFill className='text-[2.8rem] px-3' />
-                            <input type="text" className='h-full w-full outline-none' placeholder='District' {...register('dist', { required: "district field is required" })} />
+                            <select className='h-full w-full outline-none' {...register('dist', { required: "District field is required" })}>
+                                <option className='' value="">Select Your District</option>
+                                {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
+                                    <option value={item.district} key={index}>{item.district}</option>
+                                ))}
+                            </select>
                         </div>
                         {errors?.dist && (
                             <ErrorMessage message={errors?.dist?.message} />

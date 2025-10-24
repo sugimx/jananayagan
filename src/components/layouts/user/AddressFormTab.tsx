@@ -53,7 +53,6 @@ type FormData = {
     state: string
     postalCode: string
     district: string
-    country: string
     landmark: string
 }
 
@@ -66,7 +65,6 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
             state: "",
             postalCode: "",
             district: "",
-            country: "",
             landmark: ""
         }
     })
@@ -122,7 +120,6 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                 state: data?.data?.state,
                 postalCode: data?.data?.postalCode,
                 district: data?.data?.district,
-                country: data?.data?.country,
                 landmark: data?.data?.landmark
             })
         } else {
@@ -133,7 +130,6 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                 state: "",
                 postalCode: "",
                 district: "",
-                country: "",
                 landmark: ""
              })
         }
@@ -209,6 +205,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                                 <option className='' value="">Select Your State</option>
                                 <option className='bg-black' value="TN">TamilNadu</option>
                                 <option className='bg-black' value="KL">Kerala</option>
+                                <option value="others">Others</option>
                             </select>
                         </InputContainer>
                         {

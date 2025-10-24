@@ -66,9 +66,9 @@ type FormData = {
 }
 
 const AddressPage = () => {
-    const [ isActive, setIsActive ] = React.useState(0)
-    const [ toggle, setToggle ] = React.useState(false)
-    const [ addressId, setAddressId ] = React.useState<string>("")
+    const [isActive, setIsActive] = React.useState(0)
+    const [toggle, setToggle] = React.useState(false)
+    const [addressId, setAddressId] = React.useState<string>("")
     const { token } = useAuth()
 
     const router = useRouter()
@@ -85,27 +85,27 @@ const AddressPage = () => {
         isError: deleteError,
         isSuccess: deleteSuccess,
         error: deleteErr
-    } = useMutation<{ success: boolean, message: string }, Error, { token: string, addressId: string }>({ mutationFn: deleteAddress })
+    } = useMutation<{ success: boolean, message: string }, Error, { token: string, addressId: string }>({ 
+        mutationFn: deleteAddress
+    })
 
     React.useEffect(() => {
-        if(deleteSuccess) {
+        if (deleteSuccess) {
             refetch()
         }
     }, [deleteSuccess, refetch])
 
-    if(isLoading || deletePending) {
+    if (isLoading || deletePending) {
         return <p>loading....</p>
     }
 
-    const handleDeleteFn = (id: string) => {
-        if(!token) {
+    const handleDeleteFn = (addressId: string) => {
+        if (!token) {
             router.push('/login')
             return
         }
-    
-        if(id) {
-            deleteMutate({ token, addressId })
-        }
+        
+        deleteMutate({ token, addressId })
     }
 
     const handleEditFn = (id: string) => {
@@ -122,13 +122,13 @@ const AddressPage = () => {
         <>
             <div className='my-5 relative'>
                 <div className='flex justify-end items-center mb-4'>
-                    <button 
+                    <button
                         className={`
-                            text-black bg-[#F5D57A] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`} 
-                            onClick={handleAddNewFn}
-                        > 
-                            <FaPlus className='font-bold' />
-                            <span>New Address</span>
+                            text-black bg-[#F5D57A] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`}
+                        onClick={handleAddNewFn}
+                    >
+                        <FaPlus className='font-bold' />
+                        <span>New Address</span>
                     </button>
                 </div>
                 <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap'>

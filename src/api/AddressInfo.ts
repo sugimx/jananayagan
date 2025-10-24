@@ -7,7 +7,6 @@ type AddressTypeData = {
     state: string
     postalCode: string
     district: string
-    country: string
     landmark: string
 }
 
@@ -151,10 +150,9 @@ const deleteAddress = async ({ token, addressId }: { token: string, addressId: s
 
         const data = await res.json()
 
-         console.log("response", data)
-
         return data
     } catch (error) {
+        console.log('error', error)
         if(error instanceof Error) {
             throw new Error(error.message)
         } else {
