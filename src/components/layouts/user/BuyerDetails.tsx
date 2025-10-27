@@ -2,9 +2,11 @@
 
 import React from 'react'
 import LogoutButton from '@/components/ui/user/LogoutButton'
-import Invoice from './Invoice'
-import AddressPage from './AddressPage'
-import MyProfile from '@/screens/MyProfile'
+import dynamic from 'next/dynamic'
+
+const Invoice = dynamic(() => import('./Invoice'))
+const AddressPage = dynamic(() => import('./AddressPage'))
+const MyProfile = dynamic(() => import('@/screens/MyProfile'))
 
 type HeadingProps = {
     content: string
@@ -88,15 +90,9 @@ const BuyerDetails = () => {
                 </div>
             </div>
             <div className='min-h-[40vh]'>
-                <div className={`${activeIndex === 0 ? 'visible' : 'hidden'}`}>
-                    <Invoice />
-                </div>
-                <div className={`${activeIndex === 1 ? 'visible' : 'hidden'}`}>
-                    <MyProfile />
-                </div>
-                <div className={`${activeIndex === 2 ? 'visible' : 'hidden'}`}> 
-                    <AddressPage />
-                </div>
+                {activeIndex === 0 && <Invoice />}
+                {activeIndex === 1 && <MyProfile />}
+                {activeIndex === 2 && <AddressPage />}
             </div>
         </>
     )
