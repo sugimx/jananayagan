@@ -3,7 +3,6 @@ import Container from './Container'
 import Image from 'next/image'
 import UnorderedList from '@/components/ui/user/UnorderedList'
 
-
 const LuckyDraw = () => {
     return (
         <Container>

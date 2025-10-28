@@ -96,7 +96,11 @@ const AddressPage = () => {
     }, [deleteSuccess, refetch])
 
     if (isLoading || deletePending) {
-        return <p>loading....</p>
+        return (
+            <div className='w-full bg-black h-[40vh] flex justify-center items-center'>
+                <span className='content-loader'></span>
+            </div>
+        )
     }
 
     const handleDeleteFn = (addressId: string) => {

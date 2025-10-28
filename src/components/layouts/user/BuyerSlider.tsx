@@ -29,7 +29,7 @@ const BuyerSlider = () => {
     const [ buyerIndex, setBuyerIndex ] = React.useState<number>(-1)
     const { token } = useAuthContext()
 
-    const { isSuccess, isError, data, refetch } = useQuery({
+    const { isSuccess, isError, data, refetch, isPending } = useQuery({
         queryKey: ['buyerInfo', token],
         queryFn: getData,
         enabled: !!token,
@@ -114,6 +114,7 @@ const BuyerSlider = () => {
                     },
                 }}
             >
+                {isPending && <div className='w-full bg-black h-[40vh] flex justify-center items-center'><span className='content-loader'></span></div>}
                 {isError && <ErrorMessage message='Buyers not found' />}
                 {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
                     <SwiperSlide key={index}>
