@@ -18,20 +18,43 @@ import { useQuery } from '@tanstack/react-query';
 import { getData } from '@/api/BuyerInfoAPI';
 import { useAuthContext } from '@/contexts/AuthContext';
 import ErrorMessage from '@/components/ui/user/ErrorMessage';
+import { useRouter } from 'next/navigation';
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
+    const [ editState, setEditState ] = React.useState(false)
+    const router = useRouter()
+    const [ processDisableBtn, setProcessDisableBtn ] = React.useState<boolean>(false)
+    const [ buyerIndex, setBuyerIndex ] = React.useState<number>(-1)
     const { token } = useAuthContext()
-    const arr = [1, 2, 3, 4, 5, 6, 7]
 
-    const { isSuccess, isError, data } = useQuery({
+    const { isSuccess, isError, data, refetch } = useQuery({
         queryKey: ['buyerInfo', token],
         queryFn: getData,
         enabled: !!token,
     })
 
     function handleToggle() {
+        setEditState(false)
+        setBuyerIndex(0)
         setToggle((prev) => !prev)
+    }
+
+    function handleEdit(index: number) {
+        setEditState(true)
+        setBuyerIndex(index)
+        setToggle((prev) => !prev)
+    }
+
+    React.useEffect(() => {
+        const datas = data?.buyerProfiles?.[0]
+        if(isSuccess && datas?.name || datas?.gmail || datas?.dateOfBirth || datas?.dist || datas?.state === null || undefined) {
+            setProcessDisableBtn(true)
+        } 
+    }, [ data, isSuccess])
+
+    function handleProceedPayment() {
+        router.push('/address')
     }
 
     return (
@@ -113,7 +136,12 @@ const BuyerSlider = () => {
                                         <span className='text-sm md:text-md'>{item?.state}</span>
                                     </div>
                                 </div>
-                                <button className='w-full h-7 bg-[#F5D57A] rounded-lg text-black uppercase text-[0.7rem] cursor-pointer' onClick={handleToggle}>Edit</button>
+                                <button 
+                                    className='w-full h-7 bg-[#F5D57A] rounded-lg text-black uppercase text-[0.7rem] cursor-pointer' 
+                                    onClick={() => handleEdit(index)}
+                                >
+                                    Edit
+                                </button>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -121,9 +149,13 @@ const BuyerSlider = () => {
             </Swiper>
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
-                <LinkComponent link="/address" content='Proceed Payment' />
+                {processDisableBtn ?
+                    <button className='bg-[#F5D57A] text-black text-center py-2 w-40 text-sm md:text-md font-semibold rounded-md' onClick={handleProceedPayment}>Proceed to Buy</button>
+                    :
+                    <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>
+                }
             </div>
-            {toggle && <AddMoreForm onHandleToggle={handleToggle} setState={setToggle} />}
+            {toggle && <AddMoreForm onHandleToggle={handleToggle} setState={setToggle} data={data} buyerIndex={buyerIndex} editState={editState} refetch={refetch} />}
         </div>
     )
 }

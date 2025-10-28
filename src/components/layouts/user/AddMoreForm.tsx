@@ -10,18 +10,15 @@ import { BsPinMapFill } from "react-icons/bs"
 import { SubmitHandler, useForm } from 'react-hook-form'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { useMutation } from '@tanstack/react-query'
-import { registerData } from '@/api/BuyerInfoAPI'
+import { registerData, updateBuyerInfo } from '@/api/BuyerInfoAPI'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import districts from '@/lib/place'
+import { QueryClient } from '@tanstack/react-query'
 
-type props = {
-    onHandleToggle: () => void
-    setState: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-type FormValue = {
+type BuyerProfile = {
+    _id: string
     name: string
     gmail: string
     phone: number
@@ -30,34 +27,97 @@ type FormValue = {
     dist: string
 }
 
-const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
+type FormValue = {
+    buyerProfiles?: BuyerProfile[]
+}
+
+type props = {
+    onHandleToggle: () => void
+    setState: React.Dispatch<React.SetStateAction<boolean>>
+    data: FormValue
+    buyerIndex: number
+    editState: React.SetStateAction<boolean>
+    refetch: () => void
+}
+
+const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerIndex, editState, refetch }) => {
+    const [ buyerId, setBuyerId ] = React.useState<string>("")
     const router = useRouter()
     const { token } = useAuthContext()
-    const { register, formState: { errors }, handleSubmit, watch } = useForm<FormValue>()
+    const queryClient = new QueryClient()
+    const { register, formState: { errors }, handleSubmit, watch, reset } = useForm<BuyerProfile>()
 
     const stateWatch = watch('state')
 
-    const { mutate, isPending, isError, isSuccess, error } = useMutation<{ success: true, message: string }, Error,{ data: FormValue; token: string }>({ mutationFn: registerData })
+    const { 
+        mutate, 
+        isPending, 
+        isError, 
+        isSuccess,
+        error 
+    } = useMutation<{ success: true, message: string }, Error,{ data: BuyerProfile; token: string }>({ 
+        mutationFn: registerData
+    })
 
-    const handleFormSubmit: SubmitHandler<FormValue> = (data) => {
+    const {
+        mutate: updateMutate,
+        isPending: isUpdatePending,
+        isError: isUpdateError,
+        isSuccess: isUpdateSuccess, 
+        error: updateError
+    } = useMutation<{ success: true, message: string }, Error, { data: BuyerProfile, token: string, buyerId: string }>({
+        mutationFn: updateBuyerInfo
+    })
+
+    const handleFormSubmit: SubmitHandler<BuyerProfile> = (data) => {
         if (!token) {
             router.push('/login')
             return
         }
-        console.log(data)
-        mutate({ data: data, token })
+
+        if(editState) {
+            updateMutate({ data: data, token, buyerId })
+        } else {
+            mutate({ data: data, token })
+        }
     }
 
     useEffect(() => {
         const intervel = setInterval(() => {
             if(isSuccess) {
                 setState(false)
+                refetch()
             }
         }, 1000)
 
         return () => clearInterval(intervel)
     }, [isSuccess])
 
+    useEffect(() => {
+        if (buyerIndex != null && data) {
+            setBuyerId(data?.buyerProfiles?.[buyerIndex]?._id || "")
+            reset({
+                name: data?.buyerProfiles?.[buyerIndex]?.name || '',
+                gmail: data?.buyerProfiles?.[buyerIndex]?.gmail || '',
+                phone: data?.buyerProfiles?.[buyerIndex]?.phone || 0,
+                dateOfBirth: data?.buyerProfiles?.[buyerIndex]?.dateOfBirth || '',
+                state: data?.buyerProfiles?.[buyerIndex]?.state || '',
+                dist: data?.buyerProfiles?.[buyerIndex]?.dist || '',
+            })
+        }
+    }, [data, buyerIndex])
+
+    useEffect(() => {
+        const intervel = setInterval(() => {
+            if(isUpdateSuccess) {
+                setState(false)
+                refetch()
+            }
+        }, 1000)
+
+        return () => clearInterval(intervel)
+    }, [ refetch, isUpdateSuccess ])
+    
     return (
         <>
             <div className='absolute top-20 w-full md:flex justify-center items-center z-10 main-content blurred'>
@@ -72,7 +132,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
                     <div className='flex flex-col gap-5 my-2'>
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaUserEdit className='text-[2.8rem] px-3' />
-                            <input type="text" className='h-full w-full outline-none' defaultValue="melto" placeholder='John Doe' {...register("name", { required: "name field is required"})} />
+                            <input type="text" className='h-full w-full outline-none' placeholder='John Doe' {...register("name", { required: "name field is required"})} />
                         </div>
                         {errors?.name  && (
                             <ErrorMessage message={errors?.name?.message} />
@@ -121,7 +181,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
                         )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <FaGift className='text-[2.8rem] px-3' />
-                            <input type="date" className='h-full w-full outline-none' defaultValue="2025-10-02" placeholder='DOB' {...register('dateOfBirth', { required: "DOB is required" })} />
+                            <input type="date" className='h-full w-full outline-none' placeholder='DOB' {...register('dateOfBirth', { required: "DOB is required" })} />
                         </div>
                         {errors?.dateOfBirth && (
                             <ErrorMessage message={errors?.dateOfBirth?.message} />
@@ -130,8 +190,8 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
                             <FaMapMarked className='text-[2.8rem] px-3' />
                             <select className='h-full w-full outline-none' {...register('state', { required: "state field is required" })}>
                                 <option value="">Choose an option</option>
-                                <option value="TN">Tamilnadu</option>
-                                <option value="KL">Kerala</option>
+                                <option value="TamilNadu">Tamilnadu</option>
+                                <option value="Kerala">Kerala</option>
                                 <option value="others">Others</option>
                             </select>
                         </div>
@@ -160,10 +220,12 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState }) => {
                         </div> */}
                     </div>
                     <button className='bg-[#F5D57A] w-full h-8 text-sm md:text-md rounded-md text-black cursor-pointer uppercase mt-5' onClick={handleSubmit(handleFormSubmit)}>
-                        {isPending ? <span className='loader'></span> : 'save'}
+                        {isPending || isUpdatePending ? <span className='loader'></span> : 'save'}
                     </button>
                     {isSuccess && <SuccessMessage message="Buyer Information created successfully" />}
+                    {isUpdateSuccess && <SuccessMessage message="Buyer Information updated successfully" />}
                     {isError && <ErrorMessage message={error?.message} />}
+                    {isUpdateError && <ErrorMessage message={updateError?.message} />}
                 </div>
             </div>
         </>
