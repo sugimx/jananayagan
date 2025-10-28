@@ -73,4 +73,33 @@ const updateBuyerInfo = async({ data, token, buyerId }: { data: FormValue, token
     }
 }
 
-export { registerData, getData, updateBuyerInfo }
+const deleteBuyerInfo = async ({ token, buyerId }: { token: string, buyerId: string }) => {
+    try {
+        if(!token) {
+            throw new Error('User Not found')
+        }
+
+        const res = await fetch(`https://jananayagan-backend.vercel.app/api/profiles/buyer/${buyerId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
+        })
+
+        if(!res.ok) {
+            const errorBody = await res.json()
+            throw new Error(errorBody.message || 'Failed to delete buyer information')
+        }
+
+        return res.json()
+    } catch (error) {
+        if(error instanceof Error) {
+            throw new Error(error.message)
+        } else {
+            throw new Error('There is issue in the server. please try again later')
+        }
+    }
+}
+
+export { registerData, getData, updateBuyerInfo, deleteBuyerInfo }

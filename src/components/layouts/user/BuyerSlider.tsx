@@ -14,11 +14,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import LinkComponent from '@/components/ui/user/LinkComponent';
 import { IoIosClose } from "react-icons/io"
-import { useQuery } from '@tanstack/react-query';
-import { getData } from '@/api/BuyerInfoAPI';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { deleteBuyerInfo, getData } from '@/api/BuyerInfoAPI';
 import { useAuthContext } from '@/contexts/AuthContext';
 import ErrorMessage from '@/components/ui/user/ErrorMessage';
 import { useRouter } from 'next/navigation';
+import SuccessMessage from '@/components/ui/user/SuccessMessage';
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -32,6 +33,16 @@ const BuyerSlider = () => {
         queryKey: ['buyerInfo', token],
         queryFn: getData,
         enabled: !!token,
+    })
+
+    const {
+        mutate: deleteMutateInfo,
+        isSuccess: deleteSuccess,
+        isError: deleteIsError,
+        isPending: deleteIsPending,
+        error: deleteError
+    } = useMutation<{ success: true, message: string }, Error, { token: string, buyerId: string }>({ 
+        mutationFn: deleteBuyerInfo 
     })
 
     function handleToggle() {
@@ -56,6 +67,18 @@ const BuyerSlider = () => {
     function handleProceedPayment() {
         router.push('/address')
     }
+
+    const handleDeleteFn = (buyerId: string) => {
+        if(buyerId && token) {
+            deleteMutateInfo({ token, buyerId })
+        }
+    }
+
+    React.useEffect(() => {
+        if(deleteSuccess) {
+            refetch()
+        }
+    }, [ deleteSuccess ])
 
     return (
         <div className='w-full overflow-hidden main-content blurred' id="">
@@ -92,11 +115,15 @@ const BuyerSlider = () => {
                 }}
             >
                 {isError && <ErrorMessage message='Buyers not found' />}
-                {isSuccess && data?.buyerProfiles?.map((item: { name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
+                {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
                     <SwiperSlide key={index}>
                         <div className='border-1 border-[#F5D57A] rounded-xl relative'>
                              <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer'>
-                                <IoIosClose className='bg-white text-black font-bold rounded-full'/>
+                                {deleteIsPending ? (
+                                    <span className='loaders'></span>
+                                ) : (
+                                    <IoIosClose className='bg-white text-black font-bold rounded-full' onClick={() => handleDeleteFn(item._id)} />
+                                )}
                             </div>
                             <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
                                 <div className='flex items-center flex-col'>
@@ -147,6 +174,8 @@ const BuyerSlider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            {deleteSuccess && <SuccessMessage message='Buyer Information Deleted Successfully' />}
+            {deleteIsError && <ErrorMessage message={deleteError?.message || 'Failed to delete Buyer Information'} />}
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
                 {processDisableBtn ?
