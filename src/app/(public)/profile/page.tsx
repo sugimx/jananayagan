@@ -1,9 +1,9 @@
-import Profile from '@/components/layouts/user/Profile'
+import ProfileScreen from '@/screens/ProfileScreen'
 import React from 'react'
 
 const page = () => {
     return (
-        <Profile />
+        <ProfileScreen />
     )
 }
 
