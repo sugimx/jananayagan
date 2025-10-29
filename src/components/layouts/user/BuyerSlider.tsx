@@ -1,25 +1,23 @@
 "use client"
 
 import React from 'react'
-import Image from 'next/image';
+import Image from 'next/image'
 import { MdKeyboardArrowRight } from "react-icons/md"
 import { FaCamera } from "react-icons/fa"
-import AddMoreForm from './AddMoreForm';
-
+import AddMoreForm from './AddMoreForm'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar, A11y } from 'swiper/modules'
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import LinkComponent from '@/components/ui/user/LinkComponent';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 import { IoIosClose } from "react-icons/io"
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { deleteBuyerInfo, getData } from '@/api/BuyerInfoAPI';
-import { useAuthContext } from '@/contexts/AuthContext';
-import ErrorMessage from '@/components/ui/user/ErrorMessage';
-import { useRouter } from 'next/navigation';
-import SuccessMessage from '@/components/ui/user/SuccessMessage';
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { deleteBuyerInfo, getData } from '@/api/BuyerInfoAPI'
+import { useAuthContext } from '@/contexts/AuthContext'
+import ErrorMessage from '@/components/ui/user/ErrorMessage'
+import { useRouter } from 'next/navigation'
+import SuccessMessage from '@/components/ui/user/SuccessMessage'
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -78,10 +76,10 @@ const BuyerSlider = () => {
         if(deleteSuccess) {
             refetch()
         }
-    }, [ deleteSuccess ])
+    }, [ deleteSuccess, refetch ])
 
     return (
-        <div className='w-full overflow-hidden main-content blurred' id="">
+        <div className='w-full overflow-hidden main-content blurred'>
             <Swiper
                 modules={[Scrollbar, A11y]}
                 spaceBetween={50}
@@ -119,11 +117,11 @@ const BuyerSlider = () => {
                 {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
                     <SwiperSlide key={index}>
                         <div className='border-1 border-[#F5D57A] rounded-xl relative'>
-                             <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer'>
+                             <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
                                 {deleteIsPending ? (
                                     <span className='loaders'></span>
-                                ) : (
-                                    <IoIosClose className='bg-white text-black font-bold rounded-full' onClick={() => handleDeleteFn(item._id)} />
+                                ) : index !== 0 && (
+                                    <IoIosClose className='bg-white text-black font-bold rounded-full cursor-pointer' onClick={() => handleDeleteFn(item._id)} />
                                 )}
                             </div>
                             <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
@@ -180,7 +178,7 @@ const BuyerSlider = () => {
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
                 {processDisableBtn ?
-                    <button className='bg-[#F5D57A] text-black text-center py-2 w-40 text-sm md:text-md font-semibold rounded-md' onClick={handleProceedPayment}>Proceed to Buy</button>
+                    <button className='bg-[#F5D57A] text-black text-center py-2 w-40 text-sm md:text-md font-semibold rounded-md cursor-pointer' onClick={handleProceedPayment}>Proceed to Buy</button>
                     :
                     <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>
                 }

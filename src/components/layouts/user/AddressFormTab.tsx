@@ -5,12 +5,37 @@ import { useAuth } from '@/hooks/useAuth'
 import { useMutation, useQuery } from '@tanstack/react-query'
 // import Paragraph from '@/components/ui/user/Paragraph'
 import React from 'react'
-import { SubmitHandler, useForm, UseFormRegister, RegisterOptions } from 'react-hook-form'
+import { SubmitHandler, useForm, UseFormRegister, RegisterOptions, FieldValues, Path } from 'react-hook-form'
 import { IoClose } from "react-icons/io5"
 import { useRouter } from 'next/navigation'
 import { GetSingleAddress, registerFuntion, UpdateAddress } from '@/api/AddressInfo'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import districts from '@/lib/place'
+import Heading from '@/components/ui/user/Heading'
+import Paragraph from '@/components/ui/user/Paragraph'
+
+
+type FormData = {
+    type: string
+    isDefault: boolean
+    phone: string
+    addressLine1: string
+    city: string
+    state: string
+    postalCode: string
+    district: string
+    landmark: string
+}
+
+
+type InputProps<T extends FieldValues> = {
+  placeholder: string;
+  register: UseFormRegister<T>
+  name: Path<T>
+  errorMsg: string;
+  validationOptions?: RegisterOptions<T, Path<T>>
+}
+
 
 const InputContainer = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -26,9 +51,9 @@ const InputLabel = ({ content }: { content: string }) => {
     )
 }
 
-const Input = (
-    { placeholder, register, name, errorMsg, validationOptions }: 
-    { placeholder: string, register: UseFormRegister<any>, name: string, errorMsg: string, validationOptions?: RegisterOptions }) => {
+
+const Input = <T extends FieldValues>(
+    { placeholder, register, name, errorMsg, validationOptions }: InputProps<T>) => {
     return (
         <input 
             type="text" 
@@ -42,18 +67,6 @@ const Input = (
             )}
         />
     )
-}
-
-type FormData = {
-    type: string
-    isDefault: boolean
-    phone: string
-    addressLine1: string
-    city: string
-    state: string
-    postalCode: string
-    district: string
-    landmark: string
 }
 
 const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>>, addressId?: string, refetch: () => void }) => {
@@ -144,18 +157,27 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
 
             return () => clearInterval(intervel)
         }
-    }, [isSuccess, updateSuccess])
+    }, [isSuccess, updateSuccess, refetch, setState])
 
     if(isFetching) {
-        return <p>Loading....</p>
+        return (
+            <div className='w-full h-[20vh] bg-black flex justify-center items-center'>
+                <span className='content-loader'></span>
+            </div>
+        )
     }
 
     if(getError) {
-        return <p>Address not found</p>
+        return (
+            <div className='w-full h-50 flex flex-col justify-center items-center'>
+                <Heading content='Oops! No Address Found' />
+                <Paragraph content="We couldn't find any address. create new address and try again." />
+            </div>
+        )
     }
 
     return (
-        <div className='text-white absolute top-[-100px] md:top-[-300px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
+        <div className='text-white absolute top-[-100px] md:top-[-280px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
             <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black'>
                 <div className='bg-[#F5D57A] h-[80%] rounded-4xl px-4 py-4'>
                     <div className='flex justify-end text-black'>
@@ -167,7 +189,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                     <div className='h-auto bg-black flex flex-col gap-4 px-3 py-4 rounded-xl'>
                         <InputContainer>
                             <InputLabel content='Address' />
-                            <Input placeholder='Enter Your Address' 
+                            <Input<FormData> placeholder='Enter Your Address' 
                                 register={register} 
                                 name="addressLine1" 
                                 errorMsg="Address field is required" 
@@ -178,7 +200,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                         <InputContainer>
                             <InputLabel content='LandMark' />
-                            <Input 
+                            <Input<FormData> 
                                 placeholder='Enter Your LandMark' 
                                 register={register} 
                                 name="landmark" 
@@ -190,7 +212,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                         <InputContainer>
                             <InputLabel content='City' />
-                            <Input placeholder='Enter Your City' register={register} name="city" errorMsg="City field is required" />
+                            <Input<FormData> placeholder='Enter Your City' register={register} name="city" errorMsg="City field is required" />
                         </InputContainer>
                         {
                             errors?.city && <ErrorMessage message={errors?.city?.message} />
@@ -203,8 +225,8 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                                 }
                             >
                                 <option className='' value="">Select Your State</option>
-                                <option className='bg-black' value="TN">TamilNadu</option>
-                                <option className='bg-black' value="KL">Kerala</option>
+                                <option className='bg-black' value="TamilNadu">TamilNadu</option>
+                                <option className='bg-black' value="Kerala">Kerala</option>
                                 <option value="others">Others</option>
                             </select>
                         </InputContainer>
@@ -243,7 +265,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                          <InputContainer>
                             <InputLabel content='Postal Code' />
-                            <Input placeholder='Enter Your Postal Code' 
+                            <Input<FormData> placeholder='Enter Your Postal Code' 
                                 register={register} 
                                 name="postalCode" 
                                 errorMsg='Postal Code field is required' 

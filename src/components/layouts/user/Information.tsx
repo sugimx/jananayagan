@@ -58,7 +58,7 @@ const Information = () => {
                     type: 'success', 
                     message: 'Thank you! Your message has been sent successfully.' 
                 });
-                // Reset form
+
                 setFormData({ name: '', email: '', message: '' });
             } else {
                 setSubmitStatus({ 
@@ -67,10 +67,17 @@ const Information = () => {
                 });
             }
         } catch (error) {
-            setSubmitStatus({ 
-                type: 'error', 
-                message: 'An error occurred. Please try again later.' 
-            });
+            if (error instanceof Error) {
+                setSubmitStatus({ 
+                    type: 'error', 
+                    message: error.message 
+                });
+            } else {
+                setSubmitStatus({ 
+                    type: 'error', 
+                    message: 'An error occurred. Please try again later.' 
+                });
+            }
         } finally {
             setIsSubmitting(false);
         }

@@ -25,18 +25,13 @@ const DivTag = ({ children }: {children: React.ReactNode}) => {
 
 const SalesSection = () => {
     const [ index, setIndex ] = React.useState(0)
-    const salesData = [
-        {
-            id: 1,
-            state: 'TN',
-            sales: '54,00,000'
-        },
-        {
-            id: 2,
-            state: 'KL',
-            sales:  '72,50,000', 
-        }
-    ]
+    
+    const salesData = React.useMemo(
+        () => [
+            { id: 1, state: 'TN', sales: '54,00,000' },
+            { id: 2, state: 'KL', sales: '72,50,000' }
+        ],
+    [])
 
     React.useEffect(() => {
         const intervel = setInterval(() => {
@@ -44,7 +39,8 @@ const SalesSection = () => {
         }, 3000)
 
         return () => clearInterval(intervel)
-    }, [salesData])
+    }, [salesData]) 
+    
     return (
         <>
             <div className='text-[#F5D57A] flex border-1 border-[#F5D57A] max-w-[1450px] mx-2 mb-30 h-[80px] rounded-xl justify-between items-center px-5 md:mx-auto md:h-[120px]'>

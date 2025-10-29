@@ -2,7 +2,9 @@
 
 import { getProfile, updateProfile } from '@/api/ProfileAPI'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
+import Heading from '@/components/ui/user/Heading'
 import InputBox from '@/components/ui/user/InputBox'
+import Paragraph from '@/components/ui/user/Paragraph'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import { useAuth } from '@/hooks/useAuth'
 import districts from '@/lib/place'
@@ -10,7 +12,6 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { is } from 'zod/locales'
 
 const FormContainer = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -50,8 +51,7 @@ const MyProfile = () => {
         data,
         isPending,
         isSuccess,
-        isError,
-        error
+        isError
     } = useQuery({ 
         queryKey: ['profile'],
         queryFn: () => getProfile(token!),
@@ -89,9 +89,22 @@ const MyProfile = () => {
         }
     }, [ isSuccess, data, reset ])
 
-    if(isPending) return <p>Loading....</p>
+    if(isPending) {
+        return (
+            <div className='w-full h-[40vh] bg-black flex justify-center items-center'>
+                <span className='content-loader'></span>
+            </div>
+        )
+    }
 
-    if(isError) return <p>User Cannot Found || {error?.message}</p>
+    if(isError) {
+        return (
+            <div className='w-full h-50 flex flex-col justify-center items-center'>
+                <Heading content='Oops! No User Found' />
+                <Paragraph content="We couldn't find User. Signup to create a user." />
+            </div>
+        )
+    }
 
     const handleSubmitFn: SubmitHandler<ProfileType> = (formData) => {
         if(!token) {
@@ -112,7 +125,7 @@ const MyProfile = () => {
                         <FormContainer>
                             <FormControl>
                                 <Label content="Name" />
-                                <InputBox 
+                                <InputBox<ProfileType>
                                     type="text" 
                                     placeHolder='Enter Your Name....' 
                                     errorMsg='Name field is required' 
@@ -126,7 +139,7 @@ const MyProfile = () => {
                                 }
                             <FormControl>
                                 <Label content="Email" />
-                                <InputBox 
+                                <InputBox<ProfileType>
                                     type="text" 
                                     placeHolder='Enter Your Email....' 
                                     errorMsg='Email field is required' 
@@ -145,7 +158,7 @@ const MyProfile = () => {
                         <FormContainer>
                             <FormControl>
                                 <Label content="Phone" />
-                                <InputBox 
+                                <InputBox<ProfileType>
                                     type="text" 
                                     placeHolder='Enter Your Phone Number....' 
                                     errorMsg='Phone number field is required' 
@@ -173,7 +186,7 @@ const MyProfile = () => {
                             </FormControl>
                             <FormControl>
                                 <Label content="DOB" />
-                                <InputBox type="date" errorMsg='Date field is required' register={register} name="dob" />
+                                <InputBox<ProfileType> type="date" errorMsg='Date field is required' register={register} name="dob" />
                             </FormControl>
                             {
                                 errors?.dob && <ErrorMessage message={errors?.dob?.message} />

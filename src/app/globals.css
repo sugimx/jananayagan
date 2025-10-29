@@ -207,4 +207,76 @@
   }
 }
 
-  
+
+
+.share-image {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.share-content {
+  background-color: #F5D57A;
+  border-radius: 20px;
+  color: #171717;
+  margin: 0 15px;
+  padding: 10px 0;
+}
+
+.share-content-image {
+  background-color: black;
+  border-radius: 15px;
+  margin: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-booking-container {
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.share-booking-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.share-booking-content span:nth-child(2) {
+  font-weight: 500;
+}
+
+.share-code-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  position: relative;
+}
+
+.share-code-image::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -40px;
+  background-color: black;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.share-code-image::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  background-color: black;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}

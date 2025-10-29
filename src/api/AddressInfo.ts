@@ -36,7 +36,7 @@ async function registerFuntion({ data, token }: { data: AddressTypeData, token: 
 
 async function GetAddressFn({ queryKey }: { queryKey: readonly [string, string | null] }) {
     try {
-        const [_key, token] = queryKey
+        const [ , token] = queryKey
 
         const res = await fetch("https://jananayagan-backend.vercel.app/api/addresses", {
             method: 'GET',

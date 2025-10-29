@@ -1,7 +1,6 @@
 "use client";
 
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer"
-import { FaRupeeSign } from "react-icons/fa"
 
 const styles = StyleSheet.create({
   page: {

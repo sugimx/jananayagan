@@ -9,11 +9,17 @@ const InvoicePdfDownloadButton = dynamic(
 import { FaRupeeSign } from "react-icons/fa"
 
 import React from 'react'
+import ShareImgComponent from "./ShareImgComponent"
 
 const Invoice = () => {
+    const [ toggle, setToggle ] = React.useState(false)
+
+    const handleToggle = () => {
+        setToggle((prev) => !prev)
+    }
     return (
         <>
-            <div className="w-full min-h-[50vh] my-7">
+            <div className="w-full min-h-[50vh] my-7 relative">
                 <div className="text-center md:w-[80%] lg:w-[50%] mx-auto">
                     <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] text-[#F5D57A]">THANK YOU!</h1>
                     <p className="text-[0.9rem] md:text-[1.2rem] font-light">We received your order and will start preparing your package right away. You will receive a confirmation email in a moment.</p>
@@ -49,12 +55,18 @@ const Invoice = () => {
                                 </div>
                             </div>
                             <div className="md:flex md:flex-col">
-                                <button className="bg-[#F5D57A] px-7 py-2 text-xs text-black uppercase mb-2 cursor-pointer">Status Download</button>
+                                <button 
+                                    className="bg-[#F5D57A] px-7 py-2 text-xs text-black uppercase mb-2 cursor-pointer"
+                                    onClick={handleToggle}
+                                >
+                                    Status Download
+                                </button>
                                 <InvoicePdfDownloadButton /> 
                             </div>
                         </div>
                     </div>
                 ))}
+                {toggle && <ShareImgComponent handleToggle={handleToggle} />}
             </div>
         </>
     )

@@ -7,9 +7,10 @@ import AddressFormTab from './AddressFormTab'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { deleteAddress, GetAddressFn } from '@/api/AddressInfo'
 import { useAuth } from '@/hooks/useAuth'
-import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { RiDeleteBinFill } from "react-icons/ri"
 import { useRouter } from 'next/navigation'
+import Heading from '@/components/ui/user/Heading'
+import Paragraph from '@/components/ui/user/Paragraph'
 
 const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive: boolean, onActivate: () => void }) => {
     return (
@@ -73,7 +74,7 @@ const AddressPage = () => {
 
     const router = useRouter()
 
-    const { data, isLoading, isError, isSuccess, error, refetch } = useQuery({
+    const { data, isLoading, isError, refetch } = useQuery({
         queryKey: ['addresses', token],
         queryFn: GetAddressFn,
         enabled: !!token,
@@ -83,8 +84,7 @@ const AddressPage = () => {
         mutate: deleteMutate,
         isPending: deletePending,
         isError: deleteError,
-        isSuccess: deleteSuccess,
-        error: deleteErr
+        isSuccess: deleteSuccess
     } = useMutation<{ success: boolean, message: string }, Error, { token: string, addressId: string }>({ 
         mutationFn: deleteAddress
     })
@@ -150,16 +150,27 @@ const AddressPage = () => {
                             </Section>
                         </MainContainer>
                     )) : (
-                        <div>
-                            Data not found
+                        <div className='w-full h-50 flex flex-col justify-center items-center'>
+                            <Heading content='Oops! No Address Found' />
+                            <Paragraph content="We couldn't find any address. create new address and try again." />
                         </div>
                     )}
                 </div>
                 {
-                    isError && <ErrorMessage message={error?.message || "Can't find your address. please create new address"} />
+                    isError && (
+                        <div className='w-full h-50 flex flex-col justify-center items-center'>
+                            <Heading content='Oops! No Address Found' />
+                            <Paragraph content="We couldn't find any address. create new address and try again." />
+                        </div>
+                    )
                 }
                 {
-                    deleteError && <ErrorMessage message={deleteErr?.message || "Can't find your address. please create new address"} />
+                    deleteError && (
+                        <div className='w-full h-50 flex flex-col justify-center items-center'>
+                            <Heading content='Oops! No Address Found' />
+                            <Paragraph content="We couldn't find any address. create new address and try again." />
+                        </div>
+                    )
                 }
                 {toggle && <AddressFormTab state={toggle} setState={setToggle} addressId={addressId} refetch={refetch} />}
             </div>

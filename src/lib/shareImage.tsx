@@ -17,22 +17,6 @@ const ShareImage = () => {
     link.click();
   };
 
-  const handleWhatsAppShare = async () => {
-    if (ref.current === null) return;
-
-    const dataUrl = await toJpeg(ref.current, { quality: 0.95 });
-
-    const res = await fetch(dataUrl);
-    const blob = await res.blob();
-    const file = new File([blob], "design.jpg", { type: "image/jpeg" });
-
-    const text = encodeURIComponent(
-      "Check out my design from https://jananayagan.vercel.app/"
-    );
-    const whatsappLink = `https://wa.me/?text=${text}`
-    window.open(whatsappLink, "_blank");
-  };
-
   return (
     <div>
       <div
@@ -69,7 +53,6 @@ const ShareImage = () => {
           Download Design as Image
         </button>
         <button
-          onClick={handleWhatsAppShare}
           className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
         >
           Share Website Link to WhatsApp

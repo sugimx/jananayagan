@@ -15,7 +15,6 @@ import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import districts from '@/lib/place'
-import { QueryClient } from '@tanstack/react-query'
 
 type BuyerProfile = {
     _id: string
@@ -44,7 +43,6 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
     const [ buyerId, setBuyerId ] = React.useState<string>("")
     const router = useRouter()
     const { token } = useAuthContext()
-    const queryClient = new QueryClient()
     const { register, formState: { errors }, handleSubmit, watch, reset } = useForm<BuyerProfile>()
 
     const stateWatch = watch('state')
@@ -91,7 +89,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
         }, 1000)
 
         return () => clearInterval(intervel)
-    }, [isSuccess])
+    }, [isSuccess, refetch, setState])
 
     useEffect(() => {
         if (buyerIndex != null && data) {
@@ -105,7 +103,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                 dist: data?.buyerProfiles?.[buyerIndex]?.dist || '',
             })
         }
-    }, [data, buyerIndex])
+    }, [data, buyerIndex, reset])
 
     useEffect(() => {
         const intervel = setInterval(() => {
@@ -116,7 +114,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
         }, 1000)
 
         return () => clearInterval(intervel)
-    }, [ refetch, isUpdateSuccess ])
+    }, [ refetch, isUpdateSuccess, setState ])
     
     return (
         <>

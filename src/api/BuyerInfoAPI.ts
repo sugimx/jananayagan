@@ -25,7 +25,7 @@ async function registerData({ data, token }: { data: FormValue, token: string })
 }
 
 async function getData({ queryKey }: { queryKey: readonly [string, string | null] }) {
-    const [_key, token] = queryKey
+    const [, token] = queryKey 
 
     const res = await fetch('https://jananayagan-backend.vercel.app/api/profiles/all', {
         method: 'GET',

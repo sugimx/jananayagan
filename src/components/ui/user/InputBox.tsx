@@ -1,17 +1,17 @@
 import React from 'react'
-import { RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { FieldValues, RegisterOptions, UseFormRegister, Path } from 'react-hook-form'
 
-type props = {
+type props<T extends FieldValues> = {
     placeHolder?: string
     type?: string
-    register: UseFormRegister<any>
+    register: UseFormRegister<T>
     errorMsg?: string
-    validationOptions?: RegisterOptions
-    name: string
+    validationOptions?: RegisterOptions<T, Path<T>>
+    name: Path<T>
     defaultValue?: string | number
 }
 
-const InputBox = ({ placeHolder, type, register, validationOptions, name, errorMsg, defaultValue }: props) => {
+const InputBox = <T extends FieldValues>({ placeHolder, type, register, validationOptions, name, errorMsg, defaultValue }: props<T>) => {
     return (
         <input 
             type={type}
