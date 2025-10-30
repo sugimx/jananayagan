@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://jananayagan-backend.vercel.app/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 export interface LoginRequest {
   email: string;
@@ -23,6 +23,7 @@ export interface OrderItem {
   productName: string;
   quantity: number;
   price: number;
+  totalPrice?: number;
 }
 
 export interface CreateOrderRequest {
@@ -41,15 +42,46 @@ export interface Order {
   totalAmount: number;
   createdAt: string;
   updatedAt: string;
+  paymentRequest?: {
+    merchantTransactionId: string;
+    payload: {
+      merchantId: string;
+      merchantTransactionId: string;
+      merchantUserId: string;
+      amount: number;
+      redirectUrl: string;
+      redirectMode: string;
+      callbackUrl: string;
+      mobileNumber: string;
+      paymentInstrument: {
+        type: string;
+      };
+    };
+    checksum: string;
+    url: string;
+  };
 }
 
 export interface PhonePePaymentResponse {
   success: boolean;
   message: string;
   data: {
-    paymentUrl?: string;
-    transactionId?: string;
-    orderId?: string;
+    merchantTransactionId: string;
+    payload: {
+      merchantId: string;
+      merchantTransactionId: string;
+      merchantUserId: string;
+      amount: number;
+      redirectUrl: string;
+      redirectMode: string;
+      callbackUrl: string;
+      mobileNumber: string;
+      paymentInstrument: {
+        type: string;
+      };
+    };
+    checksum: string;
+    url: string;
   };
 }
 
@@ -61,6 +93,20 @@ export interface User {
   role: string;
   isProfileComplete: boolean;
   token: string;
+}
+
+export interface Address {
+  _id: string;
+  fullName: string;
+  phone: string;
+  addressLine1: string;
+  city: string;
+  state: string;
+  district: string;
+  postalCode: string;
+  country: string;
+  landmark: string;
+  isDefault: boolean;
 }
 
 export interface ApiResponse<T> {
@@ -89,17 +135,26 @@ class ApiService {
     try {
       const url = `${this.baseURL}${endpoint}`;
       const config: RequestInit = {
+        ...options,
         headers: {
           'Content-Type': 'application/json',
           ...options.headers,
         },
-        ...options,
       };
+
+      console.log('API Service - Making request to:', url);
+      console.log('API Service - Request config:', config);
+      console.log('API Service - Request body:', options.body);
+      console.log('API Service - Request body in config:', config.body);
 
       const response = await fetch(url, config);
       const data = await response.json();
 
+      console.log('API Service - Response status:', response.status);
+      console.log('API Service - Response data:', data);
+
       if (!response.ok) {
+        console.log('API Service - Request failed with status:', response.status);
         return {
           success: false,
           message: data.message || 'An error occurred',
@@ -109,6 +164,7 @@ class ApiService {
 
       return data;
     } catch (error) {
+      console.error('API Service - Network error:', error);
       return {
         success: false,
         message: 'Network error occurred',
@@ -194,14 +250,18 @@ class ApiService {
   async createOrder(
     orderData: CreateOrderRequest,
     token: string
-  ): Promise<ApiResponse<Order> | ApiError> {
-    return this.request<Order>('/orders', {
+  ): Promise<ApiResponse<any> | ApiError> {
+    const response = await this.request<any>('/orders', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(orderData),
     });
+    
+    console.log('=== API SERVICE - RESPONSE ===');
+    console.log('Order creation response:', JSON.stringify(response, null, 2));
+    return response;
   }
   
 
@@ -217,6 +277,14 @@ class ApiService {
     });
   }
 
+  async getAddresses(token: string): Promise<ApiResponse<Address[]> | ApiError> {
+    return this.request<Address[]>('/addresses', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 
 }
 
