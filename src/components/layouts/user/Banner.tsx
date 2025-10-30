@@ -25,9 +25,10 @@ const Banner = () => {
                                 height={500}
                                 className='w-[300px] h-[150px] md:w-[400px] md:h-[200px]'
                             />
-                            <p className='z-10 text-white text-center my-4 text-sm md:text-lg'>
+                            {/* <p className='z-10 text-white text-center my-4 text-sm md:text-lg'>
                                 One last frame, one lasting reign, the hero who ruled stories and hearts, now etched forever in victory and leadership. A timeless symbol of courage, passion, and purpose of his journey ends, but his legend echoes through generations
-                            </p>
+                            </p> */}
+                            <h1 className='text-[1rem] text-[#F5D57A] text-center font-semibold md:text-[2rem] md:text-start my-10'>INR 300</h1>
                             <LinkComponent link='/product' content="Buy Now" />
                         </div>
                     </div>

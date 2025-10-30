@@ -14,7 +14,7 @@ const TermsConditions = () => {
             <h2 className="text-2xl font-semibold text-black mb-4">1. Terms & Condition</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>
-                Welcome to <strong>SUGIMX Private Limited</strong> (“Company”, “we”, “our”, “us”). By accessing or using our website or making a purchase, you agree to be bound by the following terms and conditions (“Terms”).
+                Welcome to <strong>Jananayagan Cup</strong> (“Company”, “we”, “our”, “us”). By accessing or using our website or making a purchase, you agree to be bound by the following terms and conditions (“Terms”).
               </li>
               <li>
                 All products displayed on our Platform are subject to availability. Prices, specifications, and availability of products are subject to change without prior notice.

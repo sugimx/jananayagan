@@ -20,7 +20,7 @@ const ReturnPolicy = () => {
                 Returns are accepted only for defective or damaged products. Customers must inform us within 48 hours of receiving the order, with proof (unboxing video and photo).
             </p>
             <h2 className="text-2xl font-semibold text-white mt-4 underline mb-1">Refunds</h2>
-            <p>If a refund is approved after verification, it will be processed within 7–10 business days to the original payment source. Shipping charges are non-refundable.</p>
+            <p>If a refund is approved after verification, it will be processed within 3-5 business days to the original payment source. Shipping charges are non-refundable.</p>
             <h2 className="text-2xl font-semibold text-white mt-4 underline mb-1">Cancellations</h2>
             <p>Orders can be cancelled before shipment only. Once dispatched, orders cannot be cancelled. A 10% processing fee may apply for cancellations.</p>
           </section>

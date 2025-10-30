@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
         
         <div className="space-y-6 text-white leading-relaxed">
           <ul className="list-disc pl-6 space-y-2 mt-3">
-            <li><strong>SUGIMX Private Limited</strong> values your privacy. This Privacy Policy explains how we collect, use, and protect your personal information.</li>
+            <li><strong>Jananayagan Cup</strong> values your privacy. This Privacy Policy explains how we collect, use, and protect your personal information.</li>
             <li>We may collect information such as your name, email address, phone number, delivery address, and payment details to process your order and provide customer support.</li>
             <li>Your data is used only for legitimate business purposes — such as billing, shipping, technical support, marketing updates (with your consent), and compliance with Indian law.</li>
             <li>We do not sell or rent your personal data to any third party. However, information may be shared with delivery partners, payment gateways, or legal authorities when required.</li>

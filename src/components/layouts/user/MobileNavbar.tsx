@@ -20,6 +20,9 @@ const MobileNavbar = ({ toggle, currentPath }: Props) => {
                     <li className='py-2'>
                         <Link href="/product" className={currentPath === '/product' ? 'text-yellow-500' : ''}>Product</Link>
                     </li>
+                    <li className='py-2'>
+                        <Link href="/contact" className={currentPath === '/product' ? 'text-yellow-500' : ''}>Contact Us</Link>
+                    </li>
                 </ul>
             </div>
         </>
