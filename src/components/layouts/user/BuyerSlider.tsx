@@ -18,6 +18,7 @@ import { useAuthContext } from '@/contexts/AuthContext'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { useRouter } from 'next/navigation'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
+import LinkComponent from '@/components/ui/user/LinkComponent'
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -178,7 +179,7 @@ const BuyerSlider = () => {
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
                 {processDisableBtn ?
-                    <button className='bg-[#F5D57A] text-black text-center py-2 w-40 text-sm md:text-md font-semibold rounded-md cursor-pointer' onClick={handleProceedPayment}>Proceed to Buy</button>
+                    <LinkComponent link="/payment" content='Proceed Payment' />
                     :
                     <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>
                 }

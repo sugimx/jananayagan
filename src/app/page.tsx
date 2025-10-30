@@ -1,10 +1,10 @@
-import LoginForm from '@/components/layouts/user/LoginForm'
+import HomeScreen from '@/screens/HomeScreen'
 import React from 'react'
 
-const Login = () => {
+const Home = () => {
   return (
-    <LoginForm />
+    <HomeScreen />
   )
 }
 
-export default Login
+export default Home
