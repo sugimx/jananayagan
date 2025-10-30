@@ -244,8 +244,8 @@ class ApiService {
   async createOrder(
     orderData: CreateOrderRequest,
     token: string
-  ): Promise<ApiResponse<any> | ApiError> {
-    const response = await this.request<any>('/orders', {
+  ): Promise<ApiResponse<Order> | ApiError> {
+    const response = await this.request<Order>('/orders', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -260,8 +260,8 @@ class ApiService {
   async createPhonePePayment(
     orderId: string,
     token: string
-  ): Promise<ApiResponse<PhonePePaymentResponse> | ApiError> {
-    return this.request<PhonePePaymentResponse>(`/orders/${orderId}/payment/phonepe`, {
+  ): Promise<ApiResponse<{ redirectUrl?: string }> | ApiError> {
+    return this.request<{ redirectUrl?: string }>(`/orders/${orderId}/payment/phonepe`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,

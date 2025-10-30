@@ -53,9 +53,8 @@ const Paragraph = ({ content }: { content: string }) => {
 }
 
 const AddressForm = () => {
-    const { token, user } = useAuth();
-    const router = useRouter();
-    
+    const { token } = useAuth();
+  
     const { data: addressesData, isLoading, error } = useQuery({
         queryKey: ['addresses', token],
         queryFn: GetAddressFn,
@@ -91,7 +90,6 @@ const AddressForm = () => {
 
 const OrderSummary = ({ address }: { address: Address }) => {
     const { user, token } = useAuth();
-    const router = useRouter();
     const [isProcessing, setIsProcessing] = useState(false);
 
     
@@ -106,14 +104,27 @@ const OrderSummary = ({ address }: { address: Address }) => {
         onSuccess: async (response) => {
             console.log('onSuccess triggered with response:', response);
             if (response.success && response.data) {
-                
-                const responseData = response.data as any;
+                const responseData = response.data; // typed as Order
                 const paymentRequest = responseData.paymentRequest;
-                const orderId = responseData.order?._id || responseData._id;
+                const orderId = responseData._id;
                 
                 if (paymentRequest) {
-                   
-                    const paymentData = paymentRequest;
+                    // Try to extract a usable redirectUrl from paymentRequest shape
+                    const paymentData = (() => {
+                        const maybe: unknown = paymentRequest;
+                        if (
+                            maybe &&
+                            typeof maybe === 'object'
+                        ) {
+                            const obj = maybe as Record<string, unknown>;
+                            const direct = typeof obj.redirectUrl === 'string' ? (obj.redirectUrl as string) : undefined;
+                            const url = typeof obj.url === 'string' ? (obj.url as string) : undefined;
+                            const payload = obj.payload as Record<string, unknown> | undefined;
+                            const payloadRedirect = payload && typeof payload.redirectUrl === 'string' ? (payload.redirectUrl as string) : undefined;
+                            return { redirectUrl: direct || payloadRedirect || url };
+                        }
+                        return { redirectUrl: undefined };
+                    })();
                     
                     try {
                         console.log('Redirecting to PhonePe with URL:', paymentData.redirectUrl);
@@ -137,8 +148,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
                         
                         if (paymentResponse.success && paymentResponse.data) {
-                          
-                            const paymentData = paymentResponse.data as any;
+                            const paymentData = paymentResponse.data; // { redirectUrl?: string }
                             
                             try {
                                 console.log('Redirecting to PhonePe with URL:', paymentData.redirectUrl);

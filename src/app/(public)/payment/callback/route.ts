@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+interface PhonePeDecoded {
+  responseCode?: string;
+  merchantTransactionId?: string;
+  transactionId?: string;
+}
 
 export async function GET(req: NextRequest) {
   const baseOrigin = req.nextUrl?.origin || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
@@ -16,7 +21,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.redirect(new URL('/payment/fail?reason=missing_response', baseOrigin), 303);
     }
 
-    let decoded: any = null;
+    let decoded: PhonePeDecoded | null = null;
     try {
       decoded = JSON.parse(Buffer.from(base64Response, 'base64').toString());
       console.log('Decoded response:', decoded);
@@ -100,7 +105,7 @@ export async function POST(req: NextRequest) {
     }
 
    
-    let decoded: any = null;
+    let decoded: PhonePeDecoded | null = null;
     try {
       decoded = JSON.parse(Buffer.from(base64Response, 'base64').toString());
       console.log('Decoded response:', decoded);

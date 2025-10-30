@@ -16,14 +16,13 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { deleteBuyerInfo, getData } from '@/api/BuyerInfoAPI'
 import { useAuthContext } from '@/contexts/AuthContext'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
-import { useRouter } from 'next/navigation'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import LinkComponent from '@/components/ui/user/LinkComponent'
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
     const [ editState, setEditState ] = React.useState(false)
-    const router = useRouter()
+
     const [ processDisableBtn, setProcessDisableBtn ] = React.useState<boolean>(false)
     const [ buyerIndex, setBuyerIndex ] = React.useState<number>(-1)
     const { token } = useAuthContext()
@@ -63,9 +62,7 @@ const BuyerSlider = () => {
         } 
     }, [ data, isSuccess])
 
-    function handleProceedPayment() {
-        router.push('/address')
-    }
+
 
     const handleDeleteFn = (buyerId: string) => {
         if(buyerId && token) {
