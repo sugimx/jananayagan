@@ -177,11 +177,7 @@ const BuyerSlider = () => {
             {deleteIsError && <ErrorMessage message={deleteError?.message || 'Failed to delete Buyer Information'} />}
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
-                {processDisableBtn ?
-                    <button className='bg-[#F5D57A] text-black text-center py-2 w-40 text-sm md:text-md font-semibold rounded-md cursor-pointer' onClick={handleProceedPayment}>Proceed to Buy</button>
-                    :
-                    <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>
-                }
+                <LinkComponent link="/address" content='Proceed Payment' />
             </div>
             {toggle && <AddMoreForm onHandleToggle={handleToggle} setState={setToggle} data={data} buyerIndex={buyerIndex} editState={editState} refetch={refetch} />}
         </div>
