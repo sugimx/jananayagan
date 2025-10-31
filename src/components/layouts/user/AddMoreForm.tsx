@@ -24,6 +24,7 @@ type BuyerProfile = {
     dateOfBirth: string
     state: string
     dist: string
+    profileType?: string
 }
 
 type FormValue = {
@@ -98,9 +99,10 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                 name: data?.buyerProfiles?.[buyerIndex]?.name || '',
                 gmail: data?.buyerProfiles?.[buyerIndex]?.gmail || '',
                 phone: data?.buyerProfiles?.[buyerIndex]?.phone || 0,
-                dateOfBirth: data?.buyerProfiles?.[buyerIndex]?.dateOfBirth || '',
+                dateOfBirth: data?.buyerProfiles?.[buyerIndex]?.dateOfBirth.slice(0, 10) || '',
                 state: data?.buyerProfiles?.[buyerIndex]?.state || '',
                 dist: data?.buyerProfiles?.[buyerIndex]?.dist || '',
+                profileType: data?.buyerProfiles?.[buyerIndex].profileType || '',
             })
         }
     }, [data, buyerIndex, reset])

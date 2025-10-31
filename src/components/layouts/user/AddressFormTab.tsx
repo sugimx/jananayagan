@@ -116,14 +116,14 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
             router.push('/login')
             return
         }
-        
+
         if(addressId) {
             updateMutate({ data: data, token, addressId })
         } else {
             mutate({ data: data, token })
         }
     }
-    
+
     React.useEffect(() => {
         if(getSuccess && addressId) {
             reset({
@@ -177,7 +177,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
     }
 
     return (
-        <div className='text-white absolute top-[-100px] md:top-[-280px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
+        <div className='text-white absolute top-[-100px] md:top-[-200px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
             <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black'>
                 <div className='bg-[#F5D57A] h-[80%] rounded-4xl px-4 py-4'>
                     <div className='flex justify-end text-black'>
@@ -283,8 +283,8 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                             <Paragraph content='Save to address book' className='text-[#F5D57A]' />
                         </div> */}
                     </div>
-                    <button className='bg-black w-full py-1 text-[#F5D57A] my-3 rounded-full cursor-pointer md:py-2' onClick={handleSubmit(handleFormSubmit)}>
-                        {isPending || updatePending ? <span className='loader'></span> : 'save'}
+                    <button disabled={isPending || updatePending} className='bg-black w-full py-1 text-[#F5D57A] my-3 rounded-full cursor-pointer md:py-2 flex justify-center items-center gap-2' onClick={handleSubmit(handleFormSubmit)}>
+                        {isPending || updatePending ? <span className='button-loader'></span> : 'save'} 
                     </button>
                     {isSuccess && <SuccessMessage message="Address Information created successfully" />}
                     {isError && <ErrorMessage message={error?.message} />}

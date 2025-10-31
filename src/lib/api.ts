@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://jananayagan-backend.vercel.app/api';
+const API_BASE_URL = 'https://jananayagan-backend-3moy.vercel.app/api';
 
 export interface LoginRequest {
   email: string;

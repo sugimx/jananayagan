@@ -18,6 +18,8 @@ import { useAuthContext } from '@/contexts/AuthContext'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import SuccessMessage from '@/components/ui/user/SuccessMessage'
 import LinkComponent from '@/components/ui/user/LinkComponent'
+import Heading from '@/components/ui/user/Heading'
+import Paragraph from '@/components/ui/user/Paragraph'
 
 const BuyerSlider = () => {
     const [ toggle, setToggle ] = React.useState(false)
@@ -32,7 +34,7 @@ const BuyerSlider = () => {
         queryFn: getData,
         enabled: !!token,
     })
-
+    
     const {
         mutate: deleteMutateInfo,
         isSuccess: deleteSuccess,
@@ -56,10 +58,15 @@ const BuyerSlider = () => {
     }
 
     React.useEffect(() => {
-        const datas = data?.buyerProfiles?.[0]
-        if(isSuccess && datas?.name || datas?.gmail || datas?.dateOfBirth || datas?.dist || datas?.state === null || undefined) {
-            setProcessDisableBtn(true)
-        } 
+        const datas = data?.buyerProfiles?.[0];
+
+        if (isSuccess && datas) {
+            const { name, gmail, dateOfBirth, dist, state } = datas;
+
+            const isMissing = name === '' || gmail === '' || dateOfBirth === '' || dist === '' || state === '' || data?.buyerProfiles.length === 0
+
+            setProcessDisableBtn(isMissing)
+        }
     }, [ data, isSuccess])
 
 
@@ -111,7 +118,6 @@ const BuyerSlider = () => {
                 }}
             >
                 {isPending && <div className='w-full bg-black h-[40vh] flex justify-center items-center'><span className='content-loader'></span></div>}
-                {isError && <ErrorMessage message='Buyers not found' />}
                 {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
                     <SwiperSlide key={index}>
                         <div className='border-1 border-[#F5D57A] rounded-xl relative'>
@@ -171,14 +177,31 @@ const BuyerSlider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            {
+                data?.buyerProfiles.length === 0 && (
+                    <div className='w-full h-50 flex flex-col justify-center items-center'>
+                        <Heading content='Oops! No Buyers Found' />
+                        <Paragraph content="We couldn't find any Buyers. create new Buyers and try again." />
+                    </div>
+                )
+            }
+            {
+                isError && (
+                    <div className='w-full h-50 flex flex-col justify-center items-center'>
+                        <Heading content='Oops! No Buyers Found' />
+                        <Paragraph content="We couldn't find any Buyers. create new Buyers and try again." />
+                    </div>
+                )
+            }
             {deleteSuccess && <SuccessMessage message='Buyer Information Deleted Successfully' />}
             {deleteIsError && <ErrorMessage message={deleteError?.message || 'Failed to delete Buyer Information'} />}
             <div className='w-full h-20 flex justify-center items-center gap-3'>
                 <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5D57A] py-2 cursor-pointer' onClick={handleToggle}>Add More Cup</button>
-                {processDisableBtn ?
-                    <LinkComponent link="/payment" content='Proceed Payment' />
+                {processDisableBtn 
+                    ?
+                        <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>
                     :
-                    <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>
+                        <LinkComponent link="/payment" content='Proceed Payment' />
                 }
             </div>
             {toggle && <AddMoreForm onHandleToggle={handleToggle} setState={setToggle} data={data} buyerIndex={buyerIndex} editState={editState} refetch={refetch} />}

@@ -91,6 +91,7 @@ const AddressForm = () => {
 const OrderSummary = ({ address }: { address: Address }) => {
     const { user, token } = useAuth();
     const [isProcessing, setIsProcessing] = useState(false);
+    const router = useRouter()
 
     
     const createOrderMutation = useMutation({
@@ -212,7 +213,11 @@ const OrderSummary = ({ address }: { address: Address }) => {
             paymentMethod: 'phonepe'
         };
         createOrderMutation.mutate(orderData);
-    };
+    }
+
+    const handleAddress = () => {
+        router.push('/change-address')
+    }
     
     return (
         <>
@@ -256,6 +261,12 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                     </DetailsContainer>
                                 )}
                             </div>
+                            <button 
+                                className='outline-none border-1 border-[#F5D57A] text-[#F5D57A] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
+                                onClick={handleAddress}
+                            >
+                                Change Address
+                            </button>
                         </div>
                     </div>
                     <div className='flex-1'>

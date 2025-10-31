@@ -7,7 +7,7 @@ interface PhonePeDecoded {
 }
 
 export async function GET(req: NextRequest) {
-  const baseOrigin = req.nextUrl?.origin || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseOrigin = req.nextUrl?.origin || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:5000';
   try {
     // Handle GET request from PhonePe redirect
     const searchParams = req.nextUrl.searchParams;
@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const baseOrigin = req.nextUrl?.origin || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseOrigin = req.nextUrl?.origin || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:5000';
   try {
 
     

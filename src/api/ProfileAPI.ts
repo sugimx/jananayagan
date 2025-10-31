@@ -13,7 +13,7 @@ const getProfile = async (token: string) => {
             throw new Error('User cannot found')
         }
 
-        const res = await fetch(`https://jananayagan-backend.vercel.app/api/users/profile`, {
+        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/users/profile`, {
             method: 'GET',
             headers: {
                 'Content-Type': "application/json",
@@ -43,7 +43,7 @@ const updateProfile = async ({ data, token }: { data: ProfileType, token: string
             throw new Error('User cannot found')
         } 
 
-        const res = await fetch(`https://jananayagan-backend.vercel.app/api/users/profile`, {
+        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/users/profile`, {
             method: 'PUT',
             headers: {
                 'Content-Type': "application/json",
