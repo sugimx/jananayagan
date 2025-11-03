@@ -83,6 +83,8 @@ const BuyerSlider = () => {
         }
     }, [ deleteSuccess, refetch ])
 
+    console.log(data?.buyerProfiles.length)
+
     return (
         <div className='w-full overflow-hidden main-content blurred'>
             <Swiper

@@ -10,7 +10,7 @@ type FormValue = {
 }
 
 async function registerData({ data, token }: { data: FormValue, token: string }) {
-    const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/profiles/buyer`, {
+    const res = await fetch(`${process.env.API_BASE_URL}/profiles/buyer`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ async function registerData({ data, token }: { data: FormValue, token: string })
 async function getData({ queryKey }: { queryKey: readonly [string, string | null] }) {
     const [, token] = queryKey 
 
-    const res = await fetch('https://jananayagan-backend-3moy.vercel.app/api/profiles/all', {
+    const res = await fetch(`${process.env.API_BASE_URL}/profiles/all`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const updateBuyerInfo = async({ data, token, buyerId }: { data: FormValue, token
             throw new Error('User Not found')
         }
 
-        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/profiles/buyer/${buyerId}`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/profiles/buyer/${buyerId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const deleteBuyerInfo = async ({ token, buyerId }: { token: string, buyerId: str
             throw new Error('User Not found')
         }
 
-        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/profiles/buyer/${buyerId}`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/profiles/buyer/${buyerId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

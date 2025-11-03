@@ -1,19 +1,16 @@
-type ProfileType = {
-    fullName: string
-    phone: string
-    gmail: string
-    state: string
-    dob: string
-    dist: string
-}
+// /api/orders/summary
+// /api/orders/:status/summary
 
-const getProfile = async (token: string) => {
+const AllOrders = async (token: string) => {
     try {
         if(!token) {
-            throw new Error('User cannot found')
+            return {
+                success: false,
+                message: 'Cannot find the user'
+            }
         }
 
-        const res = await fetch(`${process.env.API_BASE_URL}/users/profile`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/orders/summary`, {
             method: 'GET',
             headers: {
                 'Content-Type': "application/json",
@@ -23,11 +20,12 @@ const getProfile = async (token: string) => {
 
         if (!res.ok) {
             const errorBody = await res.json()
-            throw new Error(errorBody.message || 'Profile does not exists.')
+            throw new Error(errorBody.message || 'Orders does not exists.')
         }  
 
-        return res.json()
-        
+        const data = await res.json()
+
+        return data
     } catch (error) {
         if(error instanceof Error) {
             throw new Error(error.message)
@@ -37,33 +35,38 @@ const getProfile = async (token: string) => {
     }
 }
 
-const updateProfile = async ({ data, token }: { data: ProfileType, token: string }) => {
+const getSingleOrder = async ({ token, orderId }: {token: string, orderId: string}) => {
     try {
         if(!token) {
-            throw new Error('User cannot found')
-        } 
+            return {
+                success: false,
+                message: 'Cannot find the user'
+            }
+        }
 
-        const res = await fetch(`${process.env.API_BASE_URL}/users/profile`, {
-            method: 'PUT',
+        const res = await fetch(`${process.env.API_BASE_URL}/orders/invoice/${orderId}`, {
+            method: 'GET',
             headers: {
                 'Content-Type': "application/json",
                 'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(data)
+            }
         })
 
         if (!res.ok) {
             const errorBody = await res.json()
-            throw new Error(errorBody.message || 'Profile update failed.')
-        }
+            throw new Error(errorBody.message || 'Orders does not exists.')
+        }  
 
-        return res.json()
+        const data = await res.json()
+
+        return data
     } catch (error) {
         if(error instanceof Error) {
             throw new Error(error.message)
         } else {
             throw new Error('There is issue in the server. please try again later')
-        }   
+        }
     }
 }
-export { getProfile, updateProfile }
+
+export { AllOrders, getSingleOrder }

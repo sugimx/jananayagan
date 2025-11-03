@@ -12,7 +12,7 @@ type AddressTypeData = {
 
 async function registerFuntion({ data, token }: { data: AddressTypeData, token: string }) {
     try {
-        const res = await fetch("https://jananayagan-backend-3moy.vercel.app/api/addresses", {
+        const res = await fetch(`${process.env.API_BASE_URL}/addresses`, {
             method: 'POST',
             headers: {
                 'Content-Type': "application/json",
@@ -38,7 +38,7 @@ async function GetAddressFn({ queryKey }: { queryKey: readonly [string, string |
     try {
         const [ , token] = queryKey
 
-        const res = await fetch("https://jananayagan-backend-3moy.vercel.app/api/addresses", {
+        const res = await fetch(`${process.env.API_BASE_URL}/addresses`, {
             method: 'GET',
             headers: {
                 'Content-Type': "application/json",
@@ -70,7 +70,7 @@ const GetSingleAddress = async (token: string, addressId: string) => {
                 message: 'Cannot find the user'
             }
         }
-        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/addresses/${addressId}`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/addresses/${addressId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': "application/json",
@@ -101,7 +101,7 @@ const UpdateAddress = async ({ data, token, addressId }: { data: AddressTypeData
             }
         }
 
-        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/addresses/${addressId}`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/addresses/${addressId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': "application/json",
@@ -135,7 +135,7 @@ const deleteAddress = async ({ token, addressId }: { token: string, addressId: s
             }
         }
 
-        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/addresses/${addressId}`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/addresses/${addressId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': "application/json",
@@ -152,7 +152,6 @@ const deleteAddress = async ({ token, addressId }: { token: string, addressId: s
 
         return data
     } catch (error) {
-        console.log('error', error)
         if(error instanceof Error) {
             throw new Error(error.message)
         } else {

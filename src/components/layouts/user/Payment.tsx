@@ -15,6 +15,7 @@ import { GetAddressFn } from '@/api/AddressInfo'
 import { useAuth } from '@/hooks/useAuth'
 import { useRouter } from 'next/navigation'
 import { apiService, CreateOrderRequest } from '@/lib/api'
+import { getData } from '@/api/BuyerInfoAPI'
 
 interface Address {
   _id: string;
@@ -90,27 +91,28 @@ const AddressForm = () => {
 
 const OrderSummary = ({ address }: { address: Address }) => {
     const { user, token } = useAuth();
-    const [isProcessing, setIsProcessing] = useState(false);
+    const [ isProcessing, setIsProcessing ] = useState(false)
     const router = useRouter()
 
+    const { isSuccess, data } = useQuery({
+        queryKey: ['buyerInfo', token],
+        queryFn: getData,
+        enabled: !!token,
+    })
     
     const createOrderMutation = useMutation({
         mutationFn: async (orderData: CreateOrderRequest) => {
             if (!token) throw new Error('No authentication token');
-            console.log('Creating order with data:', orderData);
             const result = await apiService.createOrder(orderData, token);
-            console.log('Order creation response:', result);
             return result;
         },
         onSuccess: async (response) => {
-            console.log('onSuccess triggered with response:', response);
             if (response.success && response.data) {
-                const responseData = response.data; // typed as Order
+                const responseData = response.data; 
                 const paymentRequest = responseData.paymentRequest;
                 const orderId = responseData._id;
                 
                 if (paymentRequest) {
-                    // Try to extract a usable redirectUrl from paymentRequest shape
                     const paymentData = (() => {
                         const maybe: unknown = paymentRequest;
                         if (
@@ -128,19 +130,13 @@ const OrderSummary = ({ address }: { address: Address }) => {
                     })();
                     
                     try {
-                        console.log('Redirecting to PhonePe with URL:', paymentData.redirectUrl);
-                        console.log('Payment data:', paymentData);
-                        
-                       
                         if (paymentData.redirectUrl) {
                             window.location.href = paymentData.redirectUrl;
                         } else {
-                            console.error('No redirect URL provided by backend');
                             alert('Payment initialization failed. Please try again.');
                         }
                         
                     } catch (error) {
-                        console.error('Error redirecting to PhonePe:', error);
                         alert('Error initializing payment. Please try again.');
                     }
                 } else if (orderId) {
@@ -149,42 +145,30 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
                         
                         if (paymentResponse.success && paymentResponse.data) {
-                            const paymentData = paymentResponse.data; // { redirectUrl?: string }
+                            const paymentData = paymentResponse.data
                             
                             try {
-                                console.log('Redirecting to PhonePe with URL:', paymentData.redirectUrl);
-                                console.log('Payment data:', paymentData);
-                                
-                                
                                 if (paymentData.redirectUrl) {
                                     window.location.href = paymentData.redirectUrl;
                                 } else {
-                                    console.error('No redirect URL provided by backend');
                                     alert('Payment initialization failed. Please try again.');
                                 }
                                 
                             } catch (error) {
-                                console.error('Error redirecting to PhonePe:', error);
                                 alert('Error initializing payment. Please try again.');
                             }
                         } else {
-                            console.error('Payment request failed:', paymentResponse.message);
                             alert('Payment request failed. Please try again.');
                         }
                     } catch (error) {
-                        console.error('Error creating payment request:', error);
                         alert('Error creating payment request. Please try again.');
                     }
                 }
             } else {
-                console.error('Order creation failed:', response);
-                console.error('Response message:', response.message);
                 alert(`Order creation failed: ${response.message || 'Unknown error'}. Please try again.`);
             }
         },
         onError: (error) => {
-            console.error('Error creating order:', error);
-            console.error('Error details:', JSON.stringify(error, null, 2));
             alert(`Error creating order: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`);
         },
         onSettled: () => {
@@ -194,19 +178,19 @@ const OrderSummary = ({ address }: { address: Address }) => {
 
     const handlePayment = async () => {
         if (!token || !user) {
-            alert('Please login to continue');
+            alert('Please login to continue')
             return;
         }
-        setIsProcessing(true);
+        setIsProcessing(true)
         
         const orderData: CreateOrderRequest = {
             items: [
                 {
                     productId: '65a1b2c3d4e5f6789abcdef2',
                     productName: 'Jana Nayagan Personalized Mug',
-                    quantity: 1,
+                    quantity: isSuccess ? data?.buyerProfiles.length : 1,
                     price: 299,
-                    totalPrice: 299
+                    totalPrice: isSuccess ? 299 * data?.buyerProfiles.length : 299
                 }
             ],
             shippingAddressId: address._id,
@@ -291,10 +275,9 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 <span className='font-light text-md md:text-lg'>Total</span>
                                 <div className='flex items-center font-semibold'>
                                     <span><AddressIcons Icon={FaIndianRupeeSign} /></span>
-                                    <span className='font-light text-md md:text-lg'>299</span>
+                                    <span className='font-light text-md md:text-lg'>{isSuccess ? 299 * data?.buyerProfiles.length : 299}</span>
                                 </div>
                             </div>
-                            <p className='text-sm my-2'>Estimated shipping time: 2 days</p>
                         </div>
                         <button 
                             onClick={handlePayment}
@@ -329,7 +312,7 @@ const AddressFormComponent = () => {
                 <p className='text-lg mb-6'>Please add an address to proceed with your order.</p>
                 <button 
                     onClick={handleAddAddress}
-                    className='bg-[#F5D57A] text-black px-6 py-3 text-lg font-semibold rounded-md hover:bg-[#E6C86A] transition-colors'
+                    className='bg-[#F5D57A] text-black px-6 py-3 text-lg font-semibold rounded-md hover:bg-[#E6C86A] transition-colors cursor-pointer'
                 >
                     Add Address
                 </button>

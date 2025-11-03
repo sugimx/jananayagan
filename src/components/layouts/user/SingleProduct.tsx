@@ -33,7 +33,7 @@ const SingleProduct = () => {
                                     <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Sustainable</p>
                                 </div>
                                 <div className='flex flex-col gap-2 items-center'>
-                                    <FaTruck className='border-1 border-[#F5D57A] px-3 py-3 rounded-full md:w-[60px] md:h-[60px] md:py-4 md:px-4 text-[#F5D57A]'
+                                    <FaTruck className='border-1 border-[#F5D57A] px-3 py-3 text-[40px] md:text-[60px] rounded-full  text-[#F5D57A]'
                                     />
                                     <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Free Shipping</p>
                                 </div>

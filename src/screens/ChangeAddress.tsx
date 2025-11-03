@@ -98,6 +98,10 @@ const ChangeAddress = () => {
         setAddressId("")
     }
 
+    const handleChangeAddress = (_id: string, index: number) => {
+        setIsActive(index)
+    }
+
     return (
         <>
             <Container>
@@ -118,7 +122,7 @@ const ChangeAddress = () => {
                     </div>
                     <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap'>
                         {data?.data.length !== 0 ? data?.data?.map((item: FormData, index: number) => (
-                            <MainContainer key={index} isActive={isActive === index} onActivate={() => setIsActive(index)}>
+                            <MainContainer key={index} isActive={isActive === index} onActivate={() => handleChangeAddress(item?._id, index)}>
                                 <Section>
                                     <AddressParagraph content={`${item.addressLine1}, ${item.city}, ${item.state}, ${item.postalCode}`} />
                                     <CustomerDetails content={`${item.fullName} • ${item.phone}`} />

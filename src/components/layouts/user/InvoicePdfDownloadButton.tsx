@@ -1,6 +1,9 @@
 "use client";
 
+import { getSingleOrder } from "@/api/OrderAPI";
+import { useAuth } from "@/hooks/useAuth";
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer"
+import { useQuery } from "@tanstack/react-query";
 
 const styles = StyleSheet.create({
   page: {
@@ -10,36 +13,95 @@ const styles = StyleSheet.create({
   }
 })
 
-const InvoicePDF = () => (
+type AddressProps = {
+  addressLine1: string
+  city: string
+  country: string
+  landmark: string
+  name: string
+  phone: string
+  postalCode: string
+  state: string
+}
+
+type FromProps = {
+  addressLine1: string 
+  city: string
+  country: string 
+  email: string
+  gstin: string 
+  name: string 
+  phone: string 
+  postalCode: string 
+  state: string 
+}
+
+type TotalsProps = {
+  amountDue: number
+  currency:  string
+  discount: number
+  shipping: number
+  subtotal: number
+  total: number
+}
+
+type Items = {
+  amount: number
+  description: string
+  price: number
+  quantity: number
+}
+
+type InvoiceProps = {
+  billedTo: AddressProps
+  invoiceId: string
+  invoiceDate: string
+  from: FromProps
+  totals: TotalsProps
+  items: Items
+}
+
+const months: string[] = [
+  "January", "February", "March", "April",
+  "May", "June", "July", "August",
+  "September", "October", "November", "December"
+]
+
+const InvoicePDF = ({ data }: {data: InvoiceProps}) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View>
         <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 3 }}>Invoice</Text>
-        <Text style={{ fontSize: 12, marginTop: 18, marginBottom: 18 }}>#27346733-022</Text>
+        <Text style={{ fontSize: 12, marginTop: 18, marginBottom: 18 }}>#{data?.invoiceId}</Text>
       </View>
       <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 3 }}>
         <Text style={{ fontSize: 14, marginRight: 15, marginBottom: 6 }}>Invoice Date</Text>
-        <Text style={{ fontSize: 14, fontWeight: 'bold', marginBottom: 6 }}>6 March, 2023</Text>
+        <Text style={{ fontSize: 14, fontWeight: 'bold', marginBottom: 6 }}>{new Date(data?.invoiceDate).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        })}
+      </Text>
       </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center',  marginBottom: 3 }}>
+      {/* <View style={{ flexDirection: 'row', alignItems: 'center',  marginBottom: 3 }}>
         <Text style={{ fontSize: 14, marginRight: 15, marginBottom: 6 }}>Invoice Date</Text>
         <Text style={{ fontSize: 14, fontWeight: 'bold', marginBottom: 6 }}>6 March, 2023</Text>
-      </View>
+      </View> */}
       <View style={{ width: '100%', height: 1, backgroundColor: '#4f4f4e', marginTop: 8, marginBottom: 30 }}></View>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ fontSize: 14, marginRight: 40 }}>
           <Text style={{ marginBottom: 12 }}>Billed To</Text>
-          <Text style={{ marginBottom: 8 }}>Din Djarin</Text>
-          <Text style={{ marginBottom: 8 }}>9029 Salt Lake, Mandalor</Text>
+          <Text style={{ marginBottom: 8 }}>{data?.billedTo?.name}</Text>
+          <Text style={{ marginBottom: 8 }}>{data?.billedTo?.addressLine1} {data?.billedTo?.landmark}, {data?.billedTo?.city}</Text>
           <Text style={{ marginBottom: 8 }}>dindjarin@gmail.com</Text>
-          <Text style={{ marginBottom: 8 }}>(+254) 724-453-233</Text>
+          <Text style={{ marginBottom: 8 }}>{data?.billedTo?.phone}</Text>
         </View>
         <View style={{ fontSize: 12, marginRight: 10 }}>
           <Text style={{ marginBottom: 12  }}>From</Text>
-          <Text style={{ marginBottom: 8 }}>Jana Nayagan Mug Seller</Text>
-          <Text style={{ marginBottom: 8 }}>9029 Arcane, Jupiter 2</Text>
-          <Text style={{ marginBottom: 8 }}>www.jananayagan.com</Text>
-          <Text style={{ marginBottom: 8 }}>(+254) 243-124-392</Text>
+          <Text style={{ marginBottom: 8 }}>{data?.from?.name} Seller</Text>
+          <Text style={{ marginBottom: 8 }}>{data?.from?.addressLine1} {data?.from?.state}, {data?.from?.country}</Text>
+          <Text style={{ marginBottom: 8 }}>www.jananayagancup.com</Text>
+          <Text style={{ marginBottom: 8 }}>{data?.from?.phone}</Text>
         </View>
       </View>
       <View style={{ marginTop: 40, marginBottom: 8 }}>
@@ -55,9 +117,9 @@ const InvoicePDF = () => (
           <View style={{ width: '100%', height: 1, backgroundColor: '#4f4f4e', marginTop: 8, marginBottom: 8  }}></View>
           <View style={{ flexDirection: 'row', fontSize: 12, justifyContent: 'space-between' }}>
               <Text style={{ marginRight: 10, width: '30%', fontSize: 12  }}>Official Jana Nayagan Cup Limited Edition</Text>
-              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>5</Text>
-              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>400</Text>
-              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>2,000</Text>
+              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>{data?.items?.quantity}</Text>
+              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>{data?.items?.price}</Text>
+              <Text style={{ marginRight: 10, width: '20%', textAlign: 'center', fontSize: 12 }}>{data?.totals?.total}</Text>
           </View>
           <View style={{ width: '100%', height: 1, backgroundColor: '#4f4f4e', marginTop: 8, marginBottom: 8 }}></View>
       </View>
@@ -70,11 +132,11 @@ const InvoicePDF = () => (
             <Text style={{ marginRight: 45, marginBottom: 15 }}>Amout Due</Text>
           </View>
           <View>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>200</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>2,000</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>{data?.items?.price}</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>{data?.totals?.total}</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>0</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>{data?.totals?.total}</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>100</Text>
           </View>
       </View>
       <View>
@@ -82,18 +144,42 @@ const InvoicePDF = () => (
       </View>
       <View style={{ width: '100%', height: 1, backgroundColor: '#4f4f4e', marginTop: 25, marginBottom: 10 }}></View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Text style={{ fontSize: 12 }}>#27346733-022 · $93,100 due 7 March, 2023</Text>
+        <Text style={{ fontSize: 12 }}>#{data?.invoiceId} · 
+          {new Date(data?.invoiceDate).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        })}
+        </Text>
         <Text style={{ fontSize: 12 }}>Page 1 of 1</Text>
       </View>
     </Page>
   </Document>
 );
 
-export default function InvoicePdfDownloadButton() {
+export default function InvoicePdfDownloadButton({ orderId }: { orderId: string }) {
+
+  const { token } = useAuth()
+  
+  const { isSuccess, data, isPending, error } = useQuery({
+    queryKey: ['summary', orderId],
+    queryFn: () => getSingleOrder({ token: token!, orderId }),
+    enabled: !!token && !!orderId
+  })
+
+  if(isPending) {
+    return (
+      <div className="flex justify-center items-center">
+          <span className="button-loader"></span>
+      </div>
+    )
+  }
+
   return (
     <>
+    {isSuccess ? (
       <PDFDownloadLink
-        document={<InvoicePDF />}
+        document={<InvoicePDF data={data?.data} />}
         fileName="invoice.pdf"
       >
         {({ loading }) => (
@@ -102,6 +188,10 @@ export default function InvoicePdfDownloadButton() {
           </button>
         )}
       </PDFDownloadLink>
+    ) : (
+      <div></div>
+    )}
+      
     </>
   );
 }

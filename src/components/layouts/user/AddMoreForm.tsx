@@ -98,8 +98,8 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
             reset({
                 name: data?.buyerProfiles?.[buyerIndex]?.name || '',
                 gmail: data?.buyerProfiles?.[buyerIndex]?.gmail || '',
-                phone: data?.buyerProfiles?.[buyerIndex]?.phone || 0,
-                dateOfBirth: data?.buyerProfiles?.[buyerIndex]?.dateOfBirth.slice(0, 10) || '',
+                phone: data?.buyerProfiles?.[buyerIndex]?.phone,
+                dateOfBirth: data?.buyerProfiles?.[buyerIndex]?.dateOfBirth?.slice(0, 10) || '',
                 state: data?.buyerProfiles?.[buyerIndex]?.state || '',
                 dist: data?.buyerProfiles?.[buyerIndex]?.dist || '',
                 profileType: data?.buyerProfiles?.[buyerIndex].profileType || '',
