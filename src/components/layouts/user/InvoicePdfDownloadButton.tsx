@@ -146,10 +146,10 @@ const InvoicePDF = ({ data }: {data: InvoiceProps}) => (
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
         <Text style={{ fontSize: 12 }}>#{data?.invoiceId} · 
           {new Date(data?.invoiceDate).toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric'
-        })}
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+          })}
         </Text>
         <Text style={{ fontSize: 12 }}>Page 1 of 1</Text>
       </View>

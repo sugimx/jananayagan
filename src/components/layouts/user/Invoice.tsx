@@ -46,10 +46,14 @@ type DataProps = {
 
 const Invoice = () => {
     const [ toggle, setToggle ] = React.useState(false)
+    const [ orderId, setOrderId ] = React.useState('')
     const { token } = useAuth()
 
-    const handleToggle = () => {
+    const handleToggle = (data?: string) => {
         setToggle((prev) => !prev)
+        if(data) {
+            setOrderId(data)
+        }
     }
 
     const {
@@ -81,47 +85,49 @@ const Invoice = () => {
                 </div>
 
                 {isSuccess && data?.data?.map((item: DataProps, index: number) => (
-                    <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4" key={index}>
-                        <div className="flex flex-col gap-2 md:flex-row flex-1">
-                            <Image 
-                                src="/cup_image.png"
-                                alt="cup image"
-                                width={300}
-                                height={300}
-                                className="w-20 h-20 lg:w-30 lg:h-30"
-                            />
-                            <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
-                                <p className="text-xs md:text-md lg:text-lg">Official {item?.items?.[0]?.productName}</p>
-                                <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start">
-                                    <FaRupeeSign className="md:my-[3px]" /> 
-                                    <span>{item?.items?.[0]?.totalPrice}</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="md:flex md:justify-between flex-1">
-                            <div>
-                                <div className="flex flex-col gap-2">
-                                    <h1 className="text-xs md:text-md lg:text-lg text-[#F5D57A] font-light">Delivery Details</h1>
+                    <div key={index}>
+                        <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4">
+                            <div className="flex flex-col gap-2 md:flex-row flex-1">
+                                <Image 
+                                    src="/cup_image.png"
+                                    alt="cup image"
+                                    width={300}
+                                    height={300}
+                                    className="w-20 h-20 lg:w-30 lg:h-30"
+                                />
+                                <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
+                                    <p className="text-xs md:text-md lg:text-lg">Official {item?.items?.[0]?.productName}</p>
+                                    <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start">
+                                        <FaRupeeSign className="md:my-[3px]" /> 
+                                        <span>{item?.items?.[0]?.totalPrice}</span>
+                                    </p>
                                 </div>
-                                <p className="text-xs md:text-md lg:text-lg my-2">{item?.deliveryDetails?.addressLine1} , {item?.deliveryDetails?.fullName}, {item?.deliveryDetails?.landmark}, {item?.deliveryDetails?.city} , {item?.deliveryDetails?.state} {item?.deliveryDetails?.country}</p>
+                            </div>
+                            <div className="md:flex md:justify-between flex-1">
                                 <div>
-                                    <h1 className="text-xs md:text-md lg:text-lg text-[#F5D57A] font-light">Contact information</h1>
-                                    <span className="text-white text-xs md:text-sm lg:text-md">{item?.email}</span>
+                                    <div className="flex flex-col gap-2">
+                                        <h1 className="text-xs md:text-md lg:text-lg text-[#F5D57A] font-light">Delivery Details</h1>
+                                    </div>
+                                    <p className="text-xs md:text-md lg:text-lg my-2">{item?.deliveryDetails?.addressLine1} , {item?.deliveryDetails?.fullName}, {item?.deliveryDetails?.landmark}, {item?.deliveryDetails?.city} , {item?.deliveryDetails?.state} {item?.deliveryDetails?.country}</p>
+                                    <div>
+                                        <h1 className="text-xs md:text-md lg:text-lg text-[#F5D57A] font-light">Contact information</h1>
+                                        <span className="text-white text-xs md:text-sm lg:text-md">{item?.email}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="md:flex md:flex-col">
-                                <button 
-                                    className="bg-[#F5D57A] px-7 py-2 text-xs text-black uppercase mb-2 cursor-pointer"
-                                    onClick={handleToggle}
-                                >
-                                    Status Download
-                                </button>
-                                <InvoicePdfDownloadButton orderId={item?.orderId} /> 
+                                <div className="md:flex md:flex-col">
+                                    <button 
+                                        className="bg-[#F5D57A] px-7 py-2 text-xs text-black uppercase mb-2 cursor-pointer"
+                                        onClick={() => handleToggle(item?.orderId)}
+                                    >
+                                        Status Download
+                                    </button>
+                                    <InvoicePdfDownloadButton orderId={item?.orderId} /> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 ))}
-                {toggle && <ShareImgComponent handleToggle={handleToggle} />}
+                {toggle && <ShareImgComponent handleToggle={handleToggle} orderId={orderId} />}
                 {isError && <ErrorMessage message={(error as Error).message} />}
             </div>
         </>
