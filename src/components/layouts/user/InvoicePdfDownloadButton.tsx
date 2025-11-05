@@ -61,12 +61,6 @@ type InvoiceProps = {
   items: Items
 }
 
-const months: string[] = [
-  "January", "February", "March", "April",
-  "May", "June", "July", "August",
-  "September", "October", "November", "December"
-]
-
 const InvoicePDF = ({ data }: {data: InvoiceProps}) => (
   <Document>
     <Page size="A4" style={styles.page}>
@@ -161,7 +155,7 @@ export default function InvoicePdfDownloadButton({ orderId }: { orderId: string 
 
   const { token } = useAuth()
   
-  const { isSuccess, data, isPending, error } = useQuery({
+  const { isSuccess, data, isPending } = useQuery({
     queryKey: ['summary', orderId],
     queryFn: () => getSingleOrder({ token: token!, orderId }),
     enabled: !!token && !!orderId

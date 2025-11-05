@@ -160,10 +160,45 @@ const deleteAddress = async ({ token, addressId }: { token: string, addressId: s
     }
 }
 
+const updateDefaultAddress = async ({ token, item }: { token: string, item: string }) => {
+    try {
+        if(!token || !item) {
+            return {
+                success: false,
+                message: 'Cannot find the user'
+            }
+        }
+
+        const res = await fetch(`${process.env.API_BASE_URL}/addresses/${item}/default`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': `Bearer ${token}`
+            }
+        })
+
+        if (!res.ok) {
+            const errorBody = await res.json()
+            throw new Error(errorBody.message || 'Address does not exists.')
+        }  
+
+        const data = await res.json()
+
+        return data
+    } catch (error) {
+        if(error instanceof Error) {
+            throw new Error(error.message)
+        } else {
+            throw new Error('There is issue in the server. please try again later')
+        }
+    }
+}
+
 export { 
     registerFuntion, 
     GetAddressFn, 
     GetSingleAddress, 
     UpdateAddress,
-    deleteAddress
+    deleteAddress,
+    updateDefaultAddress
 }

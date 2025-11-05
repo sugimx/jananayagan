@@ -16,7 +16,7 @@ const callbacks = {
     return session
   },
 
-  async redirect({ url, baseUrl }) {
+  async redirect({ url }) {
     return Promise.resolve(url);
   }
 };

@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa6"
 import { FiEdit2 } from "react-icons/fi"
 import AddressFormTab from './AddressFormTab'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { deleteAddress, GetAddressFn } from '@/api/AddressInfo'
+import { deleteAddress, GetAddressFn, updateDefaultAddress } from '@/api/AddressInfo'
 import { useAuth } from '@/hooks/useAuth'
 import { RiDeleteBinFill } from "react-icons/ri"
 import { useRouter } from 'next/navigation'
@@ -89,6 +89,14 @@ const AddressPage = () => {
         mutationFn: deleteAddress
     })
 
+    const {
+        mutate: addressMutate,
+        isPending: isPendingDefault,
+        isError: isErrorDefault,
+    } = useMutation<{ success: true, message: string }, Error, { token: string, item: string }>({
+        mutationFn: updateDefaultAddress
+    })
+
     React.useEffect(() => {
         if (deleteSuccess) {
             refetch()
@@ -122,6 +130,23 @@ const AddressPage = () => {
         setAddressId("")
     }
 
+    const handleDefaultAddress = (item: string, index: number) => {
+        if (!token) {
+            router.push('/login')
+            return
+        }
+        setIsActive(index)
+        addressMutate({ token, item })
+    }
+
+    if(isPendingDefault) {
+        return (
+            <div className='w-full h-[40vh] bg-black flex justify-center items-center'>
+                <span className='content-loader'></span>
+            </div>
+        )
+    }
+
     return (
         <>
             <div className='my-5 relative'>
@@ -137,7 +162,7 @@ const AddressPage = () => {
                 </div>
                 <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap'>
                     {data?.data.length !== 0 ? data?.data?.map((item: FormData, index: number) => (
-                        <MainContainer key={index} isActive={isActive === index} onActivate={() => setIsActive(index)}>
+                        <MainContainer key={index} isActive={isActive === index} onActivate={() => handleDefaultAddress(item?._id, index)}>
                             <Section>
                                 <RiDeleteBinFill className={`text-xl ${isActive === index ? 'text-black' : 'text-[#F5D57A]'}`} onClick={() => handleDeleteFn(item._id)} />
                             </Section>
@@ -169,6 +194,14 @@ const AddressPage = () => {
                         <div className='w-full h-50 flex flex-col justify-center items-center'>
                             <Heading content='Oops! No Address Found' />
                             <Paragraph content="We couldn't find any address. create new address and try again." />
+                        </div>
+                    )
+                }
+                {
+                    isErrorDefault && (
+                        <div className='w-full h-50 flex flex-col justify-center items-center'>
+                            <Heading content='Oops! No Address Found' />
+                            <Paragraph content="We couldn't find any address to update. create new address and try again." />
                         </div>
                     )
                 }

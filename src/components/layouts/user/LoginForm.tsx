@@ -9,14 +9,12 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema, type LoginFormData } from '@/lib/validations'
 import { apiService } from '@/lib/api'
-import { useRouter } from 'next/navigation'
 import { useGoogleLogin } from '@react-oauth/google'
 
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
-  const router = useRouter()
 
   const {
     register,

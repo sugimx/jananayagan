@@ -7,6 +7,8 @@ import { useQuery } from '@tanstack/react-query'
 import { getSingleStatus } from '@/api/StatusAPI'
 import { useAuth } from '@/hooks/useAuth'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image'
 
 const ShareImgComponent = (
     { handleToggle, orderId }: { handleToggle: () => void, orderId: string }
@@ -28,34 +30,28 @@ const ShareImgComponent = (
     })
 
     const handleDownload = async () => {
-        const element = ref.current
-
-         if (!element) {
-            console.error("Element not found!")
-            return
+        const element = document.getElementById('download_image');
+        if (!element) {
+            console.error("Element with id 'download_image' not found!");
+            return;
         }
 
-        await new Promise((r) => setTimeout(r, 200))
-       
-        const canvas = await html2canvas(element, {
-            useCORS: true, 
-            scale: 1,
-            backgroundColor: "#353240",
-        })
+        try {
+            const dataUrl = await htmlToImage.toJpeg(element, { quality: 2 });
 
-        const dataURL = canvas.toDataURL("image/png")
-
-    
-        const link = document.createElement("a")
-        link.href = dataURL
-        link.download = "status.png"
-        link.click()
+            const link = document.createElement('a');
+            link.download = 'my-image-name.jpeg';
+            link.href = dataUrl;
+            link.click();
+        } catch (error) {
+            console.error("Failed to download image:", error);
+        }
     }
 
     return (
         <>
             {isSuccess && (
-                <div className='absolute top-[-10%] md:top-[-30%] left-1/2 -translate-x-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl'>
+                <div className='absolute top-[-10%] md:top-[-30%] left-1/2 -translate-x-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl' id="download_image">
                     <div className='max-w-[340px] h-auto bg-[#353240] rounded-4xl' ref={ref}>
                         <div className='share-image'>
                             <Image 

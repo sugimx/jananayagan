@@ -137,7 +137,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         }
                         
                     } catch (error) {
-                        alert('Error initializing payment. Please try again.');
+                        throw error
                     }
                 } else if (orderId) {
                    
@@ -155,13 +155,13 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 }
                                 
                             } catch (error) {
-                                alert('Error initializing payment. Please try again.');
+                                throw error
                             }
                         } else {
                             alert('Payment request failed. Please try again.');
                         }
                     } catch (error) {
-                        alert('Error creating payment request. Please try again.');
+                        throw error
                     }
                 }
             } else {

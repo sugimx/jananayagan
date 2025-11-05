@@ -4,12 +4,13 @@ import React from 'react'
 import { FaPlus } from "react-icons/fa6"
 import { FiEdit2 } from "react-icons/fi"
 import AddressFormTab from '@/components/layouts/user/AddressFormTab'
-import { useQuery } from '@tanstack/react-query'
-import { GetAddressFn } from '@/api/AddressInfo'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { GetAddressFn, updateDefaultAddress } from '@/api/AddressInfo'
 import { useAuth } from '@/hooks/useAuth'
 import Heading from '@/components/ui/user/Heading'
 import Paragraph from '@/components/ui/user/Paragraph'
 import Container from '@/components/layouts/user/Container'
+import { useRouter } from 'next/navigation'
 
 const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive: boolean, onActivate: () => void }) => {
     return (
@@ -69,9 +70,10 @@ const ChangeAddress = () => {
     const [isActive, setIsActive] = React.useState(0)
     const [toggle, setToggle] = React.useState(false)
     const [addressId, setAddressId] = React.useState<string>("")
+    const [ item, setItemId ] = React.useState('')
     const { token } = useAuth()
 
-    // const router = useRouter()
+    const router = useRouter()
 
     const { data, isLoading, isError, refetch } = useQuery({
         queryKey: ['addresses', token],
@@ -79,14 +81,20 @@ const ChangeAddress = () => {
         enabled: !!token,
     })
 
+    const {
+        mutate: addressMutate,
+        isPending: isPendingDefault,
+        isError: isErrorDefault,
+        isSuccess: isSuccessDefault
+    } = useMutation<{ success: true, message: string }, Error, { token: string, item: string }>({
+        mutationFn: updateDefaultAddress
+    })
 
-    if (isLoading) {
-        return (
-            <div className='w-full bg-black h-[40vh] flex justify-center items-center'>
-                <span className='content-loader'></span>
-            </div>
-        )
-    }
+    React.useEffect(() => {
+        if(isSuccessDefault) {
+            router.push('/payment')
+        }
+    }, [ isSuccessDefault, router ])
 
     const handleEditFn = (id: string) => {
         setToggle(!toggle)
@@ -100,6 +108,23 @@ const ChangeAddress = () => {
 
     const handleChangeAddress = (_id: string, index: number) => {
         setIsActive(index)
+        setItemId(_id)
+    }
+
+    const handleDefaultAddress = () => {
+        if (!token) {
+            router.push('/login')
+            return
+        }
+        addressMutate({ token, item })
+    }
+
+    if (isLoading) {
+        return (
+            <div className='w-full bg-black h-[40vh] flex justify-center items-center'>
+                <span className='content-loader'></span>
+            </div>
+        )
     }
 
     return (
@@ -149,7 +174,9 @@ const ChangeAddress = () => {
                     {toggle && <AddressFormTab state={toggle} setState={setToggle} addressId={addressId} refetch={refetch} />}
                 </div>
                 <div className='flex justify-center items-center h-20'>
-                    <button className='bg-[#D3AF37] text-black w-5/5 md:w-1/5 py-2 font-bold text-sm rounded-lg cursor-pointer'>Delivery to this Address</button>
+                    <button className='bg-[#D3AF37] text-black w-5/5 md:w-1/5 py-2 font-bold text-sm rounded-lg cursor-pointer' onClick={handleDefaultAddress}>
+                        {isPendingDefault ? <span className='button-loader'></span> : 'Delivery to this Address'}
+                    </button>
                 </div>
             </Container>
         </>
