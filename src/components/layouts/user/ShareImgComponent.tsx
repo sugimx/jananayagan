@@ -1,15 +1,12 @@
 import React from 'react'
-import Image from 'next/image'
 import { RxDownload } from "react-icons/rx"
 import { IoMdClose } from "react-icons/io"
-import html2canvas from 'html2canvas'
 import { useQuery } from '@tanstack/react-query'
 import { getSingleStatus } from '@/api/StatusAPI'
 import { useAuth } from '@/hooks/useAuth'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
-import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image'
-import ShareImage from '@/lib/shareImage'
+import { toPng } from 'html-to-image'
+import QRCode from 'react-qr-code'
 
 const ShareImgComponent = (
     { handleToggle, orderId }: { handleToggle: () => void, orderId: string }
@@ -89,13 +86,14 @@ const ShareImgComponent = (
                                 </div>
                             </div>
                             <div className='share-code-image'>
-                                <img 
+                                {/* <img 
                                     src="/qr_code.png"
                                     alt="barcode image"
                                     width={300}
                                     height={100}
                                     className="w-40 h-40"
-                                />
+                                /> */}
+                                <QRCode value='www.jananayagancup.in' style={{ height: "auto", maxWidth: "70%", width: "70%" }} />
                             </div>
                         </div>
                     </div>
