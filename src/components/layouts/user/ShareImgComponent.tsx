@@ -9,6 +9,7 @@ import { useAuth } from '@/hooks/useAuth'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image'
+import ShareImage from '@/lib/shareImage'
 
 const ShareImgComponent = (
     { handleToggle, orderId }: { handleToggle: () => void, orderId: string }
@@ -30,74 +31,72 @@ const ShareImgComponent = (
     })
 
     const handleDownload = async () => {
-        const element = document.getElementById('download_image');
-        if (!element) {
-            console.error("Element with id 'download_image' not found!");
-            return;
-        }
+       if (!ref.current) return;
 
-        try {
-            const dataUrl = await htmlToImage.toJpeg(element, { quality: 2 });
+       const dataUrl = await toPng(ref.current, {
+            cacheBust: true,
+            pixelRatio: 2,
+            backgroundColor: "white",
+        })
 
-            const link = document.createElement('a');
-            link.download = 'my-image-name.jpeg';
-            link.href = dataUrl;
-            link.click();
-        } catch (error) {
-            console.error("Failed to download image:", error);
-        }
+        const link = document.createElement("a")
+        link.download = "hidden-content.png"
+        link.href = dataUrl
+        link.click()
     }
 
     return (
         <>
             {isSuccess && (
-                <div className='absolute top-[-10%] md:top-[-30%] left-1/2 -translate-x-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl' id="download_image">
-                    <div className='max-w-[340px] h-auto bg-[#353240] rounded-4xl' ref={ref}>
-                        <div className='share-image'>
-                            <Image 
-                                src="/jana_nayagan_logo.png"
-                                alt="Logo"
-                                width={100}
-                                height={100}
-                            />
-                        </div>
-                        <div className='share-content'>
-                            <div className='share-content-image'>
-                                <Image 
-                                    src="/cup_image.png"
-                                    alt="cup image"
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl">
+                    <div ref={ref}>
+                        <div className='max-w-[340px] h-auto bg-[#353240]'>
+                            <div className='share-image'>
+                                <img 
+                                    src="/jana_nayagan_logo.png"
+                                    alt="Logo"
                                     width={100}
-                                    height={100} 
-                                    className="w-50 h-50"
+                                    height={100}
                                 />
                             </div>
-                            <div className='share-booking-container'>
-                                <div className='share-booking-content'>
-                                    <span>Booking ID</span>
-                                    <span>{isPending ? 'loading' : data?.data?.bookingId ? data?.data?.bookingId : '-'}</span>
+                            <div className='share-content'>
+                                <div className='share-content-image'>
+                                    <img 
+                                        src="/cup_image.png"
+                                        alt="cup image"
+                                        width={100}
+                                        height={100} 
+                                        className="w-50 h-50"
+                                    />
                                 </div>
-                                <div className='share-booking-content'>
-                                    <span>Payment Time</span>
-                                    <span>{isPending ? 'loading' : data?.data?.paymentTime ? data?.data?.paymentTime : '-'}</span>
-                                </div>
-                                <div className='share-booking-content'>
-                                    <span>Buyer Name</span>
-                                    <span>{isPending ? 'loading' : data?.data?.buyerName ? data?.data?.buyerName : 'John Doe'}</span>
-                                </div>
-                                <div className='share-booking-content mt-5'>
-                                    <span>Amount</span>
-                                    <span>INR {isPending ? 'loading' : data?.data?.amount ? data?.data?.amount : '00'}</span>
+                                <div className='share-booking-container'>
+                                    <div className='share-booking-content'>
+                                        <span>Booking ID</span>
+                                        <span>{isPending ? 'loading' : data?.data?.bookingId ? data?.data?.bookingId : '-'}</span>
+                                    </div>
+                                    <div className='share-booking-content'>
+                                        <span>Payment Time</span>
+                                        <span>{isPending ? 'loading' : data?.data?.paymentTime ? data?.data?.paymentTime : '-'}</span>
+                                    </div>
+                                    <div className='share-booking-content'>
+                                        <span>Buyer Name</span>
+                                        <span>{isPending ? 'loading' : data?.data?.buyerName ? data?.data?.buyerName : 'John Doe'}</span>
+                                    </div>
+                                    <div className='share-booking-content mt-5'>
+                                        <span>Amount</span>
+                                        <span>INR {isPending ? 'loading' : data?.data?.amount ? data?.data?.amount : '00'}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className='share-code-image'>
-                            <Image 
-                                src="/qr_code.png"
-                                alt="barcode image"
-                                width={300}
-                                height={100}
-                                className="w-40 h-40"
-                            />
+                            <div className='share-code-image'>
+                                <img 
+                                    src="/qr_code.png"
+                                    alt="barcode image"
+                                    width={300}
+                                    height={100}
+                                    className="w-40 h-40"
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className='absolute top-3 right-7'>
