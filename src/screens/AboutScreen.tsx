@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from 'react'
 import LoadingScreen from './LoadingScreen'
-const ContactUs = lazy(() => import('@/components/layouts/user/ContactUs'))
+const AboutContent = lazy(() => import('@/components/layouts/user/AboutContent'))
 
-const ContactScreen = () => {
+const AboutScreen = () => {
     return (
         <Suspense fallback={<LoadingScreen />}>
-            <ContactUs />
+            <AboutContent />
         </Suspense>
     )
 }
 
-export default ContactScreen
+export default AboutScreen

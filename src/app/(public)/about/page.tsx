@@ -1,4 +1,4 @@
-import AboutScreen from '@/components/layouts/user/AboutScreen'
+import AboutScreen from '@/screens/AboutScreen'
 import React from 'react'
 
 const About = () => {

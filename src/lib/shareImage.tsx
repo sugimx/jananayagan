@@ -1,21 +1,21 @@
 "use client";
 
-import React, { useRef } from "react";
-import { toJpeg } from "html-to-image";
+import React, { useRef } from "react"
+import { toJpeg } from "html-to-image"
 
 const ShareImage = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
 
   const handleDownload = async () => {
-    if (ref.current === null) return;
+    if (ref.current === null) return
 
-    const dataUrl = await toJpeg(ref.current, { quality: 0.95 });
+    const dataUrl = await toJpeg(ref.current, { quality: 0.95 })
 
-    const link = document.createElement("a");
-    link.download = "design.jpg";
-    link.href = dataUrl;
-    link.click();
-  };
+    const link = document.createElement("a")
+    link.download = "design.jpg"
+    link.href = dataUrl
+    link.click()
+  }
 
   return (
     <div>

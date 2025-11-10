@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import Container from '@/components/layouts/user/Container'
 import Image from 'next/image'

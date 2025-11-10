@@ -1,10 +1,24 @@
+"use client"
+
 import React, { lazy, Suspense } from 'react'
 import Container from './Container'
 import LoadingScreen from '@/screens/LoadingScreen'
+import { useAuth } from '@/hooks/useAuth'
+import LinkComponent from '@/components/ui/user/LinkComponent'
 
 const LazyComponent = lazy(() => import('./BuyerSlider'))
 
 const BuyerInfo = () => {
+    const { token } = useAuth()
+
+    if(!token) {
+        return (
+            <div className='flex justify-center items-center flex-col'>
+                <p className='text-[#F5D57A] text-sm leading-relaxed my-1 md:text-lg md:my-4'>Oops! Buyer info not found. Login is required to purchase product.</p>
+                <LinkComponent link='/login' content='Login' />
+            </div>
+        )
+    }
     return (
         <>
             <Container>

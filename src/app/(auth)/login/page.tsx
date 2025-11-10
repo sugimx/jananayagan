@@ -1,9 +1,9 @@
-import LoginForm from '@/components/layouts/user/LoginForm'
+import LoginScreen from '@/screens/LoginScreen'
 import React from 'react'
 
 const Login = () => {
   return (
-    <LoginForm />
+    <LoginScreen />
   )
 }
 
