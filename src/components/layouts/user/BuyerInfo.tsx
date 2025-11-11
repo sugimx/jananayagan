@@ -13,7 +13,7 @@ const BuyerInfo = () => {
 
     if(!token) {
         return (
-            <div className='flex justify-center items-center flex-col'>
+            <div className='flex justify-center items-center flex-col py-20 px-2'>
                 <p className='text-[#7a0202] text-sm leading-relaxed my-1 md:text-lg md:my-4'>Oops! Buyer info not found. Login is required to purchase product.</p>
                 <LinkComponent link='/login' content='Login' />
             </div>

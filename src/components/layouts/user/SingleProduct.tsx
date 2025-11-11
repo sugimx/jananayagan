@@ -2,6 +2,7 @@ import React from 'react'
 import Container from './Container'
 import Image from 'next/image'
 import { FaTruck } from "react-icons/fa"
+import { FaRupeeSign } from "react-icons/fa"
 
 const SingleProduct = () => {
     return (
@@ -59,7 +60,7 @@ const SingleProduct = () => {
                                 </div>
                             </div>
                         </div>
-                        <h1 className='text-[1rem] text-[#F5D57A] text-center font-semibold md:text-[2rem] md:text-start'>INR 300</h1>
+                        <h1 className='text-[1rem] text-[#F5D57A] text-center font-semibold md:text-[2rem] md:text-start flex items-center'><FaRupeeSign /> 320</h1>
                     </div>
                 </div>
             </Container>
