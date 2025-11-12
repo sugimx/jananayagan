@@ -120,12 +120,12 @@ const BuyerSlider = () => {
                 {isPending && <div className='w-full h-[40vh] flex justify-center items-center'><span className='content-loader'></span></div>}
                 {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
                     <SwiperSlide key={index}>
-                        <div className='border-1 border-[#7a0202] rounded-xl relative'>
+                        <div className='border-1 border-[#F5BB0B] rounded-xl relative'>
                              <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
                                 {deleteIsPending ? (
                                     <span className='loaders'></span>
                                 ) : index !== 0 && (
-                                    <IoIosClose className='bg-[#7a0202] text-white font-bold rounded-full cursor-pointer' onClick={() => handleDeleteFn(item._id)} />
+                                    <IoIosClose className='bg-[#F5BB0B] text-black font-bold rounded-full cursor-pointer' onClick={() => handleDeleteFn(item._id)} />
                                 )}
                             </div>
                             <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
@@ -144,30 +144,30 @@ const BuyerSlider = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex flex-col gap-3 my-4'>
+                                <div className='flex flex-col gap-3 my-4 text-white'>
                                     <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#7a0202]' /></span>
+                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
                                         <span className='text-sm md:text-md'>{item?.name}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#7a0202]' /></span>
+                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
                                         <span className='text-sm md:text-md'>{item?.dateOfBirth && item?.dateOfBirth.split("T")[0]}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#7a0202]' /></span>
+                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
                                         <span className='text-sm md:text-md'>{item?.gmail}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#7a0202]' /></span>
+                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
                                         <span className='text-sm md:text-md'>{item?.dist}</span>
                                     </div>
                                     <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#7a0202]' /></span>
+                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
                                         <span className='text-sm md:text-md'>{item?.state}</span>
                                     </div>
                                 </div>
                                 <button 
-                                    className='w-full h-7 bg-[#7a0202] rounded-lg text-[#DCDCDC] uppercase text-[0.7rem] cursor-pointer' 
+                                    className='w-full h-7 bg-[#F5BB0B] rounded-lg text-[#000] uppercase text-[0.7rem] cursor-pointer' 
                                     onClick={() => handleEdit(index)}
                                 >
                                     Edit
@@ -196,7 +196,7 @@ const BuyerSlider = () => {
             {deleteSuccess && <SuccessMessage message='Buyer Information Deleted Successfully' />}
             {deleteIsError && <ErrorMessage message={deleteError?.message || 'Failed to delete Buyer Information'} />}
             <div className='w-full h-20 flex justify-center items-center gap-3'>
-                <button className='bg-black w-40 text-sm rounded-md border-1 border-black py-2 cursor-pointer text-[#DCDCDC]' onClick={handleToggle}>Add More Cup</button>
+                <button className='bg-black w-40 text-sm rounded-md border-1 border-[#F5BB0B] py-2 cursor-pointer text-[#DCDCDC]' onClick={handleToggle}>Add More Cup</button>
                 {processDisableBtn 
                     ?
                         <button disabled className='bg-gray-500 w-40 text-sm rounded-md text-white py-2 cursor-not-allowed'>Proceed to Buy</button>

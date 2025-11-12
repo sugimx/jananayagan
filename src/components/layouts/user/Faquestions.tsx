@@ -32,10 +32,10 @@ const FaQuestions = () => {
 
   return (
     <div className="max-w-4xl mx-6 md:mx-auto my-8">
-      <h2 className="text-[1.5rem] font-semibold mb-6 text-center text-[#7a0202] md:text-[3rem]">Frequently Asked <span className='text-[#7a0202]'>Questions</span></h2>
+      <h2 className="text-[1.5rem] font-semibold mb-6 text-center text-[#fff] md:text-[3rem]">Frequently Asked <span className='text-[#F5BB0B]'>Questions</span></h2>
       <div className="space-y-4">
         {questions.map((q, idx) => (
-          <div key={idx} className="rounded-lg overflow-hidden bg-[#7a0202] shadow text-[#F5BB0B]">
+          <div key={idx} className="rounded-lg overflow-hidden bg-[#1C1A1A] shadow text-[#F5BB0B]">
             <button
               className="w-full flex items-center justify-between px-4 py-3 focus:outline-none cursor-pointer"
               onClick={() => handleToggle(idx)}

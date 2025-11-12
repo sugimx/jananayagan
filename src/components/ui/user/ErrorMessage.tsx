@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrorMessage = ({ message }: { message?: string }) => {
     return (
-        <div className='text-red-700 my-1'>
+        <div className='text-[#F5BB0B] my-1'>
             {message}
         </div>
     )

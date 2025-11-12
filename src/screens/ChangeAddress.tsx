@@ -84,7 +84,6 @@ const ChangeAddress = () => {
     const {
         mutate: addressMutate,
         isPending: isPendingDefault,
-        isError: isErrorDefault,
         isSuccess: isSuccessDefault
     } = useMutation<{ success: true, message: string }, Error, { token: string, item: string }>({
         mutationFn: updateDefaultAddress

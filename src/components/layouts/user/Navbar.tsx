@@ -15,8 +15,8 @@ const Navbar = () => {
   const { isAuthenticated } = useAuthContext()
   
   return (
-    <Container>
-        <div className='h-[80px] flex justify-between items-center border-b-1 border-[#F5BB0B] bg-[#7a0202] px-2'>
+    <div className='mx-auto bg-[#640101]'>
+        <div className='h-[80px] flex justify-between items-center border-b-1 border-[#F5BB0B] bg-[#640101] px-2'>
             <Burger />
             <Image 
               src="/TVK_flag.png" 
@@ -37,7 +37,7 @@ const Navbar = () => {
                       <Link href="/product" className={currentPath === '/product' ? 'text-[#F5BB0B]' : ''}>Product</Link>
                   </li>
                   <li className='py-2'>
-                      <Link href="/contact" className={currentPath === '/contact' ? 'text-[#F5BB0B]' : ''}>Contact</Link>
+                      <Link href="/contact" className={currentPath === '/contact' ? 'text-[#F5BB0B]' : ''}>Contact Us</Link>
                   </li>
               </ul>
             </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
               )}
             </div>
         </div>
-    </Container>
+    </div>
   )
 }
 

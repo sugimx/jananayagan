@@ -57,7 +57,7 @@ const Input = <T extends FieldValues>(
     return (
         <input 
             type="text" 
-            className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#808089] md:h-10' 
+            className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B] md:h-10' 
             placeholder={placeholder}
             {...register(name, 
                 {
@@ -178,15 +178,15 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
 
     return (
         <div className='text-white absolute top-[-100px] md:top-[-200px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
-            <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black'>
-                <div className='bg-[#F5BB0B] h-[80%] rounded-4xl px-4 py-4'>
-                    <div className='flex justify-end text-black'>
+            <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black rounded-4xl'>
+                <div className='bg-black h-[80%] rounded-4xl px-4 py-4'>
+                    <div className='flex justify-end text-[#F5BB0B]'>
                         <IoClose onClick={() => setState(!state)} className='cursor-pointer'/>
                     </div>
-                    <div className='h-15 flex items-center justify-center text-black text-[1rem] font-semibold'>
+                    <div className='h-15 flex items-center justify-center text-white text-[1rem] font-semibold'>
                         <h1>New address</h1>
                     </div>
-                    <div className='h-auto bg-black flex flex-col gap-4 px-3 py-4 rounded-xl'>
+                    <div className='h-auto bg-[#a20000] flex flex-col gap-4 px-3 py-4 rounded-xl'>
                         <InputContainer>
                             <InputLabel content='Address' />
                             <Input<FormData> placeholder='Enter Your Address' 
@@ -219,15 +219,15 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                         <InputContainer>
                             <InputLabel content='State' />
-                            <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#808089]'
+                            <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B]'
                                 {
                                     ...register('state', { required: "State field is required" })
                                 }
                             >
-                                <option className='' value="">Select Your State</option>
+                                <option className='bg-black' value="" >Select Your State</option>
                                 <option className='bg-black' value="TamilNadu">TamilNadu</option>
                                 <option className='bg-black' value="Kerala">Kerala</option>
-                                <option value="others">Others</option>
+                                <option className='bg-black' value="others">Others</option>
                             </select>
                         </InputContainer>
                         {
@@ -235,12 +235,12 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                         <InputContainer>
                             <InputLabel content='District' />
-                            <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#808089]'
+                            <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B]'
                                 {
                                     ...register('district', { required: "District field is required" })
                                 }
                             >
-                                <option className='' value="">Select Your District</option>
+                                <option className='bg-black' value="">Select Your District</option>
                                 {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
                                     <option className='bg-black' value={item.district} key={index}>{item.district}</option>
                                 ))}
@@ -283,7 +283,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                             <Paragraph content='Save to address book' className='text-[#F5BB0B]' />
                         </div> */}
                     </div>
-                    <button disabled={isPending || updatePending} className='bg-black w-full py-1 text-[#F5BB0B] my-3 rounded-full cursor-pointer md:py-2 flex justify-center items-center gap-2' onClick={handleSubmit(handleFormSubmit)}>
+                    <button disabled={isPending || updatePending} className='bg-[#F5BB0B] w-full py-1 text-black my-3 rounded-full cursor-pointer md:py-2 flex justify-center items-center gap-2' onClick={handleSubmit(handleFormSubmit)}>
                         {isPending || updatePending ? <span className='button-loader'></span> : 'save'} 
                     </button>
                     {isSuccess && <SuccessMessage message="Address Information created successfully" />}

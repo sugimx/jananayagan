@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import Container from '@/components/layouts/user/Container'
 import { sendEmail, isValidEmail } from '@/lib/emailjs'
 
 const ContactUs = () => {

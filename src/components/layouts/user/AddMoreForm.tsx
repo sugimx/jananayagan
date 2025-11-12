@@ -94,6 +94,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
 
     useEffect(() => {
         if (buyerIndex != null && data) {
+            console.log(data)
             setBuyerId(data?.buyerProfiles?.[buyerIndex]?._id || "")
             reset({
                 name: data?.buyerProfiles?.[buyerIndex]?.name || '',
@@ -121,7 +122,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
     return (
         <>
             <div className='absolute top-20 w-full md:flex justify-center items-center z-10 main-content blurred'>
-                <div className='bg-[#7a0202] border-1 border-[#F5BB0B] w-full md:w-[50%] lg:w-[50%] xl:w-[30%] md:h-full px-3 md:px-10 py-5 rounded-xl relative'>
+                <div className='bg-[#000] border-1 border-[#F5BB0B] w-full md:w-[50%] lg:w-[50%] xl:w-[30%] md:h-full px-3 md:px-10 py-5 rounded-xl relative'>
                     <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer' onClick={onHandleToggle}>
                         <IoIosClose className='bg-white text-black font-bold rounded-full'/>
                     </div>

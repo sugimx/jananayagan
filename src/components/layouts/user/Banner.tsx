@@ -6,16 +6,16 @@ import { FaRupeeSign } from "react-icons/fa"
 const Banner = () => {
     return (
         <>
-            <div className='bg-[#DCDCDC] min-h-[50vh] md:h-[70vh] py-10 md:py-2'>
-                <div className='flex md:mx-20'>
-                    <div className='flex-1 hidden md:flex flex-col items-center'>
+            <div className='bg-gradient-to-b from-[#640101] via-[#000] to-[#000] py-10 md:py-2'>
+                <div className='flex flex-row items-center md:mx-20 lg:flex-row'>
+                    <div className='flex-1 flex flex-col items-center'>
                         <Image 
-                            src="/cup_image.png"
+                            src="/tvk_cup.png"
                             alt="product image"
-                            width={700}
-                            height={700}
+                            width={600}
+                            height={600}
+                            className='w-40 md:w-[400px]'
                         />
-                        <h1 className='text-[1rem] text-[#a20000] font-semibold md:text-[2rem] mr-20 flex items-center'><FaRupeeSign /> 320</h1>
                     </div>
                     <div className='flex flex-col justify-center items-center flex-1 my-10'>
                         <Image 
@@ -23,16 +23,20 @@ const Banner = () => {
                             alt='product image'
                             width={500}
                             height={500}
-                            className='w-[300px] h-[150px] md:w-[400px] md:h-[200px]'
+                            className='w-[200px] h-[100px] md:w-[400px] md:h-[200px]'
                         />
                         {/* <p className='z-10 text-white text-center my-4 text-sm md:text-lg'>
                             One last frame, one lasting reign, the hero who ruled stories and hearts, now etched forever in victory and leadership. A timeless symbol of courage, passion, and purpose of his journey ends, but his legend echoes through generations
                         </p> */}
-                        
                         <LinkComponent link='/product' content="Buy Now" />
                     </div>
                 </div>
             </div>
+            {/* <div>
+                <span className='bg-[#7a0202] h-5 flex'></span>
+                <span className='bg-[#F5BB0B] h-5 flex'></span>
+                <span className='bg-[#7a0202] h-5 flex mb-10'></span>
+            </div> */}
         </>
     )
 }

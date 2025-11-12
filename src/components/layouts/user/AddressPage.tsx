@@ -105,7 +105,7 @@ const AddressPage = () => {
 
     if (isLoading || deletePending) {
         return (
-            <div className='w-full bg-black h-[40vh] flex justify-center items-center'>
+            <div className='w-full h-[40vh] flex justify-center items-center'>
                 <span className='content-loader'></span>
             </div>
         )
@@ -141,7 +141,7 @@ const AddressPage = () => {
 
     if(isPendingDefault) {
         return (
-            <div className='w-full h-[40vh] bg-black flex justify-center items-center'>
+            <div className='w-full h-[40vh] flex justify-center items-center'>
                 <span className='content-loader'></span>
             </div>
         )

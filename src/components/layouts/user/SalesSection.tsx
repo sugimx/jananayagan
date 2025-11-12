@@ -54,7 +54,7 @@ const SalesSection = () => {
                         <Heading content="Sales Ends In" />
                         <Paragraph content='5d 24h 34min 00s' />
                     </DivTag>
-                    <Link href="/product" className='bg-[#F5BB0B] text-black px-4 py-1 text-sm rounded-md md:text-md md:px-12 md:py-2 cursor-pointer'>Shop Now</Link>
+                    <Link href="/product" className='bg-[#F5BB0B] px-1 md:px-4 py-1 text-xs rounded-md md:text-md md:px-12 md:py-2 cursor-pointer text-black font-bold'>Shop Now</Link>
                 </div>
             </div>
         </Container>
