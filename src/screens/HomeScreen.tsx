@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react'
 import LoadingScreen from './LoadingScreen'
 const Banner = lazy(() => import('@/components/layouts/user/Banner'))
-import FaQuestions from '@/components/layouts/user/Faquestions'
+const FaQuestions = lazy(() => import('@/components/layouts/user/Faquestions'))
 const Information = lazy(() => import('@/components/layouts/user/Information'))
-import LimitedEdition from '@/components/layouts/user/LimitedEdition'
-import LuckyDraw from '@/components/layouts/user/LuckyDraw'
-import SalesSection from '@/components/layouts/user/SalesSection'
-import Section2 from '@/components/layouts/user/Section_2'
+const LimitedEdition = lazy(() => import('@/components/layouts/user/LimitedEdition'))
+const LuckyDraw = lazy(() => import('@/components/layouts/user/LuckyDraw'))
+const SalesSection = lazy(() => import('@/components/layouts/user/SalesSection'))
+const Section2 = lazy(() => import('@/components/layouts/user/Section_2'))
 
 const HomeScreen = () => {
     return (

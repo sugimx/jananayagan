@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import LinkComponent from '@/components/ui/user/LinkComponent'
-import { FaRupeeSign } from "react-icons/fa"
 
 const Banner = () => {
     return (
@@ -25,9 +24,6 @@ const Banner = () => {
                             height={500}
                             className='w-[200px] h-[100px] md:w-[400px] md:h-[200px]'
                         />
-                        {/* <p className='z-10 text-white text-center my-4 text-sm md:text-lg'>
-                            One last frame, one lasting reign, the hero who ruled stories and hearts, now etched forever in victory and leadership. A timeless symbol of courage, passion, and purpose of his journey ends, but his legend echoes through generations
-                        </p> */}
                         <LinkComponent link='/product' content="Buy Now" />
                     </div>
                 </div>
