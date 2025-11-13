@@ -11,13 +11,15 @@ const AboutContent = () => {
                 <div className='leading-relaxed text-center lg:flex-[0.5] lg:text-start'>
                     <AboutHeading content='About Us - TVK Cup' />
                     <div className='text-justify text-sm md:text-[1rem] flex flex-col gap-2'>
-                        <p>Welcome to Jananayagan Cup — your trusted destination for premium-quality cups and drinkware. We specialize in durable, stylish, and customizable products perfect for homes, offices, cafés, and events. Explore our wide collection of mugs, tumblers, and accessories designed to suit every taste and budget. Shop easily, enjoy secure payments, and get fast delivery right to your doorstep. Discover quality you can count on — only at Jananayagan Cup.</p>
-                        <p>Welcome to SUGIMX Private Limited, a company built on passion, pride, and unforgettable celebrations.</p>
-                        <p>We are proud to announce our official collaboration with KVN Productions for the Jana Nayagan 2026 Movie Promotion - the grand celebration of Thalapathy {"Vijay's"} final fan-based film. This is not just a business project - it is a once-in-a-lifetime moment for every fan.</p>
+                        <p>Welcome to SUGIMX Private Limited, a company built on passion, pride, and unforgettable
+                        celebrations.</p>
+                        <p>We are proud to announce our official collaboration with KVN Productions for the Jana Nayagan
+                        2026 Movie Promotion - the grand celebration of Thalapathy {"Vijay's"} final fan-based film.
+                        This is not just a business project - it is a once-in-a-lifetime moment for every fan.</p>
                         <p>As part of this collaboration, we present the Jana Nayagan 2026 Limited Edition Coffee Cup
-                        Collection - a tribute to Vijay sir and his unmatched journey.  Each cup is individually numbered
+                        Collection - a tribute to Vijay sir and his unmatched journey. Each cup is individually numbered
                         from 1 to 27,70,000, giving every fan a unique place in history. From the first buyer to the last,
-                        your name and number will forever remain on our platform, celebrating your pride as a fan</p>
+                        your name and number will forever remain on our platform, celebrating your pride as a fan.</p>
                     </div> 
                     <Link href='/product' className='border-1 border-[#F5BB0B] py-1 inline-block my-3 px-10 text-sm md:text-lg text-[#F5BB0B]'>Explore</Link>
                 </div>

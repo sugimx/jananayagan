@@ -12,131 +12,108 @@ const TermsConditions = () => {
         <div className="space-y-6 text-white leading-relaxed">
           <section>
             <h2 className="text-2xl font-semibold text-black mb-4">1. Terms & Condition</h2>
+            <p>Terms & Conditions Governing the Booking, Purchase, Delivery, and Use of Limited Edition “TVK 2026” Coffee Cups</p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">1. Booking, Consideration, and Payment</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li>
-                Welcome to SUGIMX Private Limited (“Company”, “we”, “our”, “us”). By accessing or using our website or making a purchase, you agree to be bound by the following terms and conditions (“Terms”).
-              </li>
-              <li>
-                All products displayed on our Platform are subject to availability. Prices, specifications, and availability of products are subject to change without prior notice.
-              </li>
-              <li>
-                Orders are confirmed only after successful payment. The Company reserves the right to accept or cancel any order at its discretion. In case of cancellation after payment, the amount will be refunded in accordance with our Refund Policy.
-              </li>
-              <li>
-                All intellectual property on this Platform, including logos, images, and designs, belongs to the Company. Reproduction or use without written consent is prohibited.
-              </li>
-              <li>
-                You agree not to misuse the Platform, engage in fraudulent activity, or use it for unlawful purposes.
-              </li>
-              <li>
-                By continuing to use this Platform, you acknowledge that you have read, understood, and agree to be legally bound by these Terms.
-              </li>
+              <li>1.1. All bookings shall be deemed confirmed only upon receipt of full consideration, dulyremitted through the payment channels notified on the official booking interface of SUG Private Limited (“the Company”).</li>
+              <li>1.2. Bookings once effected shall be irrevocable and non-cancellable by the purchaser under
+              any circumstance whatsoever, and no claim for refund, chargeback, or set-off shall be
+              entertained except in the sole and absolute discretion of the Company in instances of unilateral
+              cancellation initiated by the Company.</li>
+              <li>1.3.The purchaser, upon remittance of booking consideration, acknowledges that such payment
+              constitutes final settlement of the transaction, save and except statutory levies payable to
+              Government authorities, if any</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">2. Use of Platform</h2>
-            <p>
-              You agree to use the Platform only for lawful purposes and in accordance with these Terms. You must not:
-            </p>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">2. Product Specification and Variance</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li>Use the Platform in any way that violates applicable laws or regulations</li>
-              <li>Attempt to gain unauthorized access to any part of the Platform</li>
-              <li>Interfere with or disrupt the Platform&apos;s functionality</li>
-              <li>Use automated systems to access the Platform without permission</li>
-              <li>Impersonate any person or entity or misrepresent your affiliation</li>
+              <li>2.1. Each coffee cup forms part of a finite and limited-edition series, allocated distinctive serial
+              identifiers, the intellectual property and design rights in respect of which remain vested
+              exclusively with the Company.</li>
+              <li>2.2. The Company disclaims any liability in respect of minor deviations in shade, finish, texture,
+              or appearance of the product as displayed in marketing material vis-à-vis the final delivered
+              article, such variance being commercially customary.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">3. Product Information</h2>
-            <p>
-              We strive to provide accurate product descriptions, images, and pricing. However, we do not warrant that product descriptions, images, pricing, or other content on the Platform is accurate, complete, reliable, current, or error-free.
-            </p>
-            <p className="mt-3">
-              All products are subject to availability. We reserve the right to limit quantities, discontinue products, or refuse orders at our sole discretion.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">4. Orders and Payment</h2>
-            <p>
-              By placing an order, you are making an offer to purchase products subject to these Terms. All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order for any reason.
-            </p>
-            <p className="mt-3">
-              Payment must be received in full before orders are processed. We accept payment through the methods displayed on our Platform. You represent and warrant that you have the legal right to use any payment method provided.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">5. Intellectual Property</h2>
-            <p>
-              All content on the Platform, including but not limited to text, graphics, logos, images, and software, is the property of <strong>Jananayagan</strong> or its licensors and is protected by copyright, trademark, and other intellectual property laws.
-            </p>
-            <p className="mt-3">
-              You may not reproduce, distribute, modify, or create derivative works from any content without our express written permission.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">6. User Accounts</h2>
-            <p>
-              To access certain features of the Platform, you may be required to create an account. You are responsible for:
-            </p>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">3. Delivery, Allocation, and Receipt</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li>Maintaining the confidentiality of your account credentials</li>
-              <li>All activities that occur under your account</li>
-              <li>Notifying us immediately of any unauthorized use</li>
-              <li>Ensuring the information in your account is accurate and up-to-date</li>
+              <li>3.1. Delivery of the products shall be effected exclusively through logistics partners or delivery
+              service providers engaged by the Company.</li>
+              <li>3.2. The anticipated delivery window shall fall within the first calendar week of January 2026,
+              provided however that such schedule is indicative only and subject to alteration, deferment, or
+              rescheduling at the sole discretion of the Company without incurring liability.</li>
+              <li>3.3. Purchasers shall provide a complete and accurate delivery address at the time of booking.
+              Any failure of delivery arising from incorrect address, absence of recipient, refusal to accept, or
+              other causes not attributable to the Company shall operate as constructive delivery and no
+              claim for replacement or refund shall lie.</li>
+              <li>3.4. Risk of loss or damage in transit shall pass to the purchaser upon handover of the goods to
+              the logistics provider; however, in cases of demonstrable damage evident upon delivery, the
+              {"Company's"} liability shall be limited to replacement, subject to Clause 6.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">7. Limitation of Liability</h2>
-            <p>
-              To the fullest extent permitted by law, <strong>Jananayagan</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising out of or related to your use of the Platform.
-            </p>
-            <p className="mt-3">
-              Our total liability for any claims arising from your use of the Platform shall not exceed the amount you paid for products purchased through the Platform.
-            </p>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">4. Public Disclosure of Booking Particulars</h2>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>4.1. As a condition precedent to booking, purchasers expressly consent to the publication of
+              their name, booking sequence number, and related non-sensitive details upon the official
+              website/app of the Company for the purposes of transparency, auditing, and promotional
+              representation.</li>
+              <li>4.2. The Company undertakes to withhold disclosure of sensitive identifiers such as Aadhaar
+              numbers, phone numbers, or email addresses, save where required by lawful authority.</li>
+            </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">8. Indemnification</h2>
-            <p>
-              You agree to indemnify, defend, and hold harmless <strong>Jananayagan</strong>, its officers, directors, employees, and agents from any claims, liabilities, damages, losses, or expenses arising from your use of the Platform or violation of these Terms.
-            </p>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">5. Lucky Draw and Promotional Scheme</h2>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>5.1. Each valid booking automatically constitutes eligibility for participation in a promotional
+              reward scheme (“Lucky Draw”) organized by the Company as a goodwill gesture to its
+              customers.</li>
+              <li>5.2. The selection of winners shall be undertaken through a computerized randomization
+              process conducted on the {"Company's"} official online platform, and the results shall be published
+              exclusively on the {"Company's"} website.</li>
+              <li>5.3. The declaration of winners by the Company shall be final, binding, and conclusive, and
+              shall not be open to contestation, appeal, or review in any forum whatsoever.</li>
+              <li>5.4. The prizes, benefits, or rewards conferred through such scheme are personal to the
+              selected customers, and are strictly non-assignable, non-transferable, and non-exchangeable.</li>
+              <li>5.5. This scheme is purely a voluntary promotional activity and shall not, under any construction,
+              be deemed a lottery, gambling, wagering contract, or any activity prohibited by law.</li>
+            </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">9. Governing Law</h2>
-            <p>
-              These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts in [Your City/State].
-            </p>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">6. Return, Replacement, and Exclusions</h2>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>6.1. No right of return shall accrue to the purchaser post-delivery, save in instances where
+              demonstrable manufacturing defects or damage during transit are evidenced
+              contemporaneously and reported within 48 hours of receipt.</li>
+              <li>6.2. In such event, the {"Company's"} sole obligation shall be limited to replacement of the
+              defective article with another item of like nature, subject to stock availability.</li>
+              <li>6.3. Monetary refund shall under no circumstances be exigible, and claims for indirect,
+              consequential, or incidental losses are expressly excluded.</li>
+            </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">10. Changes to Terms</h2>
-            <p>
-              We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to the Platform. Your continued use of the Platform after changes are posted constitutes acceptance of the modified Terms.
-            </p>
+            <h2 className="text-2xl font-semibold text-[#F5BB0B] mt-8 mb-4">7. Reservation of Rights by the Company</h2>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>7.1. The Company reserves an unfettered right to modify, suspend, reschedule, or terminate the
+              booking and delivery program at its discretion in the event of force majeure, regulatory
+              intervention, or logistical exigencies.</li>
+              <li>7.2. The Company further reserves the unilateral right to amend or modify these Terms &
+              Conditions without prior notice, and the continued participation of purchasers shall constitute
+              deemed acceptance thereof</li>
+            </ul>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold text-black mt-8 mb-4">11. Contact Information</h2>
-            <p>
-              For questions about these Terms and Conditions, please contact us at{' '}
-              <a href="mailto:support@jananayagan.com" className="text-[#F5D57A] hover:underline">
-                support@jananayagan.com
-              </a>
-            </p>
-          </section>
-
-          <section className="mt-8 pt-6 border-t border-gray-300">
-            <p className="text-sm text-gray-600">
-              <strong>Last Updated:</strong> January 2025
-            </p>
-          </section>
         </div>
       </div>
     </Container>
