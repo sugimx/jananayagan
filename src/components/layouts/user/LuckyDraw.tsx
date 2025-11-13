@@ -30,6 +30,4 @@ const LuckyDraw = () => {
     )
 }
 
-// bg-[conic-gradient(from_180deg_at_50%_50%,_#640101,_#000000_25%,_#640101_50%,_#000000_75%,_#640101_100%)]
-
 export default LuckyDraw
