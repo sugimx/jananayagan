@@ -6,7 +6,7 @@ import { FaRupeeSign } from "react-icons/fa"
 const Banner = () => {
     return (
         <>
-            <div className='bg-gradient-to-b from-[#640101] via-[#000] to-[#000] py-10 md:py-2 md:h-[60vh] lg:h-[70vh]'>
+            <div className='bg-gradient-to-b from-[#640101] via-[#242323] to-[#000] py-10 md:py-2 md:h-[60vh] lg:h-[70vh]'>
                 <div className='flex flex-row items-center md:mx-20 lg:flex-row'>
                     <div className='flex-1 flex flex-col items-center'>
                         <Image 

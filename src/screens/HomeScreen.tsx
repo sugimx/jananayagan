@@ -14,8 +14,8 @@ const HomeScreen = () => {
             <Suspense fallback={<LoadingScreen />}>
                 <Banner />
                 <SalesSection />
-                <Section2 />
                 <LuckyDraw />
+                <Section2 />
                 <LimitedEdition />
                 <Information />
                 <FaQuestions />

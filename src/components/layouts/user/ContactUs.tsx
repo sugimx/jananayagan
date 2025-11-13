@@ -49,7 +49,7 @@ const ContactUs = () => {
                 from_name: formData.name,
                 from_email: formData.email,
                 message: formData.message,
-                to_name: 'Jananayagan Team'
+                to_name: 'Sugimx Support Team'
             });
 
             if (success) {
@@ -90,7 +90,7 @@ const ContactUs = () => {
                     <div className='my-4 mx-2 md:mx-12 flex-1'>
                         <h1 className='text-[#F5BB0B] text-[1.2rem] font-semibold mb-2 text-center md:text-start md:text-[3rem]'>The Legacy Beyond the Curtain</h1>
                         <p className='text-sm md:text-lg text-[#fff]'>Forever one hero, one leader though the curtain falls, his influence only rises. In power, memory, and story, he endures, shaping the future where legends are born, live on, and inspire generations long after their final act has ended.</p>
-                        <p className='text-[#F5BB0B]'>jananayagan.info@gmail.com</p>
+                        <p className='text-[#F5BB0B]'>support@sugimx.com</p>
                         <p className='text-white'>9489519652</p>
                     </div>
                     <div className="md:flex h-100 hidden">

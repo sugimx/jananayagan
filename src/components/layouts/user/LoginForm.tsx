@@ -94,7 +94,7 @@ const LoginForm = () => {
         <div className='my-5 mx-2 lg:w-[70%] md:flex md:mx-auto md:h-[80vh] gap-8 justify-center items-center'>
           <div className='text-center my-4 flex-2'> 
             <h1 className='text-[1.2rem] text-[#F5D57A] font-semibold my-2 md:text-[2rem]'>Welcome, Hero of the Future</h1>
-            <p className='text-sm leading-relaxed md:text-lg'>From final frame to future throne your legacy continues. One hero, one leader, rising beyond the screen into something greater.</p>
+            <p className='text-sm leading-relaxed md:text-lg'>A democracy cannot thrive where power remains unchecked and justice is reserved for a select few.</p>
             <div className='hidden md:flex justify-center items-center'>
               <Image 
                 src="/cup_image.png"
