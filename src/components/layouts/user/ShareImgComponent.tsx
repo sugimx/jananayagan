@@ -7,6 +7,7 @@ import { useAuth } from '@/hooks/useAuth'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { toPng } from 'html-to-image'
 import QRCode from 'react-qr-code'
+import Image from 'next/image'
 
 const ShareImgComponent = (
     { handleToggle, orderId }: { handleToggle: () => void, orderId: string }
@@ -49,7 +50,7 @@ const ShareImgComponent = (
                     <div ref={ref}>
                         <div className='max-w-[340px] h-auto bg-[#353240]'>
                             <div className='share-image'>
-                                <img 
+                                <Image 
                                     src="/jana_nayagan_logo.png"
                                     alt="Logo"
                                     width={100}
@@ -58,7 +59,7 @@ const ShareImgComponent = (
                             </div>
                             <div className='share-content'>
                                 <div className='share-content-image'>
-                                    <img 
+                                    <Image 
                                         src="/cup_image.png"
                                         alt="cup image"
                                         width={100}
