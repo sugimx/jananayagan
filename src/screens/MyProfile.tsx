@@ -23,7 +23,7 @@ const FormContainer = ({ children }: { children: React.ReactNode }) => {
 
 const FormControl = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className='mb-2'>
+        <div className='mb-5'>
             {children}
         </div>
     )
@@ -116,7 +116,7 @@ const MyProfile = () => {
 
     return (
         <div className='my-4'>
-            <div className=''>
+            <div className='mx-2'>
                 <div className='mb-5'>
                     <h1 className='text-[1.2rem] text-[#F5BB0B] font-semibold md:text-[1.5rem]'>Edit Profile</h1>
                 </div>

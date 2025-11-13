@@ -7,7 +7,7 @@ const LuckyDraw = () => {
         <div className='bg-[radial-gradient(circle_at_center,_#640101,_#000000_70%,_#000000_100%)] text-white'>
             <div className='py-7 my-10 md:my-20 md:mx-20'>
                 <h1 className='text-center text-[1.5rem] text-[#F5BB0B] font-semibold md:text-[3rem]'>Lucky Draw</h1>
-                <div className='flex flex-col md:flex-row justify-around items-center border-1 border-[#F5BB0B] rounded-lg md:rounded-4xl'>
+                <div className='flex flex-col md:flex-row justify-around items-center border-1 border-[#F5BB0B] rounded-lg md:rounded-4xl md:py-8'>
                     <div className='my-4 mx-2 md:mx-6'>
                         <h1 className='text-[#F5BB0B] text-[1rem] font-semibold mb-2 md:text-xl'>Every cup buyer automatically enters our Mega Lucky Draw</h1>
                         <UnorderedList content='1st Prize - ₹27,70,000' />
