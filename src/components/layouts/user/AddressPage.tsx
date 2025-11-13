@@ -15,8 +15,8 @@ import Paragraph from '@/components/ui/user/Paragraph'
 const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive: boolean, onActivate: () => void }) => {
     return (
         <div className={`
-                border-1 border-[#F5D57A] rounded-xl mb-4 md:mb-1 md:w-[calc(50%-7.5px)] xl:w-[calc(25%-6px)] cursor-pointer
-                ${isActive ? 'bg-[#F5D57A] shadow-lg ring-2 text-black' : 'bg-transparent hover:bg-gray-800 text-[#F5D57A]'}
+                border-1 border-[#F5BB0B] rounded-xl mb-4 md:mb-1 md:w-[calc(50%-7.5px)] xl:w-[calc(25%-6px)] cursor-pointer
+                ${isActive ? 'bg-[#F5BB0B] shadow-lg ring-2 text-black' : 'bg-transparent hover:bg-gray-800 text-[#F5D57A]'}
             `}
             onClick={onActivate}
         >
@@ -153,7 +153,7 @@ const AddressPage = () => {
                 <div className='flex justify-end items-center mb-4'>
                     <button
                         className={`
-                            text-[#F5BB0B] bg-[#7a0202] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`}
+                            text-[#000] bg-[#F5BB0B] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`}
                         onClick={handleAddNewFn}
                     >
                         <FaPlus className='font-bold' />
@@ -175,7 +175,7 @@ const AddressPage = () => {
                             </Section>
                         </MainContainer>
                     )) : (
-                        <div className='w-full h-50 flex flex-col justify-center items-center'>
+                        <div className='w-full h-50 flex flex-col justify-center items-center text-[#fff]'>
                             <Heading content='Oops! No Address Found' />
                             <Paragraph content="We couldn't find any address. create new address and try again." />
                         </div>

@@ -27,7 +27,7 @@ const AboutContent = () => {
                         width={1000}
                         height={1000}
                         alt='cup image'
-                        className='w-full md:h-[300px] md:w-[450px] lg:h-[300px] lg:w-[600px]'
+                        className='w-full md:h-[400px] md:w-[350px] lg:h-[400px] lg:w-[450px]'
                     />
                 </div>
             </div>
@@ -38,7 +38,7 @@ const AboutContent = () => {
                         width={1000}
                         height={1000}
                         alt='cup image'
-                        className='w-full md:h-[400px] md:w-[450px] lg:h-[400px] lg:w-[600px]'
+                        className='w-full md:h-[400px] md:w-[350px] lg:h-[400px] lg:w-[450px]'
                     />
                 </div>
                 <div className='leading-relaxed text-center lg:flex-1 lg:text-start order-1 lg:order-1'>
@@ -69,7 +69,7 @@ const AboutContent = () => {
                         width={1000}
                         height={1000}
                         alt='cup image'
-                        className='w-full md:h-[400px] md:w-[450px] lg:h-[400px] lg:w-[600px]'
+                        className='w-full md:h-[400px] md:w-[350px] lg:h-[400px] lg:w-[450px]'
                     />
                 </div>
             </div>
@@ -80,7 +80,7 @@ const AboutContent = () => {
                         width={1000}
                         height={1000}
                         alt='cup image'
-                        className='w-full md:h-[400px] md:w-[450px] lg:h-[400px] lg:w-[600px]'
+                        className='w-full md:h-[400px] md:w-[350px] lg:h-[400px] lg:w-[450px]'
                     />
                 </div> 
                 <div className='leading-relaxed text-center lg:flex-1 lg:text-start order-1 lg:order-1'>

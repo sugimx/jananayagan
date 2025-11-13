@@ -124,7 +124,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
             <div className='absolute top-20 w-full md:flex justify-center items-center z-10 main-content blurred'>
                 <div className='bg-[#000] border-1 border-[#F5BB0B] w-full md:w-[50%] lg:w-[50%] xl:w-[30%] md:h-full px-3 md:px-10 py-5 rounded-xl relative'>
                     <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer' onClick={onHandleToggle}>
-                        <IoIosClose className='bg-white text-black font-bold rounded-full'/>
+                        <IoIosClose className='bg-[#F5BB0B] text-black font-bold rounded-full'/>
                     </div>
                     <div>
                         <h1 className='text-[#F5BB0B] text-[1.5rem] font-semibold'>Buyer Info</h1>

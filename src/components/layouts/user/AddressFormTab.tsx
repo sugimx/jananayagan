@@ -186,7 +186,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                     <div className='h-15 flex items-center justify-center text-white text-[1rem] font-semibold'>
                         <h1>New address</h1>
                     </div>
-                    <div className='h-auto bg-[#a20000] flex flex-col gap-4 px-3 py-4 rounded-xl'>
+                    <div className='h-auto bg-[#000] flex flex-col gap-4 px-3 py-4 rounded-xl'>
                         <InputContainer>
                             <InputLabel content='Address' />
                             <Input<FormData> placeholder='Enter Your Address' 

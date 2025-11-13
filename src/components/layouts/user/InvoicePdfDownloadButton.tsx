@@ -177,7 +177,7 @@ export default function InvoicePdfDownloadButton({ orderId }: { orderId: string 
         fileName="invoice.pdf"
       >
         {({ loading }) => (
-          <button className="border-1 border-[#7a0202] px-7 py-2 text-xs text-[#7a0202] uppercase mb-2 cursor-pointer">
+          <button className="border-1 border-[#F5BB0B] px-7 py-2 text-xs text-[#F5BB0B] uppercase mb-2 cursor-pointer">
               {loading ? "loading..." : "Recipt Download"}
           </button>
         )}

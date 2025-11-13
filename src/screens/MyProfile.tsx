@@ -31,7 +31,7 @@ const FormControl = ({ children }: { children: React.ReactNode }) => {
 
 const Label = ({ content }: { content: string }) => {
     return (
-        <label className='text-sm block mb-1 text-[#000] md:text-md lg:text-lg'>{content}</label>
+        <label className='text-sm block mb-1 text-[#F5BB0B] md:text-md lg:text-lg'>{content}</label>
     )
 }
 
@@ -118,7 +118,7 @@ const MyProfile = () => {
         <div className='my-4'>
             <div className=''>
                 <div className='mb-5'>
-                    <h1 className='text-[1.2rem] text-[#7a0202] font-semibold md:text-[1.5rem]'>Edit Profile</h1>
+                    <h1 className='text-[1.2rem] text-[#F5BB0B] font-semibold md:text-[1.5rem]'>Edit Profile</h1>
                 </div>
                 {isSuccess && (
                     <div className='md:flex md:justify-between md:gap-2'>
@@ -195,7 +195,7 @@ const MyProfile = () => {
                         <FormContainer>
                             <FormControl>
                                 <Label content="State" />
-                                <select className='w-full h-10 px-2 py-1 border-2 border-[#7a0202] outline-none rounded-lg text-black md:h-12'
+                                <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
                                     defaultValue={data?.data?.state}
                                     {
                                         ...register('state', {
@@ -203,10 +203,10 @@ const MyProfile = () => {
                                         })
                                     }
                                 >
-                                    <option className='bg-white'>---Select Your State---</option>
-                                    <option className='bg-white' value="TamilNadu">TamilNadu</option>
-                                    <option className='bg-white' value="Kerala">Kerala</option>
-                                    <option className='bg-white' value="others">Others</option>
+                                    <option className='bg-[#7a0202]'>---Select Your State---</option>
+                                    <option className='bg-[#7a0202]' value="TamilNadu">TamilNadu</option>
+                                    <option className='bg-[#7a0202]' value="Kerala">Kerala</option>
+                                    <option className='bg-[#7a0202]' value="others">Others</option>
                                 </select>
                             </FormControl>
                             {
@@ -214,17 +214,17 @@ const MyProfile = () => {
                             }
                             <FormControl>
                                 <Label content="District" />
-                                <select className='w-full h-10 px-2 py-1 border-2 border-[#7a0202] outline-none rounded-lg text-black md:h-12'
+                                <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
                                     {
                                         ...register('dist', {
                                             required: 'District field is required'
                                         })
                                     }
                                 >
-                                    {data?.data?.dist && <option className='bg-white' value={data?.data?.dist}>{data?.data?.dist}</option>}
-                                    <option className='bg-white' value="">---Select Your District---</option>
+                                    {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
+                                    <option className='bg-[#7a0202]' value="">---Select Your District---</option>
                                     {districts.filter(item => item.state === stateWatch).map((item, index) => (
-                                        <option key={index} className='bg-white'>{item.district}</option>
+                                        <option key={index} className='bg-[#7a0202]'>{item.district}</option>
                                     ))}
                                 </select>
                             </FormControl>
@@ -238,7 +238,7 @@ const MyProfile = () => {
                 {isUpdateError && <ErrorMessage message={(updateError as Error).message} />}
                 <div className='my-5 w-full flex justify-center'>
                     <button 
-                        className='border-2 border-[#7a0202] px-6 py-2 text-sm text-[#7a0202] rounded-md font-semibold md:text-md cursor-pointer'
+                        className='border-2 border-[#F5BB0B] px-6 py-2 text-sm text-[#F5BB0B] rounded-md font-semibold md:text-md cursor-pointer'
                         onClick={handleSubmit(handleSubmitFn)}
                     >
                         {isUpdatePending ? <span className='loader'></span> : 'Save Changes'}

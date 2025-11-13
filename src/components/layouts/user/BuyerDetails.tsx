@@ -31,8 +31,8 @@ const DivTag = ({ children, isActive, onActivate, value }: DivTagProps) => {
             onClick={onActivate}
             data-value={value}
             className={`
-                border border-[#7a0202] px-2 py-2 rounded-xl flex-1 md:px-6 md:py-5 cursor-pointer font-light 
-                ${isActive ? 'bg-[#7a0202] shadow-lg ring-2 text-[#F5D57A]' : 'bg-transparent hover:bg-gray-800 hover:text-white text-[#7a0202]'}
+                border border-[#F5BB0B] px-2 py-2 rounded-xl flex-1 md:px-6 md:py-5 cursor-pointer font-light 
+                ${isActive ? 'bg-[#7a0202] shadow-lg ring-2 text-[#F5D57A]' : 'bg-transparent hover:bg-gray-800 hover:text-white text-[#F5BB0B]'}
                 `
             }
         >
@@ -72,7 +72,7 @@ const BuyerDetails = () => {
         <>
            <div className='mt-4 md:mt-10 '>
                 <div className='flex justify-between items-center'>
-                    <h1 className='text-xl font-semibold text-[#7a0202] mb-4 md:text-2xl'>Account</h1>
+                    <h1 className='text-xl font-semibold text-[#F5BB0B] mb-4 md:text-2xl'>Account</h1>
                     <LogoutButton />
                 </div>
                 <div className='flex justify-between gap-2 w-full md:gap-8'>

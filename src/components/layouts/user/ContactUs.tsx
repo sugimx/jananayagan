@@ -85,16 +85,16 @@ const ContactUs = () => {
     return (
         <div className='max-w-[1800px] mx-auto'>
             <div className='my-10 md:my-20 md:mx-20'>
-                <h1 className='text-center text-[1.5rem] text-[#7a0202] font-semibold md:text-[3rem]'>CONTACT US</h1>
-                <div className='flex flex-col md:flex-row justify-around items-center border-1 border-[#7a0202] rounded-lg md:rounded-4xl md:py-8'>
+                <h1 className='text-center text-[1.5rem] text-[#F5BB0B] font-semibold md:text-[3rem]'>CONTACT US</h1>
+                <div className='flex flex-col md:flex-row justify-around items-center border-1 border-[#F5BB0B] rounded-lg md:rounded-4xl md:py-8'>
                     <div className='my-4 mx-2 md:mx-12 flex-1'>
-                        <h1 className='text-[#7a0202] text-[1.2rem] font-semibold mb-2 text-center md:text-start md:text-[3rem]'>The Legacy Beyond the Curtain</h1>
-                        <p className='text-sm md:text-lg'>Forever one hero, one leader though the curtain falls, his influence only rises. In power, memory, and story, he endures, shaping the future where legends are born, live on, and inspire generations long after their final act has ended.</p>
-                        <p className='text-[#7a0202]'>jananayagan.info@gmail.com</p>
-                        <p>9489519652</p>
+                        <h1 className='text-[#F5BB0B] text-[1.2rem] font-semibold mb-2 text-center md:text-start md:text-[3rem]'>The Legacy Beyond the Curtain</h1>
+                        <p className='text-sm md:text-lg text-[#fff]'>Forever one hero, one leader though the curtain falls, his influence only rises. In power, memory, and story, he endures, shaping the future where legends are born, live on, and inspire generations long after their final act has ended.</p>
+                        <p className='text-[#F5BB0B]'>jananayagan.info@gmail.com</p>
+                        <p className='text-white'>9489519652</p>
                     </div>
                     <div className="md:flex h-100 hidden">
-                        <div className='w-[2px] h-full bg-[#7a0202]'></div>
+                        <div className='w-[2px] h-full bg-[#F5BB0B]'></div>
                     </div>
                     <form onSubmit={handleSubmit} className='flex-1 md:mx-12 w-[80%] my-4 flex gap-4 flex-col text-white'>
                         {submitStatus.type && (
@@ -108,40 +108,40 @@ const ContactUs = () => {
                         )}
                         
                         <div className='flex flex-col gap-2'>
-                            <label className='text-[#7a0202] text-sm md:text-lg'>Name</label>
+                            <label className='text-[#F5BB0B] text-sm md:text-lg'>Name</label>
                             <input 
                                 type="text"
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                className='border-1 border-[#7a0202] text-black outline-none rounded-lg py-2 px-2' 
+                                className='border-1 border-[#F5BB0B] text-[#F5BB0B] outline-none rounded-lg py-2 px-2' 
                                 disabled={isSubmitting}
                             />
                         </div>
                         <div className='flex flex-col gap-2'>
-                            <label className='text-[#7a0202] text-sm md:text-lg'>Email</label>
+                            <label className='text-[#F5BB0B] text-sm md:text-lg'>Email</label>
                             <input 
                                 type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                className='border-1 border-[#7a0202] text-black outline-none rounded-lg py-2 px-2'  
+                                className='border-1 border-[#F5BB0B] text-[#F5BB0B] outline-none rounded-lg py-2 px-2'  
                                 disabled={isSubmitting}
                             />
                         </div>
                         <div className='flex flex-col gap-2'>
-                            <label className='text-[#7a0202] text-sm md:text-lg'>Message</label>
+                            <label className='text-[#F5BB0B] text-sm md:text-lg'>Message</label>
                             <textarea 
                                 name="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
-                                className='border-1 border-[#7a0202] text-black outline-none rounded-lg h-40 py-2 px-2' 
+                                className='border-1 border-[#F5BB0B] text-[#F5BB0B] outline-none rounded-lg h-40 py-2 px-2' 
                                 disabled={isSubmitting}
                             />
                         </div>
                         <button 
                             type="submit"
-                            className='w-full bg-[#7a0202] rounded-md py-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed text-white cursor-pointer'
+                            className='w-full bg-[#F5BB0B] rounded-md py-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed text-[#000] cursor-pointer'
                             disabled={isSubmitting}
                         >
                             {isSubmitting ? 'Sending...' : 'Submit'}

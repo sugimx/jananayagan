@@ -16,7 +16,7 @@ const InputBox = <T extends FieldValues>({ placeHolder, type, register, validati
         <input 
             type={type}
             placeholder={placeHolder}
-            className='w-full h-10 px-2 py-1 border-2 border-[#7a0202] outline-none rounded-lg text-black md:h-12'
+            className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
             defaultValue={defaultValue}
             {
                 ...register(name, {

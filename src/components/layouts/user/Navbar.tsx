@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import Container from './Container'
 import Burger from '@/components/ui/user/Burger'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

@@ -39,7 +39,9 @@ const LoginForm = () => {
         localStorage.setItem('user', JSON.stringify(response.data))
         
         setTimeout(() => {
-          window.location.href = '/'
+          if(typeof window !== 'undefined') {
+            window.location.href = '/'
+          }
         }, 1000)
       } else {
         setError(response.message || 'Login failed')
@@ -67,7 +69,9 @@ const LoginForm = () => {
           localStorage.setItem('user', JSON.stringify(response.data))
           
           setTimeout(() => {
-            window.location.href = '/'
+            if(typeof window !== 'undefined') {
+              window.location.href = '/'
+            }
           }, 1000)
         } else {
           setError(response.message || 'Google login failed')

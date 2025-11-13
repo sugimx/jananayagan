@@ -41,7 +41,7 @@ const DetailsContainer = ({ children }: { children: React.ReactNode }) => {
 
 const Icon = ({ Icon }: { Icon: IconType }) => {
     return (
-        <span className='text-[#7a0202] text-md md:text-lg'>
+        <span className='text-[#F5BB0B] text-md md:text-lg'>
             <Icon />
         </span>
     )
@@ -49,7 +49,7 @@ const Icon = ({ Icon }: { Icon: IconType }) => {
 
 const Paragraph = ({ content }: { content: string }) => {
     return (
-        <p className='text-md text-black font-light md:text-lg'>{content}</p>
+        <p className='text-md text-[#F5BB0B] font-light md:text-lg'>{content}</p>
     )
 }
 
@@ -210,8 +210,8 @@ const OrderSummary = ({ address }: { address: Address }) => {
                     <div className='text-white flex-1'>
                         <div className='mb-3'>
                             <div className='mb-5'>
-                                <h1 className='text-[#7a0202] text-2xl font-semibold mb-1 md:text-4xl'>Address</h1>
-                                <p className='text-sm text-black font-light md:text-lg'>Please confirm the {"buyer's"} address, your Jana Nayagan Cup finds its way here.</p>
+                                <h1 className='text-[#F5BB0B] text-2xl font-semibold mb-1 md:text-4xl'>Address</h1>
+                                <p className='text-sm text-white font-light md:text-lg'>Please confirm the {"buyer's"} address, your Jana Nayagan Cup finds its way here.</p>
                             </div>
                             <div className='flex flex-col gap-3'>
                                 <DetailsContainer>
@@ -246,7 +246,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 )}
                             </div>
                             <button 
-                                className='outline-none border-1 border-[#7a0202] text-[#7a0202] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
+                                className='outline-none border-1 border-[#F5BB0B] text-[#F5BB0B] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
                                 onClick={handleAddress}
                             >
                                 Change Address
@@ -254,7 +254,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         </div>
                     </div>
                     <div className='flex-1'>
-                        <div className='bg-[#7a0202] w-full px-4 py-4 text-lg font-light text-[#F5BB0B]'>
+                        <div className='bg-[#F5BB0B] w-full px-4 py-4 text-lg font-light text-[#000]'>
                             <h1 className='text-2xl font-semibold mb-1 md:text-4xl'>Order summery</h1>
                             <div className='flex items-center justify-between text-sm'>
                                 <span className='font-light text-md md:text-lg'>Subtotal</span>
@@ -282,10 +282,10 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         <button 
                             onClick={handlePayment}
                             disabled={isProcessing}
-                            className={`w-full py-2 my-3 text-sm text-white uppercase font-medium cursor-pointer ${
+                            className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${
                                 isProcessing 
                                     ? 'bg-gray-400 cursor-not-allowed' 
-                                    : 'bg-[#7a0202] hover:bg-[#000]'
+                                    : 'bg-[#F5BB0B] hover:bg-[#7a0202] hover:text-white'
                             }`}
                         >
                             {isProcessing ? 'Processing...' : 'Go to Payment'}

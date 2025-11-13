@@ -80,8 +80,8 @@ const Invoice = () => {
         <>
             <div className="w-full min-h-[50vh] my-7 relative">
                 <div className="text-center md:w-[80%] lg:w-[50%] mx-auto">
-                    <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] text-[#7a0202]">THANK YOU!</h1>
-                    <p className="text-[0.9rem] md:text-[1.2rem] font-light">We received your order and will start preparing your package right away. You will receive a confirmation email in a moment.</p>
+                    <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] text-[#F5BB0B]">THANK YOU!</h1>
+                    <p className="text-[0.9rem] md:text-[1.2rem] font-light text-white">We received your order and will start preparing your package right away. You will receive a confirmation email in a moment.</p>
                 </div>
 
                 {isSuccess && data?.data?.map((item: DataProps, index: number) => (
@@ -96,27 +96,27 @@ const Invoice = () => {
                                     className="w-20 h-20 lg:w-30 lg:h-30"
                                 />
                                 <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
-                                    <p className="text-xs md:text-md lg:text-lg">Official {item?.items?.[0]?.productName}</p>
-                                    <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start">
+                                    <p className="text-xs md:text-md lg:text-lg text-[#F5BB0B]">Official {item?.items?.[0]?.productName}</p>
+                                    <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start text-[#F5BB0B]">
                                         <FaRupeeSign className="md:my-[3px]" /> 
                                         <span>{item?.items?.[0]?.totalPrice}</span>
                                     </p>
                                 </div>
                             </div>
-                            <div className="md:flex md:justify-between flex-1">
+                            <div className="md:flex md:justify-between flex-1 text-[#F5BB0B]">
                                 <div>
                                     <div className="flex flex-col gap-2">
-                                        <h1 className="text-xs md:text-md lg:text-lg text-[#7a0202] font-light">Delivery Details</h1>
+                                        <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Delivery Details</h1>
                                     </div>
                                     <p className="text-xs md:text-md lg:text-lg my-2">{item?.deliveryDetails?.addressLine1} , {item?.deliveryDetails?.fullName}, {item?.deliveryDetails?.landmark}, {item?.deliveryDetails?.city} , {item?.deliveryDetails?.state} {item?.deliveryDetails?.country}</p>
                                     <div>
-                                        <h1 className="text-xs md:text-md lg:text-lg text-[#7a0202] font-light">Contact information</h1>
-                                        <span className="text-black text-xs md:text-sm lg:text-md">{item?.email}</span>
+                                        <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Contact information</h1>
+                                        <span className="text-[#F5BB0B] text-xs md:text-sm lg:text-md">{item?.email}</span>
                                     </div>
                                 </div>
                                 <div className="md:flex md:flex-col">
                                     <button 
-                                        className="bg-[#7a0202] px-7 py-2 text-xs text-[#F5BB0B] uppercase mb-2 cursor-pointer"
+                                        className="bg-[#F5BB0B] px-7 py-2 text-xs text-[#000] uppercase mb-2 cursor-pointer"
                                         onClick={() => handleToggle(item?.orderId)}
                                     >
                                         Status Download
