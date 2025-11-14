@@ -18,8 +18,8 @@ const SingleProduct = () => {
                             className='w-[200px] h-[200px] md:w-[600px] md:h-[400px]'
                         />
                     </div>
-                    <div className='h-full w-full flex flex-col gap-2 md:flex-1 md:px-20 md:gap-10 md:justify-center'>
-                        <h1 className='text-[2rem] text-[#F5D57A] text-center font-bold md:text-[3rem] md:text-start'>Official Jana Nayagan Limited Edition Cup</h1>
+                    <div className='h-full w-full flex flex-col justify-center items-center gap-2 md:flex-1 md:px-20 md:gap-10 md:justify-center lg:items-start'>
+                        <h1 className='text-[2rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,187,11,0.35)] text-center font-bold md:text-[3rem] md:text-start'>Official Jana Nayagan Limited Edition Cup</h1>
                         {/* <p className='text-sm leading-relaxed md:text-lg'>Be a part of cinematic history with this official Jana Nayagan {"Collector's Cup"}. Crafted for true fans, each cup carries a unique serial number, making every piece personal, cherished, and a timeless tribute to the {"film's"} legacy.</p> */}
                         <div className='flex justify-center md:justify-start'>
                             <div className='flex justify-between gap-5 md:gap-10'>
@@ -60,7 +60,7 @@ const SingleProduct = () => {
                                 </div>
                             </div>
                         </div>
-                        <h1 className='text-[1rem] text-[#F5D57A] text-center font-semibold md:text-[2rem] md:text-start flex items-center'><FaRupeeSign /> 320</h1>
+                        <h1 className='text-[1rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text font-semibold md:text-[2rem] flex items-center'><FaRupeeSign className='text-white'/> 320</h1> 
                     </div>
                 </div>
             </Container>

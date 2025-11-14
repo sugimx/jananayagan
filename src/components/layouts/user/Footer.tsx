@@ -5,7 +5,9 @@ import Container from './Container';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-[#640101] via-[#000] to-[#000] text-white px-4 pt-12 border-t-2 border-b-2 border-[#F5BB0B]">
+     <footer className='relative mx-auto border-b border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white shadow-[0_20px_45px_rgba(5,1,19,0.55)]'>
+        <div className='absolute inset-y-0 left-0 w-1/2 bg-[radial-gradient(circle_at_top,_rgba(245,187,11,0.12),_transparent_60%)] opacity-60 pointer-events-none' />
+        <div className='absolute inset-y-0 right-0 w-1/3 bg-[radial-gradient(circle_at_bottom,_rgba(255,107,0,0.15),_transparent_55%)] opacity-60 pointer-events-none' />
       <Container>
         <div className="mx-auto my-5 flex flex-col md:flex-row md:items-start gap-8 md:gap-0">
           <div className="md:w-2/5 w-full flex flex-col items-center md:items-start md:mb-0">

@@ -64,12 +64,12 @@ const AddressForm = () => {
     return (
         <>
             <div className='w-[90%] h-auto mx-auto my-10 lg:w-[30%]'>
-                <h1 className='text-[1.5rem] font-light mb-2 text-[#7a0202] md:text-[2rem]'>Address</h1>
+                <h1 className='text-[1.5rem] font-light mb-2 text-[#F5BB0B] md:text-[2rem]'>Address</h1>
                 <div className='md:flex gap-2 justify-center'>
                     <div className='my-5 text-white flex-1'>
                         <div className='flex flex-col gap-4'>
                             <div>
-                                <label className='text-sm text-black md:text-lg'>Address</label>
+                                <label className='text-sm text-white md:text-lg'>Address</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaUser} />
                                     <input 
@@ -86,7 +86,7 @@ const AddressForm = () => {
                                 errors?.addressLine1 && <ErrorMessage message={errors?.addressLine1?.message} />
                             }
                              <div>
-                                <label className='text-sm text-black md:text-lg'>LandMark</label>
+                                <label className='text-sm text-white md:text-lg'>LandMark</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaUser} />
                                     <input 
@@ -103,7 +103,7 @@ const AddressForm = () => {
                                 errors?.landmark && <ErrorMessage message={errors?.landmark?.message} />
                             }
                             <div>
-                                <label className='text-sm text-black md:text-lg'>Phone</label>
+                                <label className='text-sm text-white md:text-lg'>Phone</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaMobileScreen} />
                                     <input 
@@ -124,7 +124,7 @@ const AddressForm = () => {
                                 errors?.phone && <ErrorMessage message={errors?.phone?.message} />
                             }
                             <div>
-                                <label className='text-sm text-black md:text-lg'>City</label>
+                                <label className='text-sm text-white md:text-lg'>City</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaHome} />
                                     <input 
@@ -141,7 +141,7 @@ const AddressForm = () => {
                                 errors?.city && <ErrorMessage message={errors?.city?.message} />
                             }
                             <div>
-                                <label className='text-sm text-black md:text-lg'>State</label>
+                                <label className='text-sm text-white md:text-lg'>State</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaHome} />
                                     <select className='h-10 w-full outline-none text-[#808089]'
@@ -160,7 +160,7 @@ const AddressForm = () => {
                                 errors?.state && <ErrorMessage message={errors?.state?.message} />
                             }
                             <div>
-                                <label className='text-sm text-black md:text-lg'>District</label>
+                                <label className='text-sm text-white md:text-lg'>District</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={IoIosMail} />
                                     <select className='h-10 w-full outline-none text-[#808089]'
@@ -179,7 +179,7 @@ const AddressForm = () => {
                                 errors?.district && <ErrorMessage message={errors?.district?.message} />
                             }
                             <div>
-                                <label className='text-sm text-black md:text-lg'>Post Code</label>
+                                <label className='text-sm text-white md:text-lg'>Post Code</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaMapLocationDot} />
                                     <input 

@@ -86,10 +86,10 @@ const Information = () => {
     return (
         <Container>
             <div className='my-10 md:my-20 md:mx-20 py-7'>
-                <h1 className='text-center text-[1.5rem] text-[#F5BB0B] font-semibold md:text-[3rem]'>CONTACT US</h1>
+                <h1 className='text-center text-[1.5rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,187,11,0.35)] font-semibold md:text-[3rem]'>CONTACT US</h1>
                 <div className='flex flex-col md:flex-row justify-around items-center border-1 border-[#F5BB0B] rounded-lg md:rounded-4xl md:py-8'>
                     <div className='my-4 mx-2 md:mx-12 flex-1'>
-                        <h1 className='text-[#F5BB0B] text-[1.2rem] font-semibold mb-2 text-center md:text-start md:text-[3rem]'>The Legacy Beyond the Curtain</h1>
+                        <h1 className='bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,187,11,0.35)] text-[1.2rem] font-semibold mb-2 text-center md:text-start md:text-[3rem]'>The Legacy Beyond the Curtain</h1>
                         <p className='text-sm md:text-lg'>Forever one hero, one leader though the curtain falls, his influence only rises. In power, memory, and story, he endures, shaping the future where legends are born, live on, and inspire generations long after their final act has ended.</p>
                     </div>
                     <div className="md:flex h-100 hidden">

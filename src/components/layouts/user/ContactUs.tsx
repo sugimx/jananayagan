@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { sendEmail, isValidEmail } from '@/lib/emailjs'
+import Container from './Container';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -83,6 +84,7 @@ const ContactUs = () => {
     };
 
     return (
+        <Container>
         <div className='max-w-[1800px] mx-auto'>
             <div className='my-10 md:my-20 md:mx-20'>
                 <h1 className='text-center text-[1.5rem] text-[#F5BB0B] font-semibold md:text-[3rem]'>CONTACT US</h1>
@@ -150,6 +152,7 @@ const ContactUs = () => {
                 </div>
             </div>
         </div>
+        </Container>
     )
 }
 

@@ -8,7 +8,7 @@ type props = {
 const AddressIcons = ({ Icon }: props) => {
     return (
         <>
-            <Icon className='px-2 py-2 text-[2rem] text-[#F5BB0B]' />
+            <Icon className='px-2 py-2 text-[2rem] text-[#fff]' />
         </>
     )
 }

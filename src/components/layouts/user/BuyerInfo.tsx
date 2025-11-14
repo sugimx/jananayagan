@@ -4,6 +4,7 @@ import React, { lazy, Suspense } from 'react'
 import LoadingScreen from '@/screens/LoadingScreen'
 import { useAuth } from '@/hooks/useAuth'
 import LinkComponent from '@/components/ui/user/LinkComponent'
+import Container from './Container'
 
 const LazyComponent = lazy(() => import('./BuyerSlider'))
 
@@ -20,8 +21,9 @@ const BuyerInfo = () => {
     }
     return (
         <>
+        <Container>
             <div className='max-w-[1800px] mx-auto'>
-                <div className='h-[80vh] py-10 relative'>
+                <div className='h-auto py-10 relative'>
                     <div>
                         <h1 className='text-[1.5rem] text-[#F5BB0B] font-semibold my-1 md:text-[3rem] md:my-2'>Buyer Info</h1>
                         <p className='text-sm leading-relaxed my-1 md:text-lg md:my-4 text-white'>Fill in your details to receive your unique ID for the Official Jana Nayagan Limited Edition Cup.</p>
@@ -32,6 +34,7 @@ const BuyerInfo = () => {
                     </Suspense>
                 </div>
             </div>
+        </Container>
         </>
     )
 }

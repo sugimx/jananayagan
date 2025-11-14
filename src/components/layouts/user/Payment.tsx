@@ -41,7 +41,7 @@ const DetailsContainer = ({ children }: { children: React.ReactNode }) => {
 
 const Icon = ({ Icon }: { Icon: IconType }) => {
     return (
-        <span className='text-[#F5BB0B] text-md md:text-lg'>
+        <span className='text-[#fff] text-md md:text-lg'>
             <Icon />
         </span>
     )
@@ -49,7 +49,7 @@ const Icon = ({ Icon }: { Icon: IconType }) => {
 
 const Paragraph = ({ content }: { content: string }) => {
     return (
-        <p className='text-md text-[#F5BB0B] font-light md:text-lg'>{content}</p>
+        <p className='text-md text-[#fff] font-light md:text-lg'>{content}</p>
     )
 }
 
@@ -246,7 +246,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 )}
                             </div>
                             <button 
-                                className='outline-none border-1 border-[#F5BB0B] text-[#F5BB0B] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
+                                className='outline-none border-1 border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-[#fff] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
                                 onClick={handleAddress}
                             >
                                 Change Address
@@ -254,7 +254,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         </div>
                     </div>
                     <div className='flex-1'>
-                        <div className='bg-[#F5BB0B] w-full px-4 py-4 text-lg font-light text-[#000]'>
+                        <div className='bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white w-full px-4 py-4 text-lg font-light'>
                             <h1 className='text-2xl font-semibold mb-1 md:text-4xl'>Order summery</h1>
                             <div className='flex items-center justify-between text-sm'>
                                 <span className='font-light text-md md:text-lg'>Subtotal</span>
@@ -285,7 +285,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                             className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${
                                 isProcessing 
                                     ? 'bg-gray-400 cursor-not-allowed' 
-                                    : 'bg-[#F5BB0B] hover:bg-[#7a0202] hover:text-white'
+                                    : 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white hover:bg-[#7a0202] hover:text-white'
                             }`}
                         >
                             {isProcessing ? 'Processing...' : 'Go to Payment'}
@@ -308,11 +308,11 @@ const AddressFormComponent = () => {
     return (
         <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>
             <div className='text-center text-white'>
-                <h1 className='text-[#7a0202] text-2xl font-semibold mb-4 md:text-4xl'>No Address Found</h1>
-                <p className='text-lg mb-6 text-black'>Please add an address to proceed with your order.</p>
+                <h1 className='text-[#F5BB0B] text-2xl font-semibold mb-4 md:text-4xl'>No Address Found</h1>
+                <p className='text-lg mb-6 text-white'>Please add an address to proceed with your order.</p>
                 <button 
                     onClick={handleAddAddress}
-                    className='bg-[#7a0202] text-white px-6 py-3 text-lg font-semibold rounded-md hover:bg-[#000] transition-colors cursor-pointer'
+                    className='bg-[#F5BB0B] text-black px-6 py-3 text-lg font-semibold rounded-md hover:bg-[#7a0202] hover:text-white transition-colors cursor-pointer'
                 >
                     Add Address
                 </button>

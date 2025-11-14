@@ -14,6 +14,8 @@ import { useQuery } from "@tanstack/react-query"
 import { useAuth } from "@/hooks/useAuth"
 import { AllOrders } from "@/api/OrderAPI"
 import ErrorMessage from "@/components/ui/user/ErrorMessage"
+import Heading from "@/components/ui/user/Heading"
+import Paragraph from "@/components/ui/user/Paragraph"
 
 type DeliveryDetailProps = {
     addressLine1: string
@@ -75,7 +77,7 @@ const Invoice = () => {
             </div>
         )
     }
-    
+
     return (
         <>
             <div className="w-full min-h-[50vh] my-7 relative">
@@ -128,7 +130,14 @@ const Invoice = () => {
                     </div>
                 ))}
                 {toggle && <ShareImgComponent handleToggle={handleToggle} orderId={orderId} />}
-                {isError && <ErrorMessage message={(error as Error).message} />}
+                {
+                    isError && (
+                        <div className='w-full h-50 flex flex-col justify-center items-center'>
+                            <Heading content='Oops! No Orders Found' />
+                            <Paragraph content="We couldn't find any Order." />
+                        </div>
+                    )
+                }
             </div>
         </>
     )
