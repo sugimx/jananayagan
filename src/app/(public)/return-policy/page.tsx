@@ -6,14 +6,14 @@ const ReturnPolicy = () => {
     <Container>
        <div className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#F5BB0B]">
-          Return, Refund & Cancellation Policy – SUGIMX Private Limited
+          Return, Refund & Cancellation Policy - SUGIMX Private Limited
         </h1>
         
         <div className="space-y-6 text-white leading-relaxed">
-          <p>This Return, Refund, and Cancellation Policy (“Policy”) forms an integral part of the Terms and
-          Conditions of Use of the Platform operated by SUGIMX Private Limited (“Company”, “we”, “us”,
-          “our”). By placing an order or making a booking on our website, mobile application, or allied
-          services (collectively, the “Platform”), you (“User”, “Customer”) acknowledge and agree that you
+          <p>This Return, Refund, and Cancellation Policy ({"“Policy”"}) forms an integral part of the Terms and
+          Conditions of Use of the Platform operated by SUGIMX Private Limited ({"“Company”"}, {"“we”"}, {"“us”"},
+          {"“our”"}). By placing an order or making a booking on our website, mobile application, or allied
+          services (collectively, the {"“Platform”"}), you ({"“User”"}, {"“Customer”"}) acknowledge and agree that you
           have read, understood, and accepted the terms contained herein. This Policy governs the
           circumstances, manner, and conditions under which requests for cancellation, replacement,
           return, or refund may be entertained.</p>
@@ -38,7 +38,7 @@ const ReturnPolicy = () => {
           defective, damaged in transit, or not in conformity with the description published on the
           Platform. In such cases, the Customer shall be required to notify the Company in writing within
           forty-eight (48) hours of receipt of delivery, supported by photographic or video evidence
-          demonstrating the alleged defect or discrepancy. The Company's decision, based upon
+          demonstrating the alleged defect or discrepancy. The {"Company's"} decision, based upon
           inspection and verification (which may be carried out directly or through authorized logistics
           partners), shall be final and binding as to whether the claim is admissible. Where approved, the
           Company may, at its sole discretion, either arrange for replacement of the defective/damaged

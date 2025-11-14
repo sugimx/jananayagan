@@ -13,7 +13,6 @@ import ShareImgComponent from "./ShareImgComponent"
 import { useQuery } from "@tanstack/react-query"
 import { useAuth } from "@/hooks/useAuth"
 import { AllOrders } from "@/api/OrderAPI"
-import ErrorMessage from "@/components/ui/user/ErrorMessage"
 import Heading from "@/components/ui/user/Heading"
 import Paragraph from "@/components/ui/user/Paragraph"
 
@@ -62,8 +61,7 @@ const Invoice = () => {
         data,
         isPending,
         isError,
-        isSuccess,
-        error
+        isSuccess
     } = useQuery({
         queryKey: ['summary'],
         queryFn: () => AllOrders(token!),
