@@ -36,15 +36,15 @@ const BuyerSlider = () => {
         queryFn: getData,
         enabled: !!token,
     })
-    
+
     const {
         mutate: deleteMutateInfo,
         isSuccess: deleteSuccess,
         isError: deleteIsError,
         isPending: deleteIsPending,
         error: deleteError
-    } = useMutation<{ success: true, message: string }, Error, { token: string, buyerId: string }>({ 
-        mutationFn: deleteBuyerInfo 
+    } = useMutation<{ success: true, message: string }, Error, { token: string, buyerId: string }>({
+        mutationFn: deleteBuyerInfo
     })
 
     function handleToggle() {
@@ -132,7 +132,7 @@ const BuyerSlider = () => {
                             <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
                                 <div className='flex items-center flex-col'>
                                     <div className='flex flex-col items-center relative bg-white w-[50%] h-[100px] rounded-xl'>
-                                        <Image 
+                                        <Image
                                             src="/user_image.jpg"
                                             alt="rectangle Image"
                                             width={100}
@@ -177,8 +177,8 @@ const BuyerSlider = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <button 
-                                    className='w-full h-7 bg-[#F5BB0B] rounded-lg text-[#000] uppercase text-[0.7rem] cursor-pointer' 
+                                <button
+                                    className='w-full h-7 bg-[#F5BB0B] rounded-lg text-[#000] uppercase text-[0.7rem] cursor-pointer'
                                     onClick={() => handleEdit(index)}
                                 >
                                     Edit

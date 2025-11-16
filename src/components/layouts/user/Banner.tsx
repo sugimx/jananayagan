@@ -15,18 +15,18 @@ const Banner = () => {
                     <div className='space-y-8'>
                         <div className='inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1 text-sm uppercase tracking-[0.3em] text-white/70'>
                             <span className='h-2 w-2 rounded-full bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33]' />
-                            Limited Release
+                            Limited Edition
                         </div>
 
                         <div className='space-y-4'>
                             <p className='text-sm uppercase tracking-[0.4em] text-white/60'>
-                                Jana Nayagan Special Edition
+                                TVK Special Edition
                             </p>
                             <h1 className='text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl'>
                                 Celebrate the spirit of victory with every sip
                             </h1>
                             <p className='text-base text-white/70 sm:text-lg'>
-                                Crafted for fans, designed for collectors. The Jana Nayagan Cup combines premium materials with an iconic design inspired by our champion&apos;s journey.
+                                Crafted for fans, designed for collectors. The TVK Cup combines premium materials with an iconic design inspired by our champion&apos;s journey.
                             </p>
                         </div>
 

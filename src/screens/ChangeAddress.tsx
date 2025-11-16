@@ -15,8 +15,8 @@ import { useRouter } from 'next/navigation'
 const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive: boolean, onActivate: () => void }) => {
     return (
         <div className={`
-                border-1 border-[#F5BB0B] rounded-xl mb-4 md:mb-1 md:w-[calc(50%-7.5px)] xl:w-[calc(25%-6px)] cursor-pointer
-                ${isActive ? 'bg-[#F5BB0B] shadow-lg ring-2 text-black' : 'bg-transparent hover:bg-gray-800 text-[#F5BB0B]'}
+                border-1 border-gray-800 rounded-xl mb-4 md:mb-1 md:w-[calc(50%-7.5px)] xl:w-[calc(25%-6px)] cursor-pointer
+                ${isActive ? 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] shadow-lg ring-2 text-white' : 'bg-transparent hover:bg-gray-800 text-[#F5BB0B]'}
             `}
             onClick={onActivate}
         >
@@ -127,10 +127,10 @@ const ChangeAddress = () => {
     }
 
     return (
-        <>
+        <div className='relative'>
             <Container>
-                <div className='w-full h-30 bg-[#F5BB0B] my-5 flex justify-center items-center flex-col gap-2 rounded-lg'>
-                    <h1 className='text-black font-semibold text-md md:text-lg lg:text-2xl'>My Addresses</h1>
+                <div className='w-full h-30 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] my-5 flex justify-center items-center flex-col gap-2 rounded-lg'>
+                    <h1 className='text-white font-semibold text-md md:text-lg lg:text-2xl'>My Addresses</h1>
                     <p className='text-[#5F5F5F] text-sm md:text-md'>Use your Saved Addresses</p>
                 </div>
                 <div className='my-5 relative'>
@@ -144,7 +144,7 @@ const ChangeAddress = () => {
                             <span>New Address</span>
                         </button>
                     </div>
-                    <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap'>
+                    <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap px-2'>
                         {data?.data.length !== 0 ? data?.data?.map((item: FormData, index: number) => (
                             <MainContainer key={index} isActive={isActive === index} onActivate={() => handleChangeAddress(item?._id, index)}>
                                 <Section>
@@ -170,15 +170,15 @@ const ChangeAddress = () => {
                             </div>
                         )
                     }
-                    {toggle && <AddressFormTab state={toggle} setState={setToggle} addressId={addressId} refetch={refetch} />}
                 </div>
                 <div className='flex justify-center items-center h-20'>
-                    <button className='bg-[#D3AF37] text-black w-5/5 md:w-1/5 py-2 font-bold text-sm rounded-lg cursor-pointer' onClick={handleDefaultAddress}>
+                    <button className='bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white w-5/5 md:w-1/5 py-2 font-bold text-sm rounded-lg cursor-pointer' onClick={handleDefaultAddress}>
                         {isPendingDefault ? <span className='button-loader'></span> : 'Delivery to this Address'}
                     </button>
                 </div>
             </Container>
-        </>
+            {toggle && <AddressFormTab state={toggle} setState={setToggle} addressId={addressId} refetch={refetch} />}
+        </div>
     )
 }
 

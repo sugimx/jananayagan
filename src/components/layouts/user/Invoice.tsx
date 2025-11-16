@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 import Image from "next/image"
 const InvoicePdfDownloadButton = dynamic(
   () => import("@/components/layouts/user/InvoicePdfDownloadButton"),
-  { ssr: false } 
+  { ssr: false }
 )
 import { FaRupeeSign } from "react-icons/fa"
 
@@ -80,7 +80,7 @@ const Invoice = () => {
         <>
             <div className="w-full min-h-[50vh] my-7 relative">
                 <div className="text-center md:w-[80%] lg:w-[50%] mx-auto">
-                    <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] text-[#F5BB0B]">THANK YOU!</h1>
+                    <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text">THANK YOU!</h1>
                     <p className="text-[0.9rem] md:text-[1.2rem] font-light text-white">We received your order and will start preparing your package right away. You will receive a confirmation email in a moment.</p>
                 </div>
 
@@ -88,7 +88,7 @@ const Invoice = () => {
                     <div key={index}>
                         <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4">
                             <div className="flex flex-col gap-2 md:flex-row flex-1">
-                                <Image 
+                                <Image
                                     src="/cup_image.png"
                                     alt="cup image"
                                     width={300}
@@ -98,7 +98,7 @@ const Invoice = () => {
                                 <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
                                     <p className="text-xs md:text-md lg:text-lg text-[#F5BB0B]">Official {item?.items?.[0]?.productName}</p>
                                     <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start text-[#F5BB0B]">
-                                        <FaRupeeSign className="md:my-[3px]" /> 
+                                        <FaRupeeSign className="md:my-[3px]" />
                                         <span>{item?.items?.[0]?.totalPrice}</span>
                                     </p>
                                 </div>
@@ -115,13 +115,13 @@ const Invoice = () => {
                                     </div>
                                 </div>
                                 <div className="md:flex md:flex-col">
-                                    <button 
+                                    <button
                                         className="bg-[#F5BB0B] px-7 py-2 text-xs text-[#000] uppercase mb-2 cursor-pointer"
                                         onClick={() => handleToggle(item?.orderId)}
                                     >
                                         Status Download
                                     </button>
-                                    <InvoicePdfDownloadButton orderId={item?.orderId} /> 
+                                    <InvoicePdfDownloadButton orderId={item?.orderId} />
                                 </div>
                             </div>
                         </div>

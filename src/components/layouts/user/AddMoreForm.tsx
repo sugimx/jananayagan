@@ -48,13 +48,13 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
 
     const stateWatch = watch('state')
 
-    const { 
-        mutate, 
-        isPending, 
-        isError, 
+    const {
+        mutate,
+        isPending,
+        isError,
         isSuccess,
-        error 
-    } = useMutation<{ success: true, message: string }, Error,{ data: BuyerProfile; token: string }>({ 
+        error
+    } = useMutation<{ success: true, message: string }, Error,{ data: BuyerProfile; token: string }>({
         mutationFn: registerData
     })
 
@@ -62,7 +62,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
         mutate: updateMutate,
         isPending: isUpdatePending,
         isError: isUpdateError,
-        isSuccess: isUpdateSuccess, 
+        isSuccess: isUpdateSuccess,
         error: updateError
     } = useMutation<{ success: true, message: string }, Error, { data: BuyerProfile, token: string, buyerId: string }>({
         mutationFn: updateBuyerInfo
@@ -118,7 +118,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
 
         return () => clearInterval(intervel)
     }, [ refetch, isUpdateSuccess, setState ])
-    
+
     return (
         <>
             <div className='absolute top-20 w-full md:flex justify-center items-center z-10 main-content blurred'>
@@ -140,9 +140,9 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                         )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <MdEmail className='text-[2.8rem] px-3' />
-                            <input 
-                                type="email" 
-                                className='h-full w-full outline-none' 
+                            <input
+                                type="email"
+                                className='h-full w-full outline-none'
                                 placeholder='example@gmail.com'
                                 {...register('gmail', {
                                     required: "Email is required",
@@ -156,11 +156,11 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                         )}
                         <div className='bg-white flex text-black items-center h-10'>
                             <IoMdPhonePortrait className='text-[2.8rem] px-3' />
-                            <input 
-                                type="number" 
-                                className='h-full w-full outline-none' 
-                                placeholder='8888888888'  
-                                {...register('phone', { 
+                            <input
+                                type="number"
+                                className='h-full w-full outline-none'
+                                placeholder='8888888888'
+                                {...register('phone', {
                                     required: "phone number is required",
                                     minLength: {
                                         value: 10,

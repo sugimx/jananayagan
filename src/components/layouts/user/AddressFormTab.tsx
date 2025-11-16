@@ -55,11 +55,11 @@ const InputLabel = ({ content }: { content: string }) => {
 const Input = <T extends FieldValues>(
     { placeholder, register, name, errorMsg, validationOptions }: InputProps<T>) => {
     return (
-        <input 
-            type="text" 
-            className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B] md:h-10' 
+        <input
+            type="text"
+            className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B] md:h-10'
             placeholder={placeholder}
-            {...register(name, 
+            {...register(name,
                 {
                     required: errorMsg,
                     ...validationOptions
@@ -88,12 +88,12 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
 
     const { token } = useAuth()
 
-    const { 
+    const {
         mutate,
-        isError, 
-        isPending, 
-        isSuccess, 
-        error 
+        isError,
+        isPending,
+        isSuccess,
+        error
     } = useMutation<{ success: true, message: string }, Error,{ data: FormData; token: string }>({ mutationFn: registerFuntion })
 
     const {
@@ -103,14 +103,14 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
         isSuccess: updateSuccess,
         error: updateErr
     } = useMutation<{ success: true, message: string }, Error, { data: FormData, token: string, addressId: string }>({ mutationFn: UpdateAddress })
-    
+
     const {
         data,
         isSuccess: getSuccess,
         isError: getError,
         isFetching
     } = useQuery({ queryKey: ['singleAddress'], queryFn: () => GetSingleAddress(token!, addressId!), enabled: !!token && !!addressId })
- 
+
     const handleFormSubmit: SubmitHandler<FormData> = (data) => {
         if(!token) {
             router.push('/login')
@@ -177,7 +177,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
     }
 
     return (
-        <div className='text-white absolute top-[-100px] md:top-[-200px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center'>
+        <div className='text-white absolute top-0 left-0 w-full min-h-[50vh] flex justify-between flex-col items-center z-10'>
             <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black rounded-4xl'>
                 <div className='bg-black h-[80%] rounded-4xl px-4 py-4'>
                     <div className='flex justify-end text-[#F5BB0B]'>
@@ -189,10 +189,10 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                     <div className='h-auto bg-[#000] flex flex-col gap-4 px-3 py-4 rounded-xl'>
                         <InputContainer>
                             <InputLabel content='Address' />
-                            <Input<FormData> placeholder='Enter Your Address' 
-                                register={register} 
-                                name="addressLine1" 
-                                errorMsg="Address field is required" 
+                            <Input<FormData> placeholder='Enter Your Address'
+                                register={register}
+                                name="addressLine1"
+                                errorMsg="Address field is required"
                             />
                         </InputContainer>
                         {
@@ -200,10 +200,10 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                         <InputContainer>
                             <InputLabel content='LandMark' />
-                            <Input<FormData> 
-                                placeholder='Enter Your LandMark' 
-                                register={register} 
-                                name="landmark" 
+                            <Input<FormData>
+                                placeholder='Enter Your LandMark'
+                                register={register}
+                                name="landmark"
                                 errorMsg="Landmark field is required"
                             />
                         </InputContainer>
@@ -251,9 +251,9 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                         <InputContainer>
                             <InputLabel content='Phone Number' />
-                            <Input placeholder='Enter Your Phone Number' 
-                                register={register} name="phone" 
-                                errorMsg='Phone field is required' 
+                            <Input placeholder='Enter Your Phone Number'
+                                register={register} name="phone"
+                                errorMsg='Phone field is required'
                                 validationOptions={{
                                     minLength: { value: 10, message: "Phone number must be 10 digits" },
                                     maxLength: { value: 10, message: "Phone number must be 10 digit" }
@@ -265,10 +265,10 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         }
                          <InputContainer>
                             <InputLabel content='Postal Code' />
-                            <Input<FormData> placeholder='Enter Your Postal Code' 
-                                register={register} 
-                                name="postalCode" 
-                                errorMsg='Postal Code field is required' 
+                            <Input<FormData> placeholder='Enter Your Postal Code'
+                                register={register}
+                                name="postalCode"
+                                errorMsg='Postal Code field is required'
                                 validationOptions={{
                                     minLength: { value: 6, message: "Post Code must be 6 digits" },
                                     maxLength: { value: 6, message: "Post Code must be 6 digits" }
@@ -284,7 +284,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         </div> */}
                     </div>
                     <button disabled={isPending || updatePending} className='bg-[#F5BB0B] w-full py-1 text-black my-3 rounded-full cursor-pointer md:py-2 flex justify-center items-center gap-2' onClick={handleSubmit(handleFormSubmit)}>
-                        {isPending || updatePending ? <span className='button-loader'></span> : 'save'} 
+                        {isPending || updatePending ? <span className='button-loader'></span> : 'save'}
                     </button>
                     {isSuccess && <SuccessMessage message="Address Information created successfully" />}
                     {isError && <ErrorMessage message={error?.message} />}

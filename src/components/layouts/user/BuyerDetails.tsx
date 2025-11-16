@@ -31,8 +31,8 @@ const DivTag = ({ children, isActive, onActivate, value }: DivTagProps) => {
             onClick={onActivate}
             data-value={value}
             className={`
-                border border-[#F5BB0B] px-2 py-2 rounded-xl flex-1 md:px-6 md:py-5 cursor-pointer font-light 
-                ${isActive ? 'bg-[#7a0202] shadow-lg ring-2 text-[#F5D57A]' : 'bg-transparent hover:bg-gray-800 hover:text-white text-[#F5BB0B]'}
+                border border-[#F5BB0B] px-2 py-2 rounded-xl flex-1 md:px-6 md:py-5 cursor-pointer font-light
+                ${isActive ? 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] shadow-lg ring-2 text-[#fff]' : 'bg-transparent hover:bg-gray-800 hover:text-white text-[#F5BB0B]'}
                 `
             }
         >
@@ -49,7 +49,7 @@ const Paragraph = ({ content }: { content: string }) => {
 
 const BuyerDetails = () => {
     const [activeIndex, setActiveIndex] = React.useState(0)
-    
+
     const data = [
         {
             id: 1,
@@ -72,7 +72,7 @@ const BuyerDetails = () => {
         <>
            <div className='mt-4 md:mt-10 mx-2'>
                 <div className='flex justify-between items-center'>
-                    <h1 className='text-xl font-semibold text-[#F5BB0B] mb-4 md:text-2xl'>Account</h1>
+                    <h1 className='text-xl font-semibold mb-4 md:text-2xl bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text'>Account</h1>
                     <LogoutButton />
                 </div>
                 <div className='flex justify-between gap-2 w-full md:gap-8'>

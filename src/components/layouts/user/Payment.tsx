@@ -18,17 +18,17 @@ import { apiService, CreateOrderRequest } from '@/lib/api'
 import { getData } from '@/api/BuyerInfoAPI'
 
 interface Address {
-  _id: string;
-  fullName: string;
-  phone: string;
-  addressLine1: string;
-  city: string;
-  state: string;
-  district: string;
-  postalCode: string;
-  country: string;
-  landmark: string;
-  isDefault: boolean;
+    _id: string;
+    fullName: string;
+    phone: string;
+    addressLine1: string;
+    city: string;
+    state: string;
+    district: string;
+    postalCode: string;
+    country: string;
+    landmark: string;
+    isDefault: boolean;
 }
 
 const DetailsContainer = ({ children }: { children: React.ReactNode }) => {
@@ -55,14 +55,14 @@ const Paragraph = ({ content }: { content: string }) => {
 
 const AddressForm = () => {
     const { token } = useAuth();
-  
+
     const { data: addressesData, isLoading, error } = useQuery({
         queryKey: ['addresses', token],
         queryFn: GetAddressFn,
         enabled: !!token,
     });
 
-   
+
     const defaultAddress = addressesData?.data?.find((addr: Address) => addr.isDefault) || addressesData?.data?.[0];
 
     if (isLoading) {
@@ -75,12 +75,12 @@ const AddressForm = () => {
         );
     }
 
-   
+
     if (addressesData?.data && addressesData.data.length > 0 && defaultAddress) {
         return <OrderSummary address={defaultAddress} />;
     }
 
-    
+
     if (error || !addressesData?.data || addressesData.data.length === 0) {
         return <AddressFormComponent />;
     }
@@ -99,7 +99,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
         queryFn: getData,
         enabled: !!token,
     })
-    
+
     const createOrderMutation = useMutation({
         mutationFn: async (orderData: CreateOrderRequest) => {
             if (!token) throw new Error('No authentication token');
@@ -108,10 +108,10 @@ const OrderSummary = ({ address }: { address: Address }) => {
         },
         onSuccess: async (response) => {
             if (response.success && response.data) {
-                const responseData = response.data; 
+                const responseData = response.data;
                 const paymentRequest = responseData.paymentRequest;
                 const orderId = responseData._id;
-                
+
                 if (paymentRequest) {
                     const paymentData = (() => {
                         const maybe: unknown = paymentRequest;
@@ -128,32 +128,32 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         }
                         return { redirectUrl: undefined };
                     })();
-                    
+
                     try {
                         if (paymentData.redirectUrl) {
                             window.location.href = paymentData.redirectUrl;
                         } else {
                             alert('Payment initialization failed. Please try again.');
                         }
-                        
+
                     } catch (error) {
                         throw error
                     }
                 } else if (orderId) {
-                   
+
                     try {
                         const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
-                        
+
                         if (paymentResponse.success && paymentResponse.data) {
                             const paymentData = paymentResponse.data
-                            
+
                             try {
                                 if (paymentData.redirectUrl) {
                                     window.location.href = paymentData.redirectUrl;
                                 } else {
                                     alert('Payment initialization failed. Please try again.');
                                 }
-                                
+
                             } catch (error) {
                                 throw error
                             }
@@ -182,7 +182,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
             return;
         }
         setIsProcessing(true)
-        
+
         const orderData: CreateOrderRequest = {
             items: [
                 {
@@ -202,7 +202,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
     const handleAddress = () => {
         router.push('/change-address')
     }
-    
+
     return (
         <>
             <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>
@@ -210,7 +210,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                     <div className='text-white flex-1'>
                         <div className='mb-3'>
                             <div className='mb-5'>
-                                <h1 className='text-[#F5BB0B] text-2xl font-semibold mb-1 md:text-4xl'>Address</h1>
+                                <h1 className=' bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text text-2xl font-semibold mb-1 md:text-4xl'>Address</h1>
                                 <p className='text-sm text-white font-light md:text-lg'>Please confirm the {"buyer's"} address, your Jana Nayagan Cup finds its way here.</p>
                             </div>
                             <div className='flex flex-col gap-3'>
@@ -245,7 +245,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                     </DetailsContainer>
                                 )}
                             </div>
-                            <button 
+                            <button
                                 className='outline-none border-1 border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-[#fff] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
                                 onClick={handleAddress}
                             >
@@ -279,12 +279,12 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 </div>
                             </div>
                         </div>
-                        <button 
+                        <button
                             onClick={handlePayment}
                             disabled={isProcessing}
                             className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${
-                                isProcessing 
-                                    ? 'bg-gray-400 cursor-not-allowed' 
+                                isProcessing
+                                    ? 'bg-gray-400 cursor-not-allowed'
                                     : 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white hover:bg-[#7a0202] hover:text-white'
                             }`}
                         >
@@ -300,17 +300,17 @@ const OrderSummary = ({ address }: { address: Address }) => {
 
 const AddressFormComponent = () => {
     const router = useRouter();
-    
+
     const handleAddAddress = () => {
         router.push('/address');
     };
-    
+
     return (
         <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>
             <div className='text-center text-white'>
                 <h1 className='text-[#F5BB0B] text-2xl font-semibold mb-4 md:text-4xl'>No Address Found</h1>
                 <p className='text-lg mb-6 text-white'>Please add an address to proceed with your order.</p>
-                <button 
+                <button
                     onClick={handleAddAddress}
                     className='bg-[#F5BB0B] text-black px-6 py-3 text-lg font-semibold rounded-md hover:bg-[#7a0202] hover:text-white transition-colors cursor-pointer'
                 >
