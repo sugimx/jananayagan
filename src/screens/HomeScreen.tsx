@@ -7,6 +7,7 @@ const LimitedEdition = lazy(() => import('@/components/layouts/user/LimitedEditi
 const LuckyDraw = lazy(() => import('@/components/layouts/user/LuckyDraw'))
 const SalesSection = lazy(() => import('@/components/layouts/user/SalesSection'))
 const Section2 = lazy(() => import('@/components/layouts/user/Section_2'))
+const SocialResponsibility = lazy(() => import('@/components/layouts/user/SocialResponsiblity'))
 
 const HomeScreen = () => {
     return (
@@ -17,6 +18,7 @@ const HomeScreen = () => {
                 <LuckyDraw />
                 <Section2 />
                 <LimitedEdition />
+                <SocialResponsibility />
                 <Information />
                 <FaQuestions />
             </Suspense>

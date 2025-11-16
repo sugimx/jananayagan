@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Container from './Container'
 
-const Section2 = () => {
+const SocialReposibility = () => {
   return (
     <section className='relative isolate overflow-hidden text-white py-16 md:py-24'>
       <Container>
@@ -10,37 +10,27 @@ const Section2 = () => {
           <div className='absolute -inset-1 rounded-[40px] pointer-events-none' />
           <div className='relative flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className='flex-1 space-y-6'>
-              <p className='text-xs uppercase tracking-[0.5em] text-white/50'>Tribute Beyond A Symbol</p>
+              <p className='text-xs uppercase tracking-[0.5em] text-white/50'>SOCIAL RESPONSIBILITY</p>
               <h1 className='text-[2rem] font-semibold leading-tight md:text-[3.2rem]'>
-                TVK Cup — a tribute to the <span className='text-[#F5BB0B]'>spirit that unites us.</span>
+                A Fan Movement With <span className='text-[#F5BB0B]'>Purpose</span>
               </h1>
               <p className='text-base md:text-lg text-white/70 leading-relaxed'>
                 The voice of a movement now rests in your hands. This isn&apos;t just a cup — it&apos;s a mark of identity, pride, and emotion that carries forward the legacy of countless hearts beating together for a cause.
               </p>
               <div className='grid gap-5 md:grid-cols-2'>
                 <div className='rounded-2xl border border-white/10 bg-white/5 px-5 py-4'>
-                  <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Crafted Finish</p>
-                  <p className='text-2xl font-semibold text-white'>Pre-booking only</p>
+                  {/* <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Crafted Finish</p> */}
+                  <p className='text-2xl font-semibold text-[#fff]'>Child development programs</p>
                 </div>
                 <div className='rounded-2xl border border-white/10 bg-white/5 px-5 py-4'>
-                  <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Legacy Seal</p>
-                  <p className='text-2xl font-semibold text-[#F5BB0B]'>Automated serial assignment</p>
+                  {/* <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Legacy Seal</p> */}
+                  <p className='text-2xl font-semibold text-[#F5BB0B]'>Early brain-function screening</p>
                 </div>
                 <div className='rounded-2xl border border-white/10 bg-white/5 px-5 py-4'>
-                  <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Legacy Seal</p>
-                  <p className='text-2xl font-semibold text-[#F5BB0B]'>Delivery slots scheduled</p>
-                </div>
-                <div className='rounded-2xl border border-white/10 bg-white/5 px-5 py-4'>
-                  <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Legacy Seal</p>
-                  <p className='text-2xl font-semibold text-[#F5BB0B]'>Door delivery via trusted logistics partners</p>
+                  {/* <p className='text-xs uppercase tracking-[0.35em] text-white/50'>Legacy Seal</p> */}
+                  <p className='text-2xl font-semibold text-[#F5BB0B]'>Neuro-support awareness</p>
                 </div>
               </div>
-              <p className='text-base md:text-lg text-white/70 leading-relaxed'>
-                No queues,
-                No rush,
-                No confusion,
-                Just pure fan experience.
-              </p>
             </div>
             <div className='flex-1 flex justify-center'>
               <div className='relative'>
@@ -64,4 +54,4 @@ const Section2 = () => {
   )
 }
 
-export default Section2
+export default SocialReposibility

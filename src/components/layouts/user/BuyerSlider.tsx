@@ -126,7 +126,7 @@ const BuyerSlider = () => {
                                 {deleteIsPending ? (
                                     <span className='loaders'></span>
                                 ) : index !== 0 && (
-                                    <IoIosClose className='bg-[#F5BB0B] text-black font-bold rounded-full cursor-pointer' onClick={() => handleDeleteFn(item._id)} />
+                                    <IoIosClose className='bg-[#000] text-white font-bold rounded-full cursor-pointer' onClick={() => handleDeleteFn(item._id)} />
                                 )}
                             </div>
                             <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
