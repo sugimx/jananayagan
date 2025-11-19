@@ -29,6 +29,18 @@ const AboutContent = () => {
                         <p>Imagine holding a cup that {"isn't"} just a product… but a memory. A symbol. A story.</p>
                         <p>A symbol.</p>
                         <p> A story.</p>
+                        <p>
+                            Every cup in this collection is individually serialised — from 1 to n — giving each fan a unique place in this movement. No two numbers are the same. Just like no two fans are the same. From the first supporter to the thousandth, every single person becomes a part of this grand celebration.
+                        </p>
+                        <p>
+                            And your number?
+                        </p>
+                        <p>
+                            Your name?
+                        </p>
+                        <p>
+                            It will live on our platform forever — a timeless reminder of your pride, your love, and your presence in this historic moment.
+                        </p>
                     </div>
                     <Link href='/product' className='border-1 border-[#F5BB0B] py-1 inline-block my-3 px-10 text-sm md:text-lg text-[#F5BB0B]'>Explore</Link>
                 </div>

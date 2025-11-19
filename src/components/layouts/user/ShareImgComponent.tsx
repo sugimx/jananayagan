@@ -93,7 +93,7 @@ const ShareImgComponent = (
                                     height={100}
                                     className="w-40 h-40"
                                 /> */}
-                                <QRCode value='www.jananayagancup.in' style={{ height: "auto", maxWidth: "70%", width: "70%" }} />
+                                <QRCode value='www.tvkcup2026.com' style={{ height: "auto", maxWidth: "70%", width: "70%" }} />
                             </div>
                         </div>
                     </div>
