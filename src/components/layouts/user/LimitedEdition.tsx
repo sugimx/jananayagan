@@ -46,10 +46,10 @@ const LimitedEdition = () => {
                             <div className='absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.2),_transparent_60%)] opacity-30 pointer-events-none' />
                             <div className='relative flex flex-col items-center gap-6 text-center'>
                                 <p className='text-xs uppercase tracking-[0.45em] text-white/60'>Limited to 10K</p>
-                                <Image 
+                                <Image
                                     src='/tvk_cup.png'
-                                    width={420}
-                                    height={420}
+                                    width={500}
+                                    height={500}
                                     alt="TVK Cup image"
                                     className='drop-shadow-[0_35px_70px_rgba(0,0,0,0.6)]'
                                 />

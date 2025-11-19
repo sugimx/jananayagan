@@ -48,8 +48,8 @@ const Section2 = () => {
                 <div className='relative rounded-[32px] border border-white/5 bg-gradient-to-br from-white/10 to-white/5 p-6 backdrop-blur-md'>
                   <Image
                     src="/tvk_cup.png"
-                    width={360}
-                    height={360}
+                    width={500}
+                    height={500}
                     alt='TVK Cup'
                     className='drop-shadow-[0_25px_55px_rgba(0,0,0,0.65)]'
                   />
