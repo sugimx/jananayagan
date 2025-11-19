@@ -45,12 +45,12 @@ const ShareImgComponent = (
     return (
         <>
             {isSuccess && (
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl z-10">
                     <div ref={ref}>
                         <div className='max-w-[340px] h-auto bg-[#353240]'>
                             <div className='share-image'>
-                                <img 
-                                    src="/jana_nayagan_logo.png"
+                                <img
+                                    src="/tvk_logo.png"
                                     alt="Logo"
                                     width={100}
                                     height={100}
@@ -58,12 +58,12 @@ const ShareImgComponent = (
                             </div>
                             <div className='share-content'>
                                 <div className='share-content-image'>
-                                    <img 
-                                        src="/cup_image.png"
+                                    <img
+                                        src="/tvk_cup.png"
                                         alt="cup image"
                                         width={100}
-                                        height={100} 
-                                        className="w-50 h-50"
+                                        height={100}
+                                        className="w-200 h-50"
                                     />
                                 </div>
                                 <div className='share-booking-container'>
@@ -86,7 +86,7 @@ const ShareImgComponent = (
                                 </div>
                             </div>
                             <div className='share-code-image'>
-                                {/* <img 
+                                {/* <img
                                     src="/qr_code.png"
                                     alt="barcode image"
                                     width={300}

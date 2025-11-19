@@ -89,11 +89,11 @@ const Invoice = () => {
                         <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4">
                             <div className="flex flex-col gap-2 md:flex-row flex-1">
                                 <Image
-                                    src="/cup_image.png"
+                                    src="/tvk_cup.png"
                                     alt="cup image"
                                     width={300}
                                     height={300}
-                                    className="w-20 h-20 lg:w-30 lg:h-30"
+                                    className="w-20 h-20 lg:w-50 lg:h-30"
                                 />
                                 <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
                                     <p className="text-xs md:text-md lg:text-lg text-[#F5BB0B]">Official {item?.items?.[0]?.productName}</p>
