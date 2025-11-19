@@ -101,8 +101,8 @@ const LuckyDraw = () => {
                                 <p className='text-sm uppercase tracking-[0.4rem] text-white/60'>Limited Edition</p>
                                 <Image
                                     src='/tvk_cup.png'
-                                    width={380}
-                                    height={380}
+                                    width={800}
+                                    height={800}
                                     alt='TVK Cup'
                                     className='drop-shadow-[0_30px_45px_rgba(0,0,0,0.7)] animate-bounce'
                                 />

@@ -69,7 +69,7 @@ const Banner = () => {
                                 alt='TVK cup'
                                 width={500}
                                 height={500}
-                                className='mx-auto h-auto w-full max-w-[400px]'
+                                className='mx-auto h-auto w-full max-w-[1000px]'
                             />
                             <p className='mt-4 text-sm uppercase tracking-[0.3em] text-white/60'>
                                 Collector&apos;s Cup Edition

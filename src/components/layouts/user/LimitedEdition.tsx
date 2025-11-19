@@ -8,7 +8,7 @@ const LimitedEdition = () => {
         <>
             <Container>
                 <div className='max-w-7xl mx-auto'>
-                    <div className='flex flex-col px-3 lg:flex-row justify-between md:mx-20 items-center py-20'>
+                    <div className='flex flex-col px-3 gap-2 lg:flex-row justify-between md:mx-20 items-center py-20'>
                         <div className='flex-1 space-y-6 '>
                             <div className='inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-white/60'>
                                 <span className='h-2 w-2 rounded-full bg-gradient-to-tr from-[#ff4e4e] to-[#F5BB0B]' />
@@ -48,8 +48,8 @@ const LimitedEdition = () => {
                                 <p className='text-xs uppercase tracking-[0.45em] text-white/60'>Limited to 10K</p>
                                 <Image
                                     src='/tvk_cup.png'
-                                    width={500}
-                                    height={500}
+                                    width={800}
+                                    height={800}
                                     alt="TVK Cup image"
                                     className='drop-shadow-[0_35px_70px_rgba(0,0,0,0.6)]'
                                 />
