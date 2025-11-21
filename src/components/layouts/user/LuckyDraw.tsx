@@ -10,30 +10,34 @@ const prizes = [
         accent: '#F5BB0B',
         glow: 'rgba(245, 187, 11, 0.4)',
         background: 'linear-gradient(135deg, rgba(245,187,11,0.15), rgba(15,7,30,0.6))',
+        image: 'prize'
     },
     {
         place: '2nd Prize',
-        amount: '₹27,70,000',
+        amount: 'Thar Roxx',
         note: 'Twin Bonanza',
         accent: '#FF6B00',
         glow: 'rgba(255, 107, 0, 0.45)',
         background: 'linear-gradient(135deg, rgba(255,107,0,0.12), rgba(10,3,34,0.8))',
+        image: 'car1'
     },
     {
         place: '3rd Prize',
-        amount: '₹27,70,000',
+        amount: 'Swift',
         note: 'Golden Streak',
         accent: '#7CFBFF',
         glow: 'rgba(124, 251, 255, 0.45)',
         background: 'linear-gradient(135deg, rgba(124,251,255,0.12), rgba(12,10,45,0.85))',
+        image: 'car2'
     },
     {
         place: '4th – 13th Prize',
-        amount: '₹2,77,000 each',
+        amount: 'Bullet 350',
         note: '10 Winners',
         accent: '#C084FC',
         glow: 'rgba(192, 132, 252, 0.5)',
         background: 'linear-gradient(135deg, rgba(192,132,252,0.15), rgba(15,4,40,0.9))',
+        image: 'bike'
     },
 ]
 
@@ -71,6 +75,22 @@ const LuckyDraw = () => {
                                             }}
                                         >
                                             <div className='flex items-center justify-between gap-3'>
+                                                <Image
+                                                    src={
+                                                        prize.image === 'prize'
+                                                        ? '/Asset 2@300x.png'
+                                                        : prize.image === 'car1'
+                                                        ? '/thar-roxx.png'
+                                                        : prize.image === 'car2'
+                                                        ? '/pngegg (6).png'
+                                                        : prize.image === 'bike'
+                                                        ? '/pngegg (4).png'
+                                                        : ''
+                                                    }
+                                                    width={100}
+                                                    height={100}
+                                                    alt='prize image'
+                                                />
                                                 <div>
                                                     <p className='text-sm uppercase tracking-widest text-white/60'>{prize.place}</p>
                                                     <p className='text-2xl font-bold text-white'>{prize.amount}</p>

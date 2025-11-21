@@ -26,6 +26,7 @@ const DivTag = ({ children }: {children: React.ReactNode}) => {
 
 const SalesSection = () => {
     const [ index, setIndex ] = React.useState(0)
+    const [timeLeft, setTimeLeft] = React.useState("")
 
     const salesData = React.useMemo(
         () => [
@@ -42,6 +43,30 @@ const SalesSection = () => {
         return () => clearInterval(intervel)
     }, [salesData])
 
+    React.useEffect(() => {
+        const endDate = new Date("2025-12-06T00:00:00");
+
+        const timer = setInterval(() => {
+        const now = new Date();
+        const diff = endDate.getTime() - now.getTime();
+
+        if (diff <= 0) {
+            setTimeLeft("0d 0h 0m 0s");
+            clearInterval(timer);
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [])
+
     return (
         <Container>
             <div className='py-5 mb-20'>
@@ -53,7 +78,7 @@ const SalesSection = () => {
                                 <div>
                                     <p className='text-[0.6rem] uppercase tracking-[0.4rem] text-white/50'>Total Visitors</p>
                                     <div className='mt-3 flex flex-wrap items-end gap-3'>
-                                        <h2 className='text-4xl font-black md:text-5xl'>{salesData[index].sales}</h2>
+                                        <h2 className='text-4xl font-black md:text-5xl'>10,000</h2>
                                         {/* <span className='inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-widest text-white/80'>
                                             <span className='inline-block h-2 w-2 animate-pulse rounded-full bg-[#F5BB0B]' />
                                             {salesData[index].state} • Live
@@ -63,7 +88,7 @@ const SalesSection = () => {
                                 </div>
                                 <div className='rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-center shadow-[0_15px_40px_rgba(0,0,0,0.35)]'>
                                     <p className='text-[0.6rem] uppercase tracking-[0.3rem] text-white/60'>Sales Ends In</p>
-                                    <p className='mt-2 text-2xl font-bold text-[#F5BB0B] md:text-3xl'>5d 24h 34m 00s</p>
+                                    <p className='mt-2 text-2xl font-bold text-[#F5BB0B] md:text-3xl'>{timeLeft}</p>
                                     <p className='mt-1 text-xs text-white/60'>Hurry before the vault closes</p>
                                 </div>
                             </div>

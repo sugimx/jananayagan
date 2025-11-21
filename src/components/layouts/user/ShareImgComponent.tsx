@@ -47,7 +47,7 @@ const ShareImgComponent = (
             {isSuccess && (
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] flex flex-col justify-center items-center rounded-t-4xl z-10">
                     <div ref={ref}>
-                        <div className='max-w-[340px] h-auto bg-[#353240]'>
+                        <div className='max-w-[340px] h-auto bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B]'>
                             <div className='share-image'>
                                 <img
                                     src="/tvk_logo.png"
@@ -56,7 +56,7 @@ const ShareImgComponent = (
                                     height={100}
                                 />
                             </div>
-                            <div className='share-content'>
+                            <div className='share-content bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33]'>
                                 <div className='share-content-image'>
                                     <img
                                         src="/tvk_cup.png"
@@ -98,12 +98,12 @@ const ShareImgComponent = (
                         </div>
                     </div>
                     <div className='absolute top-3 right-7'>
-                        <button className='bg-[#F5BB0B] text-black px-2 rounded-full py-2 flex items-center gap-2 cursor-pointer text-center' onClick={handleDownload}>
+                        <button className='bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] text-black px-2 rounded-full py-2 flex items-center gap-2 cursor-pointer text-center' onClick={handleDownload}>
                             <RxDownload />
                         </button>
                     </div>
                     <div className='absolute top-3 left-7'>
-                        <button className='bg-[#F5BB0B] text-black px-2 rounded-full py-2 flex items-center gap-2 cursor-pointer text-center' onClick={handleToggle}>
+                        <button className='bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] text-black px-2 rounded-full py-2 flex items-center gap-2 cursor-pointer text-center' onClick={handleToggle}>
                             <IoMdClose />
                         </button>
                     </div>

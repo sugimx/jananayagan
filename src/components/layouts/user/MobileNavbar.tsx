@@ -11,7 +11,7 @@ const MobileNavbar = ({ toggle, currentPath, setToggle }: Props) => {
     const handleToggleAction = () => {
         setToggle(false)
     }
-    
+
     return toggle && (
         <>
             <div className={`${toggle ? "mobile--navbar active" : "mobile--navbar"}`}>

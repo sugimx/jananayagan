@@ -31,13 +31,13 @@ const LoginForm = () => {
 
     try {
       const response = await apiService.login(data)
-      
+
       if (response.success) {
         setSuccess('Login successful!')
-    
+
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('user', JSON.stringify(response.data))
-        
+
         setTimeout(() => {
           if(typeof window !== 'undefined') {
             window.location.href = '/'
@@ -61,13 +61,13 @@ const LoginForm = () => {
 
       try {
         const response = await apiService.googleLogin(tokenResponse.access_token)
-        
+
         if (response.success) {
           setSuccess('Google login successful!')
-  
+
           localStorage.setItem('token', response.data.token)
           localStorage.setItem('user', JSON.stringify(response.data))
-          
+
           setTimeout(() => {
             if(typeof window !== 'undefined') {
               window.location.href = '/'
@@ -92,16 +92,16 @@ const LoginForm = () => {
     <Container>
       <div>
         <div className='my-5 mx-2 lg:w-[70%] md:flex md:mx-auto md:h-[80vh] gap-8 justify-center items-center'>
-          <div className='text-center my-4 flex-2'> 
+          <div className='text-center my-4 flex-2'>
             <h1 className='text-[1.2rem] text-[#F5D57A] font-semibold my-2 md:text-[2rem]'>Welcome, Hero of the Future</h1>
             <p className='text-sm leading-relaxed md:text-lg'>A democracy cannot thrive where power remains unchecked and justice is reserved for a select few.</p>
             <div className='hidden md:flex justify-center items-center'>
-              <Image 
-                src="/cup_image.png"
+              <Image
+                src="/tvk_cup.png"
                 width={400}
                 height={300}
                 alt='jana nayagan logo'
-                className='w-[150px] h-[150px] md:w-[300px] md:h-[300px]'
+                className='w-[150px] h-[150px] md:w-[500px] md:h-[300px]'
               />
             </div>
             <div className='hidden md:flex flex-col'>
@@ -121,36 +121,36 @@ const LoginForm = () => {
                   {success}
                 </div>
               )}
-              
+
               <div className='flex flex-col gap-2'>
                 <label className='text-sm text-[#F5D57A] md:text-lg'>Email</label>
-                <input 
+                <input
                   {...register('email')}
-                  className='border-1 border-[#F5D57A] outline-none rounded-md py-1 px-2 md:py-2' 
-                  type='email' 
-                  placeholder='johndoe@gmail.com' 
+                  className='border-1 border-[#F5D57A] outline-none rounded-md py-1 px-2 md:py-2'
+                  type='email'
+                  placeholder='johndoe@gmail.com'
                 />
                 {errors.email && (
                   <span className='text-red-500 text-sm'>{errors.email.message}</span>
                 )}
               </div>
-              
+
               <div className='flex flex-col gap-2'>
                 <label className='text-sm text-[#F5D57A] md:text-lg'>Password</label>
-                <input 
+                <input
                   {...register('password')}
-                  className='border-1 border-[#F5D57A] outline-none rounded-md py-1 px-2 md:py-2' 
-                  type='password' 
+                  className='border-1 border-[#F5D57A] outline-none rounded-md py-1 px-2 md:py-2'
+                  type='password'
                   placeholder='*********'
                 />
                 {errors.password && (
                   <span className='text-red-500 text-sm'>{errors.password.message}</span>
                 )}
               </div>
-              
+
               <p className='text-sm md:text-md'>{"Don't"} you have a account? <Link href="/register" className="underline text-[#F5D57A]">create account</Link></p>
-              
-              <button 
+
+              <button
                 type='submit'
                 disabled={isLoading}
                 className='bg-[#F5D57A] text-black py-1 rounded-md cursor-pointer my-2 md:text-lg disabled:opacity-50 disabled:cursor-not-allowed'
@@ -158,14 +158,14 @@ const LoginForm = () => {
                 {isLoading ? 'Logging in...' : 'Login'}
               </button>
             </form>
-            
+
             <div className='flex justify-center items-center gap-2 my-2'>
               <span className='w-[100%] h-[2px] bg-gray-700'></span>
               <span className='text-gray-700'>OR</span>
               <span className='w-[100%] h-[2px] bg-gray-700'></span>
             </div>
             <div>
-              <button 
+              <button
                 type='button'
                 onClick={() => handleGoogleLogin()}
                 disabled={isLoading}
