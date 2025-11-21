@@ -33,12 +33,12 @@ const Banner = () => {
                         <div className='flex flex-wrap items-center gap-6'>
                             <LinkComponent link='/product' content='Buy Now' />
                             <div className='space-y-1 text-sm text-white/70'>
-                                <p>• Free nationwide delivery</p>
-                                <p>• Includes collectors sleeve</p>
+                                <p>• Free Delivery</p>
+                                {/* <p>• Includes collectors sleeve</p> */}
                             </div>
                         </div>
 
-                        <div className='grid grid-cols-2 gap-6 text-white/80'>
+                        {/* <div className='grid grid-cols-2 gap-6 text-white/80'>
                             <div>
                                 <p className='text-3xl font-bold'>10K+</p>
                                 <p className='text-xs uppercase tracking-widest text-white/60'>Fans United</p>
@@ -47,7 +47,7 @@ const Banner = () => {
                                 <p className='text-3xl font-bold'>100%</p>
                                 <p className='text-xs uppercase tracking-widest text-white/60'>Authentic Merch</p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className='relative flex flex-col items-center justify-center gap-8'>
