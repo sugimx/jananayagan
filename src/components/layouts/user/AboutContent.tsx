@@ -41,6 +41,14 @@ const AboutContent = () => {
                         <p>
                             It will live on our platform forever — a timeless reminder of your pride, your love, and your presence in this historic moment.
                         </p>
+                        <p>This is not about buying a cup.</p>
+                        <p>This is about owning a piece of the journey.</p>
+                        <p>When fans unite, we don’t just celebrate…</p>
+                        <p>We create history.</p>
+
+                        <p>Welcome to the wave.</p>
+                        <p>Welcome to the story.</p>
+                        <p>Welcome to the TVK 2026 Limited Edition Coffee Cup Collection — made by fans, loved by fans, remembered forever.</p>
                     </div>
                     <Link href='/product' className='border-1 border-[#F5BB0B] py-1 inline-block my-3 px-10 text-sm md:text-lg text-[#F5BB0B]'>Explore</Link>
                 </div>

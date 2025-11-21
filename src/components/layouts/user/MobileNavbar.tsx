@@ -14,7 +14,7 @@ const MobileNavbar = ({ toggle, currentPath, setToggle }: Props) => {
 
     return toggle && (
         <>
-            <div className={`${toggle ? "mobile--navbar active" : "mobile--navbar"}`}>
+            <div className={`${toggle ? "mobile--navbar active" : "mobile--navbar"} bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B]`}>
                 <ul className='list-none flex flex-col gap-4 p-4 text-white text-md'>
                     <li className='py-2'>
                         <Link href="/" className={currentPath === '/' ? 'text-yellow-500' : ''} onClick={handleToggleAction}>Home</Link>
