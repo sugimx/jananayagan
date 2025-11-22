@@ -23,10 +23,12 @@ const Banner = () => {
                                 TVK Special Edition
                             </p>
                             <h1 className='text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl'>
-                                Celebrate the spirit of victory with every sip
+                                {/* Celebrate the spirit of victory with every sip */}
+                                TVK Official Store
                             </h1>
                             <p className='text-base text-white/70 sm:text-lg'>
-                                Crafted for fans, designed for collectors. The TVK Cup combines premium materials with an iconic design inspired by our champion&apos;s journey.
+                                {/* Crafted for fans, designed for collectors. The TVK Cup combines premium materials with an iconic design inspired by our champion&apos;s journey. */}
+                                Get ready with official merch, stylish apparel, and exclusive drops. Limited stocks — grab yours before {"they're"} gone!
                             </p>
                         </div>
 
