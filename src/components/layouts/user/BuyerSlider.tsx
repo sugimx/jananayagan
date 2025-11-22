@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { MdKeyboardArrowRight } from "react-icons/md"
-import { FaCamera } from "react-icons/fa"
+// import { FaCamera } from "react-icons/fa"
 import AddMoreForm from './AddMoreForm'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar, A11y } from 'swiper/modules'
@@ -131,18 +131,18 @@ const BuyerSlider = () => {
                             </div>
                             <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
                                 <div className='flex items-center flex-col'>
-                                    <div className='flex flex-col items-center relative bg-white w-[50%] h-[100px] rounded-xl'>
+                                    <div className='flex flex-col items-center relative bg-transparent w-[50%] h-[100px] rounded-xl'>
                                         <Image
-                                            src="/user_image.jpg"
+                                            src="/user_image.png"
                                             alt="rectangle Image"
                                             width={100}
                                             height={400}
                                             className='w-full h-full rounded-xl'
                                         />
-                                        <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
+                                        {/* <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
                                             <FaCamera />
                                             <span className='text-sm'>Add</span>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div className='flex flex-col gap-3 my-4 text-white'>
@@ -211,11 +211,14 @@ const BuyerSlider = () => {
                     <input type='checkbox' className='cursor-pointer' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmConditions(e.target.checked)} />
                     <div className='flex gap-2'>
                         <p>
-                            “I hereby confirm that I have fully read, understood, and agreed to all <Link target="_blank" href="/terms-conditions" className='text-[#F5BB0B]'>Terms & Conditions</Link>, <Link target="_blank" href="/privacy-policy" className='text-[#F5BB0B]'>Privacy Policy</Link>, <Link target="_blank" href="/return-policy" className='text-[#F5BB0B]'>Return & Cancellation Policy</Link>, and the <Link target="_blank" href="/promotional-conditions" className='text-[#F5BB0B]'>Lucky Draw Disclaimer</Link> provided on this website. I acknowledge that my order, payment, delivery, and participation in any promotional activity will be governed solely by these policies, and I voluntarily consent to proceed.”
+                            “I hereby confirm that I have fully read, understood, and agreed to all <Link target="_blank" href="/terms-conditions" className='text-[#F5BB0B]'>Terms & Conditions</Link>, <Link target="_blank" href="/privacy-policy" className='text-[#F5BB0B]'>Privacy Policy</Link>, <Link target="_blank" href="/return-policy" className='text-[#F5BB0B]'>Return & Cancellation Policy</Link> provided on this website. I acknowledge that my order, payment, delivery, and participation in any promotional activity will be governed solely by these policies, and I voluntarily consent to proceed.”
                         </p>
                         {/* <span>Promotional & Lucky Draw Disclaminer</span>
                         <span>Privacy Policy</span>
-                        <span>Return & Cancellation</span> */}
+                        <span>Return & Cancellation</span> 
+                        
+                        , and the <Link target="_blank" href="/promotional-conditions" className='text-[#F5BB0B]'>Lucky Draw Disclaimer</Link>
+                        */}
                     </div>
                 </div>
             </div>

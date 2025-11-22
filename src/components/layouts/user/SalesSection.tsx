@@ -4,44 +4,44 @@ import Link from 'next/link'
 import React from 'react'
 import Container from './Container'
 
-const Heading = ({ content }: { content: string }) => {
-    return (
-        <h1 className='font-bold text-xs md:text-[1.2rem] lg:text-[1.5rem]'>{content}</h1>
-    )
-}
+// const Heading = ({ content }: { content: string }) => {
+//     return (
+//         <h1 className='font-bold text-xs md:text-[1.2rem] lg:text-[1.5rem]'>{content}</h1>
+//     )
+// }
 
-const Paragraph = ({ content }: { content: string }) => {
-    return (
-        <p className='text-xs md:mt-1 md:text-[1.0rem] lg:text-[1.2rem]'>{content}</p>
-    )
-}
+// const Paragraph = ({ content }: { content: string }) => {
+//     return (
+//         <p className='text-xs md:mt-1 md:text-[1.0rem] lg:text-[1.2rem]'>{content}</p>
+//     )
+// }
 
-const DivTag = ({ children }: {children: React.ReactNode}) => {
-    return (
-        <div className='flex justify-between flex-col gap-2 md:flex-row md:items-center'>
-            {children}
-        </div>
-    )
-}
+// const DivTag = ({ children }: {children: React.ReactNode}) => {
+//     return (
+//         <div className='flex justify-between flex-col gap-2 md:flex-row md:items-center'>
+//             {children}
+//         </div>
+//     )
+// }
 
 const SalesSection = () => {
-    const [ index, setIndex ] = React.useState(0)
+    // const [ index, setIndex ] = React.useState(0)
     const [timeLeft, setTimeLeft] = React.useState("")
 
-    const salesData = React.useMemo(
-        () => [
-            { id: 1, state: 'TN', sales: '54,00,000', progress: 64 },
-            { id: 2, state: 'KL', sales: '72,50,000', progress: 79 }
-        ],
-    [])
+    // const salesData = React.useMemo(
+    //     () => [
+    //         { id: 1, state: 'TN', sales: '54,00,000', progress: 64 },
+    //         { id: 2, state: 'KL', sales: '72,50,000', progress: 79 }
+    //     ],
+    // [])
 
-    React.useEffect(() => {
-        const intervel = setInterval(() => {
-            setIndex((prev) => (prev + 1) % salesData.length)
-        }, 3000)
+    // React.useEffect(() => {
+    //     const intervel = setInterval(() => {
+    //         setIndex((prev) => (prev + 1) % salesData.length)
+    //     }, 3000)
 
-        return () => clearInterval(intervel)
-    }, [salesData])
+    //     return () => clearInterval(intervel)
+    // }, [salesData])
 
     React.useEffect(() => {
         const endDate = new Date("2025-12-06T00:00:00");

@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
           (“you”, “your”, “User”) and SUGIMX Private Limited (“Company”, “we”, “us”, “our”). This Policy
           sets out the manner in which the Company collects, stores, processes, uses, discloses, shares,
           transfers, and safeguards personal information and data submitted, provided, or otherwise
-          made available by Users in connection with the use of or access to the Company’s website,
+          made available by Users in connection with the use of or access to the {"Company's"} website,
           applications, or any allied services (hereinafter collectively referred to as the “Platform”). By
           accessing or using the Platform, you signify your unequivocal acceptance of the terms of this
           Policy and agree to be bound thereby, and such acceptance shall be deemed to constitute free,

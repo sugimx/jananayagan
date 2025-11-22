@@ -20,7 +20,7 @@ const AboutContent = () => {
                         Collection - a tribute to Vijay sir and his unmatched journey. Each cup is individually numbered
                         from 1 to 27,70,000, giving every fan a unique place in history. From the first buyer to the last,
                         your name and number will forever remain on our platform, celebrating your pride as a fan.</p> */}
-                        <p>Every movement begins with a spark… and this one began with the love of millions.</p>
+                        {/* <p>Every movement begins with a spark… and this one began with the love of millions.</p>
                         <p>What started as a simple wish from a group of fans has grown into a wave — a wave strong enough to unite people across streets, cities, and states. We call ourselves Sugimx Private Limited, not as a company, but as a family of fans driven by one shared emotion: our admiration for Thalapathy Vijay.</p>
                         <p>This project belongs to no party or banner — it rises from the quiet rhythm of countless hearts, all beating toward the same horizon, carried by a shared hope that needs no name.</p>
                         <p>It {"isn't"} a business venture.</p>
@@ -48,7 +48,10 @@ const AboutContent = () => {
 
                         <p>Welcome to the wave.</p>
                         <p>Welcome to the story.</p>
-                        <p>Welcome to the TVK 2026 Limited Edition Coffee Cup Collection — made by fans, loved by fans, remembered forever.</p>
+                        <p>Welcome to the TVK 2026 Limited Edition Coffee Cup Collection — made by fans, loved by fans, remembered forever.</p> */}
+                        <p>Welcome to the TVK CUP 2026 Official Store, your trusted destination for premium merchandise, exclusive collectibles, and fan-favorite products inspired by one of the most electrifying tournaments of the year.</p>
+
+                        <p>Our goal is to bring the excitement of TVK CUP 2026 directly to you through high-quality, officially crafted items designed for players, supporters, and passionate fans. Every product in our store reflects the energy, competitiveness, and pride of the cup.</p>
                     </div>
                     <Link href='/product' className='border-1 border-[#F5BB0B] py-1 inline-block my-3 px-10 text-sm md:text-lg text-[#F5BB0B]'>Explore</Link>
                 </div>
@@ -62,7 +65,7 @@ const AboutContent = () => {
                     />
                 </div>
             </div>
-            <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
+            {/* <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='lg:flex-[1] flex justify-center lg:justify-start items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image
                         src="/tvk_cup.png"
@@ -122,7 +125,7 @@ const AboutContent = () => {
                     <p className='py-4'>Booking Open for One Week Only</p>
                     <p>Once booking closes — these limited edition cups will never be made again. Your serial number is forever unique, your story forever part of TVK history.</p>
                 </div>
-            </div>
+            </div> */}
         </Container>
     )
 }
