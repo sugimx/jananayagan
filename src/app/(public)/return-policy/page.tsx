@@ -8,7 +8,7 @@ const ReturnPolicy = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#F5BB0B]">
           Return, Refund & Cancellation Policy - SUGIMX Private Limited
         </h1>
-        
+
         {/* <div className="space-y-6 text-white leading-relaxed">
           <p>This Return, Refund, and Cancellation Policy ({"“Policy”"}) forms an integral part of the Terms and
           Conditions of Use of the Platform operated by SUGIMX Private Limited ({"“Company”"}, {"“we”"}, {"“us”"},
@@ -112,9 +112,9 @@ You may, however, request a return after receiving the product (as per our Retur
 <p>
 If your cancellation is approved:
 
-A full refund will be issued to your original payment method
-
-Refunds may take 3–7 business days to reflect, depending on your bank or payment provider</p>
+Replacement products will delivered within 5-7 days
+Refund if processed will be credited within 3-5 in bank account
+</p>
 
 <h1>4. Automatic Cancellation</h1>
 

@@ -26,7 +26,7 @@ const BuyerInfo = () => {
                 <div className='h-auto py-10 relative'>
                     <div>
                         <h1 className='text-[1.5rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text font-semibold my-1 md:text-[3rem] md:my-2'>Buyer Info</h1>
-                        <p className='text-sm leading-relaxed my-1 md:text-lg md:my-4 text-white'>Fill in your details to receive your unique ID for the Official TVK Limited Edition Cup.</p>
+                        <p className='text-sm leading-relaxed my-1 md:text-lg md:my-4 text-white'>Fill in your details to receive your unique ID.</p>
                          {/* and secure your entry into the lucky draw. */}
                     </div>
                     <Suspense fallback={<LoadingScreen />}>
