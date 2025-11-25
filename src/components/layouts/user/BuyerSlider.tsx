@@ -122,7 +122,7 @@ const BuyerSlider = () => {
                 {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
                     <SwiperSlide key={index}>
                         <div className='bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] border-1 border-white/10 rounded-xl relative'>
-                             <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
+                            <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
                                 {deleteIsPending ? (
                                     <span className='loaders'></span>
                                 ) : index !== 0 && (
@@ -215,8 +215,8 @@ const BuyerSlider = () => {
                         </p>
                         {/* <span>Promotional & Lucky Draw Disclaminer</span>
                         <span>Privacy Policy</span>
-                        <span>Return & Cancellation</span> 
-                        
+                        <span>Return & Cancellation</span>
+
                         , and the <Link target="_blank" href="/promotional-conditions" className='text-[#F5BB0B]'>Lucky Draw Disclaimer</Link>
                         */}
                     </div>

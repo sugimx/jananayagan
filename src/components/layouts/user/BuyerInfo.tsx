@@ -2,23 +2,23 @@
 
 import React, { lazy, Suspense } from 'react'
 import LoadingScreen from '@/screens/LoadingScreen'
-import { useAuth } from '@/hooks/useAuth'
-import LinkComponent from '@/components/ui/user/LinkComponent'
+// import { useAuth } from '@/hooks/useAuth'
+// import LinkComponent from '@/components/ui/user/LinkComponent'
 import Container from './Container'
 
 const LazyComponent = lazy(() => import('./BuyerSlider'))
 
 const BuyerInfo = () => {
-    const { token } = useAuth()
+    // const { token } = useAuth()
 
-    if(!token) {
-        return (
-            <div className='flex justify-center items-center flex-col py-20 px-2'>
-                <p className='bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,187,11,0.35)] text-sm leading-relaxed my-1 md:text-lg md:my-4'>Oops! Buyer info not found. Login is required to purchase product.</p>
-                <LinkComponent link='/login' content='Login' />
-            </div>
-        )
-    }
+    // if(!token) {
+    //     return (
+    //         <div className='flex justify-center items-center flex-col py-20 px-2'>
+    //             <p className='bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,187,11,0.35)] text-sm leading-relaxed my-1 md:text-lg md:my-4'>Oops! Buyer info not found. Login is required to purchase product.</p>
+    //             <LinkComponent link='/login' content='Login' />
+    //         </div>
+    //     )
+    // }
     return (
         <>
         <Container>

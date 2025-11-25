@@ -78,17 +78,17 @@ const LuckyDraw = () => {
                                                 <Image
                                                     src={
                                                         prize.image === 'prize'
-                                                        ? '/Asset 2@300x.png'
+                                                        ? '/Money Illustration First Prize.png'
                                                         : prize.image === 'car1'
-                                                        ? '/thar-roxx.png'
+                                                        ? '/Thar Second Price.png'
                                                         : prize.image === 'car2'
-                                                        ? '/pngegg (6).png'
+                                                        ? '/Swift Third Prize.png'
                                                         : prize.image === 'bike'
-                                                        ? '/pngegg (4).png'
+                                                        ? '/Bullet Fourth Prize.png'
                                                         : ''
                                                     }
-                                                    width={100}
-                                                    height={100}
+                                                    width={70}
+                                                    height={70}
                                                     alt='prize image'
                                                 />
                                                 <div>
@@ -96,7 +96,7 @@ const LuckyDraw = () => {
                                                     <p className='text-2xl font-bold text-white'>{prize.amount}</p>
                                                 </div>
                                                 <span
-                                                    className='text-xs font-semibold px-3 py-1 rounded-full'
+                                                    className='hidden md:flex text-xs font-semibold px-3 py-1 rounded-full'
                                                     style={{
                                                         color: '#050113',
                                                         backgroundColor: prize.accent,

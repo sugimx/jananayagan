@@ -52,7 +52,7 @@ const MyProfile = () => {
         isPending,
         isSuccess,
         isError
-    } = useQuery({ 
+    } = useQuery({
         queryKey: ['profile'],
         queryFn: () => getProfile(token!),
         enabled: !!token
@@ -126,12 +126,12 @@ const MyProfile = () => {
                             <FormControl>
                                 <Label content="Name" />
                                 <InputBox<ProfileType>
-                                    type="text" 
-                                    placeHolder='Enter Your Name....' 
-                                    errorMsg='Name field is required' 
-                                    register={register} 
+                                    type="text"
+                                    placeHolder='Enter Your Name....'
+                                    errorMsg='Name field is required'
+                                    register={register}
                                     defaultValue={data?.data?.name}
-                                    name="fullName" 
+                                    name="fullName"
                                 />
                             </FormControl>
                                 {
@@ -140,11 +140,11 @@ const MyProfile = () => {
                             <FormControl>
                                 <Label content="Email" />
                                 <InputBox<ProfileType>
-                                    type="text" 
-                                    placeHolder='Enter Your Email....' 
-                                    errorMsg='Email field is required' 
-                                    register={register} 
-                                    name="gmail" 
+                                    type="text"
+                                    placeHolder='Enter Your Email....'
+                                    errorMsg='Email field is required'
+                                    register={register}
+                                    name="gmail"
                                     defaultValue={data?.data?.email}
                                     validationOptions = {{
                                         validate: (value: string) => value.endsWith("@gmail.com") || "Invalid email address",
@@ -159,11 +159,11 @@ const MyProfile = () => {
                             <FormControl>
                                 <Label content="Phone" />
                                 <InputBox<ProfileType>
-                                    type="text" 
-                                    placeHolder='Enter Your Phone Number....' 
-                                    errorMsg='Phone number field is required' 
-                                    register={register} 
-                                    name='phone' 
+                                    type="text"
+                                    placeHolder='Enter Your Phone Number....'
+                                    errorMsg='Phone number field is required'
+                                    register={register}
+                                    name='phone'
                                     defaultValue={data?.data?.phone}
                                     validationOptions={{
                                         minLength: {
@@ -237,7 +237,7 @@ const MyProfile = () => {
                 {isUpdateSuccess && <SuccessMessage message="updated successfully" />}
                 {isUpdateError && <ErrorMessage message={(updateError as Error).message} />}
                 <div className='my-5 w-full flex justify-center'>
-                    <button 
+                    <button
                         className='border-2 border-[#F5BB0B] px-6 py-2 text-sm text-[#F5BB0B] rounded-md font-semibold md:text-md cursor-pointer'
                         onClick={handleSubmit(handleSubmitFn)}
                     >

@@ -57,7 +57,7 @@ const Banner = () => {
                         <div className='absolute inset-0 -z-10 rotate-6 rounded-[36px] border border-white/10 bg-gradient-to-br from-[#111] via-[#191821] to-[#07070c] shadow-[0_0_120px_rgba(0,0,0,0.55)]' />
                         <div className='relative w-full rounded-[32px] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl backdrop-blur-xl'>
                             <Image
-                                src='/tvk_logo.png'
+                                src='/tvkillustration.png'
                                 alt='TVK typography'
                                 width={500}
                                 height={500}
