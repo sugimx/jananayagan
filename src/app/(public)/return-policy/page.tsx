@@ -106,15 +106,15 @@ If the order has already been shipped, it cannot be cancelled.</p>
 <p>Once a package is handed over to the courier, the order cannot be cancelled.
 You may, however, request a return after receiving the product (as per our Return Policy).</p>
 
-<h1 className='font-bold inline-block'>3. Refund for Cancelled Orders</h1>
-<p>
-If your cancellation is approved:
+<h1 className='font-bold inline-block'>3. Replacement Policy </h1>
 
-Replacement products will delivered within 5-7 days
-Refund if processed will be credited within 3-5 in bank account
-</p>
+<p>Replacement products will be delivered within 5–7 business days from the date of approval.</p>
 
-<h1 className='font-bold inline-block'>4. Automatic Cancellation</h1>
+<h1 className='font-bold inline-block'>4. Refund Policy </h1>
+
+<p>If a refund is approved, the amount will be credited to the customer’s bank account within 3–5 business days.</p>
+
+<h1 className='font-bold inline-block'>5. Automatic Cancellation</h1>
 
 <p>Your order may be cancelled automatically if:
 
@@ -128,7 +128,7 @@ Order is flagged as high-risk or fraudulent
 
 In such cases, you will be notified, and a refund (if applicable) will be processed automatically.</p>
 
-<h1 className='font-bold inline-block'>5. Partial Cancellation</h1>
+<h1 className='font-bold inline-block'>6. Partial Cancellation</h1>
 <p>
 If part of your order is unavailable:
 
@@ -138,7 +138,7 @@ A refund will be issued for the cancelled portion
 
 The remaining items will be shipped normally</p>
 
-<h1 className='font-bold inline-block'>6. Non-Cancellable Items</h1>
+<h1 className='font-bold inline-block'>7. Non-Cancellable Items</h1>
 <p>
 Some products cannot be cancelled, including:
 
@@ -148,7 +148,7 @@ Customized or personalized products
 
 Digital content or downloadable items</p>
 
-<h1 className='font-bold inline-block'>7. How to Request Cancellation</h1>
+<h1 className='font-bold inline-block'>8. How to Request Cancellation</h1>
 
 <p>To cancel an order, contact us at:
 📧 support@sugimx.com</p>
