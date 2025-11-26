@@ -44,7 +44,7 @@ High-Quality Ceramic - Durable, chip-resistant, and dishwasher safe
                             <span className='text-[0.7rem]'>including all taxes</span>
                        </div>
                         {/* <p className='text-sm leading-relaxed md:text-lg'>Be a part of cinematic history with this official Jana Nayagan {"Collector's Cup"}. Crafted for true fans, each cup carries a unique serial number, making every piece personal, cherished, and a timeless tribute to the {"film's"} legacy.</p> */}
-                        <div className='flex justify-center md:justify-start'>
+                        {/* <div className='flex justify-center md:justify-start'>
                             <div className='flex justify-between gap-5 md:gap-10'>
                                 <div className='flex flex-col gap-2 items-center'>
                                     <Image
@@ -82,7 +82,7 @@ High-Quality Ceramic - Durable, chip-resistant, and dishwasher safe
                                     <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Satisfaction Guaranteed</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </Container>
