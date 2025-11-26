@@ -39,6 +39,10 @@ High-Quality Ceramic - Durable, chip-resistant, and dishwasher safe
                                 </li>
                                 <li>Size - 250ML</li>
                             </ul>
+                        <div className='flex gap-2 items-center'>
+                            <h1 className='text-[1rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text font-semibold md:text-[2rem] flex items-center'><FaRupeeSign className='text-white'/> 320</h1>
+                            <span className='text-[0.7rem]'>including all taxes</span>
+                       </div>
                         {/* <p className='text-sm leading-relaxed md:text-lg'>Be a part of cinematic history with this official Jana Nayagan {"Collector's Cup"}. Crafted for true fans, each cup carries a unique serial number, making every piece personal, cherished, and a timeless tribute to the {"film's"} legacy.</p> */}
                         {/* <div className='flex justify-center md:justify-start'>
                             <div className='flex justify-between gap-5 md:gap-10'>
