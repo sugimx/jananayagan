@@ -63,8 +63,6 @@ const ReturnPolicy = () => {
           jurisdiction of the competent courts situated at Nagercoil, Tamil Nadu.</p>
         </div> */}
         <div>
-          <h1>1. Returns & Refunds</h1>
-
 <p>Returns are accepted only under the following conditions:
 
 Wrong product delivered
@@ -89,7 +87,7 @@ Credited to the original payment method
 
 Shipping charges are non-refundable unless the mistake is from our side</p>
 
-<h1>1. Order Cancellation by Customer</h1>
+<h1 className='font-bold inline-block'>1. Order Cancellation by Customer</h1>
 
 <p>You may request a cancellation before your order is shipped.
 
@@ -103,12 +101,12 @@ Contact number/email
 
 If the order has already been shipped, it cannot be cancelled.</p>
 
-<h1>2. Cancellation After Shipment</h1>
+<h1 className='font-bold inline-block'>2. Cancellation After Shipment</h1>
 
 <p>Once a package is handed over to the courier, the order cannot be cancelled.
 You may, however, request a return after receiving the product (as per our Return Policy).</p>
 
-<h1>3. Refund for Cancelled Orders</h1>
+<h1 className='font-bold inline-block'>3. Refund for Cancelled Orders</h1>
 <p>
 If your cancellation is approved:
 
@@ -116,7 +114,7 @@ Replacement products will delivered within 5-7 days
 Refund if processed will be credited within 3-5 in bank account
 </p>
 
-<h1>4. Automatic Cancellation</h1>
+<h1 className='font-bold inline-block'>4. Automatic Cancellation</h1>
 
 <p>Your order may be cancelled automatically if:
 
@@ -130,7 +128,7 @@ Order is flagged as high-risk or fraudulent
 
 In such cases, you will be notified, and a refund (if applicable) will be processed automatically.</p>
 
-<h1>5. Partial Cancellation</h1>
+<h1 className='font-bold inline-block'>5. Partial Cancellation</h1>
 <p>
 If part of your order is unavailable:
 
@@ -140,7 +138,7 @@ A refund will be issued for the cancelled portion
 
 The remaining items will be shipped normally</p>
 
-<h1>6. Non-Cancellable Items</h1>
+<h1 className='font-bold inline-block'>6. Non-Cancellable Items</h1>
 <p>
 Some products cannot be cancelled, including:
 
@@ -150,13 +148,10 @@ Customized or personalized products
 
 Digital content or downloadable items</p>
 
-<h1>7. How to Request Cancellation</h1>
+<h1 className='font-bold inline-block'>7. How to Request Cancellation</h1>
 
 <p>To cancel an order, contact us at:
-📧 support@sugimx.com
- (replace with your email)
-
-Please mention “Order Cancellation Request - [Order ID]” in the subject line.</p>
+📧 support@sugimx.com</p>
         </div>
       </div>
     </Container>

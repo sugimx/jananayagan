@@ -20,7 +20,7 @@ const ShippingPolicy = () => {
                     </ul>
                 </div> */}
                 <div>
-                    <h1>1. Order Processing Time</h1>
+                    <h1 className='font-bold inline-block'>1. Order Processing Time</h1>
 
 <p>All orders are processed within 1-3 business days.
 
@@ -28,7 +28,7 @@ Orders placed on weekends or holidays will be processed on the next business day
 
 Processing time may increase during peak seasons, offers, or high-volume sales.</p>
 
-<h1>2. Shipping Methods & Delivery Time</h1>
+<h1 className='font-bold inline-block'>2. Shipping Methods & Delivery Time</h1>
 <p>
 We offer standard courier shipping across India.
 
@@ -42,7 +42,7 @@ Rest of India: 5-10 business days
 
 Delivery timelines are estimates and may vary due to courier delays, weather, or unforeseen events.</p>
 
-<h1>3. Shipping Charges</h1>
+<h1 className='font-bold inline-block'>3. Shipping Charges</h1>
 <p>
 Shipping fees are calculated at checkout based on your location and order weight.
 
@@ -54,7 +54,7 @@ Free shipping may be offered during promotions or on orders that qualify for spe
 
 You can use this tracking ID to monitor your package through the {"courier's"} website.</p>
 
-<h1>5. Incorrect or Incomplete Address</h1>
+<h1 className='font-bold inline-block'>5. Incorrect or Incomplete Address</h1>
 
 <p>Customers are responsible for providing accurate delivery details.
 
@@ -66,7 +66,7 @@ Lost packages due to incomplete or wrong shipping information
 
 If the package returns to us due to an incorrect address, re-shipping charges will apply.</p>
 
-<h1>6. Delayed or Lost Shipments</h1>
+<h1 className='font-bold inline-block'>6. Delayed or Lost Shipments</h1>
 
 <p>While we ensure timely dispatch:
 
@@ -74,12 +74,12 @@ Delays caused by courier services are outside our control
 
 Lost shipments will be investigated with the courier; replacements will be issued only after confirmation</p>
 
-<h1>7. International Shipping</h1>
+<h1 className='font-bold inline-block'>7. International Shipping</h1>
 <p>
 Currently, we do not offer international shipping.
 Orders are shipped within India only.</p>
 
-<h1>8. Damaged Packages</h1>
+<h1 className='font-bold inline-block'>8. Damaged Packages</h1>
 <p>
 If your order arrives damaged:
 
@@ -89,7 +89,7 @@ Contact us within 24–48 hours of delivery
 
 Replacement or refund will be processed after verification
 </p>
-<h1>
+<h1 className='font-bold inline-block'>
 9. Delivery Attempts</h1>
 
 <p>Couriers may attempt delivery 2–3 times.

@@ -116,12 +116,12 @@ const TermsConditions = () => {
 
         </div> */}
 
-          <h1>1. Use of the Website</h1>
+          <h1 className='font-bold inline-block'>1. Use of the Website</h1>
 
 <p>You agree to use this website for lawful shopping purposes only.
 We may update, modify, or remove content on the site without prior notice.</p>
 
-<h1>2. Product Information</h1>
+<h1 className='font-bold inline-block'>2. Product Information</h1>
 
 <p>We aim to provide accurate product descriptions, images, and pricing.
 However:
@@ -134,7 +134,7 @@ Errors in product listings may occur
 
 SUGIMX PRIVATE LIMITED is not responsible for typographical or display errors.</p>
 
-<h1>3. Pricing & Payment</h1>
+<h1 className='font-bold inline-block'>3. Pricing & Payment</h1>
 
 <p>All prices shown are final unless indicated otherwise.
 
@@ -144,7 +144,7 @@ We may refuse or cancel an order if fraudulent activity is suspected.
 
 Prices may change at any time without notice.</p>
 
-<h1>4. Order Processing & Cancellation</h1>
+<h1 className='font-bold inline-block'>4. Order Processing & Cancellation</h1>
 
 <p>Once an order is placed:
 
@@ -156,7 +156,7 @@ We reserve the right to cancel orders due to stock issues, payment failure, or s
 
 If an order is cancelled, you will be notified and refunded.</p>
 
-<h1>5. Shipping & Delivery</h1>
+<h1 className='font-bold inline-block'>5. Shipping & Delivery</h1>
 
 <p>Delivery times are estimates only and may vary by location
 
@@ -166,7 +166,7 @@ Customers must provide accurate address details
 
 SUGIMX PRIVATE LIMITED is not responsible for lost packages due to incorrect addresses provided by the customer</p>
 
-<h1>6. Returns & Refunds</h1>
+<h1 className='font-bold inline-block'>6. Returns & Refunds</h1>
 
 <p>Returns are accepted only under the following conditions:
 
@@ -192,12 +192,12 @@ Credited to the original payment method
 
 Shipping charges are non-refundable unless the mistake is from our side</p>
 
-<h1>7. Intellectual Property</h1>
+<h1 className='font-bold inline-block'>7. Intellectual Property</h1>
 
 <p>All images, branding, product designs, and content on this website belong to SUGIMX PRIVATE LIMITED.
 Reproduction or unauthorized use is strictly prohibited.</p>
 
-<h1>8. User Responsibilities</h1>
+<h1 className='font-bold inline-block'>8. User Responsibilities</h1>
 
 <p>Users agree not to:
 
@@ -211,7 +211,7 @@ Copy or misuse store content
 
 Violation may lead to order cancellation or legal action.</p>
 
-<h1>9. Limitation of Liability</h1>
+<h1 className='font-bold inline-block'>9. Limitation of Liability</h1>
 
 <p>SUGIMX PRIVATE LIMITED is not responsible for:
 
@@ -222,13 +222,13 @@ Damages caused by misuse of products
 Indirect or accidental damages caused by using this website
 
 All purchases are made at your own discretion and risk.</p>
-<h1>
+<h1 className='font-bold inline-block'>
 10. Privacy & Data Handling</h1>
 
 <p>Your information is collected and processed in accordance with our Privacy Policy.
 By shopping with us, you consent to data usage for order processing, communication, and shipping.</p>
 
-<h1>11. Governing Law</h1>
+<h1 className='font-bold inline-block'>11. Governing Law</h1>
 
 <p>These Terms & Conditions are governed by Indian law.
 Any disputes will be handled under the jurisdiction of Tamil Nadu courts.</p>
