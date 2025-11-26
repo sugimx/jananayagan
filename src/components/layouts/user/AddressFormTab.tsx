@@ -177,7 +177,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
     }
 
     return (
-        <div className='text-white absolute top-0 left-0 w-full min-h-[50vh] flex justify-between flex-col items-center z-10'>
+        <div className='text-white absolute top-[-250px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center z-10'>
             <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black rounded-4xl'>
                 <div className='bg-black h-[80%] rounded-4xl px-4 py-4'>
                     <div className='flex justify-end text-[#F5BB0B]'>
@@ -233,19 +233,28 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         {
                             errors?.state && <ErrorMessage message={errors?.state?.message} />
                         }
-                        <InputContainer>
-                            <InputLabel content='District' />
-                            <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B]'
-                                {
-                                    ...register('district', { required: "District field is required" })
-                                }
-                            >
-                                <option className='bg-black' value="">Select Your District</option>
-                                {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
-                                    <option className='bg-black' value={item.district} key={index}>{item.district}</option>
-                                ))}
-                            </select>
-                        </InputContainer>
+                        {
+                            stateWatch === 'others' ? (
+                                <InputContainer>
+                                    <InputLabel content='District' />
+                                    <Input<FormData> placeholder='Enter Your District' register={register} name="district" errorMsg="District field is required" />
+                                </InputContainer>
+                            ) : (
+                                <InputContainer>
+                                    <InputLabel content='District' />
+                                    <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B]'
+                                        {
+                                            ...register('district', { required: "District field is required" })
+                                        }
+                                    >
+                                        <option className='bg-black' value="">Select Your District</option>
+                                        {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
+                                            <option className='bg-black' value={item.district} key={index}>{item.district}</option>
+                                        ))}
+                                    </select>
+                                </InputContainer>
+                            )
+                        }
                         {
                             errors?.district && <ErrorMessage message={errors?.district?.message} />
                         }
@@ -263,7 +272,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                         {
                             errors?.phone && <ErrorMessage message={errors?.phone?.message} />
                         }
-                         <InputContainer>
+                        <InputContainer>
                             <InputLabel content='Postal Code' />
                             <Input<FormData> placeholder='Enter Your Postal Code'
                                 register={register}

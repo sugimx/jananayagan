@@ -212,22 +212,39 @@ const MyProfile = () => {
                             {
                                 errors?.state && <ErrorMessage message={errors?.state?.message} />
                             }
-                            <FormControl>
-                                <Label content="District" />
-                                <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
-                                    {
-                                        ...register('dist', {
-                                            required: 'District field is required'
-                                        })
-                                    }
-                                >
-                                    {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
-                                    <option className='bg-[#7a0202]' value="">---Select Your District---</option>
-                                    {districts.filter(item => item.state === stateWatch).map((item, index) => (
-                                        <option key={index} className='bg-[#7a0202]'>{item.district}</option>
-                                    ))}
-                                </select>
-                            </FormControl>
+                            {
+                                stateWatch === 'others' ? (
+                                    <FormControl>
+                                        <Label content="District" />
+                                        <InputBox<ProfileType>
+                                            type="text"
+                                            placeHolder='Enter Your Distict....'
+                                            errorMsg='Name field is required'
+                                            register={register}
+                                            defaultValue={data?.data?.dist}
+                                            name="dist"
+                                        />
+                                    </FormControl>
+                                ) : (
+                                    <FormControl>
+                                        <Label content="District" />
+                                        <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
+                                            {
+                                                ...register('dist', {
+                                                    required: 'District field is required'
+                                                })
+                                            }
+                                        >
+                                            {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
+                                            <option className='bg-[#7a0202]' value="">---Select Your District---</option>
+                                            {districts.filter(item => item.state === stateWatch).map((item, index) => (
+                                                <option key={index} className='bg-[#7a0202]'>{item.district}</option>
+                                            ))}
+                                        </select>
+                                    </FormControl>
+                                )
+                            }
+
                             {
                                 errors?.dist && <ErrorMessage message={errors?.dist?.message} />
                             }

@@ -70,7 +70,7 @@ const BuyerDetails = () => {
 
     return (
         <>
-           <div className='mt-4 md:mt-10 mx-2'>
+            <div className='mt-4 md:mt-10 mx-2'>
                 <div className='flex justify-between items-center'>
                     <h1 className='text-xl font-semibold mb-4 md:text-2xl bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text'>Account</h1>
                     <LogoutButton />

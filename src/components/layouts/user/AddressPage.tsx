@@ -85,7 +85,7 @@ const AddressPage = () => {
         isPending: deletePending,
         isError: deleteError,
         isSuccess: deleteSuccess
-    } = useMutation<{ success: boolean, message: string }, Error, { token: string, addressId: string }>({ 
+    } = useMutation<{ success: boolean, message: string }, Error, { token: string, addressId: string }>({
         mutationFn: deleteAddress
     })
 
@@ -116,7 +116,7 @@ const AddressPage = () => {
             router.push('/login')
             return
         }
-        
+
         deleteMutate({ token, addressId })
     }
 

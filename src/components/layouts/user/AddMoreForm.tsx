@@ -199,15 +199,23 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                         {errors?.state && (
                             <ErrorMessage message={errors?.state?.message} />
                         )}
-                        <div className='bg-white flex text-black items-center h-10'>
-                            <BsPinMapFill className='text-[2.8rem] px-3' />
-                            <select className='h-full w-full outline-none' {...register('dist', { required: "District field is required" })}>
-                                <option className='' value="">Select Your District</option>
-                                {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
-                                    <option value={item.district} key={index}>{item.district}</option>
-                                ))}
-                            </select>
-                        </div>
+                        {stateWatch === 'others' ? (
+                            <div className='bg-white flex text-black items-center h-10'>
+                                <BsPinMapFill className='text-[2.8rem] px-3' />
+                                <input type="text" className='h-full w-full outline-none' placeholder='District' {...register('dist', { required: "District field is required" })} />
+                            </div>
+                        ) : (
+                            <div className='bg-white flex text-black items-center h-10'>
+                                <BsPinMapFill className='text-[2.8rem] px-3' />
+                                <select className='h-full w-full outline-none' {...register('dist', { required: "District field is required" })}>
+                                    <option className='' value="">Select Your District</option>
+                                    {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
+                                        <option value={item.district} key={index}>{item.district}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+
                         {errors?.dist && (
                             <ErrorMessage message={errors?.dist?.message} />
                         )}

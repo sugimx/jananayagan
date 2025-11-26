@@ -113,6 +113,7 @@ You may, however, request a return after receiving the product (as per our Retur
 <h1 className='font-bold inline-block'>4. Refund Policy </h1>
 
 <p>If a refund is approved, the amount will be credited to the customer’s bank account within 3–5 business days.</p>
+<p>We have 7 days refund return and replacement policy</p>
 
 <h1 className='font-bold inline-block'>5. Automatic Cancellation</h1>
 
