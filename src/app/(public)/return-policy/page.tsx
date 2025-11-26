@@ -149,7 +149,18 @@ Customized or personalized products
 
 Digital content or downloadable items</p>
 
-<h1 className='font-bold inline-block'>8. How to Request Cancellation</h1>
+<h1>8. Shipping policy</h1>
+<p>
+    Product Will be delivered within 5-7 days after order are processed
+</p>
+<p>
+    All orders are processed within 1–2 business days.
+</p>
+<p>
+Once processed, your product will be delivered within 5–7 business days.
+</p>
+
+<h1 className='font-bold inline-block'>9. How to Request Cancellation</h1>
 
 <p>To cancel an order, contact us at:
 📧 support@sugimx.com</p>

@@ -94,6 +94,7 @@ Replacement or refund will be processed after verification
 
 <p>Couriers may attempt delivery 2–3 times.
 If the package is returned to us due to unsuccessful delivery attempts, re-shipping charges will apply.</p>
+
 <h1>10. Shipping policy</h1>
 <p>
     Product Will be delivered within 5-7 days after order are processed

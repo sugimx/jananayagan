@@ -7,11 +7,11 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { AiOutlineUser } from "react-icons/ai"
 import { FaSignInAlt } from "react-icons/fa"
-import { useAuthContext } from '@/contexts/AuthContext'
+// import { useAuthContext } from '@/contexts/AuthContext'
 
 const Navbar = () => {
   const currentPath = usePathname()
-  const { isAuthenticated } = useAuthContext()
+  // const { isAuthenticated } = useAuthContext()
 
   return (
     <div className='relative mx-auto border-b border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white shadow-[0_20px_45px_rgba(5,1,19,0.55)]'>
