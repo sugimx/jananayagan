@@ -8,7 +8,7 @@ const TermsConditions = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#F5BB0B]">
           Terms and Conditions
         </h1>
-        
+
         {/* <div className="space-y-6 text-white leading-relaxed">
           <section>
             <h2 className="text-2xl font-semibold text-black mb-4">1. Terms & Condition</h2>
@@ -115,7 +115,7 @@ const TermsConditions = () => {
           </section>
 
         </div> */}
-        
+
           <h1>1. Use of the Website</h1>
 
 <p>You agree to use this website for lawful shopping purposes only.
@@ -132,7 +132,7 @@ Stock availability may change at any time
 
 Errors in product listings may occur
 
-TVK CUP 2026 is not responsible for typographical or display errors.</p>
+SUGIMX PRIVATE LIMITED is not responsible for typographical or display errors.</p>
 
 <h1>3. Pricing & Payment</h1>
 
@@ -164,7 +164,7 @@ Delays caused by courier services or unforeseen events are not our responsibilit
 
 Customers must provide accurate address details
 
-TVK CUP 2026 is not responsible for lost packages due to incorrect addresses provided by the customer</p>
+SUGIMX PRIVATE LIMITED is not responsible for lost packages due to incorrect addresses provided by the customer</p>
 
 <h1>6. Returns & Refunds</h1>
 
@@ -194,7 +194,7 @@ Shipping charges are non-refundable unless the mistake is from our side</p>
 
 <h1>7. Intellectual Property</h1>
 
-<p>All images, branding, product designs, and content on this website belong to TVK CUP 2026.
+<p>All images, branding, product designs, and content on this website belong to SUGIMX PRIVATE LIMITED.
 Reproduction or unauthorized use is strictly prohibited.</p>
 
 <h1>8. User Responsibilities</h1>
@@ -213,7 +213,7 @@ Violation may lead to order cancellation or legal action.</p>
 
 <h1>9. Limitation of Liability</h1>
 
-<p>TVK CUP 2026 is not responsible for:
+<p>SUGIMX PRIVATE LIMITED is not responsible for:
 
 Delays in delivery
 

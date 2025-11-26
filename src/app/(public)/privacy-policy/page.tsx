@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#F5BB0B]">
           Privacy Policy - SUGIMX Private Limited
         </h1>
-        
+
         <div className="space-y-6 text-white leading-relaxed">
           <p>This Privacy Policy (“Policy”) is published in compliance with the provisions of the Information
           Technology Act, 2000, together with all rules framed thereunder, including the Information

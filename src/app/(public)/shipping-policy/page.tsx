@@ -58,7 +58,7 @@ You can use this tracking ID to monitor your package through the {"courier's"} w
 
 <p>Customers are responsible for providing accurate delivery details.
 
-TVK CUP 2026 is not responsible for:
+SUGIMX PRIVATE LIMITED is not responsible for:
 
 Delays caused by incorrect addresses
 
