@@ -38,6 +38,7 @@ High-Quality Ceramic - Durable, chip-resistant, and dishwasher safe
                                     Easy to Clean - Smooth surface for hassle-free maintenance
                                 </li>
                                 <li>Size - 250ML</li>
+                                <li>Price - 320</li>
                             </ul>
                         <div className='flex gap-2 items-center'>
                             <h1 className='text-[1rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text font-semibold md:text-[2rem] flex items-center'><FaRupeeSign className='text-white'/> 320</h1>
