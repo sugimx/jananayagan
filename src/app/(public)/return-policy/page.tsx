@@ -149,7 +149,7 @@ Customized or personalized products
 
 Digital content or downloadable items</p>
 
-<h1>8. Shipping policy</h1>
+<h1 className='font-bold inline-block'>8. Shipping policy</h1>
 <p>
     Product Will be delivered within 5-7 days after order are processed
 </p>
