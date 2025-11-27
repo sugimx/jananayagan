@@ -177,16 +177,16 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
     }
 
     return (
-        <div className='text-white absolute top-[-250px] left-0 w-full min-h-[50vh] flex justify-between flex-col items-center z-10'>
-            <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black rounded-4xl'>
-                <div className='bg-black h-[80%] rounded-4xl px-4 py-4'>
-                    <div className='flex justify-end text-[#F5BB0B]'>
+        <div className='text-white fixed inset-0 z-50 flex items-center justify-center'>
+            <div className='w-[90%] md:w-[50%] lg:w-[40%] xl:w-[40%] bg-black rounded-4xl max-h-screen overflow-y-auto'>
+                <div className='bg-black rounded-4xl px-4 relative'>
+                    <div className='flex justify-end text-[#F5BB0B] absolute top-3 right-3'>
                         <IoClose onClick={() => setState(!state)} className='cursor-pointer'/>
                     </div>
                     <div className='h-15 flex items-center justify-center text-white text-[1rem] font-semibold'>
                         <h1>New address</h1>
                     </div>
-                    <div className='h-auto bg-[#000] flex flex-col gap-4 px-3 py-4 rounded-xl'>
+                    <div className='h-auto bg-[#000] flex flex-col gap-4 rounded-xl'>
                         <InputContainer>
                             <InputLabel content='Address' />
                             <Input<FormData> placeholder='Enter Your Address'

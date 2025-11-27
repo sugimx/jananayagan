@@ -16,7 +16,7 @@ const MainContainer = ({ children, isActive, onActivate }: { children: React.Rea
     return (
         <div className={`
                 border-1 border-[#F5BB0B] rounded-xl mb-4 md:mb-1 md:w-[calc(50%-7.5px)] xl:w-[calc(25%-6px)] cursor-pointer
-                ${isActive ? 'bg-[#F5BB0B] shadow-lg ring-2 text-black' : 'bg-transparent hover:bg-gray-800 text-[#F5D57A]'}
+                ${isActive ? 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] shadow-lg ring-2 text-white' : 'bg-transparent hover:bg-gray-800 text-[#F5D57A]'}
             `}
             onClick={onActivate}
         >
@@ -149,11 +149,11 @@ const AddressPage = () => {
 
     return (
         <>
-            <div className='my-5 relative'>
+            <div className='my-5'>
                 <div className='flex justify-end items-center mb-4'>
                     <button
                         className={`
-                            text-[#000] bg-[#F5BB0B] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`}
+                            text-[#000] bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] text-[0.8rem] px-5 md:px-10 py-2 rounded-md md:text-sm cursor-pointer flex items-center gap-1 font-semibold`}
                         onClick={handleAddNewFn}
                     >
                         <FaPlus className='font-bold' />
@@ -164,14 +164,14 @@ const AddressPage = () => {
                     {data?.data.length !== 0 ? data?.data?.map((item: FormData, index: number) => (
                         <MainContainer key={index} isActive={isActive === index} onActivate={() => handleDefaultAddress(item?._id, index)}>
                             <Section>
-                                <RiDeleteBinFill className={`text-xl ${isActive === index ? 'text-black' : 'text-[#F5D57A]'}`} onClick={() => handleDeleteFn(item._id)} />
+                                <RiDeleteBinFill className={`text-xl ${isActive === index ? 'text-white' : 'text-[#F5D57A]'}`} onClick={() => handleDeleteFn(item._id)} />
                             </Section>
                             <Section>
                                 <AddressParagraph content={`${item.addressLine1}, ${item.city}, ${item.state}, ${item.postalCode}`} />
                                 <CustomerDetails content={`${item.fullName} • ${item.phone}`} />
                             </Section>
                             <Section>
-                                <FiEdit2 className='text-2xl text-[#808089] cursor-pointer' onClick={() => handleEditFn(item._id)} />
+                                <FiEdit2 className='text-2xl text-[#fff] cursor-pointer' onClick={() => handleEditFn(item._id)} />
                             </Section>
                         </MainContainer>
                     )) : (

@@ -47,9 +47,9 @@ const LimitedEdition = () => {
                             <div className='relative flex flex-col items-center gap-6 text-center'>
                                 <p className='text-xs uppercase tracking-[0.45em] text-white/60'>Limited Edition</p>
                                 <Image
-                                    src='/tvk_cup.png'
-                                    width={800}
-                                    height={800}
+                                    src='/CUP Number 27777777.png'
+                                    width={400}
+                                    height={400}
                                     alt="TVK Cup image"
                                     className='drop-shadow-[0_35px_70px_rgba(0,0,0,0.6)]'
                                 />

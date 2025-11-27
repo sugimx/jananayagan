@@ -7,11 +7,11 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { AiOutlineUser } from "react-icons/ai"
 import { FaSignInAlt } from "react-icons/fa"
-// import { useAuthContext } from '@/contexts/AuthContext'
+import { useAuthContext } from '@/contexts/AuthContext'
 
 const Navbar = () => {
   const currentPath = usePathname()
-  // const { isAuthenticated } = useAuthContext()
+  const { isAuthenticated } = useAuthContext()
 
   return (
     <div className='relative mx-auto border-b border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white shadow-[0_20px_45px_rgba(5,1,19,0.55)]'>
@@ -22,9 +22,9 @@ const Navbar = () => {
             <Image
               src="/tvk_logo.png"
               alt="jana nayagan"
-              width={200}
-              height={200}
-              className='w-[100px] h-[50px]'
+              width={100}
+              height={60}
+              // className='w-[100px] h-[50px]'
             />
             <div className='hidden md:flex'>
                 <ul className='list-none flex gap-8 p-4 text-white text-md'>
@@ -43,17 +43,15 @@ const Navbar = () => {
               </ul>
             </div>
             <div className='flex justify-center items-center gap-2'>
-              {/* {isAuthenticated ? ( */}
+              {isAuthenticated ? (
                   <Link href="/profile" className='text-sm text-[#F5BB0B] border-[1px] border-[#F5BB0B] p-2 rounded-full relative cursor-pointer'>
                       <AiOutlineUser />
                   </Link>
-              {/* ) : ( */}
-                <>
+              ) : (
                   <Link href="/login" className='text-sm text-[#F5BB0B] border-[1px] border-[#F5BB0B] p-2 rounded-full relative cursor-pointer'>
                     <FaSignInAlt />
                   </Link>
-                </>
-              {/* )} */}
+              )}
             </div>
         </div>
     </div>

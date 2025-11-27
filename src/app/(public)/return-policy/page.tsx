@@ -9,7 +9,7 @@ const ReturnPolicy = () => {
           Return, Refund & Cancellation Policy - SUGIMX Private Limited
         </h1>
 
-        {/* <div className="space-y-6 text-white leading-relaxed">
+        <div className="space-y-6 text-white leading-relaxed">
           <p>This Return, Refund, and Cancellation Policy ({"“Policy”"}) forms an integral part of the Terms and
           Conditions of Use of the Platform operated by SUGIMX Private Limited ({"“Company”"}, {"“we”"}, {"“us”"},
           {"“our”"}). By placing an order or making a booking on our website, mobile application, or allied
@@ -61,109 +61,8 @@ const ReturnPolicy = () => {
           <p>This Policy is governed by and construed in accordance with the laws of India. All disputes,
           controversies, or claims arising out of or relating to this Policy shall be subject to the exclusive
           jurisdiction of the competent courts situated at Nagercoil, Tamil Nadu.</p>
-        </div> */}
+        </div>
         <div>
-<p>Returns are accepted only under the following conditions:
-
-Wrong product delivered
-
-Damaged or defective item
-
-Product not matching the description
-
-Return Conditions:
-
-Must be returned within 7 days of delivery
-
-Must be unused, in original packaging, with tags intact
-
-Certain products such as limited edition items, personalized products, and digital goods are non-returnable
-
-Refunds:
-
-Issued only after quality inspection
-
-Credited to the original payment method
-
-Shipping charges are non-refundable unless the mistake is from our side</p>
-
-<h1 className='font-bold inline-block'>1. Order Cancellation by Customer</h1>
-
-<p>You may request a cancellation before your order is shipped.
-
-To cancel your order, contact our support team with:
-
-Order ID
-
-Name
-
-Contact number/email
-
-If the order has already been shipped, it cannot be cancelled.</p>
-
-<h1 className='font-bold inline-block'>2. Cancellation After Shipment</h1>
-
-<p>Once a package is handed over to the courier, the order cannot be cancelled.
-You may, however, request a return after receiving the product (as per our Return Policy).</p>
-
-<h1 className='font-bold inline-block'>3. Replacement Policy </h1>
-
-<p>Replacement products will be delivered within 5–7 business days from the date of approval.</p>
-
-<h1 className='font-bold inline-block'>4. Refund Policy </h1>
-
-<p>If a refund is approved, the amount will be credited to the customer’s bank account within 3–5 business days.</p>
-<p>We have 7 days refund return and replacement policy</p>
-
-<h1 className='font-bold inline-block'>5. Automatic Cancellation</h1>
-
-<p>Your order may be cancelled automatically if:
-
-Payment is not completed
-
-Product is out of stock
-
-Shipping address is invalid
-
-Order is flagged as high-risk or fraudulent
-
-In such cases, you will be notified, and a refund (if applicable) will be processed automatically.</p>
-
-<h1 className='font-bold inline-block'>6. Partial Cancellation</h1>
-<p>
-If part of your order is unavailable:
-
-We will cancel that specific item
-
-A refund will be issued for the cancelled portion
-
-The remaining items will be shipped normally</p>
-
-<h1 className='font-bold inline-block'>7. Non-Cancellable Items</h1>
-<p>
-Some products cannot be cancelled, including:
-
-Limited edition or pre-order items
-
-Customized or personalized products
-
-Digital content or downloadable items</p>
-
-<h1 className='font-bold inline-block'>8. Shipping policy</h1>
-<p>
-    Product Will be delivered within 5-7 days after order are processed
-</p>
-<p>
-    All orders are processed within 1–2 business days.
-</p>
-<p>
-Once processed, your product will be delivered within 5–7 business days.
-</p>
-
-<h1 className='font-bold inline-block'>9. How to Request Cancellation</h1>
-
-<p>To cancel an order, contact us at:
-📧 support@sugimx.com</p>
         </div>
       </div>
     </Container>

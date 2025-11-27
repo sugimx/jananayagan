@@ -120,9 +120,9 @@ const LuckyDraw = () => {
                             <div className='relative flex flex-col items-center text-center gap-4'>
                                 <p className='text-sm uppercase tracking-[0.4rem] text-white/60'>Limited Edition</p>
                                 <Image
-                                    src='/tvk_cup.png'
-                                    width={800}
-                                    height={800}
+                                    src='/Cup Number 5000.png'
+                                    width={500}
+                                    height={500}
                                     alt='TVK Cup'
                                     className='drop-shadow-[0_30px_45px_rgba(0,0,0,0.7)] animate-bounce'
                                 />

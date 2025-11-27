@@ -23,12 +23,10 @@ const Banner = () => {
                                 TVK Special Edition
                             </p>
                             <h1 className='text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl'>
-                                {/* Celebrate the spirit of victory with every sip */}
-                                TVK Official Store
+                                Cup Mukkiyam Bigilu.....
                             </h1>
                             <p className='text-base text-white/70 sm:text-lg'>
-                                {/* Crafted for fans, designed for collectors. The TVK Cup combines premium materials with an iconic design inspired by our champion&apos;s journey. */}
-                                Get ready with official merch, stylish apparel, and exclusive drops. Limited stocks — grab yours before {"they're"} gone!
+                                Crafted for fans, designed for collectors. The TVK Cup combines premium materials with an iconic design inspired by our champion&apos;s journey.
                             </p>
                         </div>
 
@@ -36,7 +34,7 @@ const Banner = () => {
                             <LinkComponent link='/product' content='Buy Now' />
                             <div className='space-y-1 text-sm text-white/70'>
                                 <p>• Free Delivery</p>
-                                {/* <p>• Delivery starts from pongal</p> */}
+                                <p>• Delivery starts from pongal</p>
                                 {/* <p>• Includes collectors sleeve</p> */}
                             </div>
                         </div>
@@ -59,20 +57,20 @@ const Banner = () => {
                             <Image
                                 src='/tvkillustration.png'
                                 alt='TVK typography'
-                                width={500}
-                                height={500}
-                                className='mx-auto h-auto w-full max-w-[360px]'
+                                width={300}
+                                height={300}
+                                className='mx-auto h-auto'
                                 priority
                             />
                         </div>
 
                         <div className='w-full rounded-[32px] border border-white/5 bg-gradient-to-br from-[#06050a] to-[#0e1022] px-6 py-10 text-center shadow-inner'>
                             <Image
-                                src='/tvk_cup.png'
+                                src='/Cup Number 277.png'
                                 alt='TVK cup'
-                                width={500}
-                                height={500}
-                                className='mx-auto h-auto w-full max-w-[1000px]'
+                                width={300}
+                                height={300}
+                                className='mx-auto h-auto'
                             />
                             <p className='mt-4 text-sm uppercase tracking-[0.3em] text-white/60'>
                                 Collector&apos;s Cup Edition

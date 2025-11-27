@@ -78,7 +78,7 @@ const Invoice = () => {
 
     return (
         <>
-            <div className="w-full min-h-[50vh] my-7 relative">
+            <div className="w-full min-h-[50vh] my-7">
                 <div className="text-center md:w-[80%] lg:w-[50%] mx-auto">
                     <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text">THANK YOU!</h1>
                     <p className="text-[0.9rem] md:text-[1.2rem] font-light text-white">We received your order and will start preparing your package right away. You will receive a confirmation email in a moment.</p>
@@ -86,14 +86,14 @@ const Invoice = () => {
 
                 {isSuccess && data?.data?.map((item: DataProps, index: number) => (
                     <div key={index}>
-                        <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4">
+                        <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4 px-2">
                             <div className="flex flex-col gap-2 md:flex-row flex-1">
                                 <Image
-                                    src="/tvk_cup.png"
+                                    src="/Cup Number 277.png"
                                     alt="cup image"
-                                    width={300}
-                                    height={300}
-                                    className="w-20 h-20 lg:w-50 lg:h-30"
+                                    width={125}
+                                    height={125}
+
                                 />
                                 <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
                                     <p className="text-xs md:text-md lg:text-lg text-[#F5BB0B]">Official {item?.items?.[0]?.productName}</p>

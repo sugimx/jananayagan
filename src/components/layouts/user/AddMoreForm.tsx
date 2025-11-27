@@ -120,7 +120,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
 
     return (
         <>
-            <div className='absolute top-20 w-full md:flex justify-center items-center z-10 main-content blurred'>
+            <div className='fixed inset-0 z-50 flex items-center justify-center main-content blurred'>
                 <div className='bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] border-1 border-white/10 w-full md:w-[50%] lg:w-[50%] xl:w-[30%] md:h-full px-3 md:px-10 py-5 rounded-xl relative'>
                     <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3 cursor-pointer' onClick={onHandleToggle}>
                         <IoIosClose className='bg-[#F5BB0B] text-black font-bold rounded-full'/>

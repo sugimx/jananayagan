@@ -18,7 +18,7 @@ const LogoutButton: React.FC = () => {
   return (
       <button
           onClick={handleLogout}
-          className="bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white px-5 py-1 rounded text-sm transition-colors cursor-pointer"
+          className="bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] text-black px-5 py-1 rounded text-sm transition-colors cursor-pointer"
       >
           Logout
       </button>
