@@ -175,7 +175,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
             setIsProcessing(false);
         }
     });
-
+    console.log(data)
     const handlePayment = async () => {
         if (!token || !user) {
             alert('Please login to continue')
@@ -187,7 +187,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
             items: [
                 {
                     productId: '65a1b2c3d4e5f6789abcdef2',
-                    productName: 'Jana Nayagan Personalized Mug',
+                    productName: 'TVK LIMITED EDITION CUP',
                     quantity: isSuccess ? data?.buyerProfiles.length : 1,
                     price: 299,
                     totalPrice: isSuccess ? 299 * data?.buyerProfiles.length : 299
@@ -196,7 +196,6 @@ const OrderSummary = ({ address }: { address: Address }) => {
             shippingAddressId: address._id,
             paymentMethod: 'phonepe'
         };
-
         createOrderMutation.mutate(orderData, data);
     }
 

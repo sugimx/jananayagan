@@ -3,8 +3,8 @@
 import dynamic from "next/dynamic"
 import Image from "next/image"
 const InvoicePdfDownloadButton = dynamic(
-  () => import("@/components/layouts/user/InvoicePdfDownloadButton"),
-  { ssr: false }
+    () => import("@/components/layouts/user/InvoicePdfDownloadButton"),
+    { ssr: false }
 )
 import { FaRupeeSign } from "react-icons/fa"
 
