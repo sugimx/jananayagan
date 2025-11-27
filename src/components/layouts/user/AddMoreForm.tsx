@@ -94,7 +94,6 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
 
     useEffect(() => {
         if (buyerIndex != null && data) {
-            console.log(data)
             setBuyerId(data?.buyerProfiles?.[buyerIndex]?._id || "")
             reset({
                 name: data?.buyerProfiles?.[buyerIndex]?.name || '',

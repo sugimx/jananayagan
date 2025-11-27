@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://jananayagan-backend-3moy.vercel.app/api';
+const API_BASE_URL = 'https://jananayagan-backend-3moy.vercel.app/api'
 
 export interface LoginRequest {
   email: string;
@@ -29,7 +29,7 @@ export interface OrderItem {
 export interface CreateOrderRequest {
   items: OrderItem[];
   shippingAddressId: string;
-  paymentMethod: string; 
+  paymentMethod: string;
 }
 
 export interface Order {
@@ -148,7 +148,7 @@ class ApiService {
 
 
       if (!response.ok) {
-      
+
         return {
           success: false,
           message: data.message || 'An error occurred',
@@ -218,7 +218,7 @@ class ApiService {
       body: JSON.stringify(profileData),
     });
   }
-  
+
   async updateBuyerProfile(
     profileData: Partial<ProfileRequest>,
     token: string
@@ -231,7 +231,7 @@ class ApiService {
       body: JSON.stringify(profileData),
     });
   }
-  
+
   async deleteBuyerProfile(token: string): Promise<ApiResponse<User> | ApiError> {
     return this.request<User>('/profiles/profiles', {
       method: 'DELETE',
@@ -252,10 +252,10 @@ class ApiService {
       },
       body: JSON.stringify(orderData),
     });
-    
+
     return response;
   }
-  
+
 
   async createPhonePePayment(
     orderId: string,
