@@ -6,8 +6,7 @@ export const testLogin = async () => {
       email: 'john@example1.com',
       password: 'password123'
     });
-    
-    console.log('Login test result:', response);
+
     return response;
   } catch (error) {
     console.error('Login test error:', error);
@@ -23,8 +22,7 @@ export const testRegister = async () => {
       password: 'password123',
       phone: '+1234567890'
     });
-    
-    console.log('Register test result:', response);
+
     return response;
   } catch (error) {
     console.error('Register test error:', error);

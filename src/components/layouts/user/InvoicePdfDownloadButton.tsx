@@ -159,8 +159,6 @@ export default function InvoicePdfDownloadButton({ orderId }: { orderId: string 
     enabled: !!token && !!orderId
   })
 
-  console.log("invoice data", data)
-
   if(isPending) {
     return (
       <div className="flex justify-center items-center">

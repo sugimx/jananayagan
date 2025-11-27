@@ -7,6 +7,7 @@ import { useAuth } from '@/hooks/useAuth'
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
 import { toPng } from 'html-to-image'
 import QRCode from 'react-qr-code'
+import Image from 'next/image'
 
 const ShareImgComponent = (
     { handleToggle, orderId }: { handleToggle: () => void, orderId: string }
@@ -45,12 +46,12 @@ const ShareImgComponent = (
     return (
         <>
             {isSuccess && (
-                <div className="fixed top-50 bottom-25 inset-0 z-50 flex items-center justify-center">
+                <div className="fixed top-40 bottom-25 inset-0 z-50 flex items-center justify-center">
                     <div className='relative'>
                         <div ref={ref}>
                             <div className='max-w-[340px] h-auto bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B]'>
                                 <div className='share-image'>
-                                    <img
+                                    <Image
                                         src="/tvk_logo.png"
                                         alt="Logo"
                                         width={100}
@@ -59,12 +60,11 @@ const ShareImgComponent = (
                                 </div>
                                 <div className='share-content bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33]'>
                                     <div className='share-content-image'>
-                                        <img
-                                            src="/tvk_cup.png"
+                                        <Image
+                                            src="/Cup Number 277.png"
                                             alt="cup image"
-                                            width={100}
-                                            height={100}
-                                            className="w-200 h-50"
+                                            width={200}
+                                            height={200}
                                         />
                                     </div>
                                     <div className='share-booking-container'>

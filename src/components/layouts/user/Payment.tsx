@@ -100,8 +100,6 @@ const OrderSummary = ({ address }: { address: Address }) => {
         enabled: !!token,
     })
 
-    console.log(data)
-
     const createOrderMutation = useMutation({
         mutationFn: async (orderData: CreateOrderRequest) => {
             if (!token) throw new Error('No authentication token');
@@ -177,7 +175,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
             setIsProcessing(false);
         }
     });
-    console.log(data)
+
     const handlePayment = async () => {
         if (!token || !user) {
             alert('Please login to continue')
