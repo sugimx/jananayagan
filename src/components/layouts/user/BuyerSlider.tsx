@@ -64,10 +64,9 @@ const BuyerSlider = () => {
 
         if (isSuccess && datas) {
             const { name, gmail, dateOfBirth, dist, state } = datas
-            console.log( name, gmail, dateOfBirth, dist, state, datas)
 
             const isMissing = name === '' || gmail === '' || dateOfBirth === '' || dist === '' || state === '' || data?.buyerProfiles.length === 0
-            console.log("missing", isMissing)
+
             setProcessDisableBtn(isMissing)
         }
     }, [ data, isSuccess])

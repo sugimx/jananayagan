@@ -28,9 +28,9 @@ const ShareImgComponent = (
     })
 
     const handleDownload = async () => {
-       if (!ref.current) return;
+        if (!ref.current) return;
 
-       const dataUrl = await toPng(ref.current, {
+        const dataUrl = await toPng(ref.current, {
             cacheBust: true,
             pixelRatio: 2,
             backgroundColor: "white",

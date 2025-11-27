@@ -100,10 +100,12 @@ const OrderSummary = ({ address }: { address: Address }) => {
         enabled: !!token,
     })
 
+    console.log(data)
+
     const createOrderMutation = useMutation({
         mutationFn: async (orderData: CreateOrderRequest) => {
             if (!token) throw new Error('No authentication token');
-            const result = await apiService.createOrder(orderData, token);
+            const result = await apiService.createOrder(orderData, data, token);
             return result;
         },
         onSuccess: async (response) => {

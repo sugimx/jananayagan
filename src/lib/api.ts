@@ -109,6 +109,23 @@ export interface Address {
   isDefault: boolean;
 }
 
+export interface BuyerInfo {
+  createdAt: string
+  dateOfBirth: string
+  dist: string
+  gmail: string
+  name: string
+  phone: string
+  profileImage: null
+  profileType: string
+  state: string
+  status: string
+  updatedAt: string
+  user: string
+  __v: number
+  _id: string
+}
+
 export interface ApiResponse<T> {
   success: boolean;
   message: string;
@@ -243,6 +260,7 @@ class ApiService {
 
   async createOrder(
     orderData: CreateOrderRequest,
+    data: BuyerInfo,
     token: string
   ): Promise<ApiResponse<Order> | ApiError> {
     const response = await this.request<Order>('/orders', {
@@ -250,7 +268,7 @@ class ApiService {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(orderData),
+      body: JSON.stringify({ ...orderData, ...data }),
     });
 
     return response;
