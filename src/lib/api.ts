@@ -264,12 +264,13 @@ class ApiService {
     data: BuyerInfo,
     token: string
   ): Promise<ApiResponse<Order> | ApiError> {
+    const payload = { ...orderData, ...data }
     const response = await this.request<Order>('/orders', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ ...orderData, ...data }),
+      body: JSON.stringify(payload),
     });
 
     return response;
