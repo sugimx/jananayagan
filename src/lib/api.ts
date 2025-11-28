@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://jananayagan-backend-3moy.vercel.app/api'
+const API_BASE_URL = 'https://api.tvkcup2026.com/api'
 
 export interface LoginRequest {
   email: string;
@@ -154,6 +154,7 @@ class ApiService {
       const config: RequestInit = {
         ...options,
         headers: {
+          accept: "*/*",
           'Content-Type': 'application/json',
           ...options.headers,
         },
