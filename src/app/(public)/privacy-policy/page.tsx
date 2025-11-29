@@ -212,13 +212,10 @@ about the significant changes to the Privacy Policy, in the manner as may be req
 laws.
           </p>
           <p>
-            Grievance Officer
-            Insert Name of the Office: Rizwan
-            Designation:
-            Insert Name and Address of the Company:
-            Contact us:
-            Phone:
-            Time: Monday - Friday(9:00 - 18:00)
+            Grievance Officer: Rajesh
+            Company: SUGIMX Private limited, 86A, Parakkai road, Elankadai, kottar, Nagercoil
+            Contact us: +91 8903301652
+            Time: Monday -Friday(9:00 - 18:00)
           </p>
         </div>
       </div>
