@@ -42,7 +42,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                    scp -r artifact ${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/build
+                    scp -r artifact/* deploy@13.126.91.50:/home/deploy/apps/jananayagan/build
+
 
                     ssh ${SSH_USER}@${SSH_HOST} '
                         cd ${DEPLOY_PATH};
