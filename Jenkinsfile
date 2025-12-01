@@ -42,11 +42,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                    # Upload artifacts to remote server
+                    # Prepare deploy directory
                     ssh ${SSH_USER}@${SSH_HOST} "rm -rf ${DEPLOY_PATH}/build && mkdir -p ${DEPLOY_PATH}/build"
-                    scp -r artifact/. deploy@13.126.91.50:/home/deploy/apps/jananayagan/build
 
-                    # Remote deploy process
+                    # Upload artifacts including .next
+                    scp -r artifact/. ${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/build
+
+                    # Server-side deployment steps
                     ssh ${SSH_USER}@${SSH_HOST} '
                         cd ${DEPLOY_PATH};
 
@@ -57,9 +59,13 @@ pipeline {
 
                         mv build current;
 
-                        pm2 delete ${PM2_NAME} || true;
-
                         cd current;
+
+                        # Install production dependencies on server
+                        npm install --omit=dev
+
+                        # Restart PM2 cleanly
+                        pm2 delete ${PM2_NAME} || true;
                         pm2 start npm --name ${PM2_NAME} -- start;
                         pm2 save;
                     '
