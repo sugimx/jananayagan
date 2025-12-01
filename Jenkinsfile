@@ -43,8 +43,7 @@ pipeline {
             steps {
                 sh """
                     # Upload build artifacts to server
-                    scp -r artifact/* ${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/build
-
+                    scp -r artifact/* deploy@13.126.91.50:/home/deploy/apps/jananayagan/build
                     # Remote deployment script
                     ssh ${SSH_USER}@${SSH_HOST} '
                         cd ${DEPLOY_PATH};
