@@ -44,7 +44,7 @@ pipeline {
                 sh """
                     # Upload artifacts to remote server
                     ssh ${SSH_USER}@${SSH_HOST} "rm -rf ${DEPLOY_PATH}/build && mkdir -p ${DEPLOY_PATH}/build"
-                    scp -r artifact/* ${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/build
+                    scp -r artifact/. deploy@13.126.91.50:/home/deploy/apps/jananayagan/build
 
                     # Remote deploy process
                     ssh ${SSH_USER}@${SSH_HOST} '
