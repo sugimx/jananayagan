@@ -41,7 +41,7 @@ const ShareImage = () => {
             opacity: 0.7,
           }}
         >
-          https://jananayagan.vercel.app/
+          https://tvkcup2026.com
         </div>
       </div>
 

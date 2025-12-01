@@ -5,7 +5,7 @@ type FormValue = {
 
 const login = async({ data }: { data: FormValue }) => {
     try {
-        const res = await fetch(`https://jananayagan-backend-3moy.vercel.app/api/users/login`, {
+        const res = await fetch(`https://api.tvkcup2026.com/api/users/login`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
