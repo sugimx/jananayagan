@@ -34,7 +34,7 @@ pipeline {
                     mkdir -p artifact
                     cp -R .next artifact/
                     cp -R public artifact/
-                    cp package.json artifact/
+                    cp package.json package-lock.json artifact/
                 """
             }
         }
