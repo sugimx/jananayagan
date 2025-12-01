@@ -11,8 +11,8 @@ const PrivacyPolicy = () => {
 
         <div className="space-y-6 text-white leading-relaxed">
           <p>
-            This Privacy Policy describes how SUGIMX PRIVATE LIMITED and its affiliates (collectively "
-            SUGIMX PRIVATE LIMITED, we, our, us") collect, use, share, protect or otherwise process your
+            This Privacy Policy describes how SUGIMX PRIVATE LIMITED and its affiliates (collectively '
+            SUGIMX PRIVATE LIMITED, we, our, us') collect, use, share, protect or otherwise process your
             information/ personal data through our website https://www.tvkcup2026.com/ (hereinafter referred to as
             Platform). Please note that you may be able to browse certain sections of the Platform without
             registering with us.We do not offer any product/service under this Platform outside India and your
