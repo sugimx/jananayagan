@@ -20,11 +20,11 @@ const ReturnPolicy = () => {
             merchant(s) listed on the Platform and they have initiated the process of shipping them, or the
             product is out for delivery. In such an event, you may choose to reject the product at the doorstep.
           </p>
-          <p>
+          {/* <p>
             SUGIMX PRIVATE LIMITED does not accept cancellation requests for perishable items like
             flowers, eatables, etc. However, the refund / replacement can be made if the user establishes that
             the quality of the product delivered is not good.
-          </p>
+          </p> */}
           <p>
             In case of receipt of damaged or defective items, please report to our customer service team. The
             request would be entertained once the seller/ merchant listed on the Platform, has checked and
