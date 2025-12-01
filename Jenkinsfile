@@ -29,15 +29,16 @@ pipeline {
 
         stage('Package') {
             steps {
-                sh """
-                    rm -rf artifact
-                    mkdir -p artifact
-                    cp -R .next artifact/
-                    cp -R public artifact/
-                    cp package.json package-lock.json artifact/
-                """
-            }
-        }
+        sh """
+            rm -rf artifact
+            mkdir -p artifact
+            cp -R .next artifact/
+            cp -R public artifact/
+            cp package.json package-lock.json artifact/
+        """
+    }
+}
+
 
         stage('Deploy') {
             steps {
