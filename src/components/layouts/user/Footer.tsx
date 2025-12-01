@@ -29,7 +29,7 @@ const Footer = () => {
                   {/* <li><Link href="/promotional-conditions" className="hover:text-[#F5BB0B] text-sm md:text-md xl:text-lg">Promotional Lucky Draw Disclaimer</Link></li> */}
                   <li><Link href="/terms-conditions" className="hover:text-[#F5BB0B] text-sm md:text-md xl:text-lg">Terms and Conditions</Link></li>
                   <li><Link href="/privacy-policy" className="hover:text-[#F5BB0B] text-sm md:text-md xl:text-lg">Privacy Policy</Link></li>
-                  {/* <li><Link href="/shipping-policy" className="hover:text-[#F5BB0B] text-sm md:text-md xl:text-lg">Shipping & Delivery</Link></li> */}
+                  <li><Link href="/shipping-policy" className="hover:text-[#F5BB0B] text-sm md:text-md xl:text-lg">Shipping & Delivery</Link></li>
                   <li><Link href="/return-policy" className="hover:text-[#F5BB0B] text-sm md:text-md xl:text-lg">Return & Cancellation</Link></li>
               </ul>
             </div>
