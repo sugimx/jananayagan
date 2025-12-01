@@ -42,17 +42,27 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                    scp -r artifact/* deploy@13.126.91.50:/home/deploy/apps/jananayagan/build
+                    # Upload build artifacts to server
+                    scp -r artifact/* ${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/build
 
-
+                    # Remote deployment script
                     ssh ${SSH_USER}@${SSH_HOST} '
                         cd ${DEPLOY_PATH};
-                        rm -rf previous || true;
-                        mv current previous || true;
+
+                        # Backup previous version only if current exists
+                        if [ -d current ]; then
+                            rm -rf previous;
+                            mv current previous;
+                        fi
+
+                        # Promote build to current
                         mv build current;
 
+                        # Restart PM2 cleanly
+                        pm2 delete ${PM2_NAME} || true;
                         cd current;
-                        pm2 restart ${PM2_NAME} || pm2 start npm --name ${PM2_NAME} -- start;
+                        pm2 start npm --name ${PM2_NAME} -- start;
+                        pm2 save;
                     '
                 """
             }
