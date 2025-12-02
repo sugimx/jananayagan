@@ -128,7 +128,7 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                     </div>
                     <div>
                         <h1 className='text-[#F5BB0B] text-[1.5rem] font-semibold'>Buyer Info</h1>
-                        <p className='text-sm text-white'>Fill in your details to receive your unique ID for the Official Jana Nayagan {"Collector's"} Mug and secure your entry into the lucky draw.</p>
+                        <p className='text-sm text-white'>Fill in your details to receive your unique ID for the for the SUGIMX PRIVATE LIMITED.</p>
                     </div>
                     <div className='flex flex-col gap-5 my-2'>
                         <div className='bg-white flex text-black items-center h-10'>

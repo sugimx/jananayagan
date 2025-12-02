@@ -173,7 +173,7 @@ const BuyerSlider = () => {
                                     <div className='flex gap-2 items-center'>
                                         <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
                                         <span className='text-sm md:text-md'>
-                                             {item?.state ? item?.state : processDisableBtn && <p className='text-[#7a0202]'>Field is required to proceed payment. Click edit to fill the Information</p>}
+                                            {item?.state ? item?.state : processDisableBtn && <p className='text-[#7a0202]'>Field is required to proceed payment. Click edit to fill the Information</p>}
                                         </span>
                                     </div>
                                 </div>
