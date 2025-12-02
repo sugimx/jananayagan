@@ -26,7 +26,7 @@ const ShippingPolicy = () => {
                         Couriers may attempt delivery 2-3 times. If the package is returned to us due to unsuccessful delivery attempts, re-shipping charges will apply.
                     </p>
 
-                    <h1>Shipping policy</h1>
+                    <h1 className='font-bold inline-block'>Shipping policy</h1>
                     <p>
                         Product Will be delivered within 5-7 days after order are processed
                     </p>
