@@ -58,6 +58,10 @@ const ReturnPolicy = () => {
             If the same has been approved after the quality check at our end, your request (i.e. return / exchange) will
             be processed in accordance with our policies.
           </p>
+          <h1 className='font-bold inline-block'>Return and Replacement</h1>
+          <p>We have 2 day refund return and replacement policy</p>
+          <p>Replacement products will be delivered within 5-7 business days from the date of approval.</p>
+          <p>If any refund is processed it will be credited within 5-7 in your bank account</p>
         </div>
       </div>
     </Container>

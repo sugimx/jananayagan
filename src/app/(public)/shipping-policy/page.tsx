@@ -21,6 +21,21 @@ const ShippingPolicy = () => {
                         registration. If there are any shipping cost(s) levied by the seller or the Platform Owner (as the case be),
                         the same is not refundable.
                     </p>
+                    <h1 className='font-bold inline-block'>Delivery Attempts</h1>
+                    <p>
+                        Couriers may attempt delivery 2-3 times. If the package is returned to us due to unsuccessful delivery attempts, re-shipping charges will apply.
+                    </p>
+
+                    <h1>Shipping policy</h1>
+                    <p>
+                        Product Will be delivered within 5-7 days after order are processed
+                    </p>
+                    <p>
+                        All orders are processed within 1-2 business days.
+                    </p>
+                    <p>
+                        Once processed, your product will be delivered within 57 business days.
+                    </p>
                 </div>
             </div>
         </Container>
