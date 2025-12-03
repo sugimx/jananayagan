@@ -86,7 +86,7 @@ const BuyerSlider = () => {
 
     return (
         <div className='w-full overflow-hidden main-content blurred'>
-            <Swiper
+             <Swiper
                 modules={[Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={5}
@@ -118,77 +118,69 @@ const BuyerSlider = () => {
                     },
                 }}
             >
-                {isPending && <div className='w-full h-[40vh] flex justify-center items-center'><span className='content-loader'></span></div>}
-                {isSuccess && data?.buyerProfiles?.map((item: { _id: string, name: string, dateOfBirth: string, gmail: string, dist: string, state: string }, index: number) => (
-                    <SwiperSlide key={index}>
-                        <div className='bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] border-1 border-white/10 rounded-xl relative'>
-                            <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
-                                {deleteIsPending ? (
-                                    <span className='loaders'></span>
-                                ) : index !== 0 && (
-                                    <IoIosClose className='bg-[#000] text-white font-bold rounded-full cursor-pointer' onClick={() => handleDeleteFn(item._id)} />
-                                )}
-                            </div>
-                            <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
-                                <div className='flex items-center flex-col'>
-                                    <div className='flex flex-col items-center relative bg-transparent w-[50%] h-[100px] rounded-xl'>
-                                        <Image
-                                            src="/user_image.png"
-                                            alt="rectangle Image"
-                                            width={100}
-                                            height={400}
-                                            className='w-full h-full rounded-xl'
-                                        />
-                                        {/* <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
-                                            <FaCamera />
-                                            <span className='text-sm'>Add</span>
-                                        </div> */}
-                                    </div>
-                                </div>
-                                <div className='flex flex-col gap-3 my-4 text-white'>
-                                    <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
-                                        <span className='text-sm md:text-md'>
-                                            {item?.name ? item?.name : processDisableBtn && <p className='text-[#7a0202]'>Field is required to proceed payment. Click edit to fill the Information</p>}
-                                        </span>
-                                    </div>
-                                    <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
-                                        <span className='text-sm md:text-md'>
-                                            {item?.dateOfBirth ? item?.dateOfBirth.split("T")[0] : processDisableBtn && <p className='text-[#7a0202]'>Field is required to proceed payment. Click edit to fill the Information</p>}
-                                        </span>
-                                    </div>
-                                    <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
-                                        <span className='text-sm md:text-md'>
-                                            {item?.gmail ? item?.gmail : processDisableBtn && <p>Field is required to proceed payment. Click edit to fill the Information</p>}
-                                        </span>
-                                    </div>
-                                    <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
-                                        <span className='text-sm md:text-md'>
-                                            {item?.dist ? item?.dist : processDisableBtn && <p className='text-[#7a0202]'>Field is required to proceed payment. Click edit to fill the Information</p>}
-                                        </span>
-                                    </div>
-                                    <div className='flex gap-2 items-center'>
-                                        <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
-                                        <span className='text-sm md:text-md'>
-                                            {item?.state ? item?.state : processDisableBtn && <p className='text-[#7a0202]'>Field is required to proceed payment. Click edit to fill the Information</p>}
-                                        </span>
-                                    </div>
-                                </div>
-                                <button
-                                    className='w-full h-7 bg-[#F5BB0B] rounded-lg text-[#000] uppercase text-[0.7rem] cursor-pointer'
-                                    onClick={() => handleEdit(index)}
-                                >
-                                    Edit
-                                </button>
-                            </div>
+                <SwiperSlide>
+                    <div className='bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] border-1 border-white/10 rounded-xl relative'>
+                        <div className='w-full h-5 absolute top-0 left-0 flex justify-end px-2 py-3'>
+                            <IoIosClose className='bg-[#000] text-white font-bold rounded-full cursor-pointer' />
                         </div>
-                    </SwiperSlide>
-                ))}
+                        <div className='flex-1 py-4 px-2 md:flex-0 md:px-8'>
+                            <div className='flex items-center flex-col'>
+                                <div className='flex flex-col items-center relative bg-transparent w-[50%] h-[100px] rounded-xl'>
+                                    <Image
+                                        src="/user_image.png"
+                                        alt="rectangle Image"
+                                        width={100}
+                                        height={400}
+                                        className='w-full h-full rounded-xl'
+                                    />
+                                    {/* <div className='absolute bottom-[-1.5px] text-black bg-gray-500 w-full rounded-b-xl text-center flex justify-center items-center gap-2 text-sm md:text-md cursor-pointer'>
+                                        <FaCamera />
+                                        <span className='text-sm'>Add</span>
+                                    </div> */}
+                                </div>
+                            </div>
+                            <div className='flex flex-col gap-3 my-4 text-white'>
+                                <div className='flex gap-2 items-center'>
+                                    <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
+                                    <span className='text-sm md:text-md'>
+                                        <p>Jon Doe</p>
+                                    </span>
+                                </div>
+                                <div className='flex gap-2 items-center'>
+                                    <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
+                                    <span className='text-sm md:text-md'>
+                                        <p>22/01/2024</p>
+                                    </span>
+                                </div>
+                                <div className='flex gap-2 items-center'>
+                                    <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
+                                    <span className='text-sm md:text-md'>
+                                        <p>jondoe@gmail.com</p>
+                                    </span>
+                                </div>
+                                <div className='flex gap-2 items-center'>
+                                    <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
+                                    <span className='text-sm md:text-md'>
+                                        <p>Kerala</p>
+                                    </span>
+                                </div>
+                                <div className='flex gap-2 items-center'>
+                                    <span><MdKeyboardArrowRight className='text-[#F5BB0B]' /></span>
+                                    <span className='text-sm md:text-md'>
+                                        <p>Thiruvandram</p>
+                                    </span>
+                                </div>
+                            </div>
+                            <button
+                                className='w-full h-7 bg-[#F5BB0B] rounded-lg text-[#000] uppercase text-[0.7rem] cursor-pointer'
+                            >
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </SwiperSlide>
             </Swiper>
-            {
+            {/* {
                 data?.buyerProfiles.length === 0 && (
                     <div className='w-full h-50 flex flex-col justify-center items-center'>
                         <Heading content='Oops! No Buyers Found' />
@@ -205,7 +197,7 @@ const BuyerSlider = () => {
                 )
             }
             {deleteSuccess && <SuccessMessage message='Buyer Information Deleted Successfully' />}
-            {deleteIsError && <ErrorMessage message={deleteError?.message || 'Failed to delete Buyer Information'} />}
+            {deleteIsError && <ErrorMessage message={deleteError?.message || 'Failed to delete Buyer Information'} />} */}
             <div className='flex justify-center items-center py-4 text-sm lg:w-[50%] mx-auto'>
                 <div className='text-[#fff] flex items-center gap-2 px-2'>
                     <input type='checkbox' className='cursor-pointer' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmConditions(e.target.checked)} />

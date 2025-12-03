@@ -54,150 +54,145 @@ const Paragraph = ({ content }: { content: string }) => {
 }
 
 const AddressForm = () => {
-    const { token } = useAuth();
+    // const { token } = useAuth();
 
-    const { data: addressesData, isLoading, error } = useQuery({
-        queryKey: ['addresses', token],
-        queryFn: GetAddressFn,
-        enabled: !!token,
-    });
-
-
-    const defaultAddress = addressesData?.data?.find((addr: Address) => addr.isDefault) || addressesData?.data?.[0];
-
-    if (isLoading) {
-        return (
-            <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>
-                <div className='text-center text-white'>
-                    <p>Loading address...</p>
-                </div>
-            </div>
-        );
-    }
+    // const { data: addressesData, isLoading, error } = useQuery({
+    //     queryKey: ['addresses', token],
+    //     queryFn: GetAddressFn,
+    //     enabled: !!token,
+    // });
 
 
-    if (addressesData?.data && addressesData.data.length > 0 && defaultAddress) {
-        return <OrderSummary address={defaultAddress} />;
-    }
+    // const defaultAddress = addressesData?.data?.find((addr: Address) => addr.isDefault) || addressesData?.data?.[0];
+
+    // if (isLoading) {
+    //     return (
+    //         <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>
+    //             <div className='text-center text-white'>
+    //                 <p>Loading address...</p>
+    //             </div>
+    //         </div>
+    //     );
+    // }
 
 
-    if (error || !addressesData?.data || addressesData.data.length === 0) {
-        return <AddressFormComponent />;
-    }
+    // if (addressesData?.data && addressesData.data.length > 0 && defaultAddress) {
+    //     return <OrderSummary address={defaultAddress} />;
+    // }
 
-    return null;
+    return <OrderSummary />;
 }
 
 
-const OrderSummary = ({ address }: { address: Address }) => {
-    const { user, token } = useAuth();
-    const [ isProcessing, setIsProcessing ] = useState(false)
+const OrderSummary = () => {
+    // const { user, token } = useAuth();
+    // const [ isProcessing, setIsProcessing ] = useState(false)
     const router = useRouter()
 
-    const { isSuccess, data } = useQuery({
-        queryKey: ['buyerInfo', token],
-        queryFn: getData,
-        enabled: !!token,
-    })
+    // const { isSuccess, data } = useQuery({
+    //     queryKey: ['buyerInfo', token],
+    //     queryFn: getData,
+    //     enabled: !!token,
+    // })
 
-    const createOrderMutation = useMutation({
-        mutationFn: async (orderData: CreateOrderRequest) => {
-            if (!token) throw new Error('No authentication token');
-            const result = await apiService.createOrder(orderData, token);
-            return result;
-        },
-        onSuccess: async (response) => {
-            if (response.success && response.data) {
-                const responseData = response.data;
-                const paymentRequest = responseData.paymentRequest;
-                const orderId = responseData._id;
+    // const createOrderMutation = useMutation({
+    //     mutationFn: async (orderData: CreateOrderRequest) => {
+    //         if (!token) throw new Error('No authentication token');
+    //         const result = await apiService.createOrder(orderData, token);
+    //         return result;
+    //     },
+    //     onSuccess: async (response) => {
+    //         if (response.success && response.data) {
+    //             const responseData = response.data;
+    //             const paymentRequest = responseData.paymentRequest;
+    //             const orderId = responseData._id;
 
-                if (paymentRequest) {
-                    const paymentData = (() => {
-                        const maybe: unknown = paymentRequest;
-                        if (
-                            maybe &&
-                            typeof maybe === 'object'
-                        ) {
-                            const obj = maybe as Record<string, unknown>;
-                            const direct = typeof obj.redirectUrl === 'string' ? (obj.redirectUrl as string) : undefined;
-                            const url = typeof obj.url === 'string' ? (obj.url as string) : undefined;
-                            const payload = obj.payload as Record<string, unknown> | undefined;
-                            const payloadRedirect = payload && typeof payload.redirectUrl === 'string' ? (payload.redirectUrl as string) : undefined;
-                            return { redirectUrl: direct || payloadRedirect || url };
-                        }
-                        return { redirectUrl: undefined };
-                    })();
+    //             if (paymentRequest) {
+    //                 const paymentData = (() => {
+    //                     const maybe: unknown = paymentRequest;
+    //                     if (
+    //                         maybe &&
+    //                         typeof maybe === 'object'
+    //                     ) {
+    //                         const obj = maybe as Record<string, unknown>;
+    //                         const direct = typeof obj.redirectUrl === 'string' ? (obj.redirectUrl as string) : undefined;
+    //                         const url = typeof obj.url === 'string' ? (obj.url as string) : undefined;
+    //                         const payload = obj.payload as Record<string, unknown> | undefined;
+    //                         const payloadRedirect = payload && typeof payload.redirectUrl === 'string' ? (payload.redirectUrl as string) : undefined;
+    //                         return { redirectUrl: direct || payloadRedirect || url };
+    //                     }
+    //                     return { redirectUrl: undefined };
+    //                 })();
 
-                    try {
-                        if (paymentData.redirectUrl) {
-                            window.location.href = paymentData.redirectUrl;
-                        } else {
-                            alert('Payment initialization failed. Please try again.');
-                        }
+    //                 try {
+    //                     if (paymentData.redirectUrl) {
+    //                         window.location.href = paymentData.redirectUrl;
+    //                     } else {
+    //                         alert('Payment initialization failed. Please try again.');
+    //                     }
 
-                    } catch (error) {
-                        throw error
-                    }
-                } else if (orderId) {
+    //                 } catch (error) {
+    //                     throw error
+    //                 }
+    //             } else if (orderId) {
 
-                    try {
-                        const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
+    //                 try {
+    //                     const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
 
-                        if (paymentResponse.success && paymentResponse.data) {
-                            const paymentData = paymentResponse.data
+    //                     if (paymentResponse.success && paymentResponse.data) {
+    //                         const paymentData = paymentResponse.data
 
-                            try {
-                                if (paymentData.redirectUrl) {
-                                    window.location.href = paymentData.redirectUrl;
-                                } else {
-                                    alert('Payment initialization failed. Please try again.');
-                                }
+    //                         try {
+    //                             if (paymentData.redirectUrl) {
+    //                                 window.location.href = paymentData.redirectUrl;
+    //                             } else {
+    //                                 alert('Payment initialization failed. Please try again.');
+    //                             }
 
-                            } catch (error) {
-                                throw error
-                            }
-                        } else {
-                            alert('Payment request failed. Please try again.');
-                        }
-                    } catch (error) {
-                        throw error
-                    }
-                }
-            } else {
-                alert(`Order creation failed: ${response.message || 'Unknown error'}. Please try again.`);
-            }
-        },
-        onError: (error) => {
-            alert(`Error creating order: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`);
-        },
-        onSettled: () => {
-            setIsProcessing(false);
-        }
-    });
+    //                         } catch (error) {
+    //                             throw error
+    //                         }
+    //                     } else {
+    //                         alert('Payment request failed. Please try again.');
+    //                     }
+    //                 } catch (error) {
+    //                     throw error
+    //                 }
+    //             }
+    //         } else {
+    //             alert(`Order creation failed: ${response.message || 'Unknown error'}. Please try again.`);
+    //         }
+    //     },
+    //     onError: (error) => {
+    //         alert(`Error creating order: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`);
+    //     },
+    //     onSettled: () => {
+    //         setIsProcessing(false);
+    //     }
+    // });
 
-    const handlePayment = async () => {
-        if (!token || !user) {
-            alert('Please login to continue')
-            return;
-        }
-        setIsProcessing(true)
+    // const handlePayment = async () => {
+    //     if (!token || !user) {
+    //         alert('Please login to continue')
+    //         return;
+    //     }
+    //     setIsProcessing(true)
 
-        const orderData: CreateOrderRequest = {
-            items: [
-                {
-                    productId: '65a1b2c3d4e5f6789abcdef2',
-                    productName: 'Jana Nayagan Personalized Mug',
-                    quantity: isSuccess ? data?.buyerProfiles.length : 1,
-                    price: 299,
-                    totalPrice: isSuccess ? 299 * data?.buyerProfiles.length : 299
-                }
-            ],
-            shippingAddressId: address._id,
-            paymentMethod: 'phonepe'
-        };
-        createOrderMutation.mutate(orderData);
-    }
+    //     const orderData: CreateOrderRequest = {
+    //         items: [
+    //             {
+    //                 productId: '65a1b2c3d4e5f6789abcdef2',
+    //                 productName: 'Jana Nayagan Personalized Mug',
+    //                 quantity: isSuccess ? data?.buyerProfiles.length : 1,
+    //                 price: 299,
+    //                 totalPrice: isSuccess ? 299 * data?.buyerProfiles.length : 299
+    //             }
+    //         ],
+    //         shippingAddressId: address._id,
+    //         paymentMethod: 'phonepe'
+    //     };
+    //     createOrderMutation.mutate(orderData);
+    // }
 
     const handleAddress = () => {
         router.push('/change-address')
@@ -216,34 +211,32 @@ const OrderSummary = ({ address }: { address: Address }) => {
                             <div className='flex flex-col gap-3'>
                                 <DetailsContainer>
                                     <Icon Icon={FaUser} />
-                                    <Paragraph content={address.fullName} />
+                                    <Paragraph content="Jon Doe" />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={MdOutlineEmail} />
-                                    <Paragraph content={user?.email || 'No email'} />
+                                    <Paragraph content="jondoe@gmail.com" />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={IoMdHome} />
-                                    <Paragraph content={address.addressLine1}/>
+                                    <Paragraph content="22/A Street" />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={HiDevicePhoneMobile} />
-                                    <Paragraph content={address.phone}/>
+                                    <Paragraph content="8989898989" />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={FaLocationDot} />
-                                    <Paragraph content={address.city} />
+                                    <Paragraph content="Nagercoil" />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={FaMapLocationDot} />
-                                    <Paragraph content={address.state} />
+                                    <Paragraph content="TamilNadu" />
                                 </DetailsContainer>
-                                {address.landmark && (
-                                    <DetailsContainer>
-                                        <Icon Icon={FaMapLocationDot} />
-                                        <Paragraph content={`Landmark: ${address.landmark}`} />
-                                    </DetailsContainer>
-                                )}
+                                <DetailsContainer>
+                                    <Icon Icon={FaMapLocationDot} />
+                                    <Paragraph content="landmark 1" />
+                                </DetailsContainer>
                             </div>
                             <button
                                 className='outline-none border-1 border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-[#fff] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
@@ -275,49 +268,19 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 <span className='font-light text-md md:text-lg'>Total</span>
                                 <div className='flex items-center font-semibold'>
                                     <span><AddressIcons Icon={FaIndianRupeeSign} /></span>
-                                    <span className='font-light text-md md:text-lg'>{isSuccess ? 299 * data?.buyerProfiles.length : 299}</span>
+                                    <span className='font-light text-md md:text-lg'>320</span>
                                 </div>
                             </div>
                         </div>
                         <button
-                            onClick={handlePayment}
-                            disabled={isProcessing}
-                            className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${
-                                isProcessing
-                                    ? 'bg-gray-400 cursor-not-allowed'
-                                    : 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white hover:bg-[#7a0202] hover:text-white'
-                            }`}
+                            className='w-full py-2 my-3 text-sm bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white uppercase font-medium cursor-pointer'
                         >
-                            {isProcessing ? 'Processing...' : 'Go to Payment'}
+                            Go to Payment
                         </button>
                     </div>
                 </div>
             </div>
         </>
-    )
-}
-
-
-const AddressFormComponent = () => {
-    const router = useRouter();
-
-    const handleAddAddress = () => {
-        router.push('/address');
-    };
-
-    return (
-        <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>
-            <div className='text-center text-white'>
-                <h1 className='text-[#F5BB0B] text-2xl font-semibold mb-4 md:text-4xl'>No Address Found</h1>
-                <p className='text-lg mb-6 text-white'>Please add an address to proceed with your order.</p>
-                <button
-                    onClick={handleAddAddress}
-                    className='bg-[#F5BB0B] text-black px-6 py-3 text-lg font-semibold rounded-md hover:bg-[#7a0202] hover:text-white transition-colors cursor-pointer'
-                >
-                    Add Address
-                </button>
-            </div>
-        </div>
     )
 }
 
