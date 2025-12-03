@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation'
 import Heading from '@/components/ui/user/Heading'
 import Paragraph from '@/components/ui/user/Paragraph'
 
-const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive: boolean, onActivate: () => void }) => {
+const MainContainer = ({ children, isActive, onActivate }: { children: React.ReactNode, isActive?: boolean, onActivate?: () => void }) => {
     return (
         <div className={`
                 border-1 border-[#F5BB0B] rounded-xl mb-4 md:mb-1 md:w-[calc(50%-7.5px)] xl:w-[calc(25%-6px)] cursor-pointer
@@ -103,13 +103,13 @@ const AddressPage = () => {
         }
     }, [deleteSuccess, refetch])
 
-    if (isLoading || deletePending) {
-        return (
-            <div className='w-full h-[40vh] flex justify-center items-center'>
-                <span className='content-loader'></span>
-            </div>
-        )
-    }
+    // if (isLoading || deletePending) {
+    //     return (
+    //         <div className='w-full h-[40vh] flex justify-center items-center'>
+    //             <span className='content-loader'></span>
+    //         </div>
+    //     )
+    // }
 
     const handleDeleteFn = (addressId: string) => {
         if (!token) {
@@ -161,27 +161,24 @@ const AddressPage = () => {
                     </button>
                 </div>
                 <div className='w-[100%] h-auto md:flex md:gap-[15px] lg:gap-2 md:flex-wrap'>
-                    {data?.data.length !== 0 ? data?.data?.map((item: FormData, index: number) => (
-                        <MainContainer key={index} isActive={isActive === index} onActivate={() => handleDefaultAddress(item?._id, index)}>
-                            <Section>
-                                <RiDeleteBinFill className={`text-xl ${isActive === index ? 'text-black' : 'text-[#F5D57A]'}`} onClick={() => handleDeleteFn(item._id)} />
-                            </Section>
-                            <Section>
-                                <AddressParagraph content={`${item.addressLine1}, ${item.city}, ${item.state}, ${item.postalCode}`} />
-                                <CustomerDetails content={`${item.fullName} • ${item.phone}`} />
-                            </Section>
-                            <Section>
-                                <FiEdit2 className='text-2xl text-[#808089] cursor-pointer' onClick={() => handleEditFn(item._id)} />
-                            </Section>
-                        </MainContainer>
-                    )) : (
-                        <div className='w-full h-50 flex flex-col justify-center items-center text-[#fff]'>
-                            <Heading content='Oops! No Address Found' />
-                            <Paragraph content="We couldn't find any address. create new address and try again." />
-                        </div>
-                    )}
+                    <MainContainer>
+                        <Section>
+                            <RiDeleteBinFill className='text-xl text-black'  />
+                        </Section>
+                        <Section>
+                            <AddressParagraph content='address One, Address Two, Landmark' />
+                            <CustomerDetails content="John Joe, 8989898989" />
+                        </Section>
+                        <Section>
+                            <FiEdit2 className='text-2xl text-[#808089] cursor-pointer' />
+                        </Section>
+                    </MainContainer>
+                    <div className='w-full h-50 flex flex-col justify-center items-center text-[#fff]'>
+                        <Heading content='Oops! No Address Found' />
+                        <Paragraph content="We couldn't find any address. create new address and try again." />
+                    </div>
                 </div>
-                {
+                {/* {
                     isError && (
                         <div className='w-full h-50 flex flex-col justify-center items-center'>
                             <Heading content='Oops! No Address Found' />
@@ -204,7 +201,7 @@ const AddressPage = () => {
                             <Paragraph content="We couldn't find any address to update. create new address and try again." />
                         </div>
                     )
-                }
+                } */}
                 {toggle && <AddressFormTab state={toggle} setState={setToggle} addressId={addressId} refetch={refetch} />}
             </div>
         </>

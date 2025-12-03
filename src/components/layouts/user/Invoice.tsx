@@ -68,13 +68,13 @@ const Invoice = () => {
         enabled: !!token
     })
 
-    if(isPending) {
-        return (
-            <div className='w-full h-[40vh] flex justify-center items-center'>
-                <span className='content-loader'></span>
-            </div>
-        )
-    }
+    // if(isPending) {
+    //     return (
+    //         <div className='w-full h-[40vh] flex justify-center items-center'>
+    //             <span className='content-loader'></span>
+    //         </div>
+    //     )
+    // }
 
     return (
         <>
@@ -83,59 +83,55 @@ const Invoice = () => {
                     <h1 className="text-[1.2rem] font-semibold my-2 md:text-[2rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text">THANK YOU!</h1>
                     <p className="text-[0.9rem] md:text-[1.2rem] font-light text-white">We received your order and will start preparing your package right away. You will receive a confirmation email in a moment.</p>
                 </div>
-
-                {isSuccess && data?.data?.map((item: DataProps, index: number) => (
-                    <div key={index}>
-                        <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4">
-                            <div className="flex flex-col gap-2 md:flex-row flex-1">
-                                <Image
-                                    src="/tvk_cup.png"
-                                    alt="cup image"
-                                    width={300}
-                                    height={300}
-                                    className="w-20 h-20 lg:w-50 lg:h-30"
-                                />
-                                <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
-                                    <p className="text-xs md:text-md lg:text-lg text-[#F5BB0B]">Official {item?.items?.[0]?.productName}</p>
-                                    <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start text-[#F5BB0B]">
-                                        <FaRupeeSign className="md:my-[3px]" />
-                                        <span>{item?.items?.[0]?.totalPrice}</span>
-                                    </p>
+                <div>
+                    <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4">
+                        <div className="flex flex-col gap-2 md:flex-row flex-1">
+                            <Image
+                                src="/tvk_cup.png"
+                                alt="cup image"
+                                width={300}
+                                height={300}
+                                className="w-20 h-20 lg:w-50 lg:h-30"
+                            />
+                            <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
+                                <p className="text-xs md:text-md lg:text-lg text-[#F5BB0B]">Official TVK CUP 2026</p>
+                                <p className="text-xs md:text-md lg:text-lg flex items-center md:flex-row md:items-start text-[#F5BB0B]">
+                                    <FaRupeeSign className="md:my-[3px]" />
+                                    <span>320</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div className="md:flex md:justify-between flex-1 text-[#F5BB0B]">
+                            <div>
+                                <div className="flex flex-col gap-2">
+                                    <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Delivery Details</h1>
+                                </div>
+                                <p className="text-xs md:text-md lg:text-lg my-2">11/AA Street, address One, Address two, Nagercoil, TamilNadu</p>
+                                <div>
+                                    <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Contact information</h1>
+                                    <span className="text-[#F5BB0B] text-xs md:text-sm lg:text-md">jondoe@gmail.com</span>
                                 </div>
                             </div>
-                            <div className="md:flex md:justify-between flex-1 text-[#F5BB0B]">
-                                <div>
-                                    <div className="flex flex-col gap-2">
-                                        <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Delivery Details</h1>
-                                    </div>
-                                    <p className="text-xs md:text-md lg:text-lg my-2">{item?.deliveryDetails?.addressLine1} , {item?.deliveryDetails?.fullName}, {item?.deliveryDetails?.landmark}, {item?.deliveryDetails?.city} , {item?.deliveryDetails?.state} {item?.deliveryDetails?.country}</p>
-                                    <div>
-                                        <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Contact information</h1>
-                                        <span className="text-[#F5BB0B] text-xs md:text-sm lg:text-md">{item?.email}</span>
-                                    </div>
-                                </div>
-                                <div className="md:flex md:flex-col">
-                                    <button
-                                        className="bg-[#F5BB0B] px-7 py-2 text-xs text-[#000] uppercase mb-2 cursor-pointer"
-                                        onClick={() => handleToggle(item?.orderId)}
-                                    >
-                                        Status Download
-                                    </button>
-                                    <InvoicePdfDownloadButton orderId={item?.orderId} />
-                                </div>
+                            <div className="md:flex md:flex-col">
+                                <button
+                                    className="bg-[#F5BB0B] px-7 py-2 text-xs text-[#000] uppercase mb-2 cursor-pointer"
+                                >
+                                    Status Download
+                                </button>
+                                <InvoicePdfDownloadButton orderId="100" />
                             </div>
                         </div>
                     </div>
-                ))}
-                {toggle && <ShareImgComponent handleToggle={handleToggle} orderId={orderId} />}
-                {
-                    isError && (
-                        <div className='w-full h-50 flex flex-col justify-center items-center'>
-                            <Heading content='Oops! No Orders Found' />
-                            <Paragraph content="We couldn't find any Order." />
-                        </div>
-                    )
-                }
+                </div>
+            {toggle && <ShareImgComponent handleToggle={handleToggle} orderId="100" />}
+            {
+                isError && (
+                    <div className='w-full h-50 flex flex-col justify-center items-center'>
+                        <Heading content='Oops! No Orders Found' />
+                        <Paragraph content="We couldn't find any Order." />
+                    </div>
+                )
+            }
             </div>
         </>
     )

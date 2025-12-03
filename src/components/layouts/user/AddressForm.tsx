@@ -72,10 +72,10 @@ const AddressForm = () => {
                                 <label className='text-sm text-white md:text-lg'>Address</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaUser} />
-                                    <input 
-                                        type="text" 
-                                        placeholder='Enter your Address here....' 
-                                        className='w-full h-full outline-none border-none text-black' 
+                                    <input
+                                        type="text"
+                                        placeholder='Enter your Address here....'
+                                        className='w-full h-full outline-none border-none text-black'
                                         {
                                             ...register('addressLine1', { required: "Address field is required" })
                                         }
@@ -85,14 +85,14 @@ const AddressForm = () => {
                             {
                                 errors?.addressLine1 && <ErrorMessage message={errors?.addressLine1?.message} />
                             }
-                             <div>
+                            <div>
                                 <label className='text-sm text-white md:text-lg'>LandMark</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaUser} />
-                                    <input 
-                                        type="text" 
-                                        placeholder='Enter your Address here....' 
-                                        className='w-full h-full outline-none border-none text-black' 
+                                    <input
+                                        type="text"
+                                        placeholder='Enter your Address here....'
+                                        className='w-full h-full outline-none border-none text-black'
                                         {
                                             ...register('landmark', { required: "LandMark field is required" })
                                         }
@@ -106,12 +106,12 @@ const AddressForm = () => {
                                 <label className='text-sm text-white md:text-lg'>Phone</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaMobileScreen} />
-                                    <input 
-                                        type="text" 
-                                        placeholder='Enter your phone number here....' 
-                                        className='w-full h-full outline-none border-none text-black' 
+                                    <input
+                                        type="text"
+                                        placeholder='Enter your phone number here....'
+                                        className='w-full h-full outline-none border-none text-black'
                                         {
-                                            ...register('phone', { 
+                                            ...register('phone', {
                                                 required: "Phone field is required",
                                                 minLength: { value: 10, message: "Phone number must be 10 digits" },
                                                 maxLength: { value: 10, message: "Phone number must be 10 digit" }
@@ -127,10 +127,10 @@ const AddressForm = () => {
                                 <label className='text-sm text-white md:text-lg'>City</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaHome} />
-                                    <input 
-                                        type="text" 
-                                        placeholder='Enter your city here....' 
-                                        className='w-full h-full outline-none border-none text-black' 
+                                    <input
+                                        type="text"
+                                        placeholder='Enter your city here....'
+                                        className='w-full h-full outline-none border-none text-black'
                                         {
                                             ...register('city', { required: "City field is required" })
                                         }
@@ -182,10 +182,10 @@ const AddressForm = () => {
                                 <label className='text-sm text-white md:text-lg'>Post Code</label>
                                 <AddressFormContainer>
                                     <AddressIcons Icon={FaMapLocationDot} />
-                                    <input 
-                                        type="text" 
-                                        placeholder='Enter your post code here....' 
-                                        className='w-full h-full outline-none border-none text-black' 
+                                    <input
+                                        type="text"
+                                        placeholder='Enter your post code here....'
+                                        className='w-full h-full outline-none border-none text-black'
                                         {
                                             ...register('postalCode', { required: "Postal Code field is required" })
                                         }
@@ -197,8 +197,8 @@ const AddressForm = () => {
                             }
                             {registerIsSuccess && <SuccessMessage message="Address Information created successfully" />}
                             {registerIsError && <ErrorMessage message={registerError?.message} />}
-                            <button 
-                                className='bg-[#7a0202] w-full py-2 my-3 text-sm uppercase font-medium cursor-pointer text-[#F5BB0B]' 
+                            <button
+                                className='bg-[#7a0202] w-full py-2 my-3 text-sm uppercase font-medium cursor-pointer text-[#F5BB0B]'
                                 onClick={handleSubmit(handleFormSubmit)}
                             >
                                 {registerIsPending ? <span className='loader'></span> : 'save'}

@@ -89,13 +89,13 @@ const MyProfile = () => {
         }
     }, [ isSuccess, data, reset ])
 
-    if(isPending) {
-        return (
-            <div className='w-full h-[40vh] flex justify-center items-center'>
-                <span className='content-loader'></span>
-            </div>
-        )
-    }
+    // if(isPending) {
+    //     return (
+    //         <div className='w-full h-[40vh] flex justify-center items-center'>
+    //             <span className='content-loader'></span>
+    //         </div>
+    //     )
+    // }
 
     if(isError) {
         return (
@@ -120,137 +120,135 @@ const MyProfile = () => {
                 <div className='mb-5'>
                     <h1 className='text-[1.2rem] text-[#F5BB0B] font-semibold md:text-[1.5rem]'>Edit Profile</h1>
                 </div>
-                {isSuccess && (
-                    <div className='md:flex md:justify-between md:gap-2'>
-                        <FormContainer>
-                            <FormControl>
-                                <Label content="Name" />
-                                <InputBox<ProfileType>
-                                    type="text"
-                                    placeHolder='Enter Your Name....'
-                                    errorMsg='Name field is required'
-                                    register={register}
-                                    defaultValue={data?.data?.name}
-                                    name="fullName"
-                                />
-                            </FormControl>
-                                {
-                                    errors?.fullName && <ErrorMessage message={errors?.fullName?.message} />
-                                }
-                            <FormControl>
-                                <Label content="Email" />
-                                <InputBox<ProfileType>
-                                    type="text"
-                                    placeHolder='Enter Your Email....'
-                                    errorMsg='Email field is required'
-                                    register={register}
-                                    name="gmail"
-                                    defaultValue={data?.data?.email}
-                                    validationOptions = {{
-                                        validate: (value: string) => value.endsWith("@gmail.com") || "Invalid email address",
-                                    }}
-                                />
-                                {
-                                    errors?.gmail && <ErrorMessage message={errors?.gmail?.message} />
-                                }
-                            </FormControl>
-                        </FormContainer>
-                        <FormContainer>
-                            <FormControl>
-                                <Label content="Phone" />
-                                <InputBox<ProfileType>
-                                    type="text"
-                                    placeHolder='Enter Your Phone Number....'
-                                    errorMsg='Phone number field is required'
-                                    register={register}
-                                    name='phone'
-                                    defaultValue={data?.data?.phone}
-                                    validationOptions={{
-                                        minLength: {
-                                            value: 10,
-                                            message: "Phone number must be 10 digits",
-                                        },
-                                        maxLength: {
-                                            value: 10,
-                                            message: "Phone number must be 10 digits",
-                                        },
-                                        pattern: {
-                                            value: /^\d+$/,
-                                            message: "Phone number must contain digits only",
-                                        }
-                                    }}
-                                />
-                                {
-                                    errors?.phone && <ErrorMessage message={errors?.phone?.message} />
-                                }
-                            </FormControl>
-                            <FormControl>
-                                <Label content="DOB" />
-                                <InputBox<ProfileType> type="date" errorMsg='Date field is required' register={register} name="dob" />
-                            </FormControl>
+                <div className='md:flex md:justify-between md:gap-2'>
+                    <FormContainer>
+                        <FormControl>
+                            <Label content="Name" />
+                            <InputBox<ProfileType>
+                                type="text"
+                                placeHolder='Enter Your Name....'
+                                errorMsg='Name field is required'
+                                register={register}
+                                defaultValue={data?.data?.name}
+                                name="fullName"
+                            />
+                        </FormControl>
                             {
-                                errors?.dob && <ErrorMessage message={errors?.dob?.message} />
+                                errors?.fullName && <ErrorMessage message={errors?.fullName?.message} />
                             }
-                        </FormContainer>
-                        <FormContainer>
-                            <FormControl>
-                                <Label content="State" />
-                                <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
-                                    defaultValue={data?.data?.state}
-                                    {
-                                        ...register('state', {
-                                            required: 'State field is required'
-                                        })
+                        <FormControl>
+                            <Label content="Email" />
+                            <InputBox<ProfileType>
+                                type="text"
+                                placeHolder='Enter Your Email....'
+                                errorMsg='Email field is required'
+                                register={register}
+                                name="gmail"
+                                defaultValue={data?.data?.email}
+                                validationOptions = {{
+                                    validate: (value: string) => value.endsWith("@gmail.com") || "Invalid email address",
+                                }}
+                            />
+                            {
+                                errors?.gmail && <ErrorMessage message={errors?.gmail?.message} />
+                            }
+                        </FormControl>
+                    </FormContainer>
+                    <FormContainer>
+                        <FormControl>
+                            <Label content="Phone" />
+                            <InputBox<ProfileType>
+                                type="text"
+                                placeHolder='Enter Your Phone Number....'
+                                errorMsg='Phone number field is required'
+                                register={register}
+                                name='phone'
+                                defaultValue={data?.data?.phone}
+                                validationOptions={{
+                                    minLength: {
+                                        value: 10,
+                                        message: "Phone number must be 10 digits",
+                                    },
+                                    maxLength: {
+                                        value: 10,
+                                        message: "Phone number must be 10 digits",
+                                    },
+                                    pattern: {
+                                        value: /^\d+$/,
+                                        message: "Phone number must contain digits only",
                                     }
-                                >
-                                    <option className='bg-[#7a0202]'>---Select Your State---</option>
-                                    <option className='bg-[#7a0202]' value="TamilNadu">TamilNadu</option>
-                                    <option className='bg-[#7a0202]' value="Kerala">Kerala</option>
-                                    <option className='bg-[#7a0202]' value="others">Others</option>
-                                </select>
-                            </FormControl>
+                                }}
+                            />
                             {
-                                errors?.state && <ErrorMessage message={errors?.state?.message} />
+                                errors?.phone && <ErrorMessage message={errors?.phone?.message} />
                             }
-                            {
-                                stateWatch === 'others' ? (
-                                    <FormControl>
-                                        <Label content="District" />
-                                        <InputBox<ProfileType>
-                                            type="text"
-                                            placeHolder='Enter Your Distict....'
-                                            errorMsg='Name field is required'
-                                            register={register}
-                                            defaultValue={data?.data?.dist}
-                                            name="dist"
-                                        />
-                                    </FormControl>
-                                ) : (
-                                    <FormControl>
-                                        <Label content="District" />
-                                        <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
-                                            {
-                                                ...register('dist', {
-                                                    required: 'District field is required'
-                                                })
-                                            }
-                                        >
-                                            {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
-                                            <option className='bg-[#7a0202]' value="">---Select Your District---</option>
-                                            {districts.filter(item => item.state === stateWatch).map((item, index) => (
-                                                <option key={index} className='bg-[#7a0202]'>{item.district}</option>
-                                            ))}
-                                        </select>
-                                    </FormControl>
-                                )
-                            }
+                        </FormControl>
+                        <FormControl>
+                            <Label content="DOB" />
+                            <InputBox<ProfileType> type="date" errorMsg='Date field is required' register={register} name="dob" />
+                        </FormControl>
+                        {
+                            errors?.dob && <ErrorMessage message={errors?.dob?.message} />
+                        }
+                    </FormContainer>
+                    <FormContainer>
+                        <FormControl>
+                            <Label content="State" />
+                            <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
+                                defaultValue={data?.data?.state}
+                                {
+                                    ...register('state', {
+                                        required: 'State field is required'
+                                    })
+                                }
+                            >
+                                <option className='bg-[#7a0202]'>---Select Your State---</option>
+                                <option className='bg-[#7a0202]' value="TamilNadu">TamilNadu</option>
+                                <option className='bg-[#7a0202]' value="Kerala">Kerala</option>
+                                <option className='bg-[#7a0202]' value="others">Others</option>
+                            </select>
+                        </FormControl>
+                        {
+                            errors?.state && <ErrorMessage message={errors?.state?.message} />
+                        }
+                        {
+                            stateWatch === 'others' ? (
+                                <FormControl>
+                                    <Label content="District" />
+                                    <InputBox<ProfileType>
+                                        type="text"
+                                        placeHolder='Enter Your Distict....'
+                                        errorMsg='Name field is required'
+                                        register={register}
+                                        defaultValue={data?.data?.dist}
+                                        name="dist"
+                                    />
+                                </FormControl>
+                            ) : (
+                                <FormControl>
+                                    <Label content="District" />
+                                    <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
+                                        {
+                                            ...register('dist', {
+                                                required: 'District field is required'
+                                            })
+                                        }
+                                    >
+                                        {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
+                                        <option className='bg-[#7a0202]' value="">---Select Your District---</option>
+                                        {districts.filter(item => item.state === stateWatch).map((item, index) => (
+                                            <option key={index} className='bg-[#7a0202]'>{item.district}</option>
+                                        ))}
+                                    </select>
+                                </FormControl>
+                            )
+                        }
 
-                            {
-                                errors?.dist && <ErrorMessage message={errors?.dist?.message} />
-                            }
-                        </FormContainer>
-                    </div>
-                )}
+                        {
+                            errors?.dist && <ErrorMessage message={errors?.dist?.message} />
+                        }
+                    </FormContainer>
+                </div>
                 {isUpdateSuccess && <SuccessMessage message="updated successfully" />}
                 {isUpdateError && <ErrorMessage message={(updateError as Error).message} />}
                 <div className='my-5 w-full flex justify-center'>
