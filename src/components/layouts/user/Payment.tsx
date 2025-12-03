@@ -238,12 +238,12 @@ const OrderSummary = () => {
                                     <Paragraph content="landmark 1" />
                                 </DetailsContainer>
                             </div>
-                            <button
+                            {/* <button
                                 className='outline-none border-1 border-white/10 bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-[#fff] text-md my-5 w-4/5 lg:w-2/5 py-1 font-semibold rounded-lg cursor-pointer'
                                 onClick={handleAddress}
                             >
                                 Change Address
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                     <div className='flex-1'>
