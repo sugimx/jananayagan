@@ -21,7 +21,7 @@ const AllOrders = async (token: string) => {
         if (!res.ok) {
             const errorBody = await res.json()
             throw new Error(errorBody.message || 'Orders does not exists.')
-        }  
+        }
 
         const data = await res.json()
 
@@ -55,7 +55,7 @@ const getSingleOrder = async ({ token, orderId }: {token: string, orderId: strin
         if (!res.ok) {
             const errorBody = await res.json()
             throw new Error(errorBody.message || 'Orders does not exists.')
-        }  
+        }
 
         const data = await res.json()
 

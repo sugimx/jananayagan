@@ -76,6 +76,8 @@ const Invoice = () => {
         )
     }
 
+    console.log('order data', data)
+
     return (
         <>
             <div className="w-full min-h-[50vh] my-7">
@@ -112,6 +114,10 @@ const Invoice = () => {
                                     <div>
                                         <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Contact information</h1>
                                         <span className="text-[#F5BB0B] text-xs md:text-sm lg:text-md">{item?.email}</span>
+                                    </div>
+                                    <div>
+                                        <h1 className="text-xs md:text-md lg:text-lg text-[#fff] font-light">Order Status</h1>
+                                        <span className="text-[#F5BB0B] text-xs md:text-sm lg:text-md">{item?.paymentStatus}</span>
                                     </div>
                                 </div>
                                 <div className="md:flex md:flex-col">
