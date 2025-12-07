@@ -29,11 +29,11 @@ type FormData = {
 
 
 type InputProps<T extends FieldValues> = {
-  placeholder: string;
-  register: UseFormRegister<T>
-  name: Path<T>
-  errorMsg: string;
-  validationOptions?: RegisterOptions<T, Path<T>>
+    placeholder: string;
+    register: UseFormRegister<T>
+    name: Path<T>
+    errorMsg: string;
+    validationOptions?: RegisterOptions<T, Path<T>>
 }
 
 
@@ -144,7 +144,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                 postalCode: "",
                 district: "",
                 landmark: ""
-             })
+            })
         }
     }, [ getSuccess, data, reset, addressId ])
 
