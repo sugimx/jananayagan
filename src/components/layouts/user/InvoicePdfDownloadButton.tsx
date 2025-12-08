@@ -86,7 +86,8 @@ const InvoicePDF = ({ data }: {data: InvoiceProps}) => (
         <View style={{ fontSize: 14, marginRight: 40 }}>
           <Text style={{ marginBottom: 12 }}>Billed To</Text>
           <Text style={{ marginBottom: 8 }}>{data?.billedTo?.name}</Text>
-          <Text style={{ marginBottom: 8, flexWrap: "wrap" }}>{data?.billedTo?.addressLine1} {data?.billedTo?.landmark}, {data?.billedTo?.city}, {data?.billedTo?.state}</Text>
+          <Text style={{ marginBottom: 8, flexWrap: "wrap" }}>{data?.billedTo?.addressLine1} {data?.billedTo?.landmark}</Text>
+          <Text style={{ marginBottom: 8, flexWrap: "wrap" }}>{data?.billedTo?.city}, {data?.billedTo?.state}</Text>
           <Text style={{ marginBottom: 8 }}>{data?.billedTo?.phone}</Text>
         </View>
         <View style={{ fontSize: 12, marginRight: 10 }}>
@@ -97,7 +98,7 @@ const InvoicePDF = ({ data }: {data: InvoiceProps}) => (
         </View>
       </View>
       <View style={{ marginTop: 40, marginBottom: 8 }}>
-          <Text style={{ fontSize: 12 }}>This is an invoice sample. This message is set as default. You can always change it to whatever you like. Feel free.</Text>
+          <Text style={{ fontSize: 12 }}>Thank you for your order! Wishing you a wonderful day ahead.</Text>
       </View>
       <View style={{ marginTop: 35 }}>
           <View style={{ flexDirection: 'row', fontSize: 12, justifyContent: 'space-between', marginBottom: 4 }}>

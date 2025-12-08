@@ -12,7 +12,7 @@ const ShippingPolicy = () => {
                 <div className="space-y-6 text-white leading-relaxed">
                     <ul className="list-disc pl-6 space-y-2 mt-3">
                         <li>We strive to deliver all confirmed orders promptly and safely.</li>
-                        <li>Orders are typically processed within 3-5 business days after payment confirmation. Delivery time may vary depending on product availability, courier efficiency, and your location.</li>
+                        <li>Orders will be processed starting from Pongal after payment confirmation, and delivery time may vary depending on product availability, courier efficiency, and your location. We use reliable third-party courier partners for all deliveries, and customers will receive tracking details by email or SMS once their order is shipped</li>
                         <li>We use reliable third-party courier partners for all deliveries. Customers will receive tracking details by email or SMS once their order is shipped.</li>
                         <li>If you are unavailable at the time of delivery, the courier will reattempt delivery or contact you for alternate arrangements.</li>
                         <li>Delivery timelines are indicative and not guaranteed. Delays due to unforeseen circumstances (weather, customs, logistics issues, etc.) do not make the Company liable for compensation.</li>
