@@ -75,16 +75,23 @@ const SalesSection = () => {
                         <div className='absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_65%)] opacity-40 pointer-events-none' />
                         <div className='relative flex flex-col gap-8'>
                             <div className='flex flex-col gap-6 md:flex-row md:items-center md:justify-between'>
-                                <div>
+                                {/* <div>
                                     <p className='text-[0.6rem] uppercase tracking-[0.4rem] text-white/50'>Total Visitors</p>
                                     <div className='mt-3 flex flex-wrap items-end gap-3'>
                                         <h2 className='text-4xl font-black md:text-5xl'>10,000</h2>
-                                        {/* <span className='inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-widest text-white/80'>
+                                        <span className='inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-widest text-white/80'>
                                             <span className='inline-block h-2 w-2 animate-pulse rounded-full bg-[#F5BB0B]' />
                                             {salesData[index].state} • Live
-                                        </span> */}
+                                        </span>
                                     </div>
                                     <p className='mt-2 text-xs text-white/60 md:text-sm'>Numbers refresh automatically for each leading state.</p>
+                                </div> */}
+                                <div>
+                                    <p className='text-[0.6rem] uppercase tracking-[0.4rem] text-white/50'>Selling Fast</p>
+                                    <div className='mt-3 flex flex-wrap items-end gap-3'>
+                                        <h2 className='text-4xl font-black md:text-5xl'>Grab Yours Now</h2>
+                                    </div>
+                                    <p className='mt-2 text-xs text-white/60 md:text-sm'>Buy soon — limited Edition TVK Cup.</p>
                                 </div>
                                 <div className='rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-center shadow-[0_15px_40px_rgba(0,0,0,0.35)]'>
                                     <p className='text-[0.6rem] uppercase tracking-[0.3rem] text-white/60'>Sales Ends In</p>
