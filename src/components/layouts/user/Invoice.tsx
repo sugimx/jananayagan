@@ -91,8 +91,8 @@ const Invoice = () => {
                                 <Image
                                     src="/cup_umber_277.png"
                                     alt="cup image"
-                                    width={125}
-                                    height={125}
+                                    width={200}
+                                    height={200}
 
                                 />
                                 <div className="flex flex-col gap-3 lg:flex-row lg:gap-20">
