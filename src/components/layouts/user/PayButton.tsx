@@ -36,10 +36,10 @@ const PayButton: React.FC<PayButtonProps> = ({ sessionId }) => {
         const cashfree = window.Cashfree({ mode: "sandbox" });
             cashfree.checkout({
             paymentSessionId: sessionId,
-            redirectTarget: "_self",  // opens in same tab
-            returnUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/payment/callback`,
-        });
-    };
+            redirectTarget: "_self",
+            returnUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/profile`,
+        })
+    }
 
     return (
         <button
