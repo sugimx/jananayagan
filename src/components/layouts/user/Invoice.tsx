@@ -89,7 +89,7 @@ const Invoice = () => {
                         <div className="flex gap-3 my-5 lg:w-[100%] lg:mx-auto py-4 px-2">
                             <div className="flex flex-col gap-2 md:flex-row flex-1">
                                 <Image
-                                    src="/cup_umber_277.png"
+                                    src="/cup_number_277.png"
                                     alt="cup image"
                                     width={200}
                                     height={200}

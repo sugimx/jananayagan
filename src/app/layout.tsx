@@ -5,6 +5,7 @@ import Navbar from "@/components/layouts/user/Navbar";
 import Layout from "@/components/layouts/user/Layout";
 import { Providers } from "@/lib/providers";
 import { QueryProvider } from "@/lib/QueryProvider";
+import Script from "next/script"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000] mx-auto`}
       >
+        <Script
+          src="https://sdk.cashfree.com/js/ui/2.0.0/cashfree.js"
+          strategy="beforeInteractive"
+        />
         <Providers>
           <QueryProvider>
             <Navbar />

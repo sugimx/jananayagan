@@ -42,6 +42,7 @@ export interface Order {
   totalAmount: number;
   createdAt: string;
   updatedAt: string;
+  payment_session_id?: string;
   paymentRequest?: {
     merchantTransactionId: string;
     payload: {

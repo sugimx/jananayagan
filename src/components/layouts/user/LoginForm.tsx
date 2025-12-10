@@ -97,7 +97,7 @@ const LoginForm = () => {
             <p className='text-sm leading-relaxed md:text-lg'>A democracy cannot thrive where power remains unchecked and justice is reserved for a select few.</p>
             <div className='hidden md:flex justify-center items-center'>
               <Image
-                src="/cup_umber_277.png"
+                src="/cup_number_277.png"
                 width={400}
                 height={300}
                 alt='jana nayagan logo'

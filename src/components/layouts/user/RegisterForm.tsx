@@ -60,7 +60,7 @@ const RegisterForm = () => {
             <p className='text-sm leading-relaxed md:text-lg'>From final frame to future throne your legacy continues. One hero, one leader, rising beyond the screen into something greater.</p>
             <div className='hidden md:flex justify-center items-center'>
               <Image
-                src="/cup_umber_277.png"
+                src="/cup_number_277.png"
                 width={400}
                 height={300}
                 alt='jana nayagan logo'
