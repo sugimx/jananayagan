@@ -34,10 +34,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000] mx-auto`}
       >
-        <Script
-          src="https://sdk.cashfree.com/js/v3/cashfree.js"
-          strategy="afterInteractive"
-        />
         <Providers>
           <QueryProvider>
             <Navbar />
