@@ -6,7 +6,7 @@ type Props = {
 
 const Container = ({ children }: Props) => {
   return (
-     <div className='relative isolate overflow-hidden text-white'>
+    <div className='relative isolate overflow-hidden text-white'>
       <div className='absolute inset-0 -z-10 shadow-[0_0_120px_rgba(0,0,0,0.55)]' />
       <div className='absolute inset-0 pointer-events-none'>
           <div className='absolute -top-32 right-8 rounded-full bg-[#ff4e4e]/30 blur-3xl' />
