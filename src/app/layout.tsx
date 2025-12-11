@@ -36,7 +36,7 @@ export default function RootLayout({
       >
         <Script
           src="https://sdk.cashfree.com/js/v3/cashfree.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Providers>
           <QueryProvider>
