@@ -16,6 +16,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { useRouter } from 'next/navigation'
 import { apiService, CreateOrderRequest } from '@/lib/api'
 import { getData } from '@/api/BuyerInfoAPI'
+import PayButton from "@/components/layouts/user/PayButton";
 
 interface Address {
     _id: string;
@@ -91,8 +92,10 @@ const AddressForm = () => {
 
 const OrderSummary = ({ address }: { address: Address }) => {
     const { user, token } = useAuth();
-    const [ isProcessing, setIsProcessing ] = useState(false)
+    const [isProcessing, setIsProcessing] = useState(false)
     const router = useRouter()
+    const [sessionId, setSessionId] = useState<string | null>(null);
+
 
     const { isSuccess, data } = useQuery({
         queryKey: ['buyerInfo', token],
@@ -107,66 +110,84 @@ const OrderSummary = ({ address }: { address: Address }) => {
             return result;
         },
         onSuccess: async (response) => {
+
             if (response.success && response.data) {
-                const responseData = response.data;
-                const paymentRequest = responseData.paymentRequest;
-                const orderId = responseData._id;
+                console.log('Order created successfully:', response.data);
 
-                if (paymentRequest) {
-                    const paymentData = (() => {
-                        const maybe: unknown = paymentRequest;
-                        if (
-                            maybe &&
-                            typeof maybe === 'object'
-                        ) {
-                            const obj = maybe as Record<string, unknown>;
-                            const direct = typeof obj.redirectUrl === 'string' ? (obj.redirectUrl as string) : undefined;
-                            const url = typeof obj.url === 'string' ? (obj.url as string) : undefined;
-                            const payload = obj.payload as Record<string, unknown> | undefined;
-                            const payloadRedirect = payload && typeof payload.redirectUrl === 'string' ? (payload.redirectUrl as string) : undefined;
-                            return { redirectUrl: direct || payloadRedirect || url };
-                        }
-                        return { redirectUrl: undefined };
-                    })();
+                const session = response.data.payment_session_id;
 
-                    try {
-                        if (paymentData.redirectUrl) {
-                            window.location.href = paymentData.redirectUrl;
-                        } else {
-                            alert('Payment initialization failed. Please try again.');
-                        }
-
-                    } catch (error) {
-                        throw error
-                    }
-                } else if (orderId) {
-
-                    try {
-                        const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
-
-                        if (paymentResponse.success && paymentResponse.data) {
-                            const paymentData = paymentResponse.data
-
-                            try {
-                                if (paymentData.redirectUrl) {
-                                    window.location.href = paymentData.redirectUrl;
-                                } else {
-                                    alert('Payment initialization failed. Please try again.');
-                                }
-
-                            } catch (error) {
-                                throw error
-                            }
-                        } else {
-                            alert('Payment request failed. Please try again.');
-                        }
-                    } catch (error) {
-                        throw error
-                    }
+                if (session && typeof session === 'string') {
+                    setSessionId(session);
+                } else {
+                    alert('Failed to get session id');
                 }
             } else {
-                alert(`Order creation failed: ${response.message || 'Unknown error'}. Please try again.`);
+                alert('Order creation failed');
             }
+
+
+
+            // if (response.success && response.data) {
+            //     const responseData = response.data;
+            //     const paymentRequest = responseData.paymentRequest;
+            //     const orderId = responseData._id;
+
+            //     if (paymentRequest) {
+            //         const paymentData = (() => {
+            //             const maybe: unknown = paymentRequest;
+            //             if (
+            //                 maybe &&
+            //                 typeof maybe === 'object'
+            //             ) {
+            //                 const obj = maybe as Record<string, unknown>;
+            //                 const direct = typeof obj.redirectUrl === 'string' ? (obj.redirectUrl as string) : undefined;
+            //                 const url = typeof obj.url === 'string' ? (obj.url as string) : undefined;
+            //                 const payload = obj.payload as Record<string, unknown> | undefined;
+            //                 const payloadRedirect = payload && typeof payload.redirectUrl === 'string' ? (payload.redirectUrl as string) : undefined;
+            //                 return { redirectUrl: direct || payloadRedirect || url };
+            //             }
+            //             return { redirectUrl: undefined };
+            //         })();
+
+            //         try {
+            //             console.log('Redirecting to payment URL:', paymentData.redirectUrl);
+            //             if (paymentData.redirectUrl) {
+            //                 window.location.href = paymentData.redirectUrl;
+            //             } else {
+            //                 alert('Payment initialization failedd. Please try again.');
+            //             }
+
+            //         } catch (error) {
+            //             throw error
+            //         }
+            //     } else if (orderId) {
+
+            //         try {
+            //             const paymentResponse = await apiService.createPhonePePayment(orderId, token!);
+
+            //             if (paymentResponse.success && paymentResponse.data) {
+            //                 const paymentData = paymentResponse.data
+
+            //                 try {
+            //                     if (paymentData.redirectUrl) {
+            //                         window.location.href = paymentData.redirectUrl;
+            //                     } else {
+            //                         alert('Payment initialization failed. Please try again.');
+            //                     }
+
+            //                 } catch (error) {
+            //                     throw error
+            //                 }
+            //             } else {
+            //                 alert('Payment request failed. Please try again.');
+            //             }
+            //         } catch (error) {
+            //             throw error
+            //         }
+            //     }
+            // } else {
+            //     alert(`Order creation failed: ${response.message || 'Unknown error'}. Please try again.`);
+            // }
         },
         onError: (error) => {
             alert(`Error creating order: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`);
@@ -224,11 +245,11 @@ const OrderSummary = ({ address }: { address: Address }) => {
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={IoMdHome} />
-                                    <Paragraph content={address.addressLine1}/>
+                                    <Paragraph content={address.addressLine1} />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={HiDevicePhoneMobile} />
-                                    <Paragraph content={address.phone}/>
+                                    <Paragraph content={address.phone} />
                                 </DetailsContainer>
                                 <DetailsContainer>
                                     <Icon Icon={FaLocationDot} />
@@ -282,14 +303,15 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         <button
                             onClick={handlePayment}
                             disabled={isProcessing}
-                            className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${
-                                isProcessing
+                            className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${isProcessing
                                     ? 'bg-gray-400 cursor-not-allowed'
                                     : 'bg-gradient-to-br from-[#0B0118] via-[#160327] to-[#32073B] text-white hover:bg-[#7a0202] hover:text-white'
-                            }`}
+                                }`}
                         >
                             {isProcessing ? 'Processing...' : 'Go to Payment'}
+
                         </button>
+                        <PayButton sessionId={sessionId ? sessionId : ''}  />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://api.tvkcup2026.com/api'
+const API_BASE_URL = 'http://localhost:5000/api'
 
 export interface LoginRequest {
   email: string;
@@ -42,6 +42,7 @@ export interface Order {
   totalAmount: number;
   createdAt: string;
   updatedAt: string;
+  payment_session_id?: string;
   paymentRequest?: {
     merchantTransactionId: string;
     payload: {
