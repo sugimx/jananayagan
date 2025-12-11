@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 interface PayButtonProps {
-    sessionId?: string
+    sessionId?: string;
 }
 
 declare global {
@@ -34,10 +34,10 @@ const PayButton: React.FC<PayButtonProps> = ({ sessionId }) => {
         }
 
         const cashfree = window.Cashfree({ mode: "production" })
-        cashfree.checkout({
+            cashfree.checkout({
             paymentSessionId: sessionId,
             redirectTarget: "_self",
-            returnUrl: "https://tvkcup2026.com/profile?order_id={order_id}&order_token={order_token}"
+            returnUrl: `https://tvkcup2026.com/profile`,
         })
     }
 
