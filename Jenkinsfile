@@ -2,83 +2,86 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO     = "https://github.com/sugimx/jananayagan.git"
-        GIT_BRANCH   = "main"
-        DEPLOY_USER  = "deploy"
-        DEPLOY_HOST  = "13.126.91.50"
-        APP_PATH     = "/home/deploy/apps/jananayagan"
-        RELEASES_DIR = "/home/deploy/apps/jananayagan/releases"
-        PM2_NAME     = "frontend"
+        SSH_USER    = "deploy"
+        SSH_HOST    = "52.66.198.140"
+        DEPLOY_DIR  = "/home/deploy/apps/jananayagan/source"
+        PM2_NAME    = "frontend"
     }
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                echo "Fetching latest code from ${GIT_BRANCH}"
-                git branch: "${GIT_BRANCH}", url: "${GIT_REPO}"
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/production']],
+                    userRemoteConfigs: [[url: 'https://github.com/sugimx/jananayagan.git']]
+                ])
             }
         }
 
-        stage('Install & Build') {
+        stage('Install Dependencies') {
             steps {
-                echo "Installing npm dependencies and building"
-                sh """
-                    rm -rf node_modules
-                    npm install
-                    npm run build
-                """
+                sh '''
+                rm -rf node_modules .next
+                npm install --legacy-peer-deps
+                '''
             }
         }
 
-        stage('Prepare Release') {
+        stage('Build') {
             steps {
-                echo "Preparing release package"
-                sh """
-                    RELEASE_NAME=release-\$(date +%d%m-%H%M)
-                    mkdir -p \${RELEASE_NAME}
-                    cp -R .next package.json package-lock.json public \${RELEASE_NAME}/
-                    tar -czf \${RELEASE_NAME}.tar.gz \${RELEASE_NAME}
-                    echo \$RELEASE_NAME > release-name.txt
-                """
-                stash includes: '*.tar.gz,release-name.txt', name: 'artifact'
+                sh '''
+                npm run build
+                '''
             }
         }
 
         stage('Upload to Server') {
             steps {
-                echo "Uploading build to server"
-                unstash 'artifact'
-                sh """
-                    RELEASE_NAME=\$(cat release-name.txt)
-                    scp \${RELEASE_NAME}.tar.gz \${DEPLOY_USER}@\${DEPLOY_HOST}:${RELEASES_DIR}/
-                    ssh \${DEPLOY_USER}@\${DEPLOY_HOST} "cd ${RELEASES_DIR} && tar -xzf \${RELEASE_NAME}.tar.gz && rm -f \${RELEASE_NAME}.tar.gz"
-                """
+                sh '''
+                ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $DEPLOY_DIR"
+                rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./ $SSH_USER@$SSH_HOST:$DEPLOY_DIR/
+                '''
             }
         }
 
-        stage('Activate Release & Restart') {
+        stage('Restart PM2') {
             steps {
-                echo "Switching release and restarting PM2"
-                sh """
-                    RELEASE_NAME=\$(cat release-name.txt)
-                    ssh \${DEPLOY_USER}@\${DEPLOY_HOST} "
-                        cd ${APP_PATH} &&
-                        rm -f current &&
-                        ln -s releases/\${RELEASE_NAME} current &&
-                        cd current &&
-                        npm install --omit=dev &&
-                        pm2 delete ${PM2_NAME} || true &&
-                        pm2 start npm --name ${PM2_NAME} -- start &&
-                        pm2 save
-                    "
-                """
+                sh '''
+                ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
+                    cd $DEPLOY_DIR &&
+                    npm install --legacy-peer-deps &&
+                    pm2 delete $PM2_NAME || true &&
+                    pm2 start 'npm start' --name $PM2_NAME &&
+                    pm2 save
+                "
+                '''
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                script {
+                    def status = sh(
+                        script: "curl -s -o /dev/null -w \"%{http_code}\" https://tvkcup2026.com",
+                        returnStdout: true
+                    ).trim()
+
+                    if (status != "200") {
+                        error "❌ Deployment failed: App is not returning HTTP 200 (got ${status})"
+                    }
+                }
             }
         }
     }
 
     post {
-        success { echo "Deployment Successful" }
-        failure { echo "Deployment Failed" }
+        success {
+            echo "✅ Deployment successful."
+        }
+        failure {
+            echo "❌ Deployment failed. Check logs."
+        }
     }
 }
