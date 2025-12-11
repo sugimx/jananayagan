@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     SSH_USER = "deploy"
-    SSH_HOST = "13.126.91.50"         // CHANGE if new IP
+    SSH_HOST = "15.207.229.24"         // CHANGE if new IP
     APP_HOME = "/home/deploy/apps/jananayagan"
     CURRENT  = "${APP_HOME}/current"
     PM2_NAME = "frontend"
