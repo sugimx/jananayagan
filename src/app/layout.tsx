@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000] mx-auto`}
       >
         <Script
-          src="https://sdk.cashfree.com/js/ui/2.0.0/cashfree.js"
+          src="https://sdk.cashfree.com/js/v3/cashfree.js"
           strategy="beforeInteractive"
         />
         <Providers>

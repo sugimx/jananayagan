@@ -34,7 +34,8 @@ const PayButton: React.FC<PayButtonProps> = ({ sessionId }) => {
         }
 
         const cashfree = window.Cashfree({ mode: "production" })
-            cashfree.checkout({
+        // const productionUrl = `https://www.cashfree.com/pg/view/sessions/checkout?payment_session_id=${sessionId}`;
+        cashfree.checkout({
             paymentSessionId: sessionId,
             redirectTarget: "_self",
             returnUrl: `https://tvkcup2026.com/profile`,
