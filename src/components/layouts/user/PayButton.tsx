@@ -29,15 +29,15 @@ const PayButton: React.FC<PayButtonProps> = ({ sessionId }) => {
 
     const handlePay = () => {
         if (!sdkLoaded || !window.Cashfree) {
-        console.error("Cashfree SDK not loaded yet");
-        return;
+            console.error("Cashfree SDK not loaded yet")
+            return;
         }
 
-        const cashfree = window.Cashfree({ mode: "sandbox" });
+        const cashfree = window.Cashfree({ mode: "production" })
             cashfree.checkout({
             paymentSessionId: sessionId,
             redirectTarget: "_self",
-            returnUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/profile`,
+            returnUrl: `https://tvkcup2026.com/profile`,
         })
     }
 
