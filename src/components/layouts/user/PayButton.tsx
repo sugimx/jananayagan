@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 interface PayButtonProps {
     sessionId?: string;
@@ -14,18 +15,18 @@ declare global {
 const PayButton: React.FC<PayButtonProps> = ({ sessionId }) => {
     const [sdkLoaded, setSdkLoaded] = useState(false);
 
-    useEffect(() => {
-        const scriptId = "cashfree-sdk-script";
-        if (document.getElementById(scriptId)) {
-            setSdkLoaded(true);
-            return;
-        }
-        const script = document.createElement("script");
-        script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
-        script.id = scriptId;
-        script.onload = () => setSdkLoaded(true);
-        document.body.appendChild(script);
-    }, []);
+    // useEffect(() => {
+    //     const scriptId = "cashfree-sdk-script";
+    //     if (document.getElementById(scriptId)) {
+    //         setSdkLoaded(true);
+    //         return;
+    //     }
+    //     const script = document.createElement("script");
+    //     script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+    //     script.id = scriptId;
+    //     script.onload = () => setSdkLoaded(true);
+    //     document.body.appendChild(script);
+    // }, []);
 
     const handlePay = () => {
         if (!sdkLoaded || !window.Cashfree) {
@@ -43,16 +44,26 @@ const PayButton: React.FC<PayButtonProps> = ({ sessionId }) => {
     }
 
     return (
-        <button
-            onClick={handlePay}
-            disabled={!sdkLoaded || !sessionId}
-            className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${!sdkLoaded || !sessionId
-                ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] hover:bg-[#7a0202] hover:text-white'
-            }`}
-        >
-            Pay Now
-        </button>
+        <>
+            <Script
+                src="https://sdk.cashfree.com/js/v3/cashfree.js"
+                strategy="afterInteractive"
+                onLoad={() => {
+                    console.log('Cashfree SDK is ready!');
+                    setSdkLoaded(true);
+                }}
+            />
+            <button
+                onClick={handlePay}
+                disabled={!sdkLoaded || !sessionId}
+                className={`w-full py-2 my-3 text-sm text-black uppercase font-medium cursor-pointer ${!sdkLoaded || !sessionId
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] hover:bg-[#7a0202] hover:text-white'
+                }`}
+            >
+                Pay Now
+            </button>
+        </>
     );
 };
 
