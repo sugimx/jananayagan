@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation'
 import { apiService, CreateOrderRequest } from '@/lib/api'
 import { getData } from '@/api/BuyerInfoAPI'
 import PayButton from "@/components/layouts/user/PayButton";
+import CashfreeButton  from '@/components/layouts/user/CashfreeButton';
 
 interface Address {
     _id: string;
@@ -311,7 +312,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
 
                             </button>
                         ) : (
-                            <PayButton sessionId={sessionId ? sessionId : ''}  />
+                            <CashfreeButton/>
                         )}
                     </div>
                 </div>
