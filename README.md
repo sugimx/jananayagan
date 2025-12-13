@@ -9,4 +9,4 @@ npx create-next-app@latest my-next-app
 
 # Run and build file
 - npm run dev
-- npm run build.
+- npm run build
