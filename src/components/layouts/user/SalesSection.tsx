@@ -44,7 +44,7 @@ const SalesSection = () => {
     // }, [salesData])
 
     React.useEffect(() => {
-        const endDate = new Date("2025-12-17T00:00:00");
+        const endDate = new Date("2025-12-22T00:00:00");
 
         const timer = setInterval(() => {
         const now = new Date();

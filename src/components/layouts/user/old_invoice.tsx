@@ -62,7 +62,7 @@ const Invoice = () => {
                             <p className='w-[20%] text-end'>Amount</p>
                         </div>
                         <div className='text-sm font-bold flex justify-between py-2 border-b-1 border-[#4a4a4a]'>
-                            <p className='w-[30%]'>Official Jana Nayagan Cup Limited Edition</p>
+                            <p className='w-[30%]'>Official TVK Cup Limited Edition</p>
                             <p className='w-[20%] text-center'>5</p>
                             <p className='w-[20%] text-center'>₹ 400</p>
                             <p className='w-[20%] text-end'>₹ 2,000</p>

@@ -36,6 +36,9 @@ export default function RootLayout({
       >
         <Providers>
           <QueryProvider>
+            <div className="site-marquee" aria-hidden="true">
+              <div className="site-marquee__inner">We had a server issue last week (Dec 11–13), so we’ve extended bookings till 22nd December.</div>
+            </div>
             <Navbar />
               {children}
             <Layout />

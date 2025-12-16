@@ -231,7 +231,7 @@ const OrderSummary = ({ address }: { address: Address }) => {
                         <div className='mb-3'>
                             <div className='mb-5'>
                                 <h1 className=' bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text text-2xl font-semibold mb-1 md:text-4xl'>Address</h1>
-                                <p className='text-sm text-white font-light md:text-lg'>Please confirm the {"buyer's"} address, your Jana Nayagan Cup finds its way here.</p>
+                                <p className='text-sm text-white font-light md:text-lg'>Please confirm the {"buyer's"} address, your TVK Cup finds its way here.</p>
                             </div>
                             <div className='flex flex-col gap-3'>
                                 <DetailsContainer>
