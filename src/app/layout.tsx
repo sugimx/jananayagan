@@ -34,13 +34,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000] mx-auto`}
       >
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-SYKM675PL1" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-SYKM675PL1');`}
+        </Script>
         <Providers>
           <QueryProvider>
             <div className="site-marquee" aria-hidden="true">
               <div className="site-marquee__inner">We had a server issue last week (Dec 11–13), so we’ve extended bookings till 22nd December.</div>
             </div>
             <Navbar />
-              {children}
+            {children}
             <Layout />
           </QueryProvider>
         </Providers>
