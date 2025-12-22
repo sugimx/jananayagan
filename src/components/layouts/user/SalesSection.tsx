@@ -94,9 +94,9 @@ const SalesSection = () => {
                                     <p className='mt-2 text-xs text-white/60 md:text-sm'>Buy soon — limited Edition TVK Cup.</p>
                                 </div>
                                 <div className='rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-center shadow-[0_15px_40px_rgba(0,0,0,0.35)]'>
-                                    <p className='text-[0.6rem] uppercase tracking-[0.3rem] text-white/60'>Sales Ends In</p>
-                                    <p className='mt-2 text-2xl font-bold text-[#F5BB0B] md:text-3xl'>{timeLeft}</p>
-                                    <p className='mt-1 text-xs text-white/60'>Hurry before the vault closes</p>
+                                    <p className='text-[0.6rem] uppercase tracking-[0.3rem] text-white/60'>Delivery starts from</p>
+                                    <p className='mt-2 text-2xl font-bold text-[#F5BB0B] md:text-3xl'>15 January 2026</p>
+                                    <p className='mt-1 text-xs text-white/60'>Hurry before the sale closes</p>
                                 </div>
                             </div>
                             {/* <div>
