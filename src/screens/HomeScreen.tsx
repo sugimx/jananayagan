@@ -5,6 +5,7 @@ const FaQuestions = lazy(() => import('@/components/layouts/user/Faquestions'))
 const Information = lazy(() => import('@/components/layouts/user/Information'))
 const LimitedEdition = lazy(() => import('@/components/layouts/user/LimitedEdition'))
 const LuckyDraw = lazy(() => import('@/components/layouts/user/LuckyDraw'))
+const PrizeSection = lazy(() => import('@/components/layouts/user/PrizeSection'))
 const SalesSection = lazy(() => import('@/components/layouts/user/SalesSection'))
 const Section2 = lazy(() => import('@/components/layouts/user/Section_2'))
 const SocialResponsibility = lazy(() => import('@/components/layouts/user/SocialResponsiblity'))
@@ -16,6 +17,7 @@ const HomeScreen = () => {
                 <Banner />
                 <SalesSection />
                 <LuckyDraw />
+                <PrizeSection />
                 <Section2 />
                 <LimitedEdition />
                 <SocialResponsibility />
