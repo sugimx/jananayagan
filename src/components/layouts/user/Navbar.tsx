@@ -37,6 +37,9 @@ const Navbar = () => {
                   <li className='py-2'>
                       <Link href="/product" className={currentPath === '/product' ? 'text-[#F5BB0B]' : ''}>Product</Link>
                   </li>
+                    <li className='py-2'>
+                      <Link href="/list" className={currentPath === '/list' ? 'text-[#F5BB0B]' : ''}>List</Link>
+                    </li>
                   <li className='py-2'>
                       <Link href="/contact" className={currentPath === '/contact' ? 'text-[#F5BB0B]' : ''}>Contact Us</Link>
                   </li>
