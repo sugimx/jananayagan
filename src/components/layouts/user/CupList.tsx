@@ -5185,7 +5185,7 @@ const CupList = () => {
           </table>
         </div>
         <div className="mt-6 text-center text-sm text-[#F5BB0B]">
-          If your details are not in the list then reach out to us with payment screenshot and detailed address on WhatsApp at <a href="https://wa.me/919790005544" className="underline">9790005544</a> to get added.
+          If your details are not in the list then reach out to us with payment screenshot and detailed address on WhatsApp at <a href="https://wa.me/918903301652" className="underline">8903301652</a> to get added.
         </div>
       </div>
     </Container>
