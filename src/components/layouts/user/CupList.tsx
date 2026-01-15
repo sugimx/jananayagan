@@ -5107,6 +5107,166 @@ const sampleDataRaw = [
     "Phone": "8150002128",
     "Location": "Bangalore",
     "Cup": "1029"
+  },{
+    "No": "730",
+    "Name": "Sivaguru",
+    "Phone": "7010864683",
+    "Location": "Kelambakkam",
+    "Cup": "300"
+  },
+  {
+    "No": "731",
+    "Name": "Arjun Sathish",
+    "Phone": "8838946918",
+    "Location": "Arcot",
+    "Cup": "299"
+  },
+  {
+    "No": "732",
+    "Name": "Prajith yugan",
+    "Phone": "9943048416",
+    "Location": "Dharmapuri",
+    "Cup": "298"
+  },
+  {
+    "No": "733",
+    "Name": "AKTG GAMING",
+    "Phone": "6379071561",
+    "Location": "Sholinghur",
+    "Cup": "297"
+  },
+  {
+    "No": "734",
+    "Name": "Thamarai Selvan",
+    "Phone": "9025512822",
+    "Location": "Erode",
+    "Cup": "296"
+  },
+  {
+    "No": "735",
+    "Name": "Abdul Malik",
+    "Phone": "7010913996",
+    "Location": "Kadayanallur",
+    "Cup": "295"
+  },
+  {
+    "No": "736",
+    "Name": "Santhosh",
+    "Phone": "9629025421",
+    "Location": "Thiruvallur",
+    "Cup": "294"
+  },
+  {
+    "No": "737",
+    "Name": "Mohandas J",
+    "Phone": "7904863361",
+    "Location": "Guduvanchery ",
+    "Cup": "293"
+  },
+  {
+    "No": "738",
+    "Name": "Sasi",
+    "Phone": "6374239079",
+    "Location": "Anakaputhur ",
+    "Cup": "292"
+  },
+  {
+    "No": "739",
+    "Name": "Alex ander",
+    "Phone": "9514173837",
+    "Location": "thiruvallur ",
+    "Cup": "291"
+  },
+  {
+    "No": "740",
+    "Name": "DHANARAJ R",
+    "Phone": "9952054406",
+    "Location": "PUDUCHERRY",
+    "Cup": "290"
+  },
+  {
+    "No": "741",
+    "Name": "Ponnila",
+    "Phone": "7695991313",
+    "Location": "madukkarai",
+    "Cup": "289"
+  },
+  {
+    "No": "742",
+    "Name": "N. Balaji",
+    "Phone": "7092696442",
+    "Location": "Ayapakkam",
+    "Cup": "288"
+  },
+  {
+    "No": "743",
+    "Name": "Vinitha",
+    "Phone": "9047920253",
+    "Location": "periyanaiken palayam",
+    "Cup": "287"
+  },
+  {
+    "No": "744",
+    "Name": "MUTHUMARI M",
+    "Phone": "7904304177",
+    "Location": "Srivilliputtur",
+    "Cup": "286"
+  },
+  {
+    "No": "745",
+    "Name": "Chinnanambiraj",
+    "Phone": "8122319856",
+    "Location": "Thoothukudi ",
+    "Cup": "285"
+  },
+  {
+    "No": "746",
+    "Name": "Sanjay",
+    "Phone": "7200020914",
+    "Location": "Madhavaram",
+    "Cup": "284"
+  },
+  {
+    "No": "747",
+    "Name": "kishore menan g",
+    "Phone": "9176999450",
+    "Location": "Authoor ",
+    "Cup": "283"
+  },
+  {
+    "No": "748",
+    "Name": "Suresh. A",
+    "Phone": "7200093130",
+    "Location": "Melur",
+    "Cup": "282"
+  },
+  {
+    "No": "749",
+    "Name": "Sanjay SK",
+    "Phone": "6383507443",
+    "Location": "Gandhipuram",
+    "Cup": "281"
+  },
+  {
+    "No": "750",
+    "Name": "Aswini Apparaj",
+    "Phone": "7904895457",
+    "Location": "kovilmedu",
+    "Cup": "280"
+  },
+  {
+    "No": "751",
+    "Name": "Vicky",
+    "Phone": "7695961579",
+    "Location": "Sengaliappa Nagar",
+    "Cup": "279"
+  },
+  {
+    "No": "752",
+    "Name": "Manirasu",
+    "Phone": "7868088044",
+    "Location": "Musiri ",
+    "Cup": "278"
   }
 ]
 
@@ -5142,10 +5302,20 @@ const CupList = () => {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    if (!q) return sampleData
+    if (!q) return sampleData.slice().sort((a, b) => {
+      const na = Number(a.Cup)
+      const nb = Number(b.Cup)
+      if (isNaN(na) || isNaN(nb)) return String(a.Cup).localeCompare(String(b.Cup))
+      return na - nb
+    })
     return sampleData.filter((item) =>
       item.Name.toLowerCase().includes(q) || item.Cup.includes(q) || item.Phone.includes(q) || item.Location.toLowerCase().includes(q)
-    )
+    ).sort((a, b) => {
+      const na = Number(a.Cup)
+      const nb = Number(b.Cup)
+      if (isNaN(na) || isNaN(nb)) return String(a.Cup).localeCompare(String(b.Cup))
+      return na - nb
+    })
   }, [query])
 
   return (
