@@ -42,7 +42,7 @@ export default function RootLayout({
         <Providers>
           <QueryProvider>
             <div className="site-marquee" aria-hidden="true">
-              <div className="site-marquee__inner">TVK Cup deliveries will begin from Pongal (15 January).</div>
+              <div className="site-marquee__inner">If your details are not in the list then reach out to us with payment screenshot and detailed address on WhatsApp at <a href="https://wa.me/918903301652" className="underline">8903301652</a> to get added.</div>
             </div>
             <Navbar />
             {children}

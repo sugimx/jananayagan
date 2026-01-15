@@ -1,7 +1,7 @@
 'use client'
 
 
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import Container from './Container';
 
 const sampleDataRaw = [
@@ -5133,6 +5133,12 @@ const sampleData = sampleDataRaw.map((item) => ({
 
 const CupList = () => {
   const [query, setQuery] = useState('')
+  const [page, setPage] = useState(1)
+  const pageSize = 10
+
+  useEffect(() => {
+    setPage(1)
+  }, [query])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -5173,7 +5179,8 @@ const CupList = () => {
                   <td colSpan={4} className="px-6 py-4 text-center text-sm text-white">No results found</td>
                 </tr>
               ) : (
-                filtered.map((item) => (
+                // only render current page items
+                filtered.slice(0, page * pageSize).map((item) => (
                   <tr key={item.No} className="hover:bg-gray-800">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Cup}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Name}</td>
@@ -5185,9 +5192,19 @@ const CupList = () => {
             </tbody>
           </table>
         </div>
-        <div className="mt-6 text-center text-sm text-[#F5BB0B]">
+        {filtered.length > page * pageSize && (
+          <div className="mt-4 flex items-center justify-center">
+            <button
+              onClick={() => setPage((p) => p + 1)}
+              className="px-4 py-2 bg-[#F5BB0B] text-black rounded-md"
+            >
+              Load more
+            </button>
+          </div>
+        )}
+        {/* <div className="mt-6 text-center text-sm text-[#F5BB0B]">
           If your details are not in the list then reach out to us with payment screenshot and detailed address on WhatsApp at <a href="https://wa.me/918903301652" className="underline">8903301652</a> to get added.
-        </div>
+        </div> */}
       </div>
     </Container>
   )
