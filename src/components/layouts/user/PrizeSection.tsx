@@ -27,15 +27,15 @@ const PrizeSection = () => {
 
                             <h3 className='text-xl font-semibold mt-3 text-[#F5BB0B]'>Prize Announcement Dates</h3>
                             <ul className='list-disc list-inside space-y-1 mt-2 text-white/80'>
-                                <li>15 January 2026 – 10th Prize: Bullet</li>
-                                <li>18 January 2026 – 9th Prize: Bullet</li>
-                                <li>21 January 2026 – 8th Prize: Bullet</li>
-                                <li>24 January 2026 – 7th Prize: Bullet</li>
-                                <li>27 January 2026 – 6th Prize: Bullet</li>
-                                <li>30 January 2026 – 5th Prize: Bullet</li>
-                                <li>2 February 2026 – 4th Prize: Bullet</li>
+                                <li>15 January 2026 – 10th Prize: Royal Enfield 350</li>
+                                <li>18 January 2026 – 9th Prize: Royal Enfield 350</li>
+                                <li>21 January 2026 – 8th Prize: Royal Enfield 350</li>
+                                <li>24 January 2026 – 7th Prize: Royal Enfield 350</li>
+                                <li>27 January 2026 – 6th Prize: Royal Enfield 350</li>
+                                <li>30 January 2026 – 5th Prize: Royal Enfield 350</li>
+                                <li>2 February 2026 – 4th Prize: Royal Enfield 350</li>
                                 <li>5 February 2026 – 3rd Prize: Maruti Swift Car</li>
-                                <li>8 February 2026 – 2nd Prize: Thar ROZZ</li>
+                                <li>8 February 2026 – 2nd Prize: Thar axt</li>
                                 <li>11 February 2026 – 1st Prize: ₹27,70,000 Cash Prize</li>
                             </ul>
                         </div>

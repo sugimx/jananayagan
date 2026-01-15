@@ -14,7 +14,7 @@ const prizes = [
     },
     {
         place: '2nd Prize',
-        amount: 'Thar Roxx',
+        amount: 'Thar axt',
         note: 'Twin Bonanza',
         accent: '#FF6B00',
         glow: 'rgba(255, 107, 0, 0.45)',
@@ -32,7 +32,7 @@ const prizes = [
     },
     {
         place: '4th – 10th Prize',
-        amount: 'Bullet 350',
+        amount: 'Royal Enfield 350',
         note: '7 Winners',
         accent: '#C084FC',
         glow: 'rgba(192, 132, 252, 0.5)',
