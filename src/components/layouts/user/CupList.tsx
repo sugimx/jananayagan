@@ -2201,7 +2201,7 @@ const sampleDataRaw = [
     "Name": "Sabari murugan",
     "Phone": "8667000849",
     "Location": "Karimangalam",
-    "Cup": "614"
+    "Cup": "275"
   },
   {
     "No": "315",
@@ -4014,7 +4014,7 @@ const sampleDataRaw = [
     "Name": "PREMSAGAR R",
     "Phone": "9345790679",
     "Location": "Thally kothnoor",
-    "Cup": "873"
+    "Cup": "276"
   },
   {
     "No": "574",
