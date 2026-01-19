@@ -5965,10 +5965,12 @@ const maskPhoneString = (phone?: string) => {
   return out
 }
 
-const sampleData = sampleDataRaw.map((item) => ({
-  ...item,
-  Phone: maskPhoneString(item.Phone),
-}))
+const sampleData = sampleDataRaw
+  .filter((item) => item.Cup && item.Cup.trim() !== '')
+  .map((item) => ({
+    ...item,
+    Phone: maskPhoneString(item.Phone),
+  }))
 
 
 const CupList = () => {
@@ -6030,7 +6032,7 @@ const CupList = () => {
                 </tr>
               ) : (
                 // only render current page items
-                filtered.slice(0, page * pageSize).map((item, index) => (
+                filtered.slice((page - 1) * pageSize, page * pageSize).map((item, index) => (
                   <tr key={`${item.Cup}-${index}`} className="hover:bg-gray-800">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Cup}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Name}</td>
