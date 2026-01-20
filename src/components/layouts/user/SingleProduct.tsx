@@ -9,7 +9,7 @@ const SingleProduct = () => {
     return (
         <>
             <Container>
-                <div className='justify-between pt-10 items-center w-full md:flex'>
+                <div className='justify-between pt-10 items-center w-full md:flex mb-[80px]'>
                     <div className='h-full flex justify-center md:flex-1 md:items-end'>
                         <Image
                             src="/cup_number_27777777.png"
