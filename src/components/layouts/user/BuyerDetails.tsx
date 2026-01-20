@@ -52,19 +52,9 @@ const BuyerDetails = () => {
 
     const data = [
         {
-            id: 1,
-            content: "My Orders",
-            paragraph: "Track and manage all your past and current orders in one place"
-        },
-        {
             id: 2,
             content: "My Profile",
             paragraph: "View and manage your personal information."
-        },
-        {
-            id: 3,
-            content: "My Addresses",
-            paragraph: "Manage your saved addresses for faster and easier order"
         }
     ]
 
@@ -90,9 +80,7 @@ const BuyerDetails = () => {
                 </div>
             </div>
             <div className='min-h-[40vh]'>
-                {activeIndex === 0 && <Invoice />}
-                {activeIndex === 1 && <MyProfile />}
-                {activeIndex === 2 && <AddressPage />}
+                {activeIndex === 0 && <MyProfile />}
             </div>
         </>
     )

@@ -33,7 +33,6 @@ const Banner = () => {
                         <div className='flex flex-wrap items-center gap-6'>
                             <LinkComponent link='/product' content='Buy Now' />
                             <div className='space-y-1 text-sm text-white/70'>
-                                <p>• Free Delivery</p>
                                 <p>• Delivery starts from pongal</p>
                                 {/* <p>• Includes collectors sleeve</p> */}
                             </div>

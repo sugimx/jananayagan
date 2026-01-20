@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from './Container'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaTruck } from "react-icons/fa"
 import { FaRupeeSign } from "react-icons/fa"
 
@@ -24,6 +25,14 @@ const SingleProduct = () => {
                             <h1 className='text-[1rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text font-semibold md:text-[2rem] flex items-center'><FaRupeeSign className='text-white'/> 320</h1>
                             <span className='text-[0.7rem]'>including all taxes</span>
                         </div>
+                        <div className='w-full flex justify-center md:justify-start'>
+                            <Link 
+                                href="/payment"
+                                className='bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] text-black hover:bg-[#7a0202] hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-all duration-200 inline-block'
+                            >
+                                Buy Now - ₹320
+                            </Link>
+                        </div>
                         <p className='text-sm leading-relaxed md:text-lg'>Designed to mark {"Vijay's"} transition into public service and political leadership, each cup features a unique serial number — making every piece personal, memorable, and a lasting symbol of this new chapter in {"Tamil Nadu's"} political landscape.</p>
                         <div className='flex justify-center md:justify-start'>
                             <div className='flex justify-between gap-5 md:gap-10'>
@@ -36,11 +45,6 @@ const SingleProduct = () => {
                                         className='w-[40px] h-[40px] border-1 border-[#F5D57A] px-3 py-3 rounded-full md:w-[60px] md:h-[60px] md:py-4 md:px-4'
                                     />
                                     <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Sustainable</p>
-                                </div>
-                                <div className='flex flex-col gap-2 items-center'>
-                                    <FaTruck className='border-1 border-[#F5D57A] px-3 py-3 text-[40px] md:text-[60px] rounded-full  text-[#F5D57A]'
-                                    />
-                                    <p className='text-[0.6rem] text-[#F5D57A] md:text-[0.8rem]'>Free Shipping</p>
                                 </div>
                                 <div className='flex flex-col gap-2 items-center'>
                                     <Image
