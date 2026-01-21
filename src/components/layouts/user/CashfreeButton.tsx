@@ -1,8 +1,25 @@
 import React from "react";
 
-const CashfreeButton: React.FC = () => {
+interface CashfreeButtonProps {
+  state: string;
+}
+
+const CashfreeButton: React.FC<CashfreeButtonProps> = ({ state }) => {
+  const getPaymentUrl = () => {
+    switch (state) {
+      case 'tamilnadu':
+        return "https://payments.cashfree.com/forms/tvkcup2026tamilnadu";
+      case 'kerala':
+        return "https://payments.cashfree.com/forms/tvkcup2026kerala";
+      case 'others':
+        return "https://payments.cashfree.com/forms/tvkcup2026others";
+      default:
+        return "https://payments.cashfree.com/forms/tvkcup2026";
+    }
+  };
+
   return (
-    <a href="https://payments.cashfree.com/forms/tvkcup2026" target="_parent">
+    <a href={getPaymentUrl()} target="_parent">
       <div
         style={{
           border: "1px solid black",
@@ -37,7 +54,7 @@ const CashfreeButton: React.FC = () => {
               fontSize: "14px",
             }}
           >
-            Pay Now
+            Pay
           </span>
 
           <span

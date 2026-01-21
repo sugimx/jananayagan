@@ -1,11 +1,25 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import CashfreeButton  from '@/components/layouts/user/CashfreeButton';
 
 const AddressForm = () => {
     const { token, user } = useAuth();
+    const [selectedState, setSelectedState] = useState<string>('');
+
+    const getPrice = () => {
+        switch (selectedState) {
+            case 'tamilnadu':
+                return 30;
+            case 'kerala':
+                return 50;
+            case 'others':
+                return 100;
+            default:
+                return 0;
+        }
+    };
 
     if (!token || !user) {
         return (
@@ -24,10 +38,30 @@ const AddressForm = () => {
                     <h1 className='bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text text-2xl font-semibold mb-4 md:text-4xl'>
                         TVK Limited Edition Cup
                     </h1>
-                    <p className='text-lg mb-2'>Price: ₹320</p>
-                    <p className='text-sm text-gray-300 mb-6'>Click below to proceed with payment</p>
+                    
+                    <div className='mb-6'>
+                        <label htmlFor='state' className='block text-sm text-gray-300 mb-2'>Select Your State</label>
+                        <select
+                            id='state'
+                            value={selectedState}
+                            onChange={(e) => setSelectedState(e.target.value)}
+                            className='w-full max-w-md px-4 py-2 rounded-lg bg-transparent border border-[#F5BB0B] text-white outline-none focus:ring-2 focus:ring-[#F5BB0B]'
+                        >
+                            <option value='' className='bg-black'>Select State</option>
+                            <option value='tamilnadu' className='bg-black'>Tamil Nadu</option>
+                            <option value='kerala' className='bg-black'>Kerala</option>
+                            <option value='others' className='bg-black'>Others</option>
+                        </select>
+                    </div>
+
+                    {selectedState && (
+                        <>
+                            <p className='text-lg mb-2'>Price: ₹{320 + getPrice()}</p>
+                            <p className='text-sm text-gray-300 mb-6'>Click below to proceed with payment</p>
+                        </>
+                    )}
                 </div>
-                <CashfreeButton/>
+                {selectedState && <CashfreeButton state={selectedState} />}
             </div>
         </div>
     );

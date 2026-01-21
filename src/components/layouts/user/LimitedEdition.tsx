@@ -32,7 +32,7 @@ const LimitedEdition = () => {
                             </div> */}
                             <div className='flex flex-col gap-4 md:flex-row md:items-center'>
                                 <Link href='/product' className='inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] px-10 py-3 text-sm font-bold uppercase tracking-[0.3em] text-black shadow-[0_20px_60px_rgba(245,187,11,0.35)] transition hover:-translate-y-0.5'>
-                                    Buy now
+                                    Shop Now
                                 </Link>
                                 {/* <p className='text-white/60 text-sm md:text-base'>
                                     Includes authenticity certificate & lifetime listing in the Hall of Fans.

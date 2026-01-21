@@ -31,7 +31,7 @@ const Banner = () => {
                         </div>
 
                         <div className='flex flex-wrap items-center gap-6'>
-                            <LinkComponent link='/product' content='Buy Now' />
+                            <LinkComponent link='/product' content='Shop Now' />
                             <div className='space-y-1 text-sm text-white/70'>
                                 <p>• Delivery will be completed within 30 days from the booking date</p>
                                 <p>• Your cup number will be provided in list within 24 hours</p>

@@ -23,14 +23,14 @@ const SingleProduct = () => {
                         <h1 className='text-[2rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,187,11,0.35)] text-center font-bold md:text-[3rem] md:text-start'>Official TVK CUP 2026 Limited Edition</h1>
                         <div className='flex gap-2 items-center'>
                             <h1 className='text-[1rem] bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-transparent bg-clip-text font-semibold md:text-[2rem] flex items-center'><FaRupeeSign className='text-white'/> 320</h1>
-                            <span className='text-[0.7rem]'>including all taxes</span>
+                            <span className='text-[0.7rem]'> + Delivery Charges</span>
                         </div>
                         <div className='w-full flex justify-center md:justify-start'>
                             <Link 
                                 href="/payment"
                                 className='bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33] text-black hover:bg-[#7a0202] hover:text-white px-8 py-3 rounded-md font-semibold text-center transition-all duration-200 inline-block'
                             >
-                                Buy Now - ₹320
+                                Buy Now
                             </Link>
                         </div>
                         <p className='text-sm leading-relaxed md:text-lg'>Designed to mark {"Vijay's"} transition into public service and political leadership, each cup features a unique serial number — making every piece personal, memorable, and a lasting symbol of this new chapter in {"Tamil Nadu's"} political landscape.</p>
