@@ -56,7 +56,7 @@ const AddressForm = () => {
 
                     {selectedState && (
                         <>
-                            <p className='text-lg mb-2'>Price: ₹{320 + getPrice()}</p>
+                            <p className='text-lg mb-2'>Price : ₹ 320 + {getPrice()} (Delivery charge)</p>
                             <p className='text-sm text-gray-300 mb-6'>Click below to proceed with payment</p>
                         </>
                     )}
