@@ -6116,6 +6116,7 @@ const sampleData = sampleDataRaw
   .filter((item) => item.Cup && item.Cup.trim() !== '')
   .map((item) => ({
     ...item,
+    OriginalPhone: item.Phone, // Keep original phone for searching
     Phone: maskPhoneString(item.Phone),
   }))
 
@@ -6138,7 +6139,7 @@ const CupList = () => {
       return na - nb
     })
     return sampleData.filter((item) =>
-      item.Name.toLowerCase().includes(q) || item.Cup.includes(q) || item.Phone.includes(q) || item.Location.toLowerCase().includes(q)
+      item.Name.toLowerCase().includes(q) || item.Cup.includes(q) || item.OriginalPhone.includes(q) || item.Location.toLowerCase().includes(q)
     ).sort((a, b) => {
       const na = Number(a.Cup)
       const nb = Number(b.Cup)
