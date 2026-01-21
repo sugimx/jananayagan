@@ -42,7 +42,7 @@ export default function RootLayout({
         <Providers>
           <QueryProvider>
             <div className="site-marquee" aria-hidden="true">
-              <div className="site-marquee__inner">If your details are not in the list then reach out to us with payment screenshot and detailed address on WhatsApp at <a href="https://wa.me/918903301652" className="underline">8903301652</a> to get added.</div>
+              <div className="site-marquee__inner">If you booked on or before 10 December 2025 and your details are not listed, please WhatsApp your payment receipt and address details to our number at <a href="https://wa.me/918903301652" className="underline">8903301652</a> to get added.                           10 டிசம்பர் 2025 அன்று அல்லது அதற்கு முன் நீங்கள் முன்பதிவு செய்து, உங்கள் விவரங்கள் பட்டியலில் இல்லையெனில், தயவுசெய்து உங்கள் கட்டண ரசீது மற்றும் முகவரி விவரங்களை எங்கள் எண்ணிற்கு WhatsApp மூலம் அனுப்பவும்.</div>
             </div>
             <Navbar />
             {children}

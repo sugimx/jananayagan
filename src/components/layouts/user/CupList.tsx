@@ -5530,9 +5530,9 @@ const sampleDataRaw = [
   },
   {
     "No": "785",
-    "Name": "Surya",
-    "Phone": "7418671581",
-    "Location": "Thiruvannamalai ",
+    "Name": "Abiyal Nivetha",
+    "Phone": "9342733781",
+    "Location": "chennai ",
     "Cup": "256"
   },
   {
@@ -6073,6 +6073,27 @@ const sampleDataRaw = [
     "Phone": "7825915602",
     "Location": "Tirunelveli",
     "Cup": "179"
+  },
+  {
+    "No": "863",
+    "Name": "Surya Abi",
+    "Phone": "9786247036",
+    "Location": "ChinnSalem",
+    "Cup": "178"
+  },
+  {
+    "No": "864",
+    "Name": "Tony",
+    "Phone": "7358577515",
+    "Location": "Gudalur ",
+    "Cup": "177"
+  },
+  {
+    "No": "865",
+    "Name": "vijay Adithya",
+    "Phone": "9360889316",
+    "Location": "theni ",
+    "Cup": "176"
   }
 ]
 
@@ -6180,9 +6201,9 @@ const CupList = () => {
             </button>
           </div>
         )}
-        {/* <div className="mt-6 text-center text-sm text-[#F5BB0B]">
-          If your details are not in the list then reach out to us with payment screenshot and detailed address on WhatsApp at <a href="https://wa.me/918903301652" className="underline">8903301652</a> to get added.
-        </div> */}
+        <div className="mt-6 text-center text-sm text-[#F5BB0B]">
+         Once you placed a order, please wait for up to 24 hours to get your details updated in the list.
+        </div>
       </div>
     </Container>
   )
