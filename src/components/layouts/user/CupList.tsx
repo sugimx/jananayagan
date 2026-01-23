@@ -5256,27 +5256,6 @@ const sampleDataRaw = [
     "Cup": "1050"
   },
   {
-    "No": "",
-    "Name": "",
-    "Phone": "",
-    "Location": "",
-    "Cup": ""
-  },
-  {
-    "No": "",
-    "Name": "",
-    "Phone": "",
-    "Location": "",
-    "Cup": ""
-  },
-  {
-    "No": "No",
-    "Name": "Name",
-    "Phone": "Phone",
-    "Location": "Location",
-    "Cup": "Cup"
-  },
-  {
     "No": "751",
     "Name": "Sivaguru",
     "Phone": "7010864683",
@@ -5443,20 +5422,6 @@ const sampleDataRaw = [
     "Phone": "7868088044",
     "Location": "Musiri ",
     "Cup": "277"
-  },
-  {
-    "No": "",
-    "Name": "",
-    "Phone": "",
-    "Location": "",
-    "Cup": ""
-  },
-  {
-    "No": "",
-    "Name": "",
-    "Phone": "",
-    "Location": "",
-    "Cup": ""
   },
   {
     "No": "775",
@@ -6388,6 +6353,139 @@ const sampleDataRaw = [
     "Phone": "9080125241",
     "Location": "Tiruppur ",
     "Cup": "142"
+  },
+  {
+    "No": "908",
+    "Name": "Ajai kumar",
+    "Phone": "9384688839",
+    "Location": "Chennai",
+    "Cup": "141"
+  },
+  {
+    "No": "909",
+    "Name": "Karthick",
+    "Phone": "9952567070",
+    "Location": "Coimbatore",
+    "Cup": "140"
+  },
+  {
+    "No": "910",
+    "Name": "Surya l",
+    "Phone": "9578613114",
+    "Location": "Erode",
+    "Cup": "139"
+  },
+  {
+    "No": "911",
+    "Name": "S. Salman khan",
+    "Phone": "8428435220",
+    "Location": "Ranipet ",
+    "Cup": "138"
+  },
+  {
+    "No": "912",
+    "Name": "Elavarasi Kanagaraj",
+    "Phone": "9444610164",
+    "Location": "salem",
+    "Cup": "137"
+  },
+  {
+    "No": "913",
+    "Name": "Sudalai Muthu",
+    "Phone": "9080475303",
+    "Location": "chennai",
+    "Cup": "136"
+  },
+  {
+    "No": "914",
+    "Name": "Rokini Sekar",
+    "Phone": "8438669964",
+    "Location": "Puducherry ",
+    "Cup": "135"
+  },
+  {
+    "No": "915",
+    "Name": "A. சக்திவேல் ",
+    "Phone": "9994667977",
+    "Location": "ஈரோடு ",
+    "Cup": "134"
+  },
+  {
+    "No": "916",
+    "Name": "VENKATESH D",
+    "Phone": "9789262806",
+    "Location": "Chennai",
+    "Cup": "133"
+  },
+  {
+    "No": "917",
+    "Name": "diya",
+    "Phone": "6369129494",
+    "Location": "Mullukurichi",
+    "Cup": "132"
+  },
+  {
+    "No": "918",
+    "Name": "Sashikumarsasi R",
+    "Phone": "9916239293",
+    "Location": "Bangalore",
+    "Cup": "131"
+  },
+  {
+    "No": "919",
+    "Name": "Pukazhendhi T",
+    "Phone": "8778861269",
+    "Location": "Pollachi ",
+    "Cup": "130"
+  },
+  {
+    "No": "920",
+    "Name": "Hariprasad V",
+    "Phone": "6309759836",
+    "Location": "Hyderabad",
+    "Cup": "129"
+  },
+  {
+    "No": "921",
+    "Name": "Tamil entertainment",
+    "Phone": "7402015949",
+    "Location": "Erode",
+    "Cup": "128"
+  },
+  {
+    "No": "922",
+    "Name": "A.Baskaran boss",
+    "Phone": "8056550350",
+    "Location": "Ramanathapuram ",
+    "Cup": "127"
+  },
+  {
+    "No": "923",
+    "Name": "B.Lavanya",
+    "Phone": "6385530418",
+    "Location": "Virudhunagar ",
+    "Cup": "126"
+  },
+  {
+    "No": "924",
+    "Name": "Arun mari",
+    "Phone": "7373937334",
+    "Location": "Madurai ",
+    "Cup": "125"
+  },
+  {
+    "No": "925",
+    "Name": "Vinoth Kumar",
+    "Phone": "8531933877",
+    "Location": "chennai",
+    "Cup": "124"
+  },
+  {
+    "No": "926",
+    "Name": "Divya",
+    "Phone": "9516512345",
+    "Location": "Puducherry",
+    "Cup": "123"
   }
 ]
 
