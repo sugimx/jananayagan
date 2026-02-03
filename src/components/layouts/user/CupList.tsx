@@ -8251,89 +8251,111 @@ const sampleData = sampleDataRaw
 
 
 const CupList = () => {
-  const [query, setQuery] = useState('')
-  const [page, setPage] = useState(1)
-  const pageSize = 10
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [searchResults, setSearchResults] = useState<typeof sampleData>([])
+  const [hasSearched, setHasSearched] = useState(false)
 
-  useEffect(() => {
-    setPage(1)
-  }, [query])
+  const handleSearch = () => {
+    const q = phoneNumber.trim()
+    if (!q) {
+      setSearchResults([])
+      setHasSearched(false)
+      return
+    }
+    
+    const results = sampleData.filter((item) =>
+      item.OriginalPhone.includes(q)
+    )
+    setSearchResults(results)
+    setHasSearched(true)
+  }
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    if (!q) return sampleData.slice().sort((a, b) => {
-      const na = Number(a.Cup)
-      const nb = Number(b.Cup)
-      if (isNaN(na) || isNaN(nb)) return String(a.Cup).localeCompare(String(b.Cup))
-      return na - nb
-    })
-    return sampleData.filter((item) =>
-      item.Name.toLowerCase().includes(q) || item.Cup.includes(q) || item.OriginalPhone.includes(q) || item.Location.toLowerCase().includes(q)
-    ).sort((a, b) => {
-      const na = Number(a.Cup)
-      const nb = Number(b.Cup)
-      if (isNaN(na) || isNaN(nb)) return String(a.Cup).localeCompare(String(b.Cup))
-      return na - nb
-    })
-  }, [query])
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
 
   return (
     <Container>
-      <div className="max-w-[1200px] mx-auto my-10 p-4">
-        <h1 className="text-center text-2xl font-semibold mb-6 text-white">Contact List</h1>
+      <div className="max-w-[1200px] mx-auto my-6 md:my-10 px-3 md:px-4">
+        <h1 className="text-center text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-white px-2">Search Your Order</h1>
 
-        <div className="mb-8 w-full md:w-1/2">
-          <input
-            type="search"
-            placeholder="Search by name, mobile or location"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full border-1 border-[#F5BB0B] text-[#F5BB0B] outline-none rounded-lg py-2 px-3 bg-transparent"
-          />
-        </div>
-
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200 bg-[#111] rounded-lg">
-            <thead className="bg-[#0b0b0b]">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-[#F5BB0B] uppercase tracking-wider">#</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-[#F5BB0B] uppercase tracking-wider">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-[#F5BB0B] uppercase tracking-wider">Mobile</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-[#F5BB0B] uppercase tracking-wider">Location</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-700">
-              {filtered.length === 0 ? (
-                <tr>
-                  <td colSpan={4} className="px-6 py-4 text-center text-sm text-white">No results found</td>
-                </tr>
-              ) : (
-                // only render current page items
-                filtered.slice((page - 1) * pageSize, page * pageSize).map((item, index) => (
-                  <tr key={`${item.Cup}-${index}`} className="hover:bg-gray-800">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Cup}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Name}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Phone}</td>
-                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.Location}</td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-        {filtered.length > page * pageSize && (
-          <div className="mt-4 flex items-center justify-center">
+        <div className="mb-6 md:mb-8 w-full max-w-xl mx-auto px-2">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <input
+              type="tel"
+              placeholder="Enter phone number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              onKeyPress={handleKeyPress}
+              className="w-full sm:flex-1 border-2 border-[#F5BB0B] text-[#F5BB0B] outline-none rounded-lg py-2.5 md:py-3 px-3 md:px-4 bg-transparent text-base md:text-lg"
+            />
             <button
-              onClick={() => setPage((p) => p + 1)}
-              className="px-4 py-2 bg-[#F5BB0B] text-black rounded-md"
+              onClick={handleSearch}
+              className="w-full sm:w-auto px-4 md:px-6 py-2.5 md:py-3 bg-[#F5BB0B] text-black rounded-lg font-semibold hover:bg-[#d4a00a] transition-colors whitespace-nowrap"
             >
-              Load more
+              Search
             </button>
           </div>
-        )}
-        <div className="mt-6 text-center text-sm text-[#F5BB0B]">
-         Once you placed a order, please wait for up to 24 hours to get your details updated in the list.
         </div>
+
+        {hasSearched && (
+          <div className="mt-6 md:mt-8">
+            {searchResults.length === 0 ? (
+              <div className="text-center py-8 md:py-12 px-4">
+                <p className="text-white text-base md:text-lg">No orders found for this phone number.</p>
+                <p className="text-[#F5BB0B] text-sm mt-2">
+                  Once you place an order, please wait up to 24 hours for your details to be updated.
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
+                {searchResults.map((item, index) => (
+                  <div 
+                    key={`${item.Cup}-${index}`}
+                    className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-gradient-to-br from-[#1a1a1a] to-[#0b0b0b] border-2 border-[#F5BB0B] rounded-xl p-4 md:p-6 shadow-lg hover:shadow-[#F5BB0B]/20 transition-all duration-300"
+                  >
+                    <div className="mb-3 md:mb-4">
+                      <h3 className="text-[#F5BB0B] font-bold text-base md:text-lg">Cup #{item.Cup}</h3>
+                    </div>
+                    
+                    <div className="space-y-2 md:space-y-3">
+                      <div>
+                        <p className="text-gray-400 text-xs md:text-sm mb-1">Name</p>
+                        <p className="text-white font-semibold text-sm md:text-base break-words">{item.Name}</p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-gray-400 text-xs md:text-sm mb-1">Phone</p>
+                        <p className="text-white font-semibold text-sm md:text-base break-all">{item.Phone}</p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-gray-400 text-xs md:text-sm mb-1">Location</p>
+                        <p className="text-white font-semibold text-sm md:text-base break-words">{item.Location}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            {searchResults.length > 0 && (
+              <div className="mt-4 md:mt-6 text-center px-4">
+                <p className="text-[#F5BB0B] text-xs md:text-sm">
+                  Found {searchResults.length} order{searchResults.length > 1 ? 's' : ''} for this phone number
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {!hasSearched && (
+          <div className="text-center py-8 md:py-12 px-4">
+            <p className="text-gray-400 text-base md:text-lg">Enter your phone number to search for your orders</p>
+          </div>
+        )}
       </div>
     </Container>
   )
