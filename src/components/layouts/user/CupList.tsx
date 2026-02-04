@@ -8265,7 +8265,12 @@ const CupList = () => {
     
     const results = sampleData.filter((item) =>
       item.OriginalPhone.includes(q)
-    )
+    ).sort((a, b) => {
+      const na = Number(a.Cup)
+      const nb = Number(b.Cup)
+      if (isNaN(na) || isNaN(nb)) return String(a.Cup).localeCompare(String(b.Cup))
+      return na - nb
+    })
     setSearchResults(results)
     setHasSearched(true)
   }
@@ -8316,8 +8321,10 @@ const CupList = () => {
                     key={`${item.Cup}-${index}`}
                     className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-gradient-to-br from-[#1a1a1a] to-[#0b0b0b] border-2 border-[#F5BB0B] rounded-xl p-4 md:p-6 shadow-lg hover:shadow-[#F5BB0B]/20 transition-all duration-300"
                   >
-                    <div className="mb-3 md:mb-4">
-                      <h3 className="text-[#F5BB0B] font-bold text-base md:text-lg">Cup #{item.Cup}</h3>
+                    <div className="flex items-center justify-center mb-4 md:mb-6">
+                      <div className="w-20 h-20 md:w-24 md:h-24 bg-[#F5BB0B] rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-black font-bold text-2xl md:text-3xl">{item.Cup}</span>
+                      </div>
                     </div>
                     
                     <div className="space-y-2 md:space-y-3">
