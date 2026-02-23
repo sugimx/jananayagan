@@ -23,7 +23,7 @@ const winnersData: WinnerType[] = [
         cupNumber: 'Coming Soon',
         location: 'Future Winner\'s City',
         prizePosition: 'Grand Prize',
-        announcedDate: '2025-03-16'
+        announcedDate: '2026-03-16'
     },
     {
         _id: '2',
@@ -31,7 +31,7 @@ const winnersData: WinnerType[] = [
         cupNumber: 'Coming Soon',
         location: 'Future Winner\'s City',
         prizePosition: '2nd Prize',
-        announcedDate: '2025-03-09'
+        announcedDate: '2026-03-09'
     },
     {
         _id: '3',
@@ -39,23 +39,31 @@ const winnersData: WinnerType[] = [
         cupNumber: 'Coming Soon',
         location: 'Future Winner\'s City',
         prizePosition: '3rd Prize',
-        announcedDate: '2025-03-02'
+        announcedDate: '2026-03-02'
     },
     {
-        _id: '7',
+        _id: '6',
         name: 'Nithish',
         cupNumber: 'TVK-1394',
         location: 'Trichy',
-        prizePosition: '7th Prize',
-        announcedDate: '2025-02-09'
+        prizePosition: '6th Prize',
+        announcedDate: '2026-02-09'
     },
     {
-        _id: '8',
+        _id: '7',   
         name: 'Jaya Kumar',
         cupNumber: 'TVK-1168',
         location: 'Chennai',
+        prizePosition: '7th Prize',
+        announcedDate: '2026-02-02'
+    },
+    {
+        _id: '8',
+        name: 'Aravinth Raj Kumar',
+        cupNumber: 'TVK-470',
+        location: 'Coonoor',
         prizePosition: '8th Prize',
-        announcedDate: '2025-02-02'
+        announcedDate: '2026-01-26'
     },
     {
         _id: '9',
@@ -63,7 +71,7 @@ const winnersData: WinnerType[] = [
         cupNumber: 'TVK-263',
         location: 'Kanchipuram',
         prizePosition: '9th Prize',
-        announcedDate: '2025-01-19'
+        announcedDate: '2026-01-19'
     },
     {
         _id: '10',
@@ -71,7 +79,7 @@ const winnersData: WinnerType[] = [
         cupNumber: 'TVK-971',
         location: 'Karumathampatti',
         prizePosition: '10th Prize',
-        announcedDate: '2025-01-15'
+        announcedDate: '2026-01-15'
     },
 ]
 
