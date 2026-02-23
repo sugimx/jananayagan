@@ -41,6 +41,9 @@ const Navbar = () => {
                       <Link href="/list" className={currentPath === '/list' ? 'text-[#F5BB0B]' : ''}>List</Link>
                     </li>
                   <li className='py-2'>
+                      <Link href="/winner" className={currentPath === '/winner' ? 'text-[#F5BB0B]' : ''}>Winner</Link>
+                  </li>
+                  <li className='py-2'>
                       <Link href="/contact" className={currentPath === '/contact' ? 'text-[#F5BB0B]' : ''}>Contact Us</Link>
                   </li>
               </ul>

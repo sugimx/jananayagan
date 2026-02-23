@@ -29,6 +29,9 @@ const MobileNavbar = ({ toggle, currentPath, setToggle }: Props) => {
                         <Link href="/list" className={currentPath === '/list' ? 'text-yellow-500' : ''} onClick={handleToggleAction}>List</Link>
                     </li>
                     <li className='py-2'>
+                        <Link href="/winner" className={currentPath === '/winner' ? 'text-yellow-500' : ''} onClick={handleToggleAction}>Winner</Link>
+                    </li>
+                    <li className='py-2'>
                         <Link href="/contact" className={currentPath === '/contact' ? 'text-yellow-500' : ''} onClick={handleToggleAction}>Contact Us</Link>
                     </li>
                 </ul>
