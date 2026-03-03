@@ -4,25 +4,16 @@ import Container from './Container'
 
 const prizes = [
     {
-        place: 'Grand Prize',
-        amount: '₹27,70,000',
-        note: 'Mega Jackpot',
-        accent: '#F5BB0B',
-        glow: 'rgba(245, 187, 11, 0.4)',
-        background: 'linear-gradient(135deg, rgba(245,187,11,0.15), rgba(15,7,30,0.6))',
-        image: 'prize'
-    },
-    {
-        place: '2nd Prize',
+        place: '1st Prize',
         amount: 'Thar axt',
-        note: 'Twin Bonanza',
+        note: 'Mega Jackpot',
         accent: '#FF6B00',
         glow: 'rgba(255, 107, 0, 0.45)',
         background: 'linear-gradient(135deg, rgba(255,107,0,0.12), rgba(10,3,34,0.8))',
         image: 'car1'
     },
     {
-        place: '3rd Prize',
+        place: '2nd Prize',
         amount: 'Swift',
         note: 'Golden Streak',
         accent: '#7CFBFF',
@@ -31,9 +22,9 @@ const prizes = [
         image: 'car2'
     },
     {
-        place: '4th – 10th Prize',
+        place: '3rd – 10th Prize',
         amount: 'Royal Enfield 350',
-        note: '7 Winners',
+        note: '8 Winners',
         accent: '#C084FC',
         glow: 'rgba(192, 132, 252, 0.5)',
         background: 'linear-gradient(135deg, rgba(192,132,252,0.15), rgba(15,4,40,0.9))',

@@ -36,10 +36,9 @@ const PrizeSection = () => {
                                 <li>9 February 2026 – 6th Prize: Royal Enfield 350</li>
                                 <li>16 February 2026 – 5th Prize: Royal Enfield 350</li>
                                 <li>23 February 2026 – 4th Prize: Royal Enfield 350</li>
-                                <li>2 March 2026 – 3rd Prize: Maruti Swift Car</li>
-                                <li>9 March 2026 – 2nd Prize: Thar axt</li>
-                                <li>16 March 2026 – 1st Prize: ₹27,70,000 Cash Prize</li>
-                                <li>25 March 2026 – Surprise Prize</li>
+                                <li>9 March 2026 – 3rd Prize: Royal Enfield 350</li>
+                                <li>16 March 2026 – 2nd Prize: Maruti Swift Car</li>
+                                <li>25 March 2026 – 1st Prize: Thar axt</li>
                             </ul>
 
                             <h3 className='text-xl font-semibold mt-3 text-[#F5BB0B]'>Prize Distribution Video Upload Dates</h3>
@@ -53,7 +52,7 @@ const PrizeSection = () => {
                                 <li>7 March 2026 – 4th Prize</li>
                                 <li>14 March 2026 – 3rd Prize</li>
                                 <li>21 March 2026 – 2nd Prize</li>
-                                <li>28 March 2026 – 1st Prize & Surprise Prize</li>
+                                <li>28 March 2026 – 1st Prize</li>
                             </ul>
                         </div>
                     </div>

@@ -22,23 +22,23 @@ const winnersData: WinnerType[] = [
         name: 'Mega Jackpot',
         cupNumber: 'Coming Soon',
         location: 'Future Winner\'s City',
-        prizePosition: 'Grand Prize',
-        announcedDate: '2026-03-16'
+        prizePosition: '1st Prize',
+        announcedDate: '2026-03-25'
     },
     {
         _id: '2',
-        name: 'Twin Bonanza',
-        cupNumber: 'Coming Soon',
-        location: 'Future Winner\'s City',
-        prizePosition: '2nd Prize',
-        announcedDate: '2026-03-09'
-    },
-    {
-        _id: '3',
         name: 'Golden Streak',
         cupNumber: 'Coming Soon',
         location: 'Future Winner\'s City',
-        prizePosition: '3rd Prize',
+        prizePosition: '2nd Prize',
+        announcedDate: '2026-03-16'
+    },
+    {
+        _id: '5',
+        name: 'Varun Raja',
+        cupNumber: 'TVK-2102',
+        location: 'Kanyakumari',
+        prizePosition: '5th Prize',
         announcedDate: '2026-03-02'
     },
     {
@@ -124,15 +124,13 @@ const Winner = () => {
                                     <div className='flex items-center justify-center mb-4'>
                                         <Image
                                             src={
-                                                index === 0 ? '/money_illustration_first_prize.png' :
-                                                index === 1 ? '/thar_second_price.png' :
-                                                index === 2 ? '/swift_third_prize.png' :
+                                                index === 0 ? '/thar_second_price.png' :
+                                                index === 1 ? '/swift_third_prize.png' :
                                                 '/bullet_fourth_prize.png'
                                             }
                                             alt={
-                                                index === 0 ? 'Cash Prize' :
-                                                index === 1 ? 'Thar' :
-                                                index === 2 ? 'Swift' :
+                                                index === 0 ? 'Thar' :
+                                                index === 1 ? 'Swift' :
                                                 'Royal Enfield'
                                             }
                                             width={120}

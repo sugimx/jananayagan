@@ -65,7 +65,7 @@ const AboutContent = () => {
             <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='lg:flex-[1] flex justify-center lg:justify-start items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image
-                        src="/cup_number_277.png"
+                        src="/Whistle.png"
                         width={500}
                         height={500}
                         alt='cup image'
@@ -104,7 +104,7 @@ const AboutContent = () => {
             <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='lg:flex-[1] flex justify-center lg:justify-start items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image
-                        src="/cup_number_100000.png"
+                        src="/Whistle.png"
                         width={500}
                         height={500}
                         alt='cup image'
