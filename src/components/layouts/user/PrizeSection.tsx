@@ -54,6 +54,8 @@ const PrizeSection = () => {
                                 <li>21 March 2026 – 2nd Prize</li>
                                 <li>28 March 2026 – 1st Prize</li>
                             </ul>
+
+                            <h3 className='text-xl font-semibold mt-3 text-[#ff4e4e]'> We are closing the live event due to the elections. So dates will be updated after the elections.</h3>
                         </div>
                     </div>
                 </div>
