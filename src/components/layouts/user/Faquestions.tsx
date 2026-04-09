@@ -11,7 +11,7 @@ const questions = [
     answer: "The TVK Tribute Cup is not an ordinary cup — it is a powerful fan symbol, a unique identity, and a collectible piece of history. Each cup carries a unique serial number and your name will be permanently displayed on our official website, marking your place in this fan movement. This edition will be produced only once, and once bookings close, it will never be made again, which makes it a rare collector's item with value that can grow over time. You also get the ability to resell or transfer ownership in the future, making it more than just a cup — it becomes a digital and physical asset you own. Bringing this cup into your home represents pride, unity, support, and emotional connection. This is not just buying a product; it's proving that you stood with the movement and became a part of the moment forever. Owning this cup is a statement: “I was there. I am part of this legacy.",
   },
   {
-    question: 'Is there any extra charge for the Lucky Draw or Reward System?',
+    question: 'Is there any extra charge for the Reward System?',
     answer: 'No. There is absolutely NO extra charge. The lucky draw is free, and every customer who buys a cup is automatically included. You do not have to pay any separate entry fee.',
   },
   {

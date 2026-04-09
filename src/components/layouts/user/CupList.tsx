@@ -16059,7 +16059,7 @@ const CupList = () => {
               <div className="text-center py-8 md:py-12 px-4">
                 <p className="text-white text-base md:text-lg">No orders found for this phone number.</p>
                 <p className="text-[#F5BB0B] text-sm mt-2">
-                  Once you place an order, please wait up to 24 hours for your details to be updated.
+                  Once you place an order, please wait up to 48 hours for your details to be updated.
                 </p>
               </div>
             ) : (
