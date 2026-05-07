@@ -17421,8 +17421,47 @@ const sampleData = sampleDataRaw
 
 const CupList = () => {
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [searchResults, setSearchResults] = useState<typeof sampleData>([])
+  const [searchResults, setSearchResults] = useState<any[]>([])
   const [hasSearched, setHasSearched] = useState(false)
+  const [sampleDataRaw, setSampleDataRaw] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  // Fetch cup list data from backend on mount
+  useEffect(() => {
+    const fetchCupList = async () => {
+      try {
+        const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken')
+        const response = await fetch(`${process.env.API_BASE_URL}/orders/cuplist/all`, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        
+        if (response.ok) {
+          const data = await response.json()
+          if (data.success && data.data) {
+            setSampleDataRaw(data.data)
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching cup list:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    
+    fetchCupList()
+  }, [])
+
+  const sampleData = sampleDataRaw
+    .filter((item) => item.Cup && item.Cup.toString().trim() !== '')
+    .map((item) => ({
+      ...item,
+      OriginalPhone: item.Phone, // Keep original phone for searching
+      Phone: maskPhoneString(item.Phone),
+    }))
 
   const handleSearch = () => {
     const q = phoneNumber.trim()
@@ -17474,7 +17513,11 @@ const CupList = () => {
           </div>
         </div>
 
-        {hasSearched && (
+        {loading ? (
+          <div className="text-center py-8 md:py-12 px-4">
+            <p className="text-gray-400 text-base md:text-lg">Loading...</p>
+          </div>
+        ) : hasSearched ? (
           <div className="mt-6 md:mt-8">
             {searchResults.length === 0 ? (
               <div className="text-center py-8 md:py-12 px-4">
@@ -17525,9 +17568,7 @@ const CupList = () => {
               </div>
             )}
           </div>
-        )}
-
-        {!hasSearched && (
+        ) : (
           <div className="text-center py-8 md:py-12 px-4">
             <p className="text-gray-400 text-base md:text-lg">Enter your phone number to search for your orders</p>
           </div>
