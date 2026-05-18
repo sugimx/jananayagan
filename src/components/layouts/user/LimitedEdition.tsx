@@ -47,7 +47,7 @@ const LimitedEdition = () => {
                             <div className='relative flex flex-col items-center gap-6 text-center'>
                                 <p className='text-xs uppercase tracking-[0.45em] text-white/60'>Limited Edition</p>
                                 <Image
-                                    src='/cup_number_27777777.png'
+                                    src='/3.png'
                                     width={400}
                                     height={400}
                                     alt="TVK Cup image"

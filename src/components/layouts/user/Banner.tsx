@@ -65,7 +65,7 @@ const Banner = () => {
 
                         <div className='w-full rounded-[32px] border border-white/5 bg-gradient-to-br from-[#06050a] to-[#0e1022] px-6 py-10 text-center shadow-inner'>
                             <Image
-                                src='/cup_number_277.png'
+                                src='/1.png'
                                 alt='TVK cup'
                                 width={300}
                                 height={300}

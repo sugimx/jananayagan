@@ -204,16 +204,15 @@ const MyProfile = () => {
                                     }
                                 >
                                     <option className='bg-[#7a0202]'>---Select Your State---</option>
-                                    <option className='bg-[#7a0202]' value="TamilNadu">TamilNadu</option>
-                                    <option className='bg-[#7a0202]' value="Kerala">Kerala</option>
-                                    <option className='bg-[#7a0202]' value="others">Others</option>
+                                    <option className='bg-[#7a0202]' value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                    <option className='bg-[#7a0202]' value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                                 </select>
                             </FormControl>
                             {
                                 errors?.state && <ErrorMessage message={errors?.state?.message} />
                             }
                             {
-                                stateWatch === 'others' ? (
+                                stateWatch === 'Others' ? (
                                     <FormControl>
                                         <Label content="District" />
                                         <InputBox<ProfileType>

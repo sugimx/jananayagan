@@ -43,7 +43,7 @@ const SocialReposibility = () => {
                 <div className='absolute -inset-4 rounded-[36px] bg-gradient-to-br from-[#ffed9f]/30 via-transparent to-[#ff6b00]/20 blur-2xl opacity-60' />
                 <div className='relative rounded-[32px] border border-white/5 bg-gradient-to-br from-white/10 to-white/5 p-6 backdrop-blur-md'>
                   <Image
-                    src="/Whistle.png"
+                    src="/2.png"
                     width={400}
                     height={400}
                     alt='TVK Cup'

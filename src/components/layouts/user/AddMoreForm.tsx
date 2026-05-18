@@ -190,15 +190,15 @@ const AddMoreForm: React.FC<props> = ({ onHandleToggle, setState, data, buyerInd
                             <FaMapMarked className='text-[2.8rem] px-3' />
                             <select className='h-full w-full outline-none' {...register('state', { required: "state field is required" })}>
                                 <option value="">Choose an option</option>
-                                <option value="TamilNadu">Tamilnadu</option>
-                                <option value="Kerala">Kerala</option>
-                                <option value="others">Others</option>
+                                {/* <option value="TamilNadu">Tamilnadu</option> */}
+                                <option value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                <option value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                             </select>
                         </div>
                         {errors?.state && (
                             <ErrorMessage message={errors?.state?.message} />
                         )}
-                        {stateWatch === 'others' ? (
+                        {stateWatch === 'Others' ? (
                             <div className='bg-white flex text-black items-center h-10'>
                                 <BsPinMapFill className='text-[2.8rem] px-3' />
                                 <input type="text" className='h-full w-full outline-none' placeholder='District' {...register('dist', { required: "District field is required" })} />

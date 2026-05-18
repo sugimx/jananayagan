@@ -111,7 +111,7 @@ const LuckyDraw = () => {
                             <div className='relative flex flex-col items-center text-center gap-4'>
                                 <p className='text-sm uppercase tracking-[0.4rem] text-white/60'>Limited Edition</p>
                                 <Image
-                                    src='/cup_number_5000.png'
+                                    src='/2.png'
                                     width={500}
                                     height={500}
                                     alt='TVK Cup'

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import LoadingScreen from './LoadingScreen'
 const Banner = lazy(() => import('@/components/layouts/user/Banner'))
 const FaQuestions = lazy(() => import('@/components/layouts/user/Faquestions'))
+const ContactUs = lazy(() => import('@/components/layouts/user/ContactUs'))
 const Information = lazy(() => import('@/components/layouts/user/Information'))
 const LimitedEdition = lazy(() => import('@/components/layouts/user/LimitedEdition'))
 const LuckyDraw = lazy(() => import('@/components/layouts/user/LuckyDraw'))
@@ -21,8 +22,9 @@ const HomeScreen = () => {
                 <Section2 />
                 <LimitedEdition />
                 <SocialResponsibility />
-                <Information />
+                {/* <Information /> */}
                 <FaQuestions />
+                <ContactUs />
             </Suspense>
         </>
     )

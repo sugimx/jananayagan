@@ -225,16 +225,15 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                                 }
                             >
                                 <option className='bg-black' value="" >Select Your State</option>
-                                <option className='bg-black' value="TamilNadu">TamilNadu</option>
-                                <option className='bg-black' value="Kerala">Kerala</option>
-                                <option className='bg-black' value="others">Others</option>
+                                <option className='bg-black' value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                <option className='bg-black' value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                             </select>
                         </InputContainer>
                         {
                             errors?.state && <ErrorMessage message={errors?.state?.message} />
                         }
                         {
-                            stateWatch === 'others' ? (
+                            stateWatch === 'Others' ? (
                                 <InputContainer>
                                     <InputLabel content='District' />
                                     <Input<FormData> placeholder='Enter Your District' register={register} name="district" errorMsg="District field is required" />

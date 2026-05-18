@@ -128,7 +128,7 @@ const InvoicePDF = ({ data }: {data: InvoiceProps}) => (
               <Text style={{ marginRight: 45, marginBottom: 15 }}>304.00</Text>
               <Text style={{ marginRight: 45, marginBottom: 15 }}>15.20</Text>
               <Text style={{ marginRight: 45, marginBottom: 15 }}>0.80</Text>
-              <Text style={{ marginRight: 45, marginBottom: 15 }}>{data?.billedTo?.state === 'others' ? 'Pay To Delivery' : 'Free'}</Text>
+              <Text style={{ marginRight: 45, marginBottom: 15 }}>{data?.billedTo?.state === 'Others' ? 'Pay To Delivery' : 'Free'}</Text>
               <Text style={{ marginRight: 45, marginBottom: 15 }}>320</Text>
           </View>
       </View>

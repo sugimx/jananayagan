@@ -150,9 +150,9 @@ const AddressForm = () => {
                                         }
                                     >
                                         <option className='' value="">Select Your State</option>
-                                        <option className='bg-black' value="TamilNadu">TamilNadu</option>
-                                        <option className='bg-black' value="Kerala">Kerala</option>
-                                        <option value="others">Others</option>
+                                        {/* <option className='bg-black' value="TamilNadu">Tamilnadu</option> */}
+                                        <option className='bg-black' value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                        <option value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                                     </select>
                                 </AddressFormContainer>
                             </div>
@@ -160,7 +160,7 @@ const AddressForm = () => {
                                 errors?.state && <ErrorMessage message={errors?.state?.message} />
                             }
                             {
-                                stateWatch === 'others' ? (
+                                stateWatch === 'Others' ? (
                                     <div>
                                         <label className='text-sm text-white md:text-lg'>District</label>
                                         <AddressFormContainer>

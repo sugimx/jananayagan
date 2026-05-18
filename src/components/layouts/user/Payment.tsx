@@ -4,19 +4,19 @@ import React, { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import CashfreeButton  from '@/components/layouts/user/CashfreeButton';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const AddressForm = () => {
     const { token, user } = useAuth();
     const [selectedState, setSelectedState] = useState<string>('');
+    const [agreedToTerms, setAgreedToTerms] = useState<boolean>(false);
     const router = useRouter();
 
     const getPrice = () => {
         switch (selectedState) {
-            case 'tamilnadu':
-                return 30;
-            case 'kerala':
+            case 'Tamilnadu':
                 return 50;
-            case 'others':
+            case 'Others':
                 return 100;
             default:
                 return 0;
@@ -56,9 +56,8 @@ const AddressForm = () => {
                             className='w-full max-w-md px-4 py-2 rounded-lg bg-transparent border border-[#F5BB0B] text-white outline-none focus:ring-2 focus:ring-[#F5BB0B]'
                         >
                             <option value='' className='bg-black'>Select State</option>
-                            <option value='tamilnadu' className='bg-black'>Tamil Nadu</option>
-                            <option value='kerala' className='bg-black'>Kerala</option>
-                            <option value='others' className='bg-black'>Others</option>
+                            <option value='Tamilnadu' className='bg-black'>Tamilnadu/Kerala/Pondicherry</option>
+                            <option value='Others' className='bg-black'>Karnataka/Andhra Pradesh/Telangana</option>
                         </select>
                     </div>
 
@@ -66,10 +65,26 @@ const AddressForm = () => {
                         <>
                             <p className='text-lg mb-2'>Price : ₹ 320 + {getPrice()} (Delivery charge)</p>
                             <p className='text-sm text-gray-300 mb-6'>Click below to proceed with payment</p>
+                            
+                            <div className='flex items-center justify-center gap-3 mb-6 max-w-md'>
+                                <input
+                                    type='checkbox'
+                                    id='terms'
+                                    checked={agreedToTerms}
+                                    onChange={(e) => setAgreedToTerms(e.target.checked)}
+                                    className='w-5 h-5 accent-[#F5BB0B] cursor-pointer'
+                                />
+                                <label htmlFor='terms' className='text-sm text-gray-300 cursor-pointer'>
+                                    I agree to the{' '}
+                                    <Link href='/terms-conditions' target='_blank' className='text-[#F5BB0B] hover:underline'>
+                                        Terms and Conditions
+                                    </Link>
+                                </label>
+                            </div>
                         </>
                     )}
                 </div>
-                {selectedState && <CashfreeButton state={selectedState} />}
+                {selectedState && <CashfreeButton state={selectedState} disabled={!agreedToTerms} />}
             </div>
         </div>
     );

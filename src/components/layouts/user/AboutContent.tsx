@@ -25,7 +25,7 @@ const AboutContent = () => {
                         <p>This project belongs to no party or banner — it rises from the quiet rhythm of countless hearts, all beating toward the same horizon, carried by a shared hope that needs no name.</p>
                         <p>It {"isn't"} a business venture.</p>
                         <p>It is a moment in history, created by fans, for fans.</p>
-                        <p>When Thalapathy Vijay announced his political entry, it wasn’t just news — it was a once-in-a-lifetime moment. A moment we wanted to celebrate in a way that stays with us forever. {"That's"} how the idea of the TVK 2026 Limited Edition Coffee Cup Collection was born.</p>
+                        <p>When Thalapathy Vijay announced his political entry, it wasn't just news — it was a once-in-a-lifetime moment. A moment we wanted to celebrate in a way that stays with us forever. {"That's"} how the idea of the TVK 2026 Limited Edition Vintage Brew Mug Collection was born.</p>
                         <p>Imagine holding a cup that {"isn't"} just a product… but a memory. A symbol. A story.</p>
                         <p>A symbol.</p>
                         <p> A story.</p>
@@ -48,7 +48,7 @@ const AboutContent = () => {
 
                         <p>Welcome to the wave.</p>
                         <p>Welcome to the story.</p>
-                        <p>Welcome to the TVK 2026 Limited Edition Coffee Cup Collection — made by fans, loved by fans, remembered forever.</p>
+                        <p>Welcome to the TVK 2026 Limited Edition Vintage Brew Mug Collection — made by fans, loved by fans, remembered forever.</p>
                     </div>
                     <Link href='/product' className='border-1 border-[#F5BB0B] py-1 inline-block my-3 px-10 text-sm md:text-lg text-[#F5BB0B]'>Explore</Link>
                 </div>
@@ -65,7 +65,7 @@ const AboutContent = () => {
             <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='lg:flex-[1] flex justify-center lg:justify-start items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image
-                        src="/Whistle.png"
+                        src="/4.png"
                         width={500}
                         height={500}
                         alt='cup image'
@@ -93,7 +93,7 @@ const AboutContent = () => {
                 </div>
                 <div className='lg:flex-[1] flex justify-center lg:justify-end items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image
-                        src="/cup_number_5000.png"
+                        src="/2.png"
                         width={500}
                         height={500}
                         alt='cup image'
@@ -104,7 +104,7 @@ const AboutContent = () => {
             <div className='w-[80%] mx-auto my-10 flex lg:items-center lg:justify-between flex-col lg:flex-row'>
                 <div className='lg:flex-[1] flex justify-center lg:justify-start items-center mt-6 lg:mt-0 order-2 lg:order-1'>
                     <Image
-                        src="/Whistle.png"
+                        src="/5.png"
                         width={500}
                         height={500}
                         alt='cup image'

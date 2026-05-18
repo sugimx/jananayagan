@@ -61,7 +61,7 @@ const ShareImgComponent = (
                                 <div className='share-content bg-gradient-to-tr from-[#ff4e4e] to-[#ffce33]'>
                                     <div className='share-content-image'>
                                         <Image
-                                            src="/cup_number_277.png"
+                                            src="/5.png"
                                             alt="cup image"
                                             width={200}
                                             height={200}

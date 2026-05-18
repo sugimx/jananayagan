@@ -43,9 +43,9 @@ const Navbar = () => {
                   {/* <li className='py-2'>
                       <Link href="/winner" className={currentPath === '/winner' ? 'text-[#F5BB0B]' : ''}>Winner</Link>
                   </li> */}
-                  <li className='py-2'>
+                  {/* <li className='py-2'>
                       <Link href="/contact" className={currentPath === '/contact' ? 'text-[#F5BB0B]' : ''}>Contact Us</Link>
-                  </li>
+                  </li> */}
               </ul>
             </div>
             <div className='flex justify-center items-center gap-2'>
