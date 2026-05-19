@@ -1,13 +1,11 @@
 "use client"
 
 import React, { useState } from 'react'
-import { useAuth } from '@/hooks/useAuth'
 import CashfreeButton  from '@/components/layouts/user/CashfreeButton';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const AddressForm = () => {
-    const { token, user } = useAuth();
     const [selectedState, setSelectedState] = useState<string>('');
     const [agreedToTerms, setAgreedToTerms] = useState<boolean>(false);
     const router = useRouter();
@@ -24,22 +22,6 @@ const AddressForm = () => {
                 return 0;
         }
     };
-
-    if (!token || !user) {
-        return (
-            <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%] flex items-center justify-center'>
-                <div className='text-center text-white'>
-                    <p className='text-lg mb-6'>Please login to continue</p>
-                    <button
-                        onClick={() => router.push('/login')}
-                        className='px-8 py-3 bg-gradient-to-r from-[#F5BB0B] via-[#FFED9F] to-[#FF6B00] text-black font-semibold rounded-lg hover:opacity-90 transition-opacity'
-                    >
-                        Go to Login
-                    </button>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className='w-[90%] min-h-[50vh] mx-auto my-10 lg:w-[70%]'>

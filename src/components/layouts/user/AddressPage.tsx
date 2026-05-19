@@ -6,7 +6,6 @@ import { FiEdit2 } from "react-icons/fi"
 import AddressFormTab from './AddressFormTab'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { deleteAddress, GetAddressFn, updateDefaultAddress } from '@/api/AddressInfo'
-import { useAuth } from '@/hooks/useAuth'
 import { RiDeleteBinFill } from "react-icons/ri"
 import { useRouter } from 'next/navigation'
 import Heading from '@/components/ui/user/Heading'
@@ -70,14 +69,14 @@ const AddressPage = () => {
     const [isActive, setIsActive] = React.useState(0)
     const [toggle, setToggle] = React.useState(false)
     const [addressId, setAddressId] = React.useState<string>("")
-    const { token } = useAuth()
+    const token = typeof window !== 'undefined' ? localStorage.getItem('buyerInfo') || 'local' : 'local'
 
     const router = useRouter()
 
     const { data, isLoading, isError, refetch } = useQuery({
         queryKey: ['addresses', token],
         queryFn: GetAddressFn,
-        enabled: !!token,
+        enabled: true,
     })
 
     const {
@@ -112,11 +111,6 @@ const AddressPage = () => {
     }
 
     const handleDeleteFn = (addressId: string) => {
-        if (!token) {
-            router.push('/login')
-            return
-        }
-
         deleteMutate({ token, addressId })
     }
 
@@ -131,10 +125,6 @@ const AddressPage = () => {
     }
 
     const handleDefaultAddress = (item: string, index: number) => {
-        if (!token) {
-            router.push('/login')
-            return
-        }
         setIsActive(index)
         addressMutate({ token, item })
     }

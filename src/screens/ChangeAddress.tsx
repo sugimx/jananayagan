@@ -111,11 +111,9 @@ const ChangeAddress = () => {
     }
 
     const handleDefaultAddress = () => {
-        if (!token) {
-            router.push('/login')
-            return
+        if (token) {
+            addressMutate({ token, item })
         }
-        addressMutate({ token, item })
     }
 
     if (isLoading) {

@@ -1,7 +1,6 @@
 "use client"
 
 import ErrorMessage from '@/components/ui/user/ErrorMessage'
-import { useAuth } from '@/hooks/useAuth'
 import { useMutation, useQuery } from '@tanstack/react-query'
 // import Paragraph from '@/components/ui/user/Paragraph'
 import React from 'react'
@@ -86,7 +85,7 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
 
     const router = useRouter()
 
-    const { token } = useAuth()
+    const token = typeof window !== 'undefined' ? localStorage.getItem('buyerInfo') || 'local' : 'local'
 
     const {
         mutate,
@@ -109,14 +108,9 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
         isSuccess: getSuccess,
         isError: getError,
         isFetching
-    } = useQuery({ queryKey: ['singleAddress'], queryFn: () => GetSingleAddress(token!, addressId!), enabled: !!token && !!addressId })
+    } = useQuery({ queryKey: ['singleAddress'], queryFn: () => GetSingleAddress(token!, addressId!), enabled: !!addressId })
 
     const handleFormSubmit: SubmitHandler<FormData> = (data) => {
-        if(!token) {
-            router.push('/login')
-            return
-        }
-
         if(addressId) {
             updateMutate({ data: data, token, addressId })
         } else {
