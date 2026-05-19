@@ -24,7 +24,7 @@ const HomeScreen = () => {
                 <SocialResponsibility />
                 {/* <Information /> */}
                 <FaQuestions />
-                <ContactUs />
+                {/* <ContactUs /> */}
             </Suspense>
         </>
     )
