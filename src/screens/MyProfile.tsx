@@ -204,45 +204,30 @@ const MyProfile = () => {
                                     }
                                 >
                                     <option className='bg-[#7a0202]'>---Select Your State---</option>
-                                    <option className='bg-[#7a0202]' value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                    <option className='bg-[#7a0202]' value="Tamilnadu">Tamilnadu</option>
+                                    <option className='bg-[#7a0202]' value="Kerala">Kerala/Pondicherry</option>
                                     <option className='bg-[#7a0202]' value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                                 </select>
                             </FormControl>
                             {
                                 errors?.state && <ErrorMessage message={errors?.state?.message} />
                             }
-                            {
-                                stateWatch === 'Others' ? (
-                                    <FormControl>
-                                        <Label content="District" />
-                                        <InputBox<ProfileType>
-                                            type="text"
-                                            placeHolder='Enter Your Distict....'
-                                            errorMsg='Name field is required'
-                                            register={register}
-                                            defaultValue={data?.data?.dist}
-                                            name="dist"
-                                        />
-                                    </FormControl>
-                                ) : (
-                                    <FormControl>
-                                        <Label content="District" />
-                                        <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
-                                            {
-                                                ...register('dist', {
-                                                    required: 'District field is required'
-                                                })
-                                            }
-                                        >
-                                            {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
-                                            <option className='bg-[#7a0202]' value="">---Select Your District---</option>
-                                            {districts.filter(item => item.state === stateWatch).map((item, index) => (
-                                                <option key={index} className='bg-[#7a0202]'>{item.district}</option>
-                                            ))}
-                                        </select>
-                                    </FormControl>
-                                )
-                            }
+                            <FormControl>
+                                <Label content="District" />
+                                <select className='w-full h-10 px-2 py-1 border-2 border-[#F5BB0B] outline-none rounded-lg text-[#F5BB0B] md:h-12'
+                                    {
+                                        ...register('dist', {
+                                            required: 'District field is required'
+                                        })
+                                    }
+                                >
+                                    {data?.data?.dist && <option className='bg-[#7a0202]' value={data?.data?.dist}>{data?.data?.dist}</option>}
+                                    <option className='bg-[#7a0202]' value="">---Select Your District---</option>
+                                    {districts.filter(item => item.state === stateWatch).map((item, index) => (
+                                        <option key={index} className='bg-[#7a0202]'>{item.district}</option>
+                                    ))}
+                                </select>
+                            </FormControl>
 
                             {
                                 errors?.dist && <ErrorMessage message={errors?.dist?.message} />

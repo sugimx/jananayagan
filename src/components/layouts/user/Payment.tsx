@@ -15,6 +15,8 @@ const AddressForm = () => {
     const getPrice = () => {
         switch (selectedState) {
             case 'Tamilnadu':
+                return 30;
+            case 'Kerala':
                 return 50;
             case 'Others':
                 return 100;
@@ -56,7 +58,8 @@ const AddressForm = () => {
                             className='w-full max-w-md px-4 py-2 rounded-lg bg-transparent border border-[#F5BB0B] text-white outline-none focus:ring-2 focus:ring-[#F5BB0B]'
                         >
                             <option value='' className='bg-black'>Select State</option>
-                            <option value='Tamilnadu' className='bg-black'>Tamilnadu/Kerala/Pondicherry</option>
+                            <option value='Tamilnadu' className='bg-black'>Tamilnadu</option>
+                            <option value='Kerala' className='bg-black'>Kerala/Pondicherry</option>
                             <option value='Others' className='bg-black'>Karnataka/Andhra Pradesh/Telangana</option>
                         </select>
                     </div>

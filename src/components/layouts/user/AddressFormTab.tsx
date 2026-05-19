@@ -225,35 +225,27 @@ const AddressFormTab = ({ state, setState, addressId, refetch }: { state: boolea
                                 }
                             >
                                 <option className='bg-black' value="" >Select Your State</option>
-                                <option className='bg-black' value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                <option className='bg-black' value="Tamilnadu">Tamilnadu</option>
+                                <option className='bg-black' value="Kerala">Kerala/Pondicherry</option>
                                 <option className='bg-black' value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                             </select>
                         </InputContainer>
                         {
                             errors?.state && <ErrorMessage message={errors?.state?.message} />
                         }
-                        {
-                            stateWatch === 'Others' ? (
-                                <InputContainer>
-                                    <InputLabel content='District' />
-                                    <Input<FormData> placeholder='Enter Your District' register={register} name="district" errorMsg="District field is required" />
-                                </InputContainer>
-                            ) : (
-                                <InputContainer>
-                                    <InputLabel content='District' />
-                                    <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B]'
-                                        {
-                                            ...register('district', { required: "District field is required" })
-                                        }
-                                    >
-                                        <option className='bg-black' value="">Select Your District</option>
-                                        {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
-                                            <option className='bg-black' value={item.district} key={index}>{item.district}</option>
-                                        ))}
-                                    </select>
-                                </InputContainer>
-                            )
-                        }
+                        <InputContainer>
+                            <InputLabel content='District' />
+                            <select className='h-10 w-full outline-none border-2 border-[#F5BB0B] rounded-md px-2 text-[#F5BB0B]'
+                                {
+                                    ...register('district', { required: "District field is required" })
+                                }
+                            >
+                                <option className='bg-black' value="">Select Your District</option>
+                                {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
+                                    <option className='bg-black' value={item.district} key={index}>{item.district}</option>
+                                ))}
+                            </select>
+                        </InputContainer>
                         {
                             errors?.district && <ErrorMessage message={errors?.district?.message} />
                         }

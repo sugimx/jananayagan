@@ -150,8 +150,8 @@ const AddressForm = () => {
                                         }
                                     >
                                         <option className='' value="">Select Your State</option>
-                                        {/* <option className='bg-black' value="TamilNadu">Tamilnadu</option> */}
-                                        <option className='bg-black' value="Tamilnadu">Tamilnadu/Kerala/Pondicherry</option>
+                                        <option className='bg-black' value="Tamilnadu">Tamilnadu</option>
+                                        <option className='bg-black' value="Kerala">Kerala/Pondicherry</option>
                                         <option value="Others">Karnataka/Andhra Pradesh/Telangana</option>
                                     </select>
                                 </AddressFormContainer>
@@ -159,41 +159,22 @@ const AddressForm = () => {
                             {
                                 errors?.state && <ErrorMessage message={errors?.state?.message} />
                             }
-                            {
-                                stateWatch === 'Others' ? (
-                                    <div>
-                                        <label className='text-sm text-white md:text-lg'>District</label>
-                                        <AddressFormContainer>
-                                            <AddressIcons Icon={IoIosMail} />
-                                            <input
-                                                type="text"
-                                                placeholder='Enter your district here....'
-                                                className='w-full h-full outline-none border-none text-black'
-                                                {
-                                                    ...register('district', { required: "District field is required" })
-                                                }
-                                            />
-                                        </AddressFormContainer>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <label className='text-sm text-white md:text-lg'>District</label>
-                                        <AddressFormContainer>
-                                            <AddressIcons Icon={IoIosMail} />
-                                            <select className='h-10 w-full outline-none text-[#808089]'
-                                                {
-                                                    ...register('district', { required: "District field is required" })
-                                                }
-                                            >
-                                                <option className='' value="">Select Your District</option>
-                                                {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
-                                                    <option className='bg-black' value={item.district} key={index}>{item.district}</option>
-                                                ))}
-                                            </select>
-                                        </AddressFormContainer>
-                                    </div>
-                                )
-                            }
+                            <div>
+                                <label className='text-sm text-white md:text-lg'>District</label>
+                                <AddressFormContainer>
+                                    <AddressIcons Icon={IoIosMail} />
+                                    <select className='h-10 w-full outline-none text-[#808089]'
+                                        {
+                                            ...register('district', { required: "District field is required" })
+                                        }
+                                    >
+                                        <option className='' value="">Select Your District</option>
+                                        {districts && districts?.filter(item => item.state === stateWatch).map((item, index) => (
+                                            <option className='bg-black' value={item.district} key={index}>{item.district}</option>
+                                        ))}
+                                    </select>
+                                </AddressFormContainer>
+                            </div>
                             {
                                 errors?.district && <ErrorMessage message={errors?.district?.message} />
                             }
