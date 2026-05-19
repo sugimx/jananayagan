@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import LoadingScreen from './LoadingScreen'
 const Banner = lazy(() => import('@/components/layouts/user/Banner'))
+const VideoSection = lazy(() => import('@/components/layouts/user/VideoSection'))
 const FaQuestions = lazy(() => import('@/components/layouts/user/Faquestions'))
 const ContactUs = lazy(() => import('@/components/layouts/user/ContactUs'))
 const Information = lazy(() => import('@/components/layouts/user/Information'))
@@ -15,8 +16,7 @@ const HomeScreen = () => {
     return (
         <>
             <Suspense fallback={<LoadingScreen />}>
-                <Banner />
-                <SalesSection />
+                <Banner />                <VideoSection />                <SalesSection />
                 {/* <LuckyDraw />
                 <PrizeSection /> */}
                 <Section2 />
