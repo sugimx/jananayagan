@@ -16,12 +16,14 @@ const HomeScreen = () => {
     return (
         <>
             <Suspense fallback={<LoadingScreen />}>
-                <Banner />                <VideoSection />                <SalesSection />
+                <Banner />                
+                <VideoSection />                
                 {/* <LuckyDraw />
                 <PrizeSection /> */}
                 <Section2 />
+                <SalesSection />
                 <LimitedEdition />
-                <SocialResponsibility />
+                {/* <SocialResponsibility /> */}
                 {/* <Information /> */}
                 <FaQuestions />
                 {/* <ContactUs /> */}
