@@ -1,7 +1,10 @@
 {
-  "name": "tvk",
+  "name": "tvk-cup",
   "version": "0.1.0",
   "private": true,
+  "description": "TVK CUP - Premium branded merchandise featuring the TVK logo. Exclusive cup collection for brand enthusiasts.",
+  "keywords": ["tvk", "cup", "merchandise", "branded", "tvk-logo"],
+  "author": "TVK Team",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
